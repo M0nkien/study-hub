@@ -27,8 +27,11 @@
         <nav class="nav">
             <a href="../index.html">Domov</a>
             <a href="../subjects.html">Predmety</a>
-            <a href="../admin.html">Admin</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
             <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
         </nav>
     </div>
 </header>
@@ -61,7 +64,10 @@
 <a href="#commands">Cisco príkazy</a>
 <a href="#study">Štúdium</a>
 <a href="#packettracer-labs">Packet Tracer</a>
-<a href="#materials">Materiály</a>
+<a href="#checklist">Checklist</a>
+                    <a href="#ccna-troubleshooting">Keď nejde ping</a>
+                    <a href="#vlsm-trainer">VLSM tréning</a>
+                    <a href="#materials">Materiály</a>
 <a href="#questions">Kvíz</a>
 <a href="#downloads">Súbory</a>
                 </aside>
@@ -75,6 +81,25 @@
     <div class="progress-bar">
         <div class="progress-fill js-subject-progress-fill"></div>
     </div>
+
+                    <section class="subject-meta-panel content-block">
+    <div>
+        <span>Stav predmetu</span>
+        <strong class="subject-meta-status status-updating">dopĺňa sa</strong>
+    </div>
+    <div>
+        <span>Posledná aktualizácia</span>
+        <strong>06/2026</strong>
+    </div>
+    <div>
+        <span>Počet sekcií</span>
+        <strong>9</strong>
+    </div>
+    <div>
+        <span>Materiály</span>
+        <strong>6</strong>
+    </div>
+</section>
 
     <div class="learn-actions">
         <strong class="js-subject-progress-text">0%</strong>
@@ -756,7 +781,115 @@ traceroute 8.8.8.8</code></pre>
 </section>
 
 
-<section id="materials" class="content-block">
+<section id="checklist" class="content-block checklist-section">
+    <p class="small-title">Checklist pred skúškou</p>
+    <h2>Čo by som mal vedieť</h2>
+    <p class="section-description">
+        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
+    </p>
+
+    <div class="checklist-progress">
+        <strong><span class="checklist-done" data-checklist-count="ccna">0</span> / 10</strong>
+        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="ccna"></div></div>
+    </div>
+
+    <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="1">
+                <span>Viem subnetting podľa počtu hostov</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="2">
+                <span>Viem VLSM a zoradenie sietí od najväčšej</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="3">
+                <span>Viem nastaviť VLAN</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="4">
+                <span>Viem nastaviť trunk</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="5">
+                <span>Viem nastaviť DHCP</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="6">
+                <span>Viem vysvetliť DNS</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="7">
+                <span>Viem statické routovanie</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="8">
+                <span>Viem nastaviť SSH</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="9">
+                <span>Viem port-security</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="ccna" data-checklist-item="10">
+                <span>Viem postup, keď nejde ping</span>
+            </label>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="ccna" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
+                    <section id="ccna-troubleshooting" class="content-block">
+    <p class="small-title">Troubleshooting</p>
+    <h2>Keď nefunguje ping</h2>
+
+    <div class="checklist-grid static-checklist">
+        <label class="checklist-item"><span>1. Skontroluj IP adresy na PC a rozhraniach</span></label>
+        <label class="checklist-item"><span>2. Skontroluj masky podsiete</span></label>
+        <label class="checklist-item"><span>3. Skontroluj default gateway</span></label>
+        <label class="checklist-item"><span>4. Skontroluj VLAN priradenie portu</span></label>
+        <label class="checklist-item"><span>5. Skontroluj trunk a povolené VLAN</span></label>
+        <label class="checklist-item"><span>6. Skontroluj routing a default route</span></label>
+        <label class="checklist-item"><span>7. Skontroluj DHCP pool a excluded-address</span></label>
+        <label class="checklist-item"><span>8. Skontroluj DNS server a záznamy</span></label>
+    </div>
+
+    <pre><code>show ip interface brief
+show vlan brief
+show interfaces trunk
+show ip route
+show mac address-table
+ping 192.168.1.1
+traceroute 8.8.8.8</code></pre>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="ccna" data-key="troubleshooting" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+    </div>
+</section>
+
+<section id="vlsm-trainer" class="content-block">
+    <p class="small-title">VLSM tréning</p>
+    <h2>Jednoduchá VLSM pomôcka</h2>
+
+    <p class="section-description">
+        Zadaj počty hostov oddelené čiarkou. Pomôcka ti ukáže, aký blok a prefix približne potrebuješ.
+    </p>
+
+    <div class="tool-box">
+        <label>Počty hostov</label>
+        <input id="vlsmHostsInput" type="text" placeholder="napr. 462, 58, 20, 10">
+        <button id="vlsmCalcBtn" class="btn primary" type="button">Vypočítať</button>
+        <div id="vlsmResult" class="tool-result"></div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="ccna" data-key="vlsm-trainer" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+    </div>
+</section>
+
+                    <section id="materials" class="content-block">
     <p class="small-title">Materiály</p>
     <h2>Materiály podľa typu</h2>
     <div class="filter-panel" data-filter-panel data-target=".filterable-material">
@@ -828,7 +961,7 @@ traceroute 8.8.8.8</code></pre>
 
         <div>
             <p>Vytvorené mnou</p>
-            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 
@@ -844,6 +977,8 @@ traceroute 8.8.8.8</code></pre>
 <script src="../progress.js"></script>
 <script src="../subject-search.js"></script>
 <script src="../filters.js"></script>
+<script src="../checklist.js"></script>
+<script src="../ccna-tools.js"></script>
 
 </body>
 </html>

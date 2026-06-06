@@ -1,11 +1,11 @@
 # Study Hub – finálna verzia
 
 Názov webu: **Study Hub**  
-Autor: **vytvorené MG**
+Autor: **vytvorené mnou**
 
 ## Čo je upravené
 
-- web je premenovaný na Study Hub,
+- web je premenovaný z pôvodného názvu na Study Hub,
 - všetky hlavné texty v hlavičke a pätičke sú upravené na Study Hub,
 - MSD zadania Z1 až Z10 sú znovu rozšírené s detailným textom, cieľom, postupom a vzorcami,
 - v MSD pribudla veľká sekcia vzorcov a typických výpočtov,
@@ -14,20 +14,39 @@ Autor: **vytvorené MG**
 - CCNA/Cisco má rozsiahlu sekciu príkazov pre Packet Tracer,
 - ostal progres učenia, vyhľadávanie, filtrovanie materiálov, mobilné menu a kvízy.
 
-<<<<<<< HEAD
-=======
+## Admin heslo
 
->>>>>>> c1fcb34 (UPDATE)
+Predvolené heslo je:
+
+```text
+studyhub2026
+```
+
+Zmeníš ho v súbore:
+
+```text
+admin.js
+```
+
+Premenná:
+
+```js
+const ADMIN_PASSWORD = "studyhub2026";
+```
+
 Pozor: pri čisto statickom HTML/JS webe je toto iba jednoduchá ochrana proti bežnému kliknutiu.
 Skutočné bezpečné prihlásenie treba riešiť cez Firebase Auth alebo server.
 
 ## Spustenie
-Otvor: 
+
+Otvor:
+
 ```text
 index.html
 ```
 
 ## Dôležité súbory
+
 - `index.html` – hlavná stránka
 - `style.css` – celý dizajn
 - `script.js` – mobilné menu a vyhľadávanie predmetov
@@ -84,3 +103,22 @@ Zoznam predmetov je presunutý z hlavnej stránky do súboru:
 `subjects.html`
 
 Hlavná stránka `index.html` už neobsahuje veľký zoznam predmetov, iba krátku sekciu s tlačidlom „Otvoriť predmety“.
+
+
+## Study Hub v1.5 – veľký balík vylepšení
+
+Pridané:
+- Checklist pred skúškou pre každý predmet.
+- Flashcards stránka `flashcards.html`.
+- Režim skúšky s časovačom v kvízoch.
+- História výsledkov kvízov v `results.html`.
+- Rozšírená roadmapa s kategóriami: Hotové, Pracuje sa, Plánované, Nápady, Nahlásené chyby.
+- Verzia stránky v pätičke: Study Hub v1.5.
+- Posledná aktualizácia predmetu.
+- Stav každej predmetovej stránky: hotové / dopĺňa sa / rozpracované.
+- Dashboard na hlavnej stránke.
+- Tagy pri materiáloch.
+- Rozšírenia pre Linux, MSD, CCNA, Fyziku, Matematiku, VVS a Java.
+- VLSM pomôcka v CCNA.
+- Detailné vzorcové karty vo Fyzike.
+- Rozpoznávač diferenciálnych rovníc v Matematike.

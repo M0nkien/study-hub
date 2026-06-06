@@ -27,8 +27,11 @@
         <nav class="nav">
             <a href="../index.html">Domov</a>
             <a href="../subjects.html">Predmety</a>
-            <a href="../admin.html">Admin</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
             <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
         </nav>
     </div>
 </header>
@@ -59,7 +62,9 @@
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
 <a href="#study">Štúdium</a>
-<a href="#materials">Materiály</a>
+<a href="#checklist">Checklist</a>
+                    <a href="#dr-recognizer">Rozpoznávač DR</a>
+                    <a href="#materials">Materiály</a>
 <a href="#questions">Kvíz</a>
 <a href="#downloads">Súbory</a>
                 </aside>
@@ -73,6 +78,25 @@
     <div class="progress-bar">
         <div class="progress-fill js-subject-progress-fill"></div>
     </div>
+
+                    <section class="subject-meta-panel content-block">
+    <div>
+        <span>Stav predmetu</span>
+        <strong class="subject-meta-status status-progress">rozpracované</strong>
+    </div>
+    <div>
+        <span>Posledná aktualizácia</span>
+        <strong>06/2026</strong>
+    </div>
+    <div>
+        <span>Počet sekcií</span>
+        <strong>8</strong>
+    </div>
+    <div>
+        <span>Materiály</span>
+        <strong>5</strong>
+    </div>
+</section>
 
     <div class="learn-actions">
         <strong class="js-subject-progress-text">0%</strong>
@@ -112,7 +136,81 @@
     <div class="learn-actions"><button class="learn-btn" data-subject="mat" data-key="study" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
-<section id="materials" class="content-block">
+<section id="checklist" class="content-block checklist-section">
+    <p class="small-title">Checklist pred skúškou</p>
+    <h2>Čo by som mal vedieť</h2>
+    <p class="section-description">
+        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
+    </p>
+
+    <div class="checklist-progress">
+        <strong><span class="checklist-done" data-checklist-count="mat">0</span> / 8</strong>
+        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="mat"></div></div>
+    </div>
+
+    <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="1">
+                <span>Viem rozoznať separovateľnú DR</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="2">
+                <span>Viem rozoznať lineárnu DR 1. rádu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="3">
+                <span>Viem Bernoulliho rovnicu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="4">
+                <span>Viem DR 2. rádu s konštantnými koeficientmi</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="5">
+                <span>Viem sústavy DR cez vlastné čísla a vektory</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="6">
+                <span>Viem Laplaceovu transformáciu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="7">
+                <span>Viem rady a kritériá konvergencie</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="8">
+                <span>Viem mocninové rady a Fourierov rad</span>
+            </label>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="mat" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
+                    <section id="dr-recognizer" class="content-block">
+    <p class="small-title">Rozpoznávač príkladov</p>
+    <h2>Ako rozoznať typ diferenciálnej rovnice</h2>
+
+    <div class="example-list">
+        <div class="example-item"><h3>Separovateľná DR</h3><pre><code>y' = f(x)g(y)
+Postup: daj y na jednu stranu a x na druhú.</code></pre></div>
+        <div class="example-item"><h3>Lineárna DR 1. rádu</h3><pre><code>y' + p(x)y = q(x)
+Postup: integračný faktor μ(x)=e^(∫p(x)dx)</code></pre></div>
+        <div class="example-item"><h3>Bernoulliho rovnica</h3><pre><code>y' + p(x)y = q(x)y^n
+Postup: substitúcia z = y^(1-n)</code></pre></div>
+        <div class="example-item"><h3>DR 2. rádu</h3><pre><code>ay'' + by' + cy = f(x)
+Postup: charakteristická rovnica ar²+br+c=0</code></pre></div>
+        <div class="example-item"><h3>Laplaceova transformácia</h3><pre><code>Vhodné pri začiatočných podmienkach:
+y(0), y'(0)</code></pre></div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="mat" data-key="dr-recognizer" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+                    <section id="materials" class="content-block">
     <p class="small-title">Materiály</p>
     <h2>Materiály podľa typu</h2>
     <div class="filter-panel" data-filter-panel data-target=".filterable-material">
@@ -184,7 +282,7 @@
 
         <div>
             <p>Vytvorené mnou</p>
-            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 
@@ -200,6 +298,7 @@
 <script src="../progress.js"></script>
 <script src="../subject-search.js"></script>
 <script src="../filters.js"></script>
+<script src="../checklist.js"></script>
 
 </body>
 </html>

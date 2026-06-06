@@ -27,8 +27,11 @@
         <nav class="nav">
             <a href="../index.html">Domov</a>
             <a href="../subjects.html">Predmety</a>
-            <a href="../admin.html">Admin</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
             <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
         </nav>
     </div>
 </header>
@@ -59,7 +62,9 @@
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
 <a href="#study">Štúdium</a>
-<a href="#materials">Materiály</a>
+<a href="#checklist">Checklist</a>
+                    <a href="#vvs-practice">VVS prax</a>
+                    <a href="#materials">Materiály</a>
 <a href="#questions">Kvíz</a>
 <a href="#downloads">Súbory</a>
                 </aside>
@@ -73,6 +78,25 @@
     <div class="progress-bar">
         <div class="progress-fill js-subject-progress-fill"></div>
     </div>
+
+                    <section class="subject-meta-panel content-block">
+    <div>
+        <span>Stav predmetu</span>
+        <strong class="subject-meta-status status-progress">rozpracované</strong>
+    </div>
+    <div>
+        <span>Posledná aktualizácia</span>
+        <strong>06/2026</strong>
+    </div>
+    <div>
+        <span>Počet sekcií</span>
+        <strong>8</strong>
+    </div>
+    <div>
+        <span>Materiály</span>
+        <strong>6</strong>
+    </div>
+</section>
 
     <div class="learn-actions">
         <strong class="js-subject-progress-text">0%</strong>
@@ -112,7 +136,78 @@
     <div class="learn-actions"><button class="learn-btn" data-subject="vvs" data-key="study" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
-<section id="materials" class="content-block">
+<section id="checklist" class="content-block checklist-section">
+    <p class="small-title">Checklist pred skúškou</p>
+    <h2>Čo by som mal vedieť</h2>
+    <p class="section-description">
+        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
+    </p>
+
+    <div class="checklist-progress">
+        <strong><span class="checklist-done" data-checklist-count="vvs">0</span> / 8</strong>
+        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="vvs"></div></div>
+    </div>
+
+    <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="1">
+                <span>Viem základné piny ESP32-C6</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="2">
+                <span>Viem GPIO vstup a výstup v MicroPythone</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="3">
+                <span>Viem PWM pre LED a buzzer</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="4">
+                <span>Viem ADC a čítanie analógovej hodnoty</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="5">
+                <span>Viem UART komunikáciu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="6">
+                <span>Viem Timer a prerušenia</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="7">
+                <span>Viem OLED displej a web ovládanie</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="8">
+                <span>Viem obhájiť semestrálny projekt</span>
+            </label>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="vvs" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
+                    <section id="vvs-practice" class="content-block">
+    <p class="small-title">VVS prax</p>
+    <h2>ESP32, MicroPython a obhajoba</h2>
+
+    <div class="example-list">
+        <div class="example-item"><h3>ESP32 piny</h3><p>Pri každom zapojení si zapíš pin, účel a či je vstup alebo výstup.</p><pre><code>LED: Pin(21), Pin(11), Pin(10)
+Buzzer: Pin(5)
+UART: tx=Pin(23), rx=Pin(15)</code></pre></div>
+        <div class="example-item"><h3>MicroPython základy</h3><pre><code>from machine import Pin, PWM, ADC, Timer
+led = Pin(21, Pin.OUT)
+led.value(1)</code></pre></div>
+        <div class="example-item"><h3>Obhajoba projektu</h3><p>Vysvetli cieľ projektu, použité súčiastky, hlavné triedy/súbory, ovládanie a čo by sa dalo vylepšiť.</p></div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="vvs" data-key="vvs-practice" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+                    <section id="materials" class="content-block">
     <p class="small-title">Materiály</p>
     <h2>Materiály podľa typu</h2>
     <div class="filter-panel" data-filter-panel data-target=".filterable-material">
@@ -184,7 +279,7 @@
 
         <div>
             <p>Vytvorené mnou</p>
-            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 
@@ -200,6 +295,7 @@
 <script src="../progress.js"></script>
 <script src="../subject-search.js"></script>
 <script src="../filters.js"></script>
+<script src="../checklist.js"></script>
 
 </body>
 </html>

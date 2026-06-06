@@ -27,8 +27,11 @@
         <nav class="nav">
             <a href="../index.html">Domov</a>
             <a href="../subjects.html">Predmety</a>
-            <a href="../admin.html">Admin</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
             <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
         </nav>
     </div>
 </header>
@@ -59,8 +62,11 @@
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
 <a href="#examples">Príklady</a>
-<a href="#assignments">Zadania</a>
-<a href="#materials">Materiály</a>
+<a href="#excel-formulas">Excel výpočty</a>
+                    <a href="#assignments">Zadania</a>
+<a href="#checklist">Checklist</a>
+                    <a href="#msd-mistakes">Najčastejšie chyby</a>
+                    <a href="#materials">Materiály</a>
 <a href="#questions">Kvíz</a>
 <a href="#downloads">Súbory</a>
                 </aside>
@@ -74,6 +80,25 @@
     <div class="progress-bar">
         <div class="progress-fill js-subject-progress-fill"></div>
     </div>
+
+                    <section class="subject-meta-panel content-block">
+    <div>
+        <span>Stav predmetu</span>
+        <strong class="subject-meta-status status-updating">dopĺňa sa</strong>
+    </div>
+    <div>
+        <span>Posledná aktualizácia</span>
+        <strong>06/2026</strong>
+    </div>
+    <div>
+        <span>Počet sekcií</span>
+        <strong>10</strong>
+    </div>
+    <div>
+        <span>Materiály</span>
+        <strong>8</strong>
+    </div>
+</section>
 
     <div class="learn-actions">
         <strong class="js-subject-progress-text">0%</strong>
@@ -494,7 +519,71 @@ to, ktoré má najväčšie log(L)</code></pre>
 
 
 
-<section id="assignments" class="content-block">
+<section id="excel-formulas" class="content-block">
+    <p class="small-title">Excel výpočty</p>
+    <h2>Excel vzorce a typické tabuľky</h2>
+
+    <div class="example-list">
+        <div class="example-item">
+            <h3>Z1 – časový rad</h3>
+            <pre><code>Stĺpec A: dátum/čas
+Stĺpec B: hodnota
+Graf: Insert → Line chart
+Kontrola: hodnoty v B musia byť čísla, nie text</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Projekcia a chyba</h3>
+            <pre><code>Koeficienty:
+c = (XᵀX)^(-1)Xᵀy
+
+Excel:
+=MMULT(MINVERSE(MMULT(TRANSPOSE(X);X));MMULT(TRANSPOSE(X);Y))
+
+Chyba:
+=SQRT(SUMSQ(reziduá))</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Fourierova transformácia</h3>
+            <pre><code>Re(Hk)=SUM(r(t)*COS(2*PI()*k*t/N))
+Im(Hk)=-SUM(r(t)*SIN(2*PI()*k*t/N))
+Amplitúda=SQRT(Re^2+Im^2)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Diskrétne rozdelenie</h3>
+            <pre><code>P(X=xi)=početnosť/celkový počet
+E(X)=SUM(xi*pi)
+D(X)=SUM((xi-E)^2*pi)
+σ=SQRT(D)</code></pre>
+        </div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="msd" data-key="excel-formulas" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+<section id="msd-mistakes" class="content-block">
+    <p class="small-title">Chyby</p>
+    <h2>Najčastejšie chyby v MSD</h2>
+
+    <div class="warning-grid">
+        <article class="warning-card"><strong>Dáta sú ako text</strong><p>Excel potom nevie spraviť výpočty ani graf. Skontroluj formát buniek.</p></article>
+        <article class="warning-card"><strong>Chýba graf</strong><p>Pri zadaniach musí byť graf a slovné zhodnotenie.</p></article>
+        <article class="warning-card"><strong>Zlá chyba aproximácie</strong><p>Chybu počítaj z rozdielu pôvodných a aproximovaných hodnôt.</p></article>
+        <article class="warning-card"><strong>Zle zvolený interval</strong><p>Pri histograme a hustotách musí interval pokrývať minimum až maximum.</p></article>
+        <article class="warning-card"><strong>Chýba zdroj dát</strong><p>Pri Z1 a Z7 vždy uveď, odkiaľ sú dáta a čo predstavujú.</p></article>
+        <article class="warning-card"><strong>Bez slovného záveru</strong><p>Napíš, ktorá metóda vyšla lepšie a prečo.</p></article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="msd" data-key="msd-mistakes" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+                    <section id="assignments" class="content-block">
     <p class="small-title">Zadania</p>
     <h2>MSD zadania Z1 až Z10</h2>
 
@@ -1137,7 +1226,67 @@ Exponenciálne rozdelenie - hustota:
 </section>
 
 
-<section id="materials" class="content-block">
+<section id="checklist" class="content-block checklist-section">
+    <p class="small-title">Checklist pred skúškou</p>
+    <h2>Čo by som mal vedieť</h2>
+    <p class="section-description">
+        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
+    </p>
+
+    <div class="checklist-progress">
+        <strong><span class="checklist-done" data-checklist-count="msd">0</span> / 10</strong>
+        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="msd"></div></div>
+    </div>
+
+    <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="1">
+                <span>Viem pripraviť časový rad v Exceli</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="2">
+                <span>Viem vypočítať priemet do bázy B2</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="3">
+                <span>Viem vypočítať priemet do bázy B3</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="4">
+                <span>Viem vypočítať chybu aproximácie</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="5">
+                <span>Viem odstrániť lineárny trend</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="6">
+                <span>Viem spraviť Fourierovu transformáciu a amplitúdové spektrum</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="7">
+                <span>Viem spracovať náhodné reálne dáta zo Z7</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="8">
+                <span>Viem transformáciu na hodnoty 0 až 9 zo Z8</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="9">
+                <span>Viem momentovú metódu a maximálnu vierohodnosť</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="msd" data-checklist-item="10">
+                <span>Viem skontrolovať zadanie pred odovzdaním</span>
+            </label>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="msd" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
+                    <section id="materials" class="content-block">
     <p class="small-title">Materiály</p>
     <h2>Materiály na učenie</h2>
     <div class="filter-panel" data-filter-panel data-target=".filterable-material">
@@ -1289,7 +1438,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div>
             <p>Vytvorené mnou</p>
-            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 
@@ -1305,6 +1454,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="../progress.js"></script>
 <script src="../subject-search.js"></script>
 <script src="../filters.js"></script>
+<script src="../checklist.js"></script>
 <script src="../quiz-msd.js"></script>
 <script src="../quiz-engine.js"></script>
 </body>

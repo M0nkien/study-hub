@@ -1,9 +1,16 @@
-// Univerzálny kvíz engine: cvičenie, skúška, iba nesprávne otázky, výsledková obrazovka
+// Univerzálny kvíz engine: cvičenie, skúška, iba nesprávne otázky, časovač a história výsledkov
 
 function createQuiz(config) {
     const quizData = config.quizData;
     const prefix = config.prefix;
     const storagePrefix = config.storagePrefix;
+
+    const EXAM_MINUTES = {
+        linuxQuiz: 35,
+        ccnaQuiz: 30,
+        msdQuiz: 20,
+        fyzikaQuiz: 15
+    };
 
     let questions = [];
     let currentIndex = 0;
@@ -13,6 +20,9 @@ function createQuiz(config) {
     let mode = "practice";
     let currentSetId = "all";
     let wrongRecords = [];
+    let examTimer = null;
+    let remainingSeconds = 0;
+    let startedAt = null;
 
     const setSelect = document.getElementById(prefix + "Set");
     const modeSelect = document.getElementById(prefix + "Mode");
@@ -31,6 +41,21 @@ function createQuiz(config) {
     const prevBtn = document.getElementById(prefix + "Prev");
     const restartBtn = document.getElementById(prefix + "Restart");
 
+    const quizPanel = box?.closest(".quiz-panel");
+    let timerEl = null;
+
+    if (quizPanel && !document.getElementById(prefix + "TimerBox")) {
+        const timerBox = document.createElement("div");
+        timerBox.className = "quiz-timer hidden";
+        timerBox.id = prefix + "TimerBox";
+        timerBox.innerHTML = `<span>Čas skúšky</span><strong id="${prefix}Timer">00:00</strong>`;
+        const top = quizPanel.querySelector(".quiz-top");
+        top?.insertAdjacentElement("beforebegin", timerBox);
+        timerEl = document.getElementById(prefix + "Timer");
+    } else {
+        timerEl = document.getElementById(prefix + "Timer");
+    }
+
     function escapeHtml(value) {
         return String(value)
             .replaceAll("&", "&amp;")
@@ -45,9 +70,7 @@ function createQuiz(config) {
 
         for (let i = copy.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            const temp = copy[i];
-            copy[i] = copy[j];
-            copy[j] = temp;
+            [copy[i], copy[j]] = [copy[j], copy[i]];
         }
 
         return copy;
@@ -68,7 +91,6 @@ function createQuiz(config) {
     function getWrongKeys() {
         const saved = localStorage.getItem(wrongKey());
         if (!saved) return [];
-
         try { return JSON.parse(saved); } catch { return []; }
     }
 
@@ -124,28 +146,21 @@ function createQuiz(config) {
 
         if (shuffleAnswers) answers = shuffleArray(answers);
 
-        return {
-            ...question,
-            answers
-        };
+        return { ...question, answers };
     }
 
     function getCorrectIndexes(question) {
         const indexes = [];
-
         question.answers.forEach((answer, index) => {
             if (answer.correct) indexes.push(index);
         });
-
         return indexes;
     }
 
     function sameSet(a, b) {
         if (a.length !== b.length) return false;
-
         const aa = [...a].sort((x, y) => x - y);
         const bb = [...b].sort((x, y) => x - y);
-
         return aa.every((value, index) => value === bb[index]);
     }
 
@@ -173,6 +188,71 @@ function createQuiz(config) {
             .join(", ");
 
         return question.explanation || ("Správna odpoveď: " + correctAnswers);
+    }
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+    }
+
+    function stopTimer() {
+        if (examTimer) {
+            clearInterval(examTimer);
+            examTimer = null;
+        }
+    }
+
+    function startTimerIfNeeded() {
+        stopTimer();
+
+        const timerBox = document.getElementById(prefix + "TimerBox");
+        if (mode !== "exam") {
+            timerBox?.classList.add("hidden");
+            return;
+        }
+
+        const minutes = EXAM_MINUTES[storagePrefix] || 25;
+        remainingSeconds = minutes * 60;
+
+        timerBox?.classList.remove("hidden");
+        if (timerEl) timerEl.textContent = formatTime(remainingSeconds);
+
+        examTimer = setInterval(() => {
+            remainingSeconds--;
+            if (timerEl) timerEl.textContent = formatTime(Math.max(0, remainingSeconds));
+
+            if (remainingSeconds <= 0) {
+                stopTimer();
+                finishQuiz(true);
+            }
+        }, 1000);
+    }
+
+    function saveResult(percent, grade, timedOut) {
+        const key = "studyHubQuizResults";
+        const saved = localStorage.getItem(key);
+        let results = [];
+
+        try { results = saved ? JSON.parse(saved) : []; } catch { results = []; }
+
+        const selectedOption = setSelect.options[setSelect.selectedIndex];
+        results.unshift({
+            subject: storagePrefix.replace("Quiz", "").toUpperCase(),
+            setId: currentSetId,
+            testTitle: selectedOption ? selectedOption.textContent : currentSetId,
+            mode,
+            score,
+            total: questions.length,
+            percent,
+            grade,
+            wrong: wrongRecords.length,
+            timedOut: !!timedOut,
+            date: new Date().toISOString(),
+            durationSeconds: startedAt ? Math.round((Date.now() - startedAt) / 1000) : null
+        });
+
+        localStorage.setItem(key, JSON.stringify(results.slice(0, 50)));
     }
 
     function renderQuestion() {
@@ -244,7 +324,6 @@ function createQuiz(config) {
                             feedback.classList.remove("hidden");
                             return;
                         }
-
                         selectedAnswers.push(index);
                         button.classList.add("selected");
                     }
@@ -305,10 +384,7 @@ function createQuiz(config) {
 
         if (mode === "practice") {
             feedback.className = isCorrect ? "quiz-feedback success" : "quiz-feedback error";
-            feedback.innerHTML = `
-                <strong>${isCorrect ? "Správne." : "Nesprávne."}</strong>
-                <p>${escapeHtml(buildExplanation(question))}</p>
-            `;
+            feedback.innerHTML = `<strong>${isCorrect ? "Správne." : "Nesprávne."}</strong><p>${escapeHtml(buildExplanation(question))}</p>`;
         } else {
             feedback.className = isCorrect ? "quiz-feedback success" : "quiz-feedback error";
             feedback.innerHTML = "<strong>Odpoveď zaznamenaná.</strong><p>Vyhodnotenie uvidíš až na konci testu.</p>";
@@ -325,7 +401,7 @@ function createQuiz(config) {
             currentIndex++;
             renderQuestion();
         } else {
-            finishQuiz();
+            finishQuiz(false);
         }
     }
 
@@ -336,38 +412,26 @@ function createQuiz(config) {
         }
     }
 
-    function finishQuiz() {
+    function finishQuiz(timedOut) {
+        stopTimer();
         saveBestScore();
 
         const total = questions.length;
         const percent = total === 0 ? 0 : Math.round((score / total) * 100);
         const grade = percent >= 90 ? "A" : percent >= 80 ? "B" : percent >= 65 ? "C" : percent >= 50 ? "D" : "FX";
 
+        saveResult(percent, grade, timedOut);
+
         box.innerHTML = `
             <div class="quiz-result-screen">
-                <h3>Výsledok testu</h3>
-                <p class="section-description">Test je dokončený. Tu máš vyhodnotenie.</p>
+                <h3>${timedOut ? "Čas vypršal" : "Výsledok testu"}</h3>
+                <p class="section-description">Test je dokončený. Výsledok sa uložil do stránky Výsledky.</p>
 
                 <div class="quiz-result-grid">
-                    <div class="quiz-result-card">
-                        <span>Body</span>
-                        <strong>${score} / ${total}</strong>
-                    </div>
-
-                    <div class="quiz-result-card">
-                        <span>Percentá</span>
-                        <strong>${percent}%</strong>
-                    </div>
-
-                    <div class="quiz-result-card">
-                        <span>Známka</span>
-                        <strong>${grade}</strong>
-                    </div>
-
-                    <div class="quiz-result-card">
-                        <span>Nesprávne</span>
-                        <strong>${wrongRecords.length}</strong>
-                    </div>
+                    <div class="quiz-result-card"><span>Body</span><strong>${score} / ${total}</strong></div>
+                    <div class="quiz-result-card"><span>Percentá</span><strong>${percent}%</strong></div>
+                    <div class="quiz-result-card"><span>Známka</span><strong>${grade}</strong></div>
+                    <div class="quiz-result-card"><span>Nesprávne</span><strong>${wrongRecords.length}</strong></div>
                 </div>
 
                 <h4>Chybné otázky na zopakovanie</h4>
@@ -397,6 +461,7 @@ function createQuiz(config) {
     function startQuiz() {
         currentSetId = setSelect.value;
         mode = modeSelect.value;
+        startedAt = Date.now();
 
         const shuffleMode = shuffleSelect.value;
 
@@ -407,10 +472,15 @@ function createQuiz(config) {
             selectedQuestions = getAllQuestions().filter(question => wrongKeys.includes(questionKey(question)));
         }
 
-        const shuffleQuestions = shuffleMode === "questions" || shuffleMode === "both";
-        const shuffleAnswers = shuffleMode === "answers" || shuffleMode === "both";
+        const shuffleQuestions = shuffleMode === "questions" || shuffleMode === "both" || mode === "exam";
+        const shuffleAnswers = shuffleMode === "answers" || shuffleMode === "both" || mode === "exam";
 
         if (shuffleQuestions) selectedQuestions = shuffleArray(selectedQuestions);
+
+        // skúška má max 25 otázok, ak ich je viac
+        if (mode === "exam" && selectedQuestions.length > 25) {
+            selectedQuestions = selectedQuestions.slice(0, 25);
+        }
 
         questions = selectedQuestions.map(question => prepareQuestion(question, shuffleAnswers));
         currentIndex = 0;
@@ -419,6 +489,7 @@ function createQuiz(config) {
         selectedAnswers = [];
         wrongRecords = [];
 
+        startTimerIfNeeded();
         renderQuestion();
     }
 

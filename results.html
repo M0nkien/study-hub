@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výsledky | Study Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <div class="container header-content">
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="index.html">Domov</a>
+            <a href="subjects.html">Predmety</a>
+            <a href="flashcards.html">Kartičky</a>
+            <a href="results.html">Výsledky</a>
+            <a href="roadmap.html">Roadmapa</a>
+            <a href="support.html">Podpora</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+        <div class="container subject-hero-content">
+            <a href="index.html" class="back-link">← Späť na hlavnú stránku</a>
+            <span class="badge">● História testov</span>
+            <h2>MOJE<br><span>VÝSLEDKY</span></h2>
+            <p>Tu sa zobrazí história kvízov uložená v tomto prehliadači.</p>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="small-title">Výsledky</p>
+                    <h2>História kvízov</h2>
+                </div>
+                <button id="clearResultsBtn" class="btn secondary" type="button">Vymazať históriu</button>
+            </div>
+
+            <div id="resultsSummary" class="dashboard-grid"></div>
+            <div id="resultsList" class="results-list"></div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+<script src="script.js"></script>
+<script src="results.js"></script>
+</body>
+</html>

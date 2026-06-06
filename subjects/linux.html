@@ -27,8 +27,11 @@
         <nav class="nav">
             <a href="../index.html">Domov</a>
             <a href="../subjects.html">Predmety</a>
-            <a href="../admin.html">Admin</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
             <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
         </nav>
     </div>
 </header>
@@ -59,7 +62,9 @@
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
 <a href="#study">Štúdium</a>
-<a href="#materials">Materiály</a>
+<a href="#checklist">Checklist</a>
+                    <a href="#command-practice">Tréning príkazov</a>
+                    <a href="#materials">Materiály</a>
 <a href="#questions">Kvíz</a>
 <a href="#downloads">Súbory</a>
                 </aside>
@@ -73,6 +78,25 @@
     <div class="progress-bar">
         <div class="progress-fill js-subject-progress-fill"></div>
     </div>
+
+                    <section class="subject-meta-panel content-block">
+    <div>
+        <span>Stav predmetu</span>
+        <strong class="subject-meta-status status-done">hotové</strong>
+    </div>
+    <div>
+        <span>Posledná aktualizácia</span>
+        <strong>06/2026</strong>
+    </div>
+    <div>
+        <span>Počet sekcií</span>
+        <strong>8</strong>
+    </div>
+    <div>
+        <span>Materiály</span>
+        <strong>5</strong>
+    </div>
+</section>
 
     <div class="learn-actions">
         <strong class="js-subject-progress-text">0%</strong>
@@ -137,7 +161,104 @@
     <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="study" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
-<section id="materials" class="content-block">
+<section id="checklist" class="content-block checklist-section">
+    <p class="small-title">Checklist pred skúškou</p>
+    <h2>Čo by som mal vedieť</h2>
+    <p class="section-description">
+        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
+    </p>
+
+    <div class="checklist-progress">
+        <strong><span class="checklist-done" data-checklist-count="linux">0</span> / 8</strong>
+        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="linux"></div></div>
+    </div>
+
+    <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="1">
+                <span>Viem vysvetliť, čo je operačný systém a Linux distribúcia</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="2">
+                <span>Viem pracovať s príkazmi pwd, ls, cd, mkdir, touch, cp, mv, rm</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="3">
+                <span>Viem použiť grep, sort, uniq, pipe a presmerovanie výstupu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="4">
+                <span>Viem vysvetliť používateľov, UID, GID a skupiny</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="5">
+                <span>Viem práva rwx, chmod, chown, setuid, setgid a sticky bit</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="6">
+                <span>Viem, čo robí man, apropos, whatis a info</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="7">
+                <span>Viem základy kompresie gzip, zip a tar</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="linux" data-checklist-item="8">
+                <span>Viem spustiť kvíz v režime skúšky a zopakovať zlé otázky</span>
+            </label>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="linux" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
+                    <section id="command-practice" class="content-block">
+    <p class="small-title">Linux tréning</p>
+    <h2>Čo spraví tento príkaz?</h2>
+
+    <div class="example-list">
+        <div class="example-item">
+            <h3>Príkazy podľa kategórií</h3>
+            <p>Pri učení si rozdeľ príkazy podľa účelu: navigácia, súbory, text, práva, procesy a kompresia.</p>
+            <pre><code>pwd        # kde som
+ls -la     # podrobný výpis
+cd ..      # o adresár vyššie
+mkdir test # vytvor adresár</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Príklady s výstupom</h3>
+            <p>Pri skúške sa môže objaviť otázka, čo sa stane po spustení príkazu.</p>
+            <pre><code>grep "^a" names.txt
+# vypíše riadky, ktoré začínajú písmenom a
+
+chmod 755 script.sh
+# vlastník rwx, skupina r-x, ostatní r-x</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Práva a chmod tréning</h3>
+            <p>Čísla sa skladajú z r=4, w=2, x=1.</p>
+            <pre><code>7 = 4+2+1 = rwx
+6 = 4+2   = rw-
+5 = 4+1   = r-x
+chmod 640 file.txt = rw-r-----</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Pipes a redirect</h3>
+            <p>Pipe posiela výstup jedného príkazu do ďalšieho. Redirect ukladá výstup do súboru.</p>
+            <pre><code>cat /etc/services | grep "^http" | sort > http-services.txt</code></pre>
+        </div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="linux" data-key="command-practice" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+    </div>
+</section>
+
+                    <section id="materials" class="content-block">
     <p class="small-title">Materiály</p>
     <h2>Materiály na učenie</h2>
     <div class="filter-panel" data-filter-panel data-target=".filterable-material">
@@ -270,7 +391,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <div>
             <p>Vytvorené mnou</p>
-            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 
@@ -286,6 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="../progress.js"></script>
 <script src="../subject-search.js"></script>
 <script src="../filters.js"></script>
+<script src="../checklist.js"></script>
 <script src="../quiz-linux.js"></script>
 <script src="../quiz-engine.js"></script>
 </body>

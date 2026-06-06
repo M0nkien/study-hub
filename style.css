@@ -2045,3 +2045,574 @@ body::before {
         align-items: flex-start;
     }
 }
+
+
+
+/* =========================================================
+   Study Hub v1.5 – checklisty, kartičky, dashboard, výsledky, roadmap
+   ========================================================= */
+
+.dashboard-section,
+.continue-section,
+.changelog-section,
+.flashcards-section,
+.results-section,
+.roadmap-section {
+    padding: 70px 0;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.dashboard-card {
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.10), transparent 35%),
+        var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 20px;
+}
+
+.dashboard-card span {
+    display: block;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.dashboard-card strong {
+    color: var(--accent);
+    font-size: 26px;
+}
+
+.continue-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.12), transparent 36%),
+        var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.continue-box h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.continue-box p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.subject-status {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 5px;
+    margin: -8px 0 16px;
+    padding: 12px 13px;
+    border-radius: 16px;
+    background: rgba(2, 6, 23, 0.72);
+    border: 1px solid var(--border);
+}
+
+.subject-status span,
+.subject-meta-status,
+.roadmap-head span {
+    width: fit-content;
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subject-status small {
+    color: var(--muted);
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+.status-done span,
+.status-done.subject-meta-status,
+.roadmap-head.status-done span {
+    background: rgba(101, 212, 242, 0.14);
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+}
+
+.status-updating span,
+.status-updating.subject-meta-status,
+.roadmap-head.status-updating span {
+    background: rgba(245, 158, 11, 0.13);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.status-progress span,
+.status-progress.subject-meta-status,
+.roadmap-head.status-progress span {
+    background: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+}
+
+.roadmap-head.status-idea span {
+    background: rgba(168, 85, 247, 0.14);
+    color: #d8b4fe;
+    border: 1px solid rgba(168, 85, 247, 0.26);
+}
+
+.roadmap-head.status-bug span {
+    background: rgba(239, 68, 68, 0.14);
+    color: #fecaca;
+    border: 1px solid rgba(239, 68, 68, 0.26);
+}
+
+.subject-meta-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.subject-meta-panel div {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.subject-meta-panel span {
+    display: block;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.subject-meta-panel strong {
+    color: var(--accent);
+}
+
+.checklist-progress {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    align-items: center;
+    margin: 22px 0;
+}
+
+.checklist-progress strong {
+    color: var(--accent);
+    font-size: 20px;
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.checklist-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px;
+    color: #cbd5e1;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.checklist-item input {
+    margin-top: 4px;
+    accent-color: var(--accent);
+}
+
+.static-checklist .checklist-item::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: 900;
+}
+
+.changelog-list {
+    display: grid;
+    gap: 12px;
+}
+
+.changelog-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+}
+
+.changelog-item span {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-weight: 900;
+    width: fit-content;
+    height: fit-content;
+}
+
+.changelog-item p {
+    color: var(--muted);
+    margin-top: 5px;
+    line-height: 1.6;
+}
+
+.material-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.material-tags span {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.quiz-timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-2);
+    border: 1px solid var(--accent-border);
+    border-radius: 18px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.quiz-timer span {
+    color: var(--muted);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.quiz-timer strong {
+    color: var(--accent);
+    font-size: 24px;
+}
+
+.flashcard-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: end;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 18px;
+    margin-bottom: 24px;
+}
+
+.flashcard-controls label {
+    display: block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.flashcard-controls select {
+    min-width: 240px;
+    min-height: 44px;
+    border-radius: 14px;
+    border: 1px solid var(--accent-border);
+    background: var(--surface-2);
+    color: var(--text);
+    padding: 0 12px;
+    font-weight: 800;
+}
+
+.flashcard-stage {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+}
+
+.flashcard {
+    height: 360px;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .45s ease;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.12), transparent 36%),
+        var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 36px;
+    text-align: center;
+}
+
+.flashcard-face span {
+    color: var(--accent);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.flashcard-face h3 {
+    font-size: clamp(26px, 4vw, 48px);
+    line-height: 1.15;
+}
+
+.flashcard-face p {
+    color: var(--muted);
+    margin-top: 18px;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+}
+
+.flashcard-counter {
+    text-align: center;
+    margin-top: 18px;
+    color: var(--muted);
+    font-weight: 900;
+}
+
+.results-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+}
+
+.result-item span {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.result-item p {
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.result-item > strong {
+    color: var(--accent);
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.roadmap-board {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(240px, 1fr));
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.roadmap-column {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 18px;
+}
+
+.roadmap-head {
+    margin-bottom: 16px;
+}
+
+.roadmap-head h2 {
+    font-size: 24px;
+    margin-top: 8px;
+}
+
+.roadmap-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.roadmap-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.roadmap-card p {
+    color: var(--muted);
+    line-height: 1.55;
+    margin-top: 5px;
+}
+
+.warning-grid,
+.formula-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.warning-card,
+.formula-detail-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.warning-card strong,
+.formula-detail-card span {
+    color: var(--accent);
+    font-weight: 900;
+}
+
+.formula-detail-card h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.tool-box {
+    display: grid;
+    gap: 12px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    margin-top: 18px;
+}
+
+.tool-box label {
+    color: var(--accent);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.tool-box input {
+    width: 100%;
+    min-height: 44px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 0 12px;
+    font-weight: 800;
+}
+
+.tool-result {
+    display: grid;
+    gap: 10px;
+}
+
+.tool-result-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+}
+
+.tool-result-row strong {
+    color: var(--accent);
+}
+
+@media (max-width: 1100px) {
+    .dashboard-grid,
+    .subject-meta-panel,
+    .warning-grid,
+    .formula-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checklist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .continue-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 760px) {
+    .dashboard-grid,
+    .subject-meta-panel,
+    .warning-grid,
+    .formula-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flashcard-stage {
+        grid-template-columns: 1fr;
+    }
+
+    .flashcard-stage > button {
+        width: 100%;
+    }
+
+    .result-item {
+        flex-direction: column;
+    }
+
+    .changelog-item {
+        grid-template-columns: 1fr;
+    }
+}
