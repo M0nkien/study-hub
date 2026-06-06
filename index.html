@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StHub</title>
+    <title>Study Hub</title>
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -26,9 +26,10 @@
 
         <nav class="nav">
             <a href="index.html">Domov</a>
-            <a href="index.html#subjects">Predmety</a>
+            <a href="subjects.html">Predmety</a>
             <a href="index.html#latest">Najnovšie</a>
             <a href="admin.html">Admin</a>
+            <a href="support.html">Podpora</a>
             <a href="index.html#about">O stránke</a>
         </nav>
     </div>
@@ -53,13 +54,13 @@
             </p>
 
             <div class="hero-buttons">
-                <a href="#subjects" class="btn primary">Začať študovať</a>
+                <a href="subjects.html" class="btn primary">Začať študovať</a>
                 <a href="#latest" class="btn secondary">Najnovšie pridané</a>
             </div>
 
             <div class="stats-row">
                 <div>
-                    <strong>6+</strong>
+                    <strong>7+</strong>
                     <span>Predmetov</span>
                 </div>
 
@@ -86,160 +87,60 @@
             <div class="section-head">
                 <div>
                     <p class="small-title">Novinky</p>
-                    <h2>Najnovšie pridané na stránke</h2>
+                    <h2>Najnovšie pridané</h2>
                 </div>
             </div>
 
-            <div class="latest-grid">
-                <a href="subjects/linux.html#questions" class="latest-card">
-                    <span>Linux</span>
-                    <h3>Finálny kvíz Linux Essentials</h3>
-                    <p>Režimy: cvičenie, skúška a iba nesprávne otázky.</p>
+            <div class="latest-mini-grid">
+                <a href="subjects/fyzika.html" class="latest-mini-card">
+                    <span>Fyzika</span>
+                    <strong>Pridaný nový predmet</strong>
+                    <p>Teória, vzorce, príklady a laboratórium.</p>
                 </a>
 
-                <a href="subjects/linux.html#study" class="latest-card">
-                    <span>Linux</span>
-                    <h3>Štúdium príkazov</h3>
-                    <p>Prehľadné vysvetlenie príkazov, práv, používateľov, procesov a kompresie.</p>
-                </a>
-
-                <a href="subjects/msd.html#assignments" class="latest-card">
+                <a href="subjects/msd.html#assignments" class="latest-mini-card">
                     <span>MSD</span>
-                    <h3>Zadania Z1 až Z10</h3>
-                    <p>Text zadaní, cieľ, postup riešenia, vzorce a Excel pomôcky.</p>
+                    <strong>Zadania Z1 až Z10</strong>
+                    <p>Rozšírený text, postupy a vzorce.</p>
                 </a>
 
-                <a href="admin.html" class="latest-card">
-                    <span>Admin</span>
-                    <h3>Lokálny admin panel</h3>
-                    <p>Pridávanie materiálov a otázok s exportom do JSON.</p>
+                <a href="subjects/linux.html#study" class="latest-mini-card">
+                    <span>Linux</span>
+                    <strong>Štúdium príkazov</strong>
+                    <p>Prehľad príkazov bez rýchleho ťaháku.</p>
+                </a>
+
+                <a href="subjects/ccna.html#packettracer-labs" class="latest-mini-card">
+                    <span>CCNA</span>
+                    <strong>Packet Tracer príkazy</strong>
+                    <p>VLAN, trunk, DHCP, SSH, routing.</p>
+                </a>
+
+                <a href="support.html" class="latest-mini-card">
+                    <span>Podpora</span>
+                    <strong>Google formulár podpory</strong>
+                    <p>Nahlás chybu alebo navrhni úpravu cez Google Forms.</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="subjects" class="subjects-section">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <p class="small-title">Predmety</p>
-                    <h2>Vyber si predmet</h2>
-                </div>
-
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Hľadať predmet...">
-                </div>
+    <section class="subjects-preview-section">
+        <div class="container subjects-preview-box">
+            <div>
+                <p class="small-title">Predmety</p>
+                <h2>Všetky predmety sú na samostatnej stránke</h2>
+                <p>
+                    Na hlavnej stránke ostáva úvod a novinky. Zoznam predmetov je teraz
+                    prehľadnejšie na osobitnej podstránke.
+                </p>
             </div>
 
-            <div class="subjects-grid">
-                <a href="subjects/vvs.html" class="subject-card" data-search="vvs vývoj vstavaných systémov esp32 micropython robot" data-subject-id="vvs">
-    <div class="card-top">
-        <div class="subject-badge">VVS</div>
-        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
-    </div>
-
-    <h3>Vývoj vstavaných systémov</h3>
-    <p>ESP32, MicroPython, senzory, displeje, web server a robotika.</p>
-
-    <div class="subject-progress-wrap">
-        <div class="progress-bar">
-            <div class="progress-fill js-progress-fill"></div>
-        </div>
-    </div>
-
-    <div class="card-link">Otvoriť predmet →</div>
-</a>
-<a href="subjects/msd.html" class="subject-card" data-search="msd metódy spracovania dát excel fourier pravdepodobnosť zadania" data-subject-id="msd">
-    <div class="card-top">
-        <div class="subject-badge">MSD</div>
-        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
-    </div>
-
-    <h3>Metódy spracovania dát</h3>
-    <p>Excel, časové rady, Fourierova transformácia, pravdepodobnosť a rozdelenia.</p>
-
-    <div class="subject-progress-wrap">
-        <div class="progress-bar">
-            <div class="progress-fill js-progress-fill"></div>
-        </div>
-    </div>
-
-    <div class="card-link">Otvoriť predmet →</div>
-</a>
-<a href="subjects/mat.html" class="subject-card" data-search="mat matematika diferenciálne rovnice rady fourier" data-subject-id="mat">
-    <div class="card-top">
-        <div class="subject-badge">MAT</div>
-        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
-    </div>
-
-    <h3>Matematika</h3>
-    <p>Diferenciálne rovnice, rady, Fourierov rad a funkcie dvoch premenných.</p>
-
-    <div class="subject-progress-wrap">
-        <div class="progress-bar">
-            <div class="progress-fill js-progress-fill"></div>
-        </div>
-    </div>
-
-    <div class="card-link">Otvoriť predmet →</div>
-</a>
-<a href="subjects/ccna.html" class="subject-card" data-search="ccna siete packet tracer subnetting vlan routing" data-subject-id="ccna">
-    <div class="card-top">
-        <div class="subject-badge">NET</div>
-        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
-    </div>
-
-    <h3>Cisco / CCNA</h3>
-    <p>Subnetting, VLSM, VLAN, routing, Packet Tracer, DNS a DHCP.</p>
-
-    <div class="subject-progress-wrap">
-        <div class="progress-bar">
-            <div class="progress-fill js-progress-fill"></div>
-        </div>
-    </div>
-
-    <div class="card-link">Otvoriť predmet →</div>
-</a>
-<a href="subjects/linux.html" class="subject-card" data-search="linux essentials shell príkazy terminal quiz finalny test" data-subject-id="linux">
-    <div class="card-top">
-        <div class="subject-badge">LNX</div>
-        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
-    </div>
-
-    <h3>Linux Essentials</h3>
-    <p>Príkazový riadok, súbory, adresáre, práva, pipe, redirect a finálny kvíz.</p>
-
-    <div class="subject-progress-wrap">
-        <div class="progress-bar">
-            <div class="progress-fill js-progress-fill"></div>
-        </div>
-    </div>
-
-    <div class="card-link">Otvoriť predmet →</div>
-</a>
-<a href="subjects/java.html" class="subject-card" data-search="java oop dedičnosť polymorfizmus výnimky generiká" data-subject-id="java">
-    <div class="card-top">
-        <div class="subject-badge">JAVA</div>
-        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
-    </div>
-
-    <h3>Informatika / Java</h3>
-    <p>OOP, dedičnosť, polymorfizmus, výnimky, generiká, UML a projekty.</p>
-
-    <div class="subject-progress-wrap">
-        <div class="progress-bar">
-            <div class="progress-fill js-progress-fill"></div>
-        </div>
-    </div>
-
-    <div class="card-link">Otvoriť predmet →</div>
-</a>
-
-            </div>
+            <a href="subjects.html" class="btn primary">Otvoriť predmety</a>
         </div>
     </section>
 
-    <section id="about" class="about-section">
+<section id="about" class="about-section">
         <div class="container about-box">
             <p class="small-title">O projekte</p>
             <h2>Prečo vznikol tento web?</h2>

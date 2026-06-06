@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fyzika | Study Hub</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="../index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="../index.html">Domov</a>
+            <a href="../subjects.html">Predmety</a>
+            <a href="../admin.html">Admin</a>
+            <a href="../support.html">Podpora</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="../subjects.html" class="back-link">← Späť na všetky predmety</a>
+
+            <span class="badge">● Predmetová kapsula</span>
+
+            <h2>
+                FYZIKA<br>
+                <span>NA SKÚŠKU</span>
+            </h2>
+
+            <p>
+                Poznámky na skúšku z fyziky: vektory, kinematika, dynamika,
+                práca a energia, hybnosť, rotačný pohyb, moment zotrvačnosti,
+                Steinerova veta, matematické a fyzikálne kyvadlo a laboratórne merania.
+            </p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="subject-layout">
+
+                <aside class="subject-sidebar">
+                    <h3>Obsah predmetu</h3>
+                    <a href="#overview">Prehľad</a>
+                    <a href="#theory">Teória</a>
+                    <a href="#formulas">Vzorce</a>
+                    <a href="#examples">Príklady</a>
+                    <a href="#labs">Laboratórium</a>
+                    <a href="#materials">Materiály</a>
+                    <a href="#downloads">Súbory</a>
+                </aside>
+
+                <div class="subject-main">
+                    <div id="subjectSearchMount"></div>
+
+                    <div class="learn-panel" data-progress-subject="fyzika">
+                        <h3>Progres učenia predmetu</h3>
+                        <p>Teóriu a vzorce označ ako naučené, laboratóriá a príklady ako urobené.</p>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill js-subject-progress-fill"></div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <strong class="js-subject-progress-text">0%</strong>
+                        </div>
+                    </div>
+
+                    <section id="overview" class="content-block">
+                        <p class="small-title">Prehľad</p>
+                        <h2>Čo sa učiť na skúšku z fyziky</h2>
+
+                        <div class="material-grid">
+                            <article class="material-card filterable-material" data-type="tahak">
+                                <span class="material-type">Teória</span>
+                                <h3>Mechanika hmotného bodu</h3>
+                                <p>Hmotný bod, poloha, dráha, rýchlosť, zrýchlenie, rovnomerný a rovnomerne zrýchlený pohyb.</p>
+                            </article>
+
+                            <article class="material-card filterable-material" data-type="tahak">
+                                <span class="material-type">Teória</span>
+                                <h3>Dynamika</h3>
+                                <p>Newtonove zákony, sila, tiaž, trenie, výslednica síl, pohybová rovnica a jednoduché úlohy.</p>
+                            </article>
+
+                            <article class="material-card filterable-material" data-type="tahak">
+                                <span class="material-type">Teória</span>
+                                <h3>Rotácia a kyvadlá</h3>
+                                <p>Moment sily, moment zotrvačnosti, Steinerova veta, matematické a fyzikálne kyvadlo.</p>
+                            </article>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="fyzika" data-key="overview" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+                    <section id="theory" class="content-block">
+                        <p class="small-title">Teória</p>
+                        <h2>Podrobné poznámky</h2>
+
+                        <div class="example-list">
+                            <div class="example-item">
+                                <h3>1. Vektory vo fyzike</h3>
+                                <p>
+                                    Vektor má veľkosť, smer a orientáciu. Vo fyzike vektorom opisujeme napríklad
+                                    polohu, rýchlosť, zrýchlenie, silu, hybnosť a moment sily.
+                                </p>
+                                <pre><code>Súčet vektorov:
+a + b
+
+Skalárny súčin:
+a · b = |a||b|cos(α)
+
+Vektorový súčin:
+|a × b| = |a||b|sin(α)</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>2. Kinematika hmotného bodu</h3>
+                                <p>
+                                    Hmotný bod je zjednodušený model telesa, pri ktorom zanedbáme rozmery telesa.
+                                    Sledujeme len jeho polohu a pohyb. Pri pohybe riešime dráhu, rýchlosť a zrýchlenie.
+                                </p>
+                                <pre><code>Priemerná rýchlosť:
+v = s / t
+
+Rovnomerný pohyb:
+s = v · t
+
+Rovnomerne zrýchlený pohyb:
+v = v0 + a · t
+s = s0 + v0t + (1/2)at²</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>3. Dynamika</h3>
+                                <p>
+                                    Dynamika skúma príčiny pohybu. Základom sú Newtonove pohybové zákony.
+                                    Ak poznáme výslednú silu pôsobiacu na teleso, vieme určiť zrýchlenie.
+                                </p>
+                                <pre><code>2. Newtonov zákon:
+F = m · a
+
+Tiažová sila:
+FG = m · g
+
+Trecia sila:
+Ft = f · FN</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>4. Práca, energia a výkon</h3>
+                                <p>
+                                    Mechanická práca vzniká, keď sila pôsobí na teleso po určitej dráhe.
+                                    Energia vyjadruje schopnosť konať prácu. Výkon hovorí, ako rýchlo sa práca vykoná.
+                                </p>
+                                <pre><code>Práca:
+W = F · s · cos(α)
+
+Kinetická energia:
+Ek = (1/2)mv²
+
+Potenciálna energia:
+Ep = mgh
+
+Výkon:
+P = W / t</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>5. Hybnosť a impulz sily</h3>
+                                <p>
+                                    Hybnosť opisuje pohybový stav telesa. Pri izolovanej sústave platí zákon zachovania hybnosti.
+                                </p>
+                                <pre><code>Hybnosť:
+p = m · v
+
+Impulz sily:
+I = F · Δt
+
+Zmena hybnosti:
+I = Δp</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>6. Rotačný pohyb a moment zotrvačnosti</h3>
+                                <p>
+                                    Pri rotačnom pohybe namiesto sily často používame moment sily.
+                                    Moment zotrvačnosti vyjadruje, ako veľmi sa teleso bráni zmene rotačného pohybu.
+                                </p>
+                                <pre><code>Moment sily:
+M = r · F · sin(α)
+
+Moment zotrvačnosti hmotného bodu:
+I = m · r²
+
+Rotačná pohybová rovnica:
+M = I · ε</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>7. Steinerova veta</h3>
+                                <p>
+                                    Steinerova veta umožňuje vypočítať moment zotrvačnosti vzhľadom na os,
+                                    ktorá je rovnobežná s osou prechádzajúcou ťažiskom.
+                                </p>
+                                <pre><code>Steinerova veta:
+I = I0 + m · d²
+
+I0 = moment zotrvačnosti vzhľadom na os cez ťažisko
+m = hmotnosť telesa
+d = vzdialenosť osí</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>8. Matematické a fyzikálne kyvadlo</h3>
+                                <p>
+                                    Matematické kyvadlo je model hmotného bodu zaveseného na nehmotnom vlákne.
+                                    Fyzikálne kyvadlo je skutočné tuhé teleso, ktoré kmitá okolo osi.
+                                </p>
+                                <pre><code>Matematické kyvadlo:
+T = 2π√(l/g)
+
+Fyzikálne kyvadlo:
+T = 2π√(I/(mgl))</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="fyzika" data-key="theory" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+                    <section id="formulas" class="content-block">
+                        <p class="small-title">Vzorce</p>
+                        <h2>Vzorce na výpočty</h2>
+
+                        <div class="formula-grid">
+                            <article class="formula-card"><h3>Kinematika</h3><pre><code>v = s/t
+a = Δv/Δt
+s = v0t + 1/2 at²
+v² = v0² + 2as</code></pre></article>
+                            <article class="formula-card"><h3>Dynamika</h3><pre><code>F = ma
+FG = mg
+Ft = fFN
+FN = mg pri vodorovnej rovine</code></pre></article>
+                            <article class="formula-card"><h3>Energia</h3><pre><code>W = Fs cosα
+Ek = 1/2 mv²
+Ep = mgh
+P = W/t</code></pre></article>
+                            <article class="formula-card"><h3>Hybnosť</h3><pre><code>p = mv
+I = FΔt
+I = Δp</code></pre></article>
+                            <article class="formula-card"><h3>Rotácia</h3><pre><code>ω = φ/t
+v = ωr
+M = rF sinα
+I = mr²
+M = Iε</code></pre></article>
+                            <article class="formula-card"><h3>Kyvadlá</h3><pre><code>T = 2π√(l/g)
+T = 2π√(I/(mgl))
+I = I0 + md²</code></pre></article>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="fyzika" data-key="formulas" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+                    <section id="examples" class="content-block">
+                        <p class="small-title">Príklady</p>
+                        <h2>Typické postupy riešenia</h2>
+
+                        <div class="example-list">
+                            <div class="example-item">
+                                <h3>Príklad 1 – sila a zrýchlenie</h3>
+                                <p>Ak poznáš hmotnosť a výslednú silu, použiješ 2. Newtonov zákon.</p>
+                                <pre><code>Zadané: m, F
+Vzorec: F = ma
+Úprava: a = F/m</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Príklad 2 – kinetická energia</h3>
+                                <p>Pri pohybujúcom sa telese vypočítaš energiu zo vzorca Ek = 1/2mv².</p>
+                                <pre><code>1. Preveď jednotky na kg a m/s.
+2. Dosadíš do Ek = 1/2mv².
+3. Výsledok je v jouloch.</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Príklad 3 – Steinerova veta</h3>
+                                <p>Ak sa os otáčania neposúva cez ťažisko, použiješ pripočítanie md².</p>
+                                <pre><code>1. Nájdeš I0 pre os cez ťažisko.
+2. Určíš vzdialenosť osí d.
+3. Použiješ I = I0 + md².</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Príklad 4 – perióda kyvadla</h3>
+                                <p>Pre matematické kyvadlo pri malých výchylkách závisí perióda od dĺžky a tiažového zrýchlenia.</p>
+                                <pre><code>T = 2π√(l/g)</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="fyzika" data-key="examples" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+                        </div>
+                    </section>
+
+                    <section id="labs" class="content-block">
+                        <p class="small-title">Laboratórium</p>
+                        <h2>Merania a spracovanie výsledkov</h2>
+
+                        <div class="example-list">
+                            <div class="example-item">
+                                <h3>Meranie objemu valca</h3>
+                                <p>
+                                    Pri laboratórnom meraní sa opakovane meria výška a priemer valca.
+                                    Používa sa posuvné meradlo a mikrometer. Potom sa vypočíta priemer hodnôt,
+                                    objem a neistota merania.
+                                </p>
+                                <pre><code>Objem valca:
+V = πr²h
+
+alebo:
+V = πd²h / 4
+
+Typické meradlá:
+mikrometer 0,01 mm
+posuvné meradlo 0,05 mm</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Spracovanie meraní</h3>
+                                <p>
+                                    Pri spracovaní meraní sa používa aritmetický priemer, odchýlky,
+                                    absolútna chyba a výsledok sa zapisuje v tvare hodnota ± chyba.
+                                </p>
+                                <pre><code>Priemer:
+x̄ = (x1 + x2 + ... + xn)/n
+
+Výsledok:
+V = (hodnota ± chyba) jednotka</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="fyzika" data-key="labs" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+                        </div>
+                    </section>
+
+                    <section id="materials" class="content-block">
+                        <p class="small-title">Materiály</p>
+                        <h2>Materiály podľa typu</h2>
+
+                        <div class="filter-panel" data-filter-panel data-target=".filterable-material">
+                            <button class="filter-btn active" data-filter="all" type="button">Všetko</button>
+                            <button class="filter-btn" data-filter="pdf" type="button">PDF</button>
+                            <button class="filter-btn" data-filter="kviz" type="button">Kvíz</button>
+                            <button class="filter-btn" data-filter="zadanie" type="button">Zadanie</button>
+                            <button class="filter-btn" data-filter="tahak" type="button">Ťahák</button>
+                        </div>
+
+                        <div class="material-grid">
+                            <article class="material-card filterable-material" data-type="pdf">
+                                <span class="material-type">PDF</span>
+                                <h3>Fyzika poznámky</h3>
+                                <p>Teória, vzorce, odvodenia a príklady na skúšku.</p>
+                                <a href="../files/fyzika/fyzika-poznamky.pdf" class="material-link">Stiahnuť →</a>
+                            </article>
+
+                            <article class="material-card filterable-material" data-type="tahak">
+                                <span class="material-type">Ťahák</span>
+                                <h3>Vzorce na skúšku</h3>
+                                <p>Kinematika, dynamika, energia, rotácia, Steinerova veta a kyvadlá.</p>
+                                <a href="#formulas" class="material-link">Otvoriť →</a>
+                            </article>
+
+                            <article class="material-card filterable-material" data-type="zadanie">
+                                <span class="material-type">Zadanie</span>
+                                <h3>Laboratórne meranie</h3>
+                                <p>Objem valca, meradlá, priemer hodnôt a zápis výsledku.</p>
+                                <a href="#labs" class="material-link">Otvoriť →</a>
+                            </article>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="fyzika" data-key="materials" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+                        </div>
+                    </section>
+
+                    <section id="downloads" class="content-block">
+                        <p class="small-title">Súbory</p>
+                        <h2>Súbory na stiahnutie</h2>
+
+                        <div class="download-list">
+                            <a href="../files/fyzika/fyzika-poznamky.pdf" class="download-item">
+                                <strong>Fyzika poznámky PDF</strong>
+                                <span>Stiahnuť →</span>
+                            </a>
+
+                            <a href="../files/fyzika/fyzika-vzorce.pdf" class="download-item">
+                                <strong>Fyzika vzorce PDF</strong>
+                                <span>Stiahnuť →</span>
+                            </a>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="fyzika" data-key="downloads" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="../script.js"></script>
+<script src="../progress.js"></script>
+<script src="../subject-search.js"></script>
+<script src="../filters.js"></script>
+</body>
+</html>

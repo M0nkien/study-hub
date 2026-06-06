@@ -123,3 +123,110 @@ document.getElementById("clearBtn").addEventListener("click", function () {
 });
 
 showExport();
+
+
+
+// ===== Podpora stránky – správy od študentov =====
+
+const SUPPORT_KEY = "studyHubSupportMessages";
+
+function getSupportMessagesAdmin() {
+    const saved = localStorage.getItem(SUPPORT_KEY);
+    if (!saved) return [];
+
+    try {
+        return JSON.parse(saved);
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveSupportMessagesAdmin(messages) {
+    localStorage.setItem(SUPPORT_KEY, JSON.stringify(messages, null, 2));
+}
+
+function formatSupportDate(value) {
+    try {
+        return new Date(value).toLocaleString("sk-SK");
+    } catch (error) {
+        return value;
+    }
+}
+
+function renderSupportMessages() {
+    const list = document.getElementById("supportMessagesList");
+    if (!list) return;
+
+    const messages = getSupportMessagesAdmin();
+
+    if (messages.length === 0) {
+        list.innerHTML = `<div class="support-empty">Zatiaľ nie sú uložené žiadne správy.</div>`;
+        return;
+    }
+
+    list.innerHTML = messages.map(item => `
+        <article class="support-admin-item ${item.status === "vyriešené" ? "resolved" : ""}">
+            <div class="support-admin-top">
+                <span>${item.subject}</span>
+                <em>${item.status || "nové"}</em>
+            </div>
+
+            <h3>${escapeSupportHtml(item.title)}</h3>
+            <p>${escapeSupportHtml(item.message)}</p>
+
+            <div class="support-admin-meta">
+                <strong>Typ:</strong> ${escapeSupportHtml(item.type)}
+                ${item.contact ? `<strong>Kontakt:</strong> ${escapeSupportHtml(item.contact)}` : ""}
+                <strong>Dátum:</strong> ${formatSupportDate(item.createdAt)}
+            </div>
+
+            <div class="support-admin-actions">
+                <button type="button" class="btn secondary" onclick="markSupportResolved(${item.id})">Označiť ako vyriešené</button>
+                <button type="button" class="btn secondary" onclick="deleteSupportMessage(${item.id})">Vymazať</button>
+            </div>
+        </article>
+    `).join("");
+}
+
+function escapeSupportHtml(value) {
+    return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function markSupportResolved(id) {
+    const messages = getSupportMessagesAdmin().map(item => {
+        if (item.id === id) {
+            return { ...item, status: "vyriešené" };
+        }
+        return item;
+    });
+
+    saveSupportMessagesAdmin(messages);
+    renderSupportMessages();
+}
+
+function deleteSupportMessage(id) {
+    const messages = getSupportMessagesAdmin().filter(item => item.id !== id);
+    saveSupportMessagesAdmin(messages);
+    renderSupportMessages();
+}
+
+const refreshSupportBtn = document.getElementById("refreshSupportBtn");
+if (refreshSupportBtn) {
+    refreshSupportBtn.addEventListener("click", renderSupportMessages);
+}
+
+const clearResolvedSupportBtn = document.getElementById("clearResolvedSupportBtn");
+if (clearResolvedSupportBtn) {
+    clearResolvedSupportBtn.addEventListener("click", function () {
+        const messages = getSupportMessagesAdmin().filter(item => item.status !== "vyriešené");
+        saveSupportMessagesAdmin(messages);
+        renderSupportMessages();
+    });
+}
+
+renderSupportMessages();

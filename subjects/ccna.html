@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCNA-StHub</title>
+    <title>CCNA | Study Hub</title>
 
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -26,10 +26,9 @@
 
         <nav class="nav">
             <a href="../index.html">Domov</a>
-            <a href="../index.html#subjects">Predmety</a>
-            <a href="../index.html#latest">Najnovšie</a>
+            <a href="../subjects.html">Predmety</a>
             <a href="../admin.html">Admin</a>
-            <a href="../index.html#about">O stránke</a>
+            <a href="../support.html">Podpora</a>
         </nav>
     </div>
 </header>
@@ -39,7 +38,7 @@
         <div class="grid-bg"></div>
 
         <div class="container subject-hero-content">
-            <a href="../index.html#subjects" class="back-link">← Späť na predmety</a>
+            <a href="../subjects.html" class="back-link">← Späť na všetky predmety</a>
 
             <span class="badge">● Predmetová kapsula</span>
 
@@ -61,6 +60,7 @@
                     <a href="#notes">Poznámky</a>
 <a href="#commands">Cisco príkazy</a>
 <a href="#study">Štúdium</a>
+<a href="#packettracer-labs">Packet Tracer</a>
 <a href="#materials">Materiály</a>
 <a href="#questions">Kvíz</a>
 <a href="#downloads">Súbory</a>
@@ -100,7 +100,7 @@
     <p>Základné príkazy pre switch a router.</p>
     <a href="#" class="material-link">Otvoriť →</a>
 </article></div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="notes" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="notes" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
 
@@ -521,7 +521,7 @@ reload</code></pre>
 
     </div>
 
-    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="commands" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="commands" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
 
@@ -533,8 +533,228 @@ reload</code></pre>
         <div class="example-item"><h3>Praktické postupy</h3><p>Priprav si typické príklady, príkazy alebo vzorce.</p></div>
         <div class="example-item"><h3>Kontrola</h3><p>Na konci si prejdi otázky, zadania a materiály na stiahnutie.</p></div>
     </div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="study" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="study" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
+
+
+<section id="packettracer-labs" class="content-block">
+    <p class="small-title">Packet Tracer</p>
+    <h2>Kompletné príkazy na konfiguráciu</h2>
+
+    <p class="section-description">
+        Táto časť je praktický zoznam príkazov, ktoré sa najčastejšie používajú v Cisco Packet Traceri
+        pri skúšobných zadaniach: switch, router, VLAN, trunk, inter-VLAN routing, DHCP, statické routovanie,
+        SSH, port-security a overovanie konfigurácie.
+    </p>
+
+    <div class="example-list">
+
+        <div class="example-item">
+            <h3>1. Základné nastavenie switcha alebo routera</h3>
+            <pre><code>enable
+configure terminal
+hostname S1
+no ip domain-lookup
+
+enable secret class
+
+line console 0
+password cisco
+login
+exit
+
+line vty 0 15
+password cisco
+login
+exit
+
+service password-encryption
+banner motd #Unauthorized access is prohibited#
+
+end
+copy running-config startup-config</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>2. Manažment IP na switchi cez VLAN 1</h3>
+            <pre><code>enable
+configure terminal
+
+interface vlan 1
+ip address 192.168.1.2 255.255.255.0
+no shutdown
+exit
+
+ip default-gateway 192.168.1.1
+
+end
+copy running-config startup-config</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>3. Router – nastavenie fyzických rozhraní</h3>
+            <pre><code>enable
+configure terminal
+
+interface gigabitEthernet 0/0
+description LAN 1
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+interface gigabitEthernet 0/1
+description LAN 2
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+
+end
+copy running-config startup-config</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>4. VLAN, access port a trunk port</h3>
+            <pre><code>enable
+configure terminal
+
+vlan 10
+name STUDENTI
+exit
+
+vlan 20
+name UCITELIA
+exit
+
+interface fastEthernet 0/1
+switchport mode access
+switchport access vlan 10
+exit
+
+interface fastEthernet 0/2
+switchport mode access
+switchport access vlan 20
+exit
+
+interface fastEthernet 0/24
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+exit
+
+end
+show vlan brief
+show interfaces trunk</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>5. Router-on-a-stick – inter-VLAN routing</h3>
+            <pre><code>enable
+configure terminal
+
+interface gigabitEthernet 0/0
+no shutdown
+exit
+
+interface gigabitEthernet 0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+exit
+
+end
+show ip interface brief</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>6. DHCP server na routeri</h3>
+            <pre><code>enable
+configure terminal
+
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+
+ip dhcp pool VLAN10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+dns-server 8.8.8.8
+exit
+
+end
+show ip dhcp binding</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>7. Statické routovanie</h3>
+            <pre><code>enable
+configure terminal
+
+ip route 192.168.2.0 255.255.255.0 10.0.0.2
+ip route 0.0.0.0 0.0.0.0 10.0.0.2
+
+end
+show ip route</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>8. SSH prístup</h3>
+            <pre><code>enable
+configure terminal
+
+hostname R1
+ip domain-name studyhub.local
+username admin secret cisco123
+crypto key generate rsa
+1024
+
+line vty 0 15
+login local
+transport input ssh
+exit
+
+ip ssh version 2
+
+end
+show ip ssh</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>9. Port security na switchi</h3>
+            <pre><code>enable
+configure terminal
+
+interface fastEthernet 0/1
+switchport mode access
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+end
+show port-security interface fastEthernet 0/1</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>10. Kontrola a diagnostika</h3>
+            <pre><code>show running-config
+show startup-config
+show ip interface brief
+show vlan brief
+show interfaces trunk
+show mac address-table
+show ip route
+show cdp neighbors
+ping 192.168.1.1
+traceroute 8.8.8.8</code></pre>
+        </div>
+
+    </div>
+
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="packettracer" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button></div>
+</section>
+
 
 <section id="materials" class="content-block">
     <p class="small-title">Materiály</p>
@@ -572,14 +792,14 @@ reload</code></pre>
     <a href="#questions" class="material-link">Otvoriť →</a>
 </article>
     </div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="materials" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="materials" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button></div>
 </section>
 
 <section id="questions" class="content-block">
     <p class="small-title">Kvíz</p>
     <h2>Kvíz bude doplnený</h2>
     <p>Sem môžeš neskôr doplniť otázky cez admin panel alebo samostatný JS súbor.</p>
-    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="quiz" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="quiz" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button></div>
 </section>
 
 <section id="downloads" class="content-block">
@@ -589,7 +809,7 @@ reload</code></pre>
         <a href="../files/ccna/poznamky.pdf" class="download-item"><strong>CCNA poznámky PDF</strong><span>Stiahnuť →</span></a>
         <a href="../files/ccna/tahak.pdf" class="download-item"><strong>CCNA ťahák PDF</strong><span>Stiahnuť →</span></a>
     </div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="downloads" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="downloads" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button></div>
 </section>
 
                 </div>

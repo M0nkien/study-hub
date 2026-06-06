@@ -1,12 +1,14 @@
-// Progres učenia a tlačidlá „Označiť ako naučené“
+// Progres učenia a tlačidlá „Označiť ako naučené / urobené / prejdené“
 
 function getLearnedStore() {
-    const saved = localStorage.getItem("mikStudyLearned");
+    const saved = localStorage.getItem("studyHubProgress");
     if (!saved) return {};
     try { return JSON.parse(saved); } catch { return {}; }
 }
 
 function saveLearnedStore(store) {
+    localStorage.setItem("studyHubProgress", JSON.stringify(store));
+    // spätná kompatibilita so starším názvom z predchádzajúcej verzie
     localStorage.setItem("mikStudyLearned", JSON.stringify(store));
 }
 
@@ -19,16 +21,19 @@ function updateSubjectPageProgress() {
     const store = getLearnedStore();
 
     let done = 0;
+
     buttons.forEach(button => {
         const key = `${subjectId}:${button.dataset.key}`;
+        const pendingText = button.dataset.pendingText || "Označiť ako naučené";
+        const doneText = button.dataset.doneText || "Naučené ✓";
 
         if (store[key]) {
             done++;
             button.classList.add("done");
-            button.textContent = "Naučené ✓";
+            button.textContent = doneText;
         } else {
             button.classList.remove("done");
-            button.textContent = "Označiť ako naučené";
+            button.textContent = pendingText;
         }
     });
 

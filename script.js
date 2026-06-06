@@ -6,11 +6,12 @@ const SUBJECT_TOTALS = {
     ccna: 6,
     vvs: 5,
     mat: 5,
-    java: 5
+    java: 5,
+    fyzika: 8
 };
 
 function getLearned() {
-    const saved = localStorage.getItem("mikStudyLearned");
+    const saved = localStorage.getItem("studyHubProgress") || localStorage.getItem("mikStudyLearned");
     if (!saved) return {};
     try { return JSON.parse(saved); } catch { return {}; }
 }

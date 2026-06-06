@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predmety | Study Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="index.html">Domov</a>
+            <a href="subjects.html">Predmety</a>
+            <a href="support.html">Podpora</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="index.html" class="back-link">← Späť na hlavnú stránku</a>
+
+            <span class="badge">● Všetky predmety</span>
+
+            <h2>
+                PREDMETY<br>
+                <span>STUDY HUB</span>
+            </h2>
+
+            <p>
+                Vyber si predmet, ktorý sa chceš učiť. Každý predmet má vlastnú podstránku
+                s poznámkami, zadaniami, materiálmi, kvízmi a progresom učenia.
+            </p>
+        </div>
+    </section>
+
+    <section id="subjects" class="subjects-section">
+        <div class="container">
+
+            <div class="section-head">
+                <div>
+                    <p class="small-title">Predmety</p>
+                    <h2>Vyber si predmet</h2>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Hľadať predmet...">
+                </div>
+            </div>
+
+            <div class="subjects-grid">
+                <a href="subjects/vvs.html" class="subject-card" data-search="vvs vývoj vstavaných systémov esp32 micropython robot" data-subject-id="vvs">
+    <div class="card-top">
+        <div class="subject-badge">VVS</div>
+        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
+    </div>
+
+    <h3>Vývoj vstavaných systémov</h3>
+    <p>ESP32, MicroPython, senzory, displeje, web server a robotika.</p>
+
+    <div class="subject-progress-wrap">
+        <div class="progress-bar">
+            <div class="progress-fill js-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="card-link">Otvoriť predmet →</div>
+</a>
+<a href="subjects/msd.html" class="subject-card" data-search="msd metódy spracovania dát excel fourier pravdepodobnosť zadania" data-subject-id="msd">
+    <div class="card-top">
+        <div class="subject-badge">MSD</div>
+        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
+    </div>
+
+    <h3>Metódy spracovania dát</h3>
+    <p>Excel, časové rady, Fourierova transformácia, pravdepodobnosť a rozdelenia.</p>
+
+    <div class="subject-progress-wrap">
+        <div class="progress-bar">
+            <div class="progress-fill js-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="card-link">Otvoriť predmet →</div>
+</a>
+<a href="subjects/mat.html" class="subject-card" data-search="mat matematika diferenciálne rovnice rady fourier" data-subject-id="mat">
+    <div class="card-top">
+        <div class="subject-badge">MAT</div>
+        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
+    </div>
+
+    <h3>Matematika</h3>
+    <p>Diferenciálne rovnice, rady, Fourierov rad a funkcie dvoch premenných.</p>
+
+    <div class="subject-progress-wrap">
+        <div class="progress-bar">
+            <div class="progress-fill js-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="card-link">Otvoriť predmet →</div>
+</a>
+<a href="subjects/ccna.html" class="subject-card" data-search="ccna siete packet tracer subnetting vlan routing" data-subject-id="ccna">
+    <div class="card-top">
+        <div class="subject-badge">NET</div>
+        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
+    </div>
+
+    <h3>Cisco / CCNA</h3>
+    <p>Subnetting, VLSM, VLAN, routing, Packet Tracer, DNS a DHCP.</p>
+
+    <div class="subject-progress-wrap">
+        <div class="progress-bar">
+            <div class="progress-fill js-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="card-link">Otvoriť predmet →</div>
+</a>
+<a href="subjects/linux.html" class="subject-card" data-search="linux essentials shell príkazy terminal quiz finalny test" data-subject-id="linux">
+    <div class="card-top">
+        <div class="subject-badge">LNX</div>
+        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
+    </div>
+
+    <h3>Linux Essentials</h3>
+    <p>Príkazový riadok, súbory, adresáre, práva, pipe, redirect a finálny kvíz.</p>
+
+    <div class="subject-progress-wrap">
+        <div class="progress-bar">
+            <div class="progress-fill js-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="card-link">Otvoriť predmet →</div>
+</a>
+<a href="subjects/java.html" class="subject-card" data-search="java oop dedičnosť polymorfizmus výnimky generiká" data-subject-id="java">
+    <div class="card-top">
+        <div class="subject-badge">JAVA</div>
+        <div class="progress-pill"><span class="js-progress-text">0%</span></div>
+    </div>
+
+    <h3>Informatika / Java</h3>
+    <p>OOP, dedičnosť, polymorfizmus, výnimky, generiká, UML a projekty.</p>
+
+    <div class="subject-progress-wrap">
+        <div class="progress-bar">
+            <div class="progress-fill js-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="card-link">Otvoriť predmet →</div>
+</a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

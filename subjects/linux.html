@@ -26,10 +26,9 @@
 
         <nav class="nav">
             <a href="../index.html">Domov</a>
-            <a href="../index.html#subjects">Predmety</a>
-            <a href="../index.html#latest">Najnovšie</a>
+            <a href="../subjects.html">Predmety</a>
             <a href="../admin.html">Admin</a>
-            <a href="../index.html#about">O stránke</a>
+            <a href="../support.html">Podpora</a>
         </nav>
     </div>
 </header>
@@ -39,7 +38,7 @@
         <div class="grid-bg"></div>
 
         <div class="container subject-hero-content">
-            <a href="../index.html#subjects" class="back-link">← Späť na predmety</a>
+            <a href="../subjects.html" class="back-link">← Späť na všetky predmety</a>
 
             <span class="badge">● Predmetová kapsula</span>
 
@@ -48,7 +47,7 @@
                 <span>ESSENTIALS</span>
             </h2>
 
-            <p>Poznámky, príkazy, štúdium a finálny kvíz k Linux Essentials.</p>
+            <p>Poznámky, štúdium príkazov a finálny kvíz k Linux Essentials.</p>
         </div>
     </section>
 
@@ -103,7 +102,7 @@
     <a href="#" class="material-link">Otvoriť →</a>
 </article>
     </div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="notes" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="notes" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
 <section id="study" class="content-block">
@@ -135,7 +134,7 @@
         <h3>Dokumentácia</h3>
         <div class="study-command-list"><div class="study-command"><code>man</code><p>Manuálová stránka.</p></div><div class="study-command"><code>man -k</code><p>Vyhľadávanie v manuáloch.</p></div><div class="study-command"><code>apropos</code><p>Hľadanie podľa popisu.</p></div><div class="study-command"><code>whatis</code><p>Krátky popis príkazu.</p></div><div class="study-command"><code>info</code><p>Info dokumentácia.</p></div></div>
     </article></div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="study" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="study" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
 <section id="materials" class="content-block">
@@ -155,12 +154,6 @@
     <p>Kompletné poznámky k Linux Essentials.</p>
     <a href="../files/linux/linux-poznamky.pdf" class="material-link">Otvoriť →</a>
 </article>
-        <article class="material-card filterable-material" data-type="tahak">
-    <span class="material-type">TAHAK</span>
-    <h3>Ťahák príkazov</h3>
-    <p>Rýchle zopakovanie najdôležitejších príkazov.</p>
-    <a href="../files/linux/prikazy.pdf" class="material-link">Otvoriť →</a>
-</article>
         <article class="material-card filterable-material" data-type="kviz">
     <span class="material-type">KVIZ</span>
     <h3>Finálny kvíz</h3>
@@ -168,7 +161,7 @@
     <a href="#questions" class="material-link">Otvoriť →</a>
 </article>
     </div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="materials" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="materials" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button></div>
 </section>
 
 <section id="questions" class="content-block">
@@ -257,9 +250,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Súbory na stiahnutie</h2>
     <div class="download-list">
         <a href="../files/linux/linux-poznamky.pdf" class="download-item"><strong>Linux Essentials poznámky PDF</strong><span>Stiahnuť →</span></a>
-        <a href="../files/linux/prikazy.pdf" class="download-item"><strong>Linux príkazy PDF</strong><span>Stiahnuť →</span></a>
     </div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="downloads" type="button">Označiť ako naučené</button></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="downloads" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button></div>
 </section>
 
                 </div>
