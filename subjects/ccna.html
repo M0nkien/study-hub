@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCNA-StHub</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="../index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="../index.html">Domov</a>
+            <a href="../index.html#subjects">Predmety</a>
+            <a href="../index.html#latest">Najnovšie</a>
+            <a href="../admin.html">Admin</a>
+            <a href="../index.html#about">O stránke</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="../index.html#subjects" class="back-link">← Späť na predmety</a>
+
+            <span class="badge">● Predmetová kapsula</span>
+
+            <h2>
+                CISCO<br>
+                <span>CCNA</span>
+            </h2>
+
+            <p>Subnetting, VLSM, VLAN, routing, Packet Tracer, DNS a DHCP.</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="subject-layout">
+
+                <aside class="subject-sidebar">
+                    <h3>Obsah predmetu</h3>
+                    <a href="#notes">Poznámky</a>
+<a href="#commands">Cisco príkazy</a>
+<a href="#study">Štúdium</a>
+<a href="#materials">Materiály</a>
+<a href="#questions">Kvíz</a>
+<a href="#downloads">Súbory</a>
+                </aside>
+
+                <div class="subject-main">
+                    <div id="subjectSearchMount"></div>
+                    <div class="learn-panel" data-progress-subject="ccna">
+    <h3>Progres učenia predmetu</h3>
+    <p>Označ si časti, ktoré už máš prejdené. Progres sa uloží v prehliadači.</p>
+
+    <div class="progress-bar">
+        <div class="progress-fill js-subject-progress-fill"></div>
+    </div>
+
+    <div class="learn-actions">
+        <strong class="js-subject-progress-text">0%</strong>
+    </div>
+</div>
+                    
+<section id="notes" class="content-block">
+    <p class="small-title">Poznámky</p>
+    <h2>CCNA – študijný obsah</h2>
+    <div class="material-grid"><article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Subnetting a VLSM</h3>
+    <p>Masky, hosty, broadcast, gateway a rozsahy.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article><article class="material-card filterable-material" data-type="zadanie">
+    <span class="material-type">ZADANIE</span>
+    <h3>Packet Tracer</h3>
+    <p>Cvičné konfigurácie zariadení.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article><article class="material-card filterable-material" data-type="pdf">
+    <span class="material-type">PDF</span>
+    <h3>Cisco príkazy</h3>
+    <p>Základné príkazy pre switch a router.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="notes" type="button">Označiť ako naučené</button></div>
+</section>
+
+
+<section id="commands" class="content-block">
+    <p class="small-title">Cisco príkazy</p>
+    <h2>Packet Tracer – kompletný prehľad konfigurácie</h2>
+
+    <p class="section-description">
+        Táto časť obsahuje najpoužívanejšie príkazy na konfiguráciu switchov a routerov
+        v Cisco Packet Traceri. Príkazy sú rozdelené podľa toho, čo chceš nastaviť.
+    </p>
+
+    <div class="example-list">
+
+        <div class="example-item">
+            <h3>1. Základný vstup do konfigurácie</h3>
+            <pre><code>enable
+configure terminal
+hostname S1
+
+end
+copy running-config startup-config</code></pre>
+            <p>
+                <strong>enable</strong> prepne do privilegovaného režimu.
+                <strong>configure terminal</strong> otvorí globálnu konfiguráciu.
+                <strong>copy running-config startup-config</strong> uloží konfiguráciu.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>2. Heslá, šifrovanie a banner</h3>
+            <pre><code>enable
+configure terminal
+
+enable secret class
+
+line console 0
+password cisco
+login
+exit
+
+line vty 0 15
+password cisco
+login
+exit
+
+service password-encryption
+banner motd #Unauthorized access is prohibited#
+
+end
+copy running-config startup-config</code></pre>
+            <p>
+                Toto je základné zabezpečenie zariadenia. Používa sa na switchi aj routeri.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>3. Nastavenie IP adresy na switchi – VLAN 1 / SVI</h3>
+            <pre><code>enable
+configure terminal
+
+interface vlan 1
+ip address 192.168.1.2 255.255.255.0
+no shutdown
+exit
+
+ip default-gateway 192.168.1.1
+
+end
+copy running-config startup-config</code></pre>
+            <p>
+                Switch potrebuje IP adresu na manažment. Default gateway sa nastaví, aby sa switch dal spravovať z inej siete.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>4. Nastavenie IP adresy na router rozhraní</h3>
+            <pre><code>enable
+configure terminal
+
+interface gigabitEthernet 0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+interface gigabitEthernet 0/1
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+
+end
+copy running-config startup-config</code></pre>
+            <p>
+                Na routeri sa IP adresa nastavuje priamo na fyzické rozhranie. Nezabudni na <strong>no shutdown</strong>.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>5. Popis rozhrania a vypnutie rozhrania</h3>
+            <pre><code>enable
+configure terminal
+
+interface fastEthernet 0/1
+description PC1 connection
+no shutdown
+exit
+
+interface fastEthernet 0/24
+description UNUSED PORT
+shutdown
+exit
+
+end</code></pre>
+            <p>
+                <strong>description</strong> pomáha pri orientácii. Nepoužívané porty je dobré vypnúť cez <strong>shutdown</strong>.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>6. Vytvorenie VLAN</h3>
+            <pre><code>enable
+configure terminal
+
+vlan 10
+name STUDENTI
+exit
+
+vlan 20
+name UCITELIA
+exit
+
+vlan 99
+name MANAGEMENT
+exit
+
+end
+show vlan brief</code></pre>
+            <p>
+                VLAN logicky rozdeľuje sieť. Príkaz <strong>show vlan brief</strong> overí vytvorené VLAN.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>7. Priradenie portu do VLAN – access port</h3>
+            <pre><code>enable
+configure terminal
+
+interface fastEthernet 0/1
+switchport mode access
+switchport access vlan 10
+exit
+
+interface fastEthernet 0/2
+switchport mode access
+switchport access vlan 20
+exit
+
+end
+show vlan brief</code></pre>
+            <p>
+                Access port patrí do jednej VLAN a typicky je k nemu pripojený počítač.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>8. Nastavenie trunk portu medzi switchmi</h3>
+            <pre><code>enable
+configure terminal
+
+interface gigabitEthernet 0/1
+switchport mode trunk
+switchport trunk native vlan 99
+switchport trunk allowed vlan 10,20,99
+exit
+
+end
+show interfaces trunk</code></pre>
+            <p>
+                Trunk prenáša viac VLAN naraz. Používa sa medzi switchmi alebo medzi switchom a routerom.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>9. Router-on-a-stick – inter-VLAN routing</h3>
+            <pre><code>enable
+configure terminal
+
+interface gigabitEthernet 0/0
+no shutdown
+exit
+
+interface gigabitEthernet 0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.99
+encapsulation dot1Q 99 native
+ip address 192.168.99.1 255.255.255.0
+exit
+
+end
+copy running-config startup-config</code></pre>
+            <p>
+                Router-on-a-stick umožní komunikáciu medzi VLAN cez subrozhrania routera.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>10. DHCP server na routeri</h3>
+            <pre><code>enable
+configure terminal
+
+ip dhcp excluded-address 192.168.10.1 192.168.10.20
+
+ip dhcp pool VLAN10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+dns-server 8.8.8.8
+exit
+
+ip dhcp pool VLAN20
+network 192.168.20.0 255.255.255.0
+default-router 192.168.20.1
+dns-server 8.8.8.8
+exit
+
+end
+show ip dhcp binding
+show ip dhcp pool</code></pre>
+            <p>
+                DHCP prideľuje IP adresy automaticky. Excluded-address vyhradí adresy, ktoré sa nemajú prideľovať klientom.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>11. Statická routa</h3>
+            <pre><code>enable
+configure terminal
+
+ip route 192.168.2.0 255.255.255.0 10.0.0.2
+
+end
+show ip route</code></pre>
+            <p>
+                Statická routa hovorí routeru, kadiaľ posielať pakety do cudzej siete.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>12. Default route</h3>
+            <pre><code>enable
+configure terminal
+
+ip route 0.0.0.0 0.0.0.0 10.0.0.2
+
+end
+show ip route</code></pre>
+            <p>
+                Default route sa používa, keď router nepozná konkrétnu cestu do cieľovej siete.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>13. RIP v2 – jednoduchý dynamický routing</h3>
+            <pre><code>enable
+configure terminal
+
+router rip
+version 2
+no auto-summary
+network 192.168.1.0
+network 192.168.2.0
+network 10.0.0.0
+exit
+
+end
+show ip protocols
+show ip route</code></pre>
+            <p>
+                RIP je jednoduchý dynamický smerovací protokol. V CCNA sa používa na precvičenie princípu routingu.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>14. OSPF základná konfigurácia</h3>
+            <pre><code>enable
+configure terminal
+
+router ospf 1
+router-id 1.1.1.1
+network 192.168.1.0 0.0.0.255 area 0
+network 10.0.0.0 0.0.0.3 area 0
+exit
+
+end
+show ip ospf neighbor
+show ip route</code></pre>
+            <p>
+                OSPF používa wildcard masku. Area 0 je chrbticová oblasť.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>15. SSH prístup na switch alebo router</h3>
+            <pre><code>enable
+configure terminal
+
+hostname S1
+ip domain-name studyhub.local
+username admin secret admin123
+
+crypto key generate rsa
+1024
+
+line vty 0 15
+transport input ssh
+login local
+exit
+
+ip ssh version 2
+
+end
+show ip ssh</code></pre>
+            <p>
+                SSH je bezpečnejší vzdialený prístup ako Telnet. Vyžaduje hostname, domain-name, používateľa a RSA kľúč.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>16. Port security na switchi</h3>
+            <pre><code>enable
+configure terminal
+
+interface fastEthernet 0/1
+switchport mode access
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+end
+show port-security
+show port-security interface fastEthernet 0/1</code></pre>
+            <p>
+                Port security obmedzí, ktoré MAC adresy sa môžu pripojiť na port.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>17. EtherChannel základ</h3>
+            <pre><code>enable
+configure terminal
+
+interface range gigabitEthernet 0/1 - 2
+channel-group 1 mode active
+exit
+
+interface port-channel 1
+switchport mode trunk
+exit
+
+end
+show etherchannel summary</code></pre>
+            <p>
+                EtherChannel spojí viac fyzických liniek do jednej logickej linky. Mode active používa LACP.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>18. Kontrolné show príkazy</h3>
+            <pre><code>show running-config
+show startup-config
+show ip interface brief
+show interfaces
+show interfaces trunk
+show vlan brief
+show mac address-table
+show ip route
+show cdp neighbors
+show cdp neighbors detail
+show version
+show clock</code></pre>
+            <p>
+                Tieto príkazy používaj na kontrolu konfigurácie, hľadanie chýb a overenie konektivity.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>19. Ping a traceroute</h3>
+            <pre><code>ping 192.168.1.1
+ping 8.8.8.8
+traceroute 192.168.2.10</code></pre>
+            <p>
+                Ping overí dostupnosť zariadenia. Traceroute ukáže cestu paketov k cieľu.
+            </p>
+        </div>
+
+        <div class="example-item">
+            <h3>20. Vymazanie konfigurácie a reload</h3>
+            <pre><code>enable
+
+erase startup-config
+reload
+
+delete vlan.dat
+reload</code></pre>
+            <p>
+                Používa sa pri resetovaní zariadenia v Packet Traceri. Na switchi treba často zmazať aj vlan.dat.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="commands" type="button">Označiť ako naučené</button></div>
+</section>
+
+
+<section id="study" class="content-block">
+    <p class="small-title">Štúdium</p>
+    <h2>Čo si zopakovať</h2>
+    <div class="example-list">
+        <div class="example-item"><h3>Teória</h3><p>Prejdi si základné pojmy a definície z predmetu.</p></div>
+        <div class="example-item"><h3>Praktické postupy</h3><p>Priprav si typické príklady, príkazy alebo vzorce.</p></div>
+        <div class="example-item"><h3>Kontrola</h3><p>Na konci si prejdi otázky, zadania a materiály na stiahnutie.</p></div>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="study" type="button">Označiť ako naučené</button></div>
+</section>
+
+<section id="materials" class="content-block">
+    <p class="small-title">Materiály</p>
+    <h2>Materiály podľa typu</h2>
+    <div class="filter-panel" data-filter-panel data-target=".filterable-material">
+    <button class="filter-btn active" data-filter="all" type="button">Všetko</button>
+    <button class="filter-btn" data-filter="pdf" type="button">PDF</button>
+    <button class="filter-btn" data-filter="kviz" type="button">Kvíz</button>
+    <button class="filter-btn" data-filter="zadanie" type="button">Zadanie</button>
+    <button class="filter-btn" data-filter="tahak" type="button">Ťahák</button>
+</div>
+    <div class="material-grid">
+        <article class="material-card filterable-material" data-type="pdf">
+    <span class="material-type">PDF</span>
+    <h3>CCNA poznámky PDF</h3>
+    <p>PDF materiály k predmetu.</p>
+    <a href="../files/ccna/poznamky.pdf" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>CCNA ťahák</h3>
+    <p>Rýchle zopakovanie pred testom.</p>
+    <a href="../files/ccna/tahak.pdf" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="zadanie">
+    <span class="material-type">ZADANIE</span>
+    <h3>CCNA zadania</h3>
+    <p>Zadania a postupy riešenia.</p>
+    <a href="#study" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="kviz">
+    <span class="material-type">KVIZ</span>
+    <h3>CCNA kvíz</h3>
+    <p>Miesto pre budúci kvíz.</p>
+    <a href="#questions" class="material-link">Otvoriť →</a>
+</article>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="materials" type="button">Označiť ako naučené</button></div>
+</section>
+
+<section id="questions" class="content-block">
+    <p class="small-title">Kvíz</p>
+    <h2>Kvíz bude doplnený</h2>
+    <p>Sem môžeš neskôr doplniť otázky cez admin panel alebo samostatný JS súbor.</p>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="quiz" type="button">Označiť ako naučené</button></div>
+</section>
+
+<section id="downloads" class="content-block">
+    <p class="small-title">Súbory</p>
+    <h2>Súbory na stiahnutie</h2>
+    <div class="download-list">
+        <a href="../files/ccna/poznamky.pdf" class="download-item"><strong>CCNA poznámky PDF</strong><span>Stiahnuť →</span></a>
+        <a href="../files/ccna/tahak.pdf" class="download-item"><strong>CCNA ťahák PDF</strong><span>Stiahnuť →</span></a>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="ccna" data-key="downloads" type="button">Označiť ako naučené</button></div>
+</section>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="../script.js"></script>
+<script src="../progress.js"></script>
+<script src="../subject-search.js"></script>
+<script src="../filters.js"></script>
+
+</body>
+</html>

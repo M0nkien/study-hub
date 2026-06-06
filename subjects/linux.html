@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Essentials | Study Hub</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="../index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="../index.html">Domov</a>
+            <a href="../index.html#subjects">Predmety</a>
+            <a href="../index.html#latest">Najnovšie</a>
+            <a href="../admin.html">Admin</a>
+            <a href="../index.html#about">O stránke</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="../index.html#subjects" class="back-link">← Späť na predmety</a>
+
+            <span class="badge">● Predmetová kapsula</span>
+
+            <h2>
+                LINUX<br>
+                <span>ESSENTIALS</span>
+            </h2>
+
+            <p>Poznámky, príkazy, štúdium a finálny kvíz k Linux Essentials.</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="subject-layout">
+
+                <aside class="subject-sidebar">
+                    <h3>Obsah predmetu</h3>
+                    <a href="#notes">Poznámky</a>
+<a href="#study">Štúdium</a>
+<a href="#materials">Materiály</a>
+<a href="#questions">Kvíz</a>
+<a href="#downloads">Súbory</a>
+                </aside>
+
+                <div class="subject-main">
+                    <div id="subjectSearchMount"></div>
+                    <div class="learn-panel" data-progress-subject="linux">
+    <h3>Progres učenia predmetu</h3>
+    <p>Označ si časti, ktoré už máš prejdené. Progres sa uloží v prehliadači.</p>
+
+    <div class="progress-bar">
+        <div class="progress-fill js-subject-progress-fill"></div>
+    </div>
+
+    <div class="learn-actions">
+        <strong class="js-subject-progress-text">0%</strong>
+    </div>
+</div>
+                    
+<section id="notes" class="content-block">
+    <p class="small-title">Poznámky</p>
+    <h2>Linux Essentials – prehľad učiva</h2>
+    <div class="material-grid">
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Operačný systém a distribúcie</h3>
+    <p>Kernel, distribúcia, release cycle, desktop/server použitie a open-source model.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Shell a terminál</h3>
+    <p>Bash, CLI, premenné prostredia, PATH, history, echo a spúšťanie príkazov.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Používatelia a práva</h3>
+    <p>/etc/passwd, /etc/shadow, UID, GID, chmod, chown, setuid, setgid a sticky bit.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="notes" type="button">Označiť ako naučené</button></div>
+</section>
+
+<section id="study" class="content-block">
+    <p class="small-title">Štúdium</p>
+    <h2>Vysvetlenie príkazov a pojmov</h2>
+    <p class="section-description">Príkazy sú rozdelené podľa tém a pri každom je krátke vysvetlenie.</p>
+    <div class="study-grid"><article class="study-card">
+        <span class="study-tag">Navigácia</span>
+        <h3>Práca s adresármi</h3>
+        <div class="study-command-list"><div class="study-command"><code>pwd</code><p>Zobrazí aktuálny pracovný adresár.</p></div><div class="study-command"><code>ls</code><p>Vypíše obsah adresára.</p></div><div class="study-command"><code>ls -la</code><p>Podrobný výpis vrátane skrytých súborov.</p></div><div class="study-command"><code>cd ..</code><p>Presun o adresár vyššie.</p></div><div class="study-command"><code>~</code><p>Domovský adresár používateľa.</p></div></div>
+    </article><article class="study-card">
+        <span class="study-tag">Súbory</span>
+        <h3>Práca so súbormi</h3>
+        <div class="study-command-list"><div class="study-command"><code>touch</code><p>Vytvorí prázdny súbor alebo zmení čas úpravy.</p></div><div class="study-command"><code>mkdir</code><p>Vytvorí adresár.</p></div><div class="study-command"><code>cp</code><p>Kopíruje súbor/adresár.</p></div><div class="study-command"><code>mv</code><p>Presúva alebo premenuje.</p></div><div class="study-command"><code>rm -i</code><p>Maže súbor s potvrdením.</p></div></div>
+    </article><article class="study-card">
+        <span class="study-tag">Text</span>
+        <h3>Filtrovanie textu</h3>
+        <div class="study-command-list"><div class="study-command"><code>cat</code><p>Vypíše celý súbor.</p></div><div class="study-command"><code>less</code><p>Prehliadanie dlhého súboru.</p></div><div class="study-command"><code>grep</code><p>Hľadá text alebo regulárny výraz.</p></div><div class="study-command"><code>sort</code><p>Zoradí riadky.</p></div><div class="study-command"><code>uniq</code><p>Odstráni duplicitné susedné riadky.</p></div></div>
+    </article><article class="study-card">
+        <span class="study-tag">Práva</span>
+        <h3>Používatelia a oprávnenia</h3>
+        <div class="study-command-list"><div class="study-command"><code>whoami</code><p>Aktuálny používateľ.</p></div><div class="study-command"><code>id</code><p>UID, GID a skupiny.</p></div><div class="study-command"><code>chmod 755</code><p>Nastaví práva v oktálovom zápise.</p></div><div class="study-command"><code>chown</code><p>Zmení vlastníka/skupinu.</p></div><div class="study-command"><code>sticky bit</code><p>Chráni cudzie súbory v spoločnom adresári.</p></div></div>
+    </article><article class="study-card">
+        <span class="study-tag">Systém</span>
+        <h3>Procesy a kompresia</h3>
+        <div class="study-command-list"><div class="study-command"><code>ps -A</code><p>Všetky procesy.</p></div><div class="study-command"><code>ps aux</code><p>Podrobné procesy.</p></div><div class="study-command"><code>gzip</code><p>Kompresia súboru.</p></div><div class="study-command"><code>zip</code><p>ZIP archív.</p></div><div class="study-command"><code>tar -czf</code><p>Vytvorí tar.gz archív.</p></div></div>
+    </article><article class="study-card">
+        <span class="study-tag">Pomoc</span>
+        <h3>Dokumentácia</h3>
+        <div class="study-command-list"><div class="study-command"><code>man</code><p>Manuálová stránka.</p></div><div class="study-command"><code>man -k</code><p>Vyhľadávanie v manuáloch.</p></div><div class="study-command"><code>apropos</code><p>Hľadanie podľa popisu.</p></div><div class="study-command"><code>whatis</code><p>Krátky popis príkazu.</p></div><div class="study-command"><code>info</code><p>Info dokumentácia.</p></div></div>
+    </article></div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="study" type="button">Označiť ako naučené</button></div>
+</section>
+
+<section id="materials" class="content-block">
+    <p class="small-title">Materiály</p>
+    <h2>Materiály na učenie</h2>
+    <div class="filter-panel" data-filter-panel data-target=".filterable-material">
+    <button class="filter-btn active" data-filter="all" type="button">Všetko</button>
+    <button class="filter-btn" data-filter="pdf" type="button">PDF</button>
+    <button class="filter-btn" data-filter="kviz" type="button">Kvíz</button>
+    <button class="filter-btn" data-filter="zadanie" type="button">Zadanie</button>
+    <button class="filter-btn" data-filter="tahak" type="button">Ťahák</button>
+</div>
+    <div class="material-grid">
+        <article class="material-card filterable-material" data-type="pdf">
+    <span class="material-type">PDF</span>
+    <h3>Linux poznámky PDF</h3>
+    <p>Kompletné poznámky k Linux Essentials.</p>
+    <a href="../files/linux/linux-poznamky.pdf" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Ťahák príkazov</h3>
+    <p>Rýchle zopakovanie najdôležitejších príkazov.</p>
+    <a href="../files/linux/prikazy.pdf" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="kviz">
+    <span class="material-type">KVIZ</span>
+    <h3>Finálny kvíz</h3>
+    <p>Otázky z finálnych testov.</p>
+    <a href="#questions" class="material-link">Otvoriť →</a>
+</article>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="materials" type="button">Označiť ako naučené</button></div>
+</section>
+
+<section id="questions" class="content-block">
+    <p class="small-title">Kvíz</p>
+    <h2>Linux Essentials kvíz na finálny test</h2>
+
+    <p class="section-description">
+        Vyber si režim: cvičenie, skúška bez odpovedí alebo iba nesprávne otázky.
+    </p>
+
+    <div class="quiz-panel">
+        <div class="quiz-mode-panel">
+            <div class="quiz-field">
+                <label for="linuxQuizSet">Test</label>
+                <select id="linuxQuizSet">
+                    <option value="all">Všetky otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="linuxQuizMode">Režim</label>
+                <select id="linuxQuizMode">
+                    <option value="practice">Cvičenie – ukáže vysvetlenie</option>
+                    <option value="exam">Skúška – bez ukázania odpovede</option>
+                    <option value="wrong">Iba nesprávne otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="linuxQuizShuffle">Miešanie</label>
+                <select id="linuxQuizShuffle">
+                    <option value="both">Otázky aj odpovede</option>
+                    <option value="questions">Iba otázky</option>
+                    <option value="answers">Iba odpovede</option>
+                    <option value="none">Nemixovať</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label>&nbsp;</label>
+                <button id="linuxQuizStart" class="quiz-btn primary" type="button">Spustiť</button>
+            </div>
+        </div>
+
+        <div class="quiz-top">
+            <div>
+                <span class="quiz-label">Otázka</span>
+                <strong><span id="linuxQuizCurrent">1</span> / <span id="linuxQuizTotal">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Skóre</span>
+                <strong><span id="linuxQuizScore">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Najlepší výsledok</span>
+                <strong><span id="linuxQuizBest">0</span></strong>
+            </div>
+        </div>
+
+        <div id="linuxQuizBox" class="quiz-box"></div>
+        <div id="linuxQuizFeedback" class="quiz-feedback hidden"></div>
+
+        <div class="quiz-actions">
+            <button id="linuxQuizCheck" class="quiz-btn primary" type="button">Skontrolovať odpoveď</button>
+            <button id="linuxQuizPrev" class="quiz-btn ghost" type="button">← Predošlá</button>
+            <button id="linuxQuizNext" class="quiz-btn secondary" type="button">Ďalšia otázka →</button>
+            <button id="linuxQuizRestart" class="quiz-btn ghost" type="button">Spustiť odznova</button>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    createQuiz({
+        quizData: linuxQuizData,
+        prefix: "linuxQuiz",
+        storagePrefix: "linuxQuiz"
+    });
+});
+</script>
+
+<section id="downloads" class="content-block">
+    <p class="small-title">Súbory</p>
+    <h2>Súbory na stiahnutie</h2>
+    <div class="download-list">
+        <a href="../files/linux/linux-poznamky.pdf" class="download-item"><strong>Linux Essentials poznámky PDF</strong><span>Stiahnuť →</span></a>
+        <a href="../files/linux/prikazy.pdf" class="download-item"><strong>Linux príkazy PDF</strong><span>Stiahnuť →</span></a>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="downloads" type="button">Označiť ako naučené</button></div>
+</section>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="../script.js"></script>
+<script src="../progress.js"></script>
+<script src="../subject-search.js"></script>
+<script src="../filters.js"></script>
+<script src="../quiz-linux.js"></script>
+<script src="../quiz-engine.js"></script>
+</body>
+</html>

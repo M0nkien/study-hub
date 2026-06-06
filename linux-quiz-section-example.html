@@ -1,0 +1,94 @@
+<!-- Toto vlož namiesto pôvodnej sekcie kvízu alebo uprav jej vnútro -->
+<section id="questions" class="content-block">
+    <p class="small-title">Finálny kvíz</p>
+    <h2>Linux Essentials kvíz</h2>
+
+    <p class="section-description">
+        Vyber si režim: cvičenie, skúška alebo iba nesprávne otázky.
+    </p>
+
+    <div class="quiz-panel">
+        <div class="quiz-mode-panel">
+            <div class="quiz-field">
+                <label for="linuxQuizSet">Test</label>
+                <select id="linuxQuizSet">
+                    <option value="all">Všetky otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="linuxQuizMode">Režim</label>
+                <select id="linuxQuizMode">
+                    <option value="practice">Cvičenie – ukáže vysvetlenie</option>
+                    <option value="exam">Skúška – bez ukázania odpovede</option>
+                    <option value="wrong">Iba nesprávne otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="linuxShuffleMode">Miešanie</label>
+                <select id="linuxShuffleMode">
+                    <option value="both">Otázky aj odpovede</option>
+                    <option value="questions">Iba otázky</option>
+                    <option value="answers">Iba odpovede</option>
+                    <option value="none">Nemixovať</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label>&nbsp;</label>
+                <button id="linuxStartQuizBtn" class="quiz-btn primary">Spustiť</button>
+            </div>
+        </div>
+
+        <div class="quiz-top">
+            <div>
+                <span class="quiz-label">Otázka</span>
+                <strong><span id="linuxQuizCurrent">1</span> / <span id="linuxQuizTotal">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Skóre</span>
+                <strong><span id="linuxQuizScore">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Najlepší výsledok</span>
+                <strong><span id="linuxQuizBest">0</span></strong>
+            </div>
+        </div>
+
+        <div id="linuxQuizBox" class="quiz-box"></div>
+        <div id="linuxQuizFeedback" class="quiz-feedback hidden"></div>
+
+        <div class="quiz-actions">
+            <button id="linuxCheckAnswerBtn" class="quiz-btn primary">Skontrolovať odpoveď</button>
+            <button id="linuxPrevQuestionBtn" class="quiz-btn ghost">← Predošlá</button>
+            <button id="linuxNextQuestionBtn" class="quiz-btn secondary">Ďalšia otázka →</button>
+            <button id="linuxRestartQuizBtn" class="quiz-btn ghost">Spustiť odznova</button>
+        </div>
+    </div>
+</section>
+
+<script src="../quiz-linux.js"></script>
+<script src="../quiz-enhanced-template.js"></script>
+<script>
+    createEnhancedQuiz({
+        quizData: linuxQuizData,
+        storagePrefix: "linuxQuiz",
+        setSelectId: "linuxQuizSet",
+        modeSelectId: "linuxQuizMode",
+        shuffleSelectId: "linuxShuffleMode",
+        startBtnId: "linuxStartQuizBtn",
+        boxId: "linuxQuizBox",
+        feedbackId: "linuxQuizFeedback",
+        currentId: "linuxQuizCurrent",
+        totalId: "linuxQuizTotal",
+        scoreId: "linuxQuizScore",
+        bestId: "linuxQuizBest",
+        checkBtnId: "linuxCheckAnswerBtn",
+        nextBtnId: "linuxNextQuestionBtn",
+        prevBtnId: "linuxPrevQuestionBtn",
+        restartBtnId: "linuxRestartQuizBtn"
+    });
+</script>

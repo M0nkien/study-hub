@@ -1,0 +1,266 @@
+/* =========================================================
+   LINUX PAGE BLUE THEME + PREHĽADNÉ ŠTÚDIUM
+   Skopíruj na úplný koniec hlavného style.css.
+   ========================================================= */
+
+.linux-page {
+    --linux-blue: #65d4f2;
+    --linux-blue-soft: rgba(101, 212, 242, 0.12);
+    --linux-blue-border: rgba(101, 212, 242, 0.34);
+}
+
+.linux-page .badge,
+.linux-page .small-title,
+.linux-page .nav a:hover,
+.linux-page .back-link,
+.linux-page .subject-hero h2 span,
+.linux-page .material-type,
+.linux-page .material-link,
+.linux-page td a,
+.linux-page .download-item span,
+.linux-page .quiz-top strong,
+.linux-page .quiz-label,
+.linux-page .linux-question-meta,
+.linux-page .study-tag {
+    color: var(--linux-blue) !important;
+}
+
+.linux-page .logo-icon,
+.linux-page .subject-code,
+.linux-page .btn.primary,
+.linux-page .quiz-btn.primary,
+.linux-page .done-btn.done {
+    background: var(--linux-blue) !important;
+    color: #020617 !important;
+    box-shadow: 0 0 30px rgba(101, 212, 242, 0.24);
+}
+
+.linux-page .badge,
+.linux-page .linux-subject-badge {
+    background: var(--linux-blue-soft) !important;
+    border-color: var(--linux-blue-border) !important;
+    color: var(--linux-blue) !important;
+}
+
+.linux-page .subject-sidebar a:hover,
+.linux-page .btn.secondary:hover {
+    color: var(--linux-blue) !important;
+    border-color: var(--linux-blue) !important;
+}
+
+.linux-page .subject-card:hover,
+.linux-page .search-box input:focus,
+.linux-page .quiz-option:hover,
+.linux-page .quiz-option.correct {
+    border-color: var(--linux-blue-border) !important;
+}
+
+.linux-page .quiz-option span,
+.linux-page .progress-pill {
+    background: var(--linux-blue-soft) !important;
+    border-color: var(--linux-blue-border) !important;
+    color: var(--linux-blue) !important;
+}
+
+.linux-page .quiz-option.correct,
+.linux-page .quiz-feedback.success {
+    background: rgba(101, 212, 242, 0.10) !important;
+    border-color: rgba(101, 212, 242, 0.34) !important;
+    color: #d8f7ff !important;
+}
+
+.linux-page .hero h2 span,
+.linux-page .subject-hero h2 span {
+    color: var(--linux-blue) !important;
+}
+
+/* Kvíz výber */
+.linux-quiz-controls {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr auto;
+    gap: 18px;
+    align-items: end;
+    margin-bottom: 26px;
+    padding: 20px;
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at top left, rgba(101, 212, 242, 0.12), transparent 38%),
+        #020617;
+    border: 1px solid rgba(101, 212, 242, 0.20);
+}
+
+.linux-quiz-field label {
+    display: block;
+    color: var(--linux-blue);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    margin-bottom: 9px;
+}
+
+.linux-quiz-field select {
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 46px 13px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(101, 212, 242, 0.28);
+    background-color: #0b1220;
+    color: #ffffff;
+    font-weight: 800;
+    outline: none;
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #65d4f2 50%),
+        linear-gradient(135deg, #65d4f2 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) 21px,
+        calc(100% - 15px) 21px;
+    background-size: 7px 7px, 7px 7px;
+    background-repeat: no-repeat;
+}
+
+.linux-quiz-field select:focus {
+    border-color: var(--linux-blue);
+    box-shadow: 0 0 0 4px rgba(101, 212, 242, 0.10);
+}
+
+.linux-quiz-field .quiz-btn {
+    min-height: 48px;
+    background: var(--linux-blue) !important;
+    color: #020617 !important;
+}
+
+/* Štúdium */
+.linux-study-section {
+    overflow: hidden;
+}
+
+.study-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 26px;
+}
+
+.study-toc a {
+    text-decoration: none;
+    color: var(--linux-blue);
+    background: rgba(101, 212, 242, 0.08);
+    border: 1px solid rgba(101, 212, 242, 0.22);
+    border-radius: 999px;
+    padding: 9px 13px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+}
+
+.study-toc a:hover {
+    background: rgba(101, 212, 242, 0.16);
+}
+
+.study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.study-card {
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.08), transparent 36%),
+        #070c18;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 24px;
+    padding: 22px;
+    min-width: 0;
+}
+
+.study-card-head {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+}
+
+.study-tag {
+    display: inline-block;
+    background: rgba(101, 212, 242, 0.10);
+    border: 1px solid rgba(101, 212, 242, 0.22);
+    color: var(--linux-blue);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 11px;
+}
+
+.study-card h3 {
+    font-size: 22px;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.study-command-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.study-command {
+    display: grid;
+    grid-template-columns: minmax(130px, 185px) 1fr;
+    gap: 14px;
+    align-items: start;
+    background: #020617;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 16px;
+    padding: 14px;
+    min-width: 0;
+}
+
+.study-command code {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: rgba(101, 212, 242, 0.10);
+    border: 1px solid rgba(101, 212, 242, 0.22);
+    color: #d8f7ff;
+    border-radius: 10px;
+    padding: 7px 9px;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.study-command p {
+    color: #cbd5e1;
+    line-height: 1.65;
+    font-weight: 650;
+    margin: 0;
+}
+
+@media (max-width: 1050px) {
+    .study-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+    .linux-quiz-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .linux-quiz-field .quiz-btn {
+        width: 100%;
+    }
+
+    .study-command {
+        grid-template-columns: 1fr;
+    }
+
+    .study-card {
+        padding: 18px;
+    }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-StHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+
+<header class="header">
+    <div class="container header-content">
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="index.html">Domov</a>
+            <a href="index.html#subjects">Predmety</a>
+            <a href="index.html#latest">Najnovšie</a>
+            <a href="admin.html">Admin</a>
+            <a href="index.html#about">O stránke</a>
+        </nav>
+    </div>
+</header>
+
+<section id="adminLogin" class="admin-login">
+    <div class="admin-login-card">
+        <span class="badge">● Zabezpečený vstup</span>
+        <h2>Admin prístup</h2>
+        <p>Zadaj heslo, aby si mohol upravovať lokálne materiály a otázky.</p>
+
+        <div class="admin-login-form">
+            <input id="adminPasswordInput" type="password" placeholder="Heslo">
+            <button id="adminLoginBtn" class="btn primary" type="button">Prihlásiť</button>
+        </div>
+
+        <p id="adminLoginError" class="admin-login-error hidden">Nesprávne heslo.</p>
+        <p class="admin-login-note">Predvolené heslo zmeníš v súbore <strong>admin.js</strong>.</p>
+    </div>
+</section>
+
+<main id="adminContent" class="hidden">
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+        <div class="container subject-hero-content">
+            <a href="index.html" class="back-link">← Späť na domov</a>
+            <span class="badge">● Lokálny admin panel</span>
+            <h2>ADMIN<br><span>PANEL</span></h2>
+            <p>Tu si vieš pripraviť nové materiály, otázky alebo zadania. Zatiaľ sa všetko ukladá lokálne do prehliadača cez localStorage.</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="admin-grid">
+                <div class="admin-card">
+                    <p class="small-title">Materiál</p>
+                    <h2>Pridať poznámku alebo materiál</h2>
+                    <form id="materialForm" class="admin-form">
+                        <label>Predmet</label>
+                        <select id="materialSubject"><option>Linux</option><option>MSD</option><option>CCNA</option><option>VVS</option><option>Matematika</option><option>Java</option></select>
+                        <label>Názov</label>
+                        <input id="materialTitle" placeholder="Napr. chmod a práva">
+                        <label>Typ</label>
+                        <select id="materialType"><option>pdf</option><option>kviz</option><option>zadanie</option><option>tahak</option></select>
+                        <label>Popis</label>
+                        <textarea id="materialDescription" placeholder="Krátky popis materiálu..."></textarea>
+                        <button class="btn primary" type="submit">Uložiť materiál</button>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <p class="small-title">Kvíz</p>
+                    <h2>Pridať otázku</h2>
+                    <form id="questionForm" class="admin-form">
+                        <label>Predmet</label>
+                        <select id="questionSubject"><option>Linux</option><option>MSD</option><option>CCNA</option><option>VVS</option><option>Matematika</option><option>Java</option></select>
+                        <label>Otázka</label>
+                        <textarea id="questionText" placeholder="Text otázky..."></textarea>
+                        <label>Odpovede</label>
+                        <textarea id="questionAnswers" placeholder="Každú odpoveď daj na nový riadok. Správnu označ hviezdičkou:
+*Správna odpoveď
+Nesprávna odpoveď"></textarea>
+                        <label>Vysvetlenie</label>
+                        <textarea id="questionExplanation" placeholder="Vysvetlenie správnej odpovede..."></textarea>
+                        <button class="btn primary" type="submit">Uložiť otázku</button>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <p class="small-title">Export</p>
+                    <h2>Uložené dáta</h2>
+                    <p class="section-description">Dáta sú uložené v localStorage. Export si vieš skopírovať do súborov.</p>
+                    <button id="exportBtn" class="btn primary">Zobraziť export</button>
+                    <button id="clearBtn" class="btn secondary" type="button">Vymazať lokálne dáta</button>
+                    <pre id="adminOutput" class="admin-output"></pre>
+                </div>
+
+                <div class="admin-card">
+                    <p class="small-title">Ďalší krok</p>
+                    <h2>Firebase</h2>
+                    <p class="section-description">Neskôr sa dá admin panel napojiť na Firebase, aby sa materiály menili online bez ručnej úpravy HTML.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="script.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

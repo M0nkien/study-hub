@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSD-StHub</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="../index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="../index.html">Domov</a>
+            <a href="../index.html#subjects">Predmety</a>
+            <a href="../index.html#latest">Najnovšie</a>
+            <a href="../admin.html">Admin</a>
+            <a href="../index.html#about">O stránke</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="../index.html#subjects" class="back-link">← Späť na predmety</a>
+
+            <span class="badge">● Predmetová kapsula</span>
+
+            <h2>
+                METÓDY<br>
+                <span>SPRACOVANIA DÁT</span>
+            </h2>
+
+            <p>Excel, časové rady, projekcie, Fourierova transformácia, pravdepodobnosť a rozdelenia.</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="subject-layout">
+
+                <aside class="subject-sidebar">
+                    <h3>Obsah predmetu</h3>
+                    <a href="#notes">Poznámky</a>
+<a href="#examples">Príklady</a>
+<a href="#assignments">Zadania</a>
+<a href="#materials">Materiály</a>
+<a href="#questions">Kvíz</a>
+<a href="#downloads">Súbory</a>
+                </aside>
+
+                <div class="subject-main">
+                    <div id="subjectSearchMount"></div>
+                    <div class="learn-panel" data-progress-subject="msd">
+    <h3>Progres učenia predmetu</h3>
+    <p>Označ si časti, ktoré už máš prejdené. Progres sa uloží v prehliadači.</p>
+
+    <div class="progress-bar">
+        <div class="progress-fill js-subject-progress-fill"></div>
+    </div>
+
+    <div class="learn-actions">
+        <strong class="js-subject-progress-text">0%</strong>
+    </div>
+</div>
+                    
+<section id="notes" class="content-block">
+    <p class="small-title">Poznámky</p>
+    <h2>Základné témy MSD</h2>
+    <div class="material-grid">
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Projekcia do bázy</h3>
+    <p>Skalárne súčiny, normálne rovnice, B2/B3 a chyba aproximácie.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Fourierova transformácia</h3>
+    <p>Trend, DFT, amplitúdy a dominantné frekvencie.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Pravdepodobnosť</h3>
+    <p>Diskrétne a spojité rozdelenia, momentová metóda a vierohodnosť.</p>
+    <a href="#" class="material-link">Otvoriť →</a>
+</article>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="msd" data-key="notes" type="button">Označiť ako naučené</button></div>
+</section>
+
+
+<section id="examples" class="content-block">
+    <p class="small-title">Vzorce a typické výpočty</p>
+    <h2>MSD – vzorce, postupy a Excel výpočty</h2>
+
+    <p class="section-description">
+        Táto časť slúži ako veľký ťahák na výpočty. Nájdeš tu vzorce potrebné na projekcie,
+        aproximácie, regresiu, Fourierovu transformáciu, pravdepodobnosť, momentovú metódu
+        a spojité rozdelenia.
+    </p>
+
+    <div class="example-list">
+
+        <div class="example-item">
+            <h3>1. Skalárny súčin a norma vektora</h3>
+            <p>
+                Skalárny súčin sa používa pri projekciách, normálnych rovniciach a pri výpočte chyby.
+                Pre vektory x a y s rovnakou dĺžkou platí:
+            </p>
+            <pre><code>&lt;x, y&gt; = x₁y₁ + x₂y₂ + ... + xₙyₙ
+
+||x|| = √&lt;x, x&gt; = √(x₁² + x₂² + ... + xₙ²)
+
+Excel:
+=SUMPRODUCT(A2:A101;B2:B101)
+=SQRT(SUMSQ(A2:A101))</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>2. Projekcia na jeden bázový vektor</h3>
+            <p>
+                Ak máme dáta y a jeden bázový vektor b, hľadáme aproximáciu v tvare ŷ = c · b.
+                Koeficient c sa vypočíta zo skalárnych súčinov.
+            </p>
+            <pre><code>ŷ = c · b
+
+c = &lt;y, b&gt; / &lt;b, b&gt;
+
+chyba = ||y - ŷ|| = √Σ(yᵢ - ŷᵢ)²
+
+Excel:
+c = SUMPRODUCT(y;b) / SUMPRODUCT(b;b)
+aproximácia = c*b
+reziduum = y - aproximácia
+chyba = SQRT(SUMSQ(reziduá))</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>3. Báza B2 – lineárna aproximácia</h3>
+            <p>
+                Báza B2 je tvorená konštantným a lineárnym vektorom. Výsledkom je lineárny model,
+                teda priamka v tvare c₀ + c₁t.
+            </p>
+            <pre><code>B₂ = ((1,1,1,...), (1,2,3,...))
+
+Model:
+ŷ(t) = c₀ + c₁t
+
+Matica X:
+stĺpec 1 = 1
+stĺpec 2 = t
+
+Koeficienty:
+c = (XᵀX)^(-1)Xᵀy
+
+Excel:
+=MMULT(TRANSPOSE(X);X)
+=MMULT(TRANSPOSE(X);y)
+=MMULT(MINVERSE(XᵀX);Xᵀy)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>4. Báza B3 – kvadratická aproximácia</h3>
+            <p>
+                Báza B3 obsahuje konštantný, lineárny a kvadratický člen. Model vie lepšie zachytiť zakrivenie dát.
+            </p>
+            <pre><code>B₃ = ((1,1,1,...), (1,2,3,...), (1,4,9,16,...))
+
+Model:
+ŷ(t) = c₀ + c₁t + c₂t²
+
+Matica X:
+stĺpec 1 = 1
+stĺpec 2 = t
+stĺpec 3 = t²
+
+Lepšia aproximácia:
+tá, ktorá má menšiu chybu ||y - ŷ||</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>5. Regresia všeobecným modelom</h3>
+            <p>
+                Pri úlohe s modelom c₀ + c₁√t + c₂/t + c₃tln(t) sa postupuje rovnako ako pri B2/B3,
+                len sa zmenia stĺpce matice X.
+            </p>
+            <pre><code>Model:
+y(t) = c₀ + c₁√t + c₂/t + c₃tln(t)
+
+Bázové funkcie:
+b₁(t) = 1
+b₂(t) = √t
+b₃(t) = 1/t
+b₄(t) = tln(t)
+
+Excel stĺpce:
+=1
+=SQRT(t)
+=1/t
+=t*LN(t)
+
+Koeficienty:
+c = (XᵀX)^(-1)Xᵀy</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>6. Trojparametrický model kĺzavých súčtov</h3>
+            <p>
+                Aktuálna hodnota sa vyjadruje pomocou troch predchádzajúcich hodnôt. Je to typ autoregresného modelu.
+            </p>
+            <pre><code>fₖ = c₀fₖ₋₃ + c₁fₖ₋₂ + c₂fₖ₋₁
+
+Matica X:
+stĺpec 1 = fₖ₋₃
+stĺpec 2 = fₖ₋₂
+stĺpec 3 = fₖ₋₁
+
+Cieľový vektor y:
+aktuálne hodnoty fₖ
+
+Koeficienty:
+c = (XᵀX)^(-1)Xᵀy</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>7. Odstránenie lineárneho trendu</h3>
+            <p>
+                Trend je dlhodobý rast alebo pokles dát. Pred Fourierovou transformáciou sa často odstraňuje,
+                aby sa analyzovali hlavne oscilácie.
+            </p>
+            <pre><code>Lineárny trend:
+trend(t) = c₀ + c₁t
+
+Očistené dáta:
+z(t) = y(t) - trend(t)
+
+Koeficienty trendu:
+vypočítame ako projekciu do bázy B2
+
+Excel:
+trend = c0 + c1*t
+očistené = pôvodná_hodnota - trend</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>8. Diskrétna Fourierova transformácia</h3>
+            <p>
+                DFT rozloží očistené dáta na frekvenčné zložky. Pre každú frekvenciu sa počíta reálna časť,
+                imaginárna časť a amplitúda.
+            </p>
+            <pre><code>Pre dáta z₀, z₁, ..., zₙ₋₁:
+
+Re(Hₖ) = Σ zⱼ cos(2πkj/n)
+Im(Hₖ) = -Σ zⱼ sin(2πkj/n)
+
+Amplitúda:
+Aₖ = √(Re(Hₖ)² + Im(Hₖ)²)
+
+Dominantné frekvencie:
+tie, ktoré majú najväčšiu amplitúdu</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>9. Empirická pravdepodobnosť</h3>
+            <p>
+                Pravdepodobnosť zo vzorky dát sa počíta ako relatívna početnosť.
+            </p>
+            <pre><code>P(X = xᵢ) = počet výskytov xᵢ / celkový počet hodnôt
+
+Excel:
+=COUNTIF(oblasť;hodnota)/COUNT(oblasť)
+
+Pravdepodobnosť, že hodnota je väčšia ako priemer:
+=COUNTIF(A:A;">"&AVERAGE(A:A))/COUNT(A:A)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>10. Transformácia reálnych dát na hodnoty 0 až 9</h3>
+            <p>
+                Táto transformácia sa používa v úlohách Z8 a Z9, aby sa z reálnych dát vytvorili diskrétne hodnoty.
+            </p>
+            <pre><code>hmin = minimum dát
+hmax = maximum dát
+
+Nová hodnota:
+x = floor( 10 · (h - hmin) / (0,001 + hmax - hmin) )
+
+Excel:
+=ROUNDDOWN(10*(A2-$C$2)/(0,001+$C$3-$C$2);0)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>11. Charakteristiky diskrétnej náhodnej premennej</h3>
+            <p>
+                Po zostavení tabuľky pravdepodobností sa počítajú základné charakteristiky.
+            </p>
+            <pre><code>Stredná hodnota:
+E(X) = Σ xᵢ · P(X = xᵢ)
+
+Rozptyl:
+D(X) = Σ (xᵢ - E(X))² · P(X = xᵢ)
+
+Smerodajná odchýlka:
+σX = √D(X)
+
+Modus:
+najčastejšia hodnota
+
+Medián:
+prostredná hodnota po zoradení dát</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>12. Binomické rozdelenie Bi(n,p)</h3>
+            <p>
+                Používa sa v Z9 ako kandidát pre vzorku V1. Parametre sa odhadujú momentovou metódou.
+            </p>
+            <pre><code>Stredná hodnota:
+E(X) = n · p
+
+Rozptyl:
+D(X) = n · p · (1 - p)
+
+Momentová metóda:
+m = výberový priemer
+s² = výberový rozptyl
+
+p = 1 - s²/m
+n = m/p
+
+Pravdepodobnosť:
+P(X = k) = C(n,k)pᵏ(1-p)ⁿ⁻ᵏ
+
+Excel:
+=BINOM.DIST(k;n;p;FALSE)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>13. Poissonovo rozdelenie Po(λ)</h3>
+            <p>
+                Ak pri binomickom rozdelení vyjdú nevhodné parametre, v úlohe sa používa Poissonovo rozdelenie.
+            </p>
+            <pre><code>E(X) = λ
+D(X) = λ
+
+Momentový odhad:
+λ = m
+
+Pravdepodobnosť:
+P(X = k) = e^(-λ)λᵏ/k!
+
+Excel:
+=POISSON.DIST(k;lambda;FALSE)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>14. Geometrické rozdelenie Ge(p)</h3>
+            <p>
+                V Z9 sa geometrické rozdelenie používa pre vzorku V2, ktorá má hodnoty 1 až 10.
+            </p>
+            <pre><code>Pre verziu s hodnotami 1,2,3,...
+
+E(X) = 1/p
+
+Momentový odhad:
+p = 1/m
+
+Pravdepodobnosť:
+P(X = k) = (1-p)ᵏ⁻¹p
+
+Excel:
+=GEOM.DIST(k;p;FALSE)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>15. Rovnomerné diskrétne rozdelenie R(10)</h3>
+            <p>
+                Tretím kandidátom v Z9 je rovnomerné rozdelenie na hodnotách 1 až 10.
+            </p>
+            <pre><code>Hodnoty:
+1, 2, ..., 10
+
+Pravdepodobnosť:
+P(X = x) = 1/10
+
+Log vierohodnosť:
+log(L) = Σ ln(P(X = xᵢ))</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>16. Maximálna vierohodnosť – diskrétne rozdelenia</h3>
+            <p>
+                Pri diskrétnych modeloch sa pre každé pozorovanie vypočíta pravdepodobnosť podľa modelu.
+                Následne sa porovnávajú súčty logaritmov.
+            </p>
+            <pre><code>Vierohodnosť:
+L = Π P(X = xᵢ)
+
+Logaritmická vierohodnosť:
+log(L) = Σ ln(P(X = xᵢ))
+
+Najlepší model:
+ten, ktorý má najväčšiu hodnotu log(L)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>17. Rovnomerné spojité rozdelenie R(a,b)</h3>
+            <p>
+                V Z10 sa parametre určia z dát ako minimum a maximum.
+            </p>
+            <pre><code>a = min(dáta)
+b = max(dáta)
+
+Hustota:
+f(x) = 1/(b-a), ak a ≤ x ≤ b
+
+Distribučná funkcia:
+F(x) = (x-a)/(b-a), ak a ≤ x ≤ b</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>18. Exponenciálne rozdelenie Exp(λ)</h3>
+            <p>
+                Parameter λ sa odhaduje momentovou metódou z priemeru dát.
+            </p>
+            <pre><code>E(X) = 1/λ
+
+Momentový odhad:
+λ = 1/m
+
+Hustota:
+f(x) = λe^(-λx), x ≥ 0
+
+Excel:
+=EXPON.DIST(x;lambda;FALSE)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>19. Normálne rozdelenie N(μ, σ²)</h3>
+            <p>
+                Pri normálnom rozdelení sa μ odhadne priemerom a σ² rozptylom.
+            </p>
+            <pre><code>μ = priemer dát
+σ² = rozptyl dát
+σ = smerodajná odchýlka
+
+Hustota:
+f(x) = 1/(σ√(2π)) · e^(-(x-μ)²/(2σ²))
+
+Excel:
+=NORM.DIST(x;μ;σ;FALSE)</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>20. Maximálna vierohodnosť – spojité rozdelenia</h3>
+            <p>
+                Pri spojitých rozdeleniach sa nepoužívajú pravdepodobnosti jednotlivých hodnôt,
+                ale hodnoty hustoty f(xᵢ).
+            </p>
+            <pre><code>Logaritmická vierohodnosť:
+log(L) = Σ ln(f(xᵢ))
+
+Porovnanie v Z10:
+R(a,b)
+Exp(λ)
+N(μ, σ²)
+
+Najlepšie rozdelenie:
+to, ktoré má najväčšie log(L)</code></pre>
+        </div>
+
+    </div>
+
+    <div class="learn-actions"><button class="learn-btn" data-subject="msd" data-key="examples" type="button">Označiť ako naučené</button></div>
+</section>
+
+
+
+<section id="assignments" class="content-block">
+    <p class="small-title">Zadania</p>
+    <h2>MSD zadania Z1 až Z10</h2>
+
+    <p class="section-description">
+        Tu sú zadania z predmetu Metódy spracovania dát prepísané textovo s cieľom zadania,
+        postupom riešenia a vzorcami. Táto verzia je rozšírená, aby sa podľa nej dalo zadanie
+        spraviť školským postupom v Exceli.
+    </p>
+
+    <div class="filter-panel" data-filter-panel data-target=".filterable-material">
+        <button class="filter-btn active" data-filter="all" type="button">Všetko</button>
+        <button class="filter-btn" data-filter="pdf" type="button">PDF</button>
+        <button class="filter-btn" data-filter="kviz" type="button">Kvíz</button>
+        <button class="filter-btn" data-filter="zadanie" type="button">Zadanie</button>
+        <button class="filter-btn" data-filter="tahak" type="button">Ťahák</button>
+    </div>
+
+    <div class="assignment-list">
+
+        <details class="assignment-card filterable-material" data-type="zadanie" open>
+            <summary>
+                <span>Zadanie 1</span>
+                <strong>Časový rad, dáta a graf v Exceli</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <ol>
+                    <li>Nájdite a odovzdajte ako excelovskú tabuľku dáta predstavujúce časový rad. Dáta musia mať aspoň 100 údajov.</li>
+                    <li>Vykreslite namerané hodnoty v Exceli.</li>
+                    <li>Vysvetlite, odkiaľ sú vaše dáta a čo predstavujú. Napíšte, aký vývoj má postupnosť zobrazujúca namerané dáta. Čo môžeme povedať o hodnotách postupnosti?</li>
+                </ol>
+
+                <p>
+                    Tabuľka má mať v stĺpci A časové alebo dátumové údaje, kedy boli dáta namerané,
+                    a v stĺpci B namerané hodnoty. Hodnoty v stĺpci A majú byť zoradené od najstarších
+                    údajov hore po najnovšie údaje dole. Hodnoty v stĺpci B musia byť číselné.
+                </p>
+
+                <p>
+                    Graf nameraných hodnôt umiestni napravo od dát. Vedľa dát alebo nad grafom vysvetli,
+                    čo znamenajú namerané hodnoty a aký je zdroj dát, napríklad link na pôvodné dáta.
+                    V komentári treba zhodnotiť vývoj dát: rast, pokles, kolísanie, trend, extrémy,
+                    periodicitu alebo nepravidelné výkyvy.
+                </p>
+
+                <h3>Cieľ zadania</h3>
+                <p>
+                    Cieľom je pripraviť základný časový rad v Exceli, správne ho zoradiť,
+                    vykresliť graf a slovne popísať správanie dát.
+                </p>
+
+                <h3>Postup riešenia</h3>
+                <ol>
+                    <li>Nájdeme dáta, ktoré sa menia v čase, napríklad cena Bitcoinu, kurz meny, teplota, počet obyvateľov, návštevnosť alebo iný časový rad.</li>
+                    <li>Dáta musia mať minimálne 100 hodnôt.</li>
+                    <li>Do stĺpca A vložíme dátumy alebo časové okamihy.</li>
+                    <li>Do stĺpca B vložíme číselné hodnoty.</li>
+                    <li>Skontrolujeme, či sú dátumy zoradené od najstaršieho po najnovší.</li>
+                    <li>Skontrolujeme, či hodnoty v stĺpci B nie sú uložené ako text.</li>
+                    <li>Označíme stĺpce A a B.</li>
+                    <li>V Exceli vložíme čiarový graf.</li>
+                    <li>Doplníme názov grafu, názvy osí a jednotky.</li>
+                    <li>Vedľa grafu napíšeme zdroj dát a krátky slovný komentár.</li>
+                </ol>
+
+                <h3>Čo napísať do komentára</h3>
+                <ul>
+                    <li>Odkiaľ sú dáta.</li>
+                    <li>Čo dáta predstavujú.</li>
+                    <li>Či hodnoty rastú, klesajú alebo kolíšu.</li>
+                    <li>Či je viditeľný trend.</li>
+                    <li>Či sa dá pozorovať periodicita alebo opakovanie.</li>
+                    <li>Či sú tam extrémne hodnoty alebo výkyvy.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 2</span>
+                <strong>Aproximácia v podpriestore generovanom jedným vektorom</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <ol>
+                    <li>Nájdite v podpriestore generovanom vektorom <strong>(1, 1, 1, 1, ...)</strong> vektor, ktorý je čo najbližšie k vašim dátam časového radu.</li>
+                    <li>Nájdite v podpriestore generovanom vektorom <strong>(1, 2, 3, 4, ...)</strong> vektor, ktorý je čo najbližšie k vašim dátam časového radu.</li>
+                    <li>Rozhodnite, ktorá z aproximácií je lepšia. Vykreslite do jedného grafu vaše dáta aj obe vypočítané aproximácie.</li>
+                </ol>
+
+                <h3>Cieľ zadania</h3>
+                <p>
+                    Cieľom je nájsť kolmý priemet dát na jednorozmerný podpriestor.
+                    Prvá aproximácia je konštantná, druhá je násobok vektora (1,2,3,4,...).
+                </p>
+
+                <h3>Teória</h3>
+                <pre><code>Ak máme dáta y a bázový vektor b:
+
+ŷ = c · b
+
+c = &lt;y, b&gt; / &lt;b, b&gt;
+
+chyba = ||y - ŷ|| = √Σ(yᵢ - ŷᵢ)²</code></pre>
+
+                <h3>Postup riešenia v Exceli</h3>
+                <ol>
+                    <li>Do stĺpca A necháme dátumy alebo čas.</li>
+                    <li>Do stĺpca B dáme pôvodné hodnoty časového radu.</li>
+                    <li>Do stĺpca C vytvoríme bázový vektor b1 = 1, 1, 1, 1, ...</li>
+                    <li>Do stĺpca D vytvoríme bázový vektor b2 = 1, 2, 3, 4, ...</li>
+                    <li>Pre b1 vypočítame koeficient c1 pomocou vzorca c = &lt;y,b&gt; / &lt;b,b&gt;.</li>
+                    <li>Pre b2 vypočítame koeficient c2 rovnakým spôsobom.</li>
+                    <li>Do ďalších stĺpcov vypočítame aproximácie c1 · b1 a c2 · b2.</li>
+                    <li>Vypočítame rezíduá y - ŷ.</li>
+                    <li>Vypočítame chybu ako odmocninu zo súčtu štvorcov rezíduí.</li>
+                    <li>Do jedného grafu vložíme pôvodné dáta a obe aproximácie.</li>
+                    <li>Lepšia aproximácia je tá, ktorá má menšiu chybu.</li>
+                </ol>
+
+                <h3>Excel vzorce</h3>
+                <pre><code>Skalárny súčin:
+=SUMPRODUCT(B2:B101;C2:C101)
+
+Koeficient:
+=SUMPRODUCT(B2:B101;C2:C101)/SUMPRODUCT(C2:C101;C2:C101)
+
+Aproximácia:
+=$F$2*C2
+
+Reziduum:
+=B2-E2
+
+Chyba:
+=SQRT(SUMSQ(G2:G101))</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 3</span>
+                <strong>Kolmý priemet do bázy B2 a B3</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <p>Nájdite vektor, ktorý je kolmým priemetom vášho časového radu do podpriestoru generovaného bázou:</p>
+                <pre><code>B₂ = ((1, 1, 1, 1, ...), (1, 2, 3, ...))</code></pre>
+
+                <p>Nájdite vektor, ktorý je kolmým priemetom vášho časového radu do podpriestoru generovaného bázou:</p>
+                <pre><code>B₃ = ((1, 1, 1, 1, ...), (1, 2, 3, 4, ...), (1, 4, 9, 16, 25, 36, ...))</code></pre>
+
+                <p>
+                    Časový rad a oba nájdené vektory, teda aproximácie, vykreslite do jedného grafu.
+                    Na základe výpočtu chyby rozhodnite, ktorá z oboch aproximácií je lepšia.
+                </p>
+
+                <h3>Cieľ zadania</h3>
+                <p>
+                    Cieľom je porovnať lineárnu a kvadratickú aproximáciu časového radu.
+                    Báza B2 dáva priamku a báza B3 dáva kvadratický model.
+                </p>
+
+                <h3>Modely</h3>
+                <pre><code>B₂:
+ŷ(t) = c₀ + c₁t
+
+B₃:
+ŷ(t) = c₀ + c₁t + c₂t²</code></pre>
+
+                <h3>Postup riešenia</h3>
+                <ol>
+                    <li>Dáta označíme ako vektor y.</li>
+                    <li>Vytvoríme stĺpec t = 1, 2, 3, 4, ...</li>
+                    <li>Pre B2 vytvoríme stĺpce 1 a t.</li>
+                    <li>Pre B3 vytvoríme stĺpce 1, t a t².</li>
+                    <li>Zostavíme maticu X, ktorej stĺpce sú bázové vektory.</li>
+                    <li>Koeficienty vypočítame cez normálne rovnice.</li>
+                    <li>Vypočítame aproximované hodnoty ŷ.</li>
+                    <li>Vypočítame chybu pre B2 a B3.</li>
+                    <li>Do jedného grafu vložíme pôvodné dáta, aproximáciu B2 a aproximáciu B3.</li>
+                    <li>Lepší model je ten, ktorý má menšiu chybu.</li>
+                </ol>
+
+                <h3>Vzorce</h3>
+                <pre><code>c = (XᵀX)^(-1) Xᵀy
+
+Matica XᵀX:
+=MMULT(TRANSPOSE(X);X)
+
+Matica Xᵀy:
+=MMULT(TRANSPOSE(X);y)
+
+Koeficienty:
+=MMULT(MINVERSE(XᵀX);Xᵀy)</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 4</span>
+                <strong>Regresný model so štyrmi koeficientmi</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <p>Vypočítajte koeficienty modelu:</p>
+                <pre><code>y(t) = c₀ + c₁ · √t + c₂/t + c₃ · t · ln(t)</code></pre>
+                <p>
+                    Pre vaše dáta použite t = 1, 2, 3, ...
+                    Regresnú krivku vykreslite do jedného grafu spolu s dátami.
+                    Zistite veľkosť chyby odhadu.
+                </p>
+
+                <h3>Cieľ zadania</h3>
+                <p>
+                    Cieľom je aproximovať časový rad špeciálnym štvorparametrickým modelom.
+                    Nehľadáme iba priamku alebo kvadratickú funkciu, ale kombináciu viacerých funkcií.
+                </p>
+
+                <h3>Bázové funkcie</h3>
+                <pre><code>b₁(t) = 1
+b₂(t) = √t
+b₃(t) = 1/t
+b₄(t) = t · ln(t)</code></pre>
+
+                <h3>Postup riešenia v Exceli</h3>
+                <ol>
+                    <li>Do stĺpca A necháme dátum alebo čas.</li>
+                    <li>Do stĺpca B dáme hodnoty y.</li>
+                    <li>Do stĺpca C vytvoríme t = 1, 2, 3, ...</li>
+                    <li>Do stĺpca D dáme hodnotu 1.</li>
+                    <li>Do stĺpca E vypočítame √t.</li>
+                    <li>Do stĺpca F vypočítame 1/t.</li>
+                    <li>Do stĺpca G vypočítame t · ln(t).</li>
+                    <li>Z týchto stĺpcov vytvoríme maticu X.</li>
+                    <li>Koeficienty c₀, c₁, c₂, c₃ vypočítame cez normálne rovnice.</li>
+                    <li>Vypočítame regresnú hodnotu ŷ(t).</li>
+                    <li>Vypočítame rezíduá y - ŷ.</li>
+                    <li>Vypočítame chybu odhadu.</li>
+                    <li>Do grafu dáme pôvodné dáta a regresnú krivku.</li>
+                </ol>
+
+                <h3>Excel vzorce</h3>
+                <pre><code>Konštantný stĺpec:
+=1
+
+Odmocnina:
+=SQRT(C2)
+
+Prevrátená hodnota:
+=1/C2
+
+t krát prirodzený logaritmus:
+=C2*LN(C2)
+
+Chyba:
+=SQRT(SUMSQ(reziduá))</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 5</span>
+                <strong>Filtrovanie dát trojparametrickým modelom kĺzavých súčtov</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <p>Filtrujte vaše dáta trojparametrickým modelom kĺzavých súčtov:</p>
+                <pre><code>fₖ = c₀ · fₖ₋₃ + c₁ · fₖ₋₂ + c₂ · fₖ₋₁</code></pre>
+                <p>Vykreslite do jedného grafu vaše dáta a filtrovaný proces.</p>
+
+                <h3>Cieľ zadania</h3>
+                <p>
+                    Cieľom je vytvoriť model, kde aktuálna hodnota závisí od troch predchádzajúcich hodnôt.
+                    Hľadáme koeficienty c₀, c₁, c₂ tak, aby model čo najlepšie opisoval dáta.
+                </p>
+
+                <h3>Postup riešenia v Exceli</h3>
+                <ol>
+                    <li>Pôvodné hodnoty časového radu dáme do stĺpca B.</li>
+                    <li>Od štvrtého riadku vieme použiť tri predchádzajúce hodnoty.</li>
+                    <li>Vytvoríme stĺpec pre fₖ₋₃.</li>
+                    <li>Vytvoríme stĺpec pre fₖ₋₂.</li>
+                    <li>Vytvoríme stĺpec pre fₖ₋₁.</li>
+                    <li>Aktuálnu hodnotu fₖ dáme ako cieľovú hodnotu.</li>
+                    <li>Zostavíme maticu X z troch predchádzajúcich hodnôt.</li>
+                    <li>Koeficienty c₀, c₁, c₂ vypočítame cez normálne rovnice.</li>
+                    <li>Vypočítame filtrované hodnoty.</li>
+                    <li>Vykreslíme pôvodné dáta a filtrovaný proces do jedného grafu.</li>
+                </ol>
+
+                <h3>Tabuľka v Exceli</h3>
+                <pre><code>A: čas
+B: pôvodné dáta fₖ
+C: fₖ₋₃
+D: fₖ₋₂
+E: fₖ₋₁
+F: filtrovaná hodnota
+G: reziduum
+
+filtrovaná_hodnota = c₀ · fₖ₋₃ + c₁ · fₖ₋₂ + c₂ · fₖ₋₁</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 6</span>
+                <strong>Odstránenie trendu a Fourierova transformácia</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <ul>
+                    <li>Z vašich dát zoberte prvých <strong>50 + p</strong> hodnôt, kde <strong>p</strong> je počet písmen vášho priezviska uvedeného na Moodle.</li>
+                    <li>Tieto dáta očistite o lineárny trend a následne urobte Fourierovu transformáciu.</li>
+                    <li>Vykreslite graf amplitúdového spektra.</li>
+                    <li>Urobte aproximáciu procesu pomocou troch dominantných podpriestorov.</li>
+                    <li>Do ďalšieho grafu vykreslite spoločne dáta očistené o lineárny trend a výslednú aproximáciu.</li>
+                </ul>
+
+                <h3>Cieľ zadania</h3>
+                <p>
+                    Cieľom je odstrániť dlhodobý lineárny trend a potom analyzovať zvyšok dát
+                    pomocou Fourierovej transformácie. Fourierova transformácia ukáže,
+                    ktoré frekvencie sú v dátach najvýraznejšie.
+                </p>
+
+                <h3>Postup riešenia</h3>
+                <ol>
+                    <li>Zo svojho časového radu vyberieme prvých 50 + p hodnôt.</li>
+                    <li>Vytvoríme časový index t = 1, 2, 3, ...</li>
+                    <li>Pre tieto dáta nájdeme lineárny trend v tvare y = c₀ + c₁t.</li>
+                    <li>Pre každý čas vypočítame trendovú hodnotu.</li>
+                    <li>Od pôvodných dát odpočítame trend.</li>
+                    <li>Dostaneme dáta očistené o lineárny trend.</li>
+                    <li>Pre očistené dáta vypočítame diskrétnu Fourierovu transformáciu.</li>
+                    <li>Pre každú frekvenciu vypočítame reálnu časť, imaginárnu časť a amplitúdu.</li>
+                    <li>Vykreslíme amplitúdové spektrum.</li>
+                    <li>Vyberieme tri najväčšie amplitúdy, čiže tri dominantné zložky.</li>
+                    <li>Z týchto troch zložiek vytvoríme výslednú aproximáciu.</li>
+                    <li>Do grafu dáme očistené dáta a výslednú aproximáciu.</li>
+                </ol>
+
+                <h3>Vzorce</h3>
+                <pre><code>trend(t) = c₀ + c₁t
+
+očistené_dáta = pôvodné_dáta - trend(t)
+
+Re(Hₖ) = Σ zⱼ cos(2πkj/n)
+Im(Hₖ) = -Σ zⱼ sin(2πkj/n)
+
+amplitúda = √(Re² + Im²)</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 7</span>
+                <strong>Náhodné reálne dáta a pravdepodobnosť hodnoty väčšej ako priemer</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <p>
+                    Nájdite dáta predstavujúce náhodné číselné hodnoty. Hodnoty nesmú byť časovým radom,
+                    teda nesmie to byť jeden sledovaný údaj meniaci sa v čase.
+                    Hodnoty musia byť z oboru reálnych čísel a údajov musí byť aspoň 100.
+                </p>
+                <p>
+                    Údaje musia byť v stĺpci A. Napravo od stĺpca A uveďte v nejakom políčku zdroj,
+                    odkiaľ dáta máte a čo predstavujú.
+                </p>
+                <p>
+                    V políčku C2 uveďte pravdepodobnosť, že náhodne zvolená hodnota spomedzi vašich údajov
+                    je väčšia ako aritmetický priemer všetkých údajov.
+                </p>
+
+                <h3>Cieľ zadania</h3>
+                <p>
+                    Cieľom je pracovať s dátami, ktoré nie sú časovým radom,
+                    ale sú vzorkou náhodných reálnych hodnôt.
+                </p>
+
+                <h3>Postup riešenia v Exceli</h3>
+                <ol>
+                    <li>Nájdeme aspoň 100 reálnych číselných hodnôt.</li>
+                    <li>Dáta nesmú byť časový rad.</li>
+                    <li>Hodnoty vložíme do stĺpca A.</li>
+                    <li>Vedľa dát napíšeme zdroj a vysvetlenie, čo dáta predstavujú.</li>
+                    <li>Vypočítame aritmetický priemer všetkých hodnôt.</li>
+                    <li>Zistíme, koľko hodnôt je väčších ako priemer.</li>
+                    <li>Počet hodnôt väčších ako priemer vydelíme celkovým počtom hodnôt.</li>
+                    <li>Výsledok zapíšeme do bunky C2.</li>
+                </ol>
+
+                <h3>Excel vzorce</h3>
+                <pre><code>Priemer:
+=AVERAGE(A:A)
+
+Počet hodnôt väčších ako priemer:
+=COUNTIF(A:A;">"&AVERAGE(A:A))
+
+Počet všetkých hodnôt:
+=COUNT(A:A)
+
+Pravdepodobnosť:
+=COUNTIF(A:A;">"&AVERAGE(A:A))/COUNT(A:A)</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 8</span>
+                <strong>Transformácia dát na hodnoty 0 až 9 a diskrétne rozdelenie</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <p>S vašimi dátami z úlohy Z7 urobte nasledovné:</p>
+                <p>
+                    Nech <strong>hmin</strong> je najmenšia a <strong>hmax</strong> najväčšia spomedzi hodnôt
+                    vo vašich dátach. Nahraďte každú hodnotu h z vašich dát číslom:
+                </p>
+                <pre><code>10 · (h - hmin) / (0,001 + hmax - hmin)</code></pre>
+                <p>
+                    Výsledok zaokrúhlite nadol. Dostanete tak nové dáta.
+                    Mali by to byť čísla z množiny {0, 1, 2, ..., 9}.
+                </p>
+                <p>
+                    Predpokladajme, že tieto nové dáta predstavujú výber výsledkov náhodnej premennej X.
+                    Odhadnite na základe nich jej rozdelenie pravdepodobnosti, teda hodnotu Pr(X = xi)
+                    pre každé xi z množiny {0, 1, 2, ..., 9}, a charakteristiky E(X), Mo(X), Me(X), D(X), σX.
+                    Rozdelenie pravdepodobnosti vykreslite do stĺpcového grafu.
+                </p>
+                <p>
+                    Charakteristiky spočítajte aj pomocou excelovských funkcií aplikovaných priamo
+                    na stĺpec dát, aj pomocou výpočtu z tabuľky pravdepodobností.
+                </p>
+
+                <h3>Postup riešenia v Exceli</h3>
+                <ol>
+                    <li>V stĺpci A máme pôvodné dáta zo zadania Z7.</li>
+                    <li>Vypočítame minimálnu hodnotu hmin.</li>
+                    <li>Vypočítame maximálnu hodnotu hmax.</li>
+                    <li>Pre každú hodnotu h vypočítame transformáciu podľa vzorca.</li>
+                    <li>Výsledok zaokrúhlime nadol.</li>
+                    <li>Dostaneme hodnoty od 0 po 9.</li>
+                    <li>Vytvoríme tabuľku hodnôt xi = 0, 1, 2, ..., 9.</li>
+                    <li>Pre každé xi spočítame počet výskytov.</li>
+                    <li>Pravdepodobnosť vypočítame ako početnosť / celkový počet hodnôt.</li>
+                    <li>Skontrolujeme, či súčet pravdepodobností je 1.</li>
+                    <li>Vypočítame E(X), Mo(X), Me(X), D(X), σX.</li>
+                    <li>Vykreslíme stĺpcový graf pravdepodobností.</li>
+                </ol>
+
+                <h3>Excel vzorce a charakteristiky</h3>
+                <pre><code>hmin:
+=MIN(A:A)
+
+hmax:
+=MAX(A:A)
+
+Transformácia:
+=ROUNDDOWN(10*(A2-$C$2)/(0,001+$C$3-$C$2);0)
+
+Početnosť pre hodnotu xi:
+=COUNTIF(B:B;xi)
+
+Pravdepodobnosť:
+=početnosť/COUNT(B:B)
+
+E(X) = Σ xi · P(X = xi)
+D(X) = Σ (xi - E(X))² · P(X = xi)
+σX = √D(X)</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 9</span>
+                <strong>Momentová metóda a maximálna vierohodnosť pre diskrétne rozdelenia</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <p>
+                    S dátami zo Z7 urobte rovnakú transformáciu na hodnoty {0, 1, ..., 9} ako v Z8.
+                    Dostanete tak vzorku V1.
+                </p>
+                <p>
+                    Vytvorte aj vzorku V2, ktorú dostanete zväčšením každej hodnoty z V1 o 1.
+                    Teda táto vzorka bude mať hodnoty z množiny {1, 2, ..., 10}.
+                </p>
+                <p>
+                    Na vzorku V1 použite momentovú metódu na odhad parametrov rozdelenia Bi(n, p).
+                    V prípade, že vyjdú záporné hodnoty n alebo p, odhadnite namiesto toho parameter
+                    rozdelenia Po(λ). Takto dostanete prvého kandidáta.
+                </p>
+                <p>
+                    Na vzorku V2 použite momentovú metódu na odhad parametrov rozdelenia Ge(p).
+                    Takto dostanete druhého kandidáta.
+                </p>
+                <p>
+                    Tretím kandidátom je, že V2 zodpovedá rovnomernému rozdeleniu R(10).
+                    Pre vypočítané rozdelenia určte pomocou metódy maximálnej vierohodnosti,
+                    ktoré tvrdenie je najvierohodnejšie.
+                </p>
+
+                <h3>Postup riešenia</h3>
+                <ol>
+                    <li>Zoberieme pôvodné dáta zo Z7.</li>
+                    <li>Urobíme rovnakú transformáciu ako v Z8 a dostaneme V1 s hodnotami 0 až 9.</li>
+                    <li>Vytvoríme V2 tak, že ku každej hodnote z V1 pripočítame 1.</li>
+                    <li>Pre V1 vypočítame výberový priemer a výberový rozptyl.</li>
+                    <li>Pomocou momentovej metódy odhadneme parametre binomického rozdelenia Bi(n,p).</li>
+                    <li>Ak by vyšli nevhodné hodnoty parametrov, použijeme Poissonovo rozdelenie Po(λ).</li>
+                    <li>Pre V2 odhadneme parameter geometrického rozdelenia Ge(p).</li>
+                    <li>Pre V2 pripravíme aj rovnomerné rozdelenie R(10).</li>
+                    <li>Pre každé rozdelenie vypočítame logaritmickú vierohodnosť.</li>
+                    <li>Najväčšia vierohodnosť znamená najlepší kandidát.</li>
+                </ol>
+
+                <h3>Vzorce</h3>
+                <pre><code>Výberový priemer:
+m = priemer dát
+
+Výberový rozptyl:
+s² = rozptyl dát
+
+Binomické rozdelenie Bi(n,p):
+E(X) = n · p
+D(X) = n · p · (1 - p)
+
+p = 1 - s²/m
+n = m/p
+
+Poissonovo rozdelenie:
+λ = m
+
+Geometrické rozdelenie:
+p = 1/m
+
+Rovnomerné rozdelenie R(10):
+P(X = x) = 1/10
+
+Logaritmická vierohodnosť:
+log(L) = Σ ln(pravdepodobností)</code></pre>
+            </div>
+        </details>
+
+        <details class="assignment-card filterable-material" data-type="zadanie">
+            <summary>
+                <span>Zadanie 10</span>
+                <strong>Spojité rozdelenia a metóda maximálnej vierohodnosti</strong>
+            </summary>
+
+            <div class="assignment-content">
+                <h3>Text zadania</h3>
+                <p>
+                    Pre vaše dáta zo Z7 určte pomocou metódy maximálnej vierohodnosti,
+                    ktoré z troch rozdelení <strong>R(a,b)</strong>, <strong>Exp(λ)</strong>,
+                    <strong>N(μ, σ²)</strong> na ne najlepšie „pasuje“.
+                </p>
+                <p>
+                    Parametre pre exponenciálne a normálne rozdelenie určte momentovou metódou.
+                    Parametre pre rovnomerné rozdelenie určte ako najmenšiu a najväčšiu hodnotu z dát.
+                </p>
+                <p>
+                    Vykreslite aj histogram vašich dát a funkcie hustoty každej z trojice určených rozdelení.
+                    Funkcie vykreslite na základe vhodne zvoleného delenia intervalu medzi najväčšou
+                    a najmenšou hodnotou vašich dát.
+                </p>
+
+                <h3>Postup riešenia</h3>
+                <ol>
+                    <li>Zoberieme dáta zo Z7.</li>
+                    <li>Vypočítame minimum dát.</li>
+                    <li>Vypočítame maximum dát.</li>
+                    <li>Pre rovnomerné rozdelenie nastavíme a = minimum a b = maximum.</li>
+                    <li>Pre exponenciálne rozdelenie vypočítame parameter λ momentovou metódou.</li>
+                    <li>Pre normálne rozdelenie vypočítame μ ako priemer a σ² ako rozptyl.</li>
+                    <li>Pre každé rozdelenie vypočítame hustotu v hodnotách dát.</li>
+                    <li>Pre každé rozdelenie vypočítame logaritmickú vierohodnosť.</li>
+                    <li>Porovnáme logaritmické vierohodnosti.</li>
+                    <li>Najväčšia hodnota znamená najlepšie pasujúce rozdelenie.</li>
+                    <li>Vykreslíme histogram dát.</li>
+                    <li>Do grafu vykreslíme hustoty všetkých troch rozdelení.</li>
+                </ol>
+
+                <h3>Parametre a hustoty</h3>
+                <pre><code>Rovnomerné rozdelenie R(a,b):
+a = minimum dát
+b = maximum dát
+f(x) = 1/(b-a), ak a ≤ x ≤ b
+
+Exponenciálne rozdelenie Exp(λ):
+E(X) = 1/λ
+λ = 1/priemer
+f(x) = λ · e^(-λx), ak x ≥ 0
+
+Normálne rozdelenie N(μ, σ²):
+μ = priemer
+σ² = rozptyl
+f(x) = 1/(σ√(2π)) · e^(-(x-μ)²/(2σ²))
+
+Logaritmická vierohodnosť:
+log(L) = Σ ln(f(xᵢ))</code></pre>
+
+                <h3>Excel funkcie</h3>
+                <pre><code>Minimum:
+=MIN(A:A)
+
+Maximum:
+=MAX(A:A)
+
+Priemer:
+=AVERAGE(A:A)
+
+Rozptyl:
+=VAR.P(A:A)
+
+Smerodajná odchýlka:
+=STDEV.P(A:A)
+
+Normálne rozdelenie - hustota:
+=NORM.DIST(x; priemer; smerodajná_odchýlka; FALSE)
+
+Exponenciálne rozdelenie - hustota:
+=EXPON.DIST(x; lambda; FALSE)</code></pre>
+            </div>
+        </details>
+
+    </div>
+
+    <div class="learn-actions"><button class="learn-btn" data-subject="msd" data-key="assignments" type="button">Označiť ako naučené</button></div>
+</section>
+
+
+<section id="materials" class="content-block">
+    <p class="small-title">Materiály</p>
+    <h2>Materiály na učenie</h2>
+    <div class="filter-panel" data-filter-panel data-target=".filterable-material">
+    <button class="filter-btn active" data-filter="all" type="button">Všetko</button>
+    <button class="filter-btn" data-filter="pdf" type="button">PDF</button>
+    <button class="filter-btn" data-filter="kviz" type="button">Kvíz</button>
+    <button class="filter-btn" data-filter="zadanie" type="button">Zadanie</button>
+    <button class="filter-btn" data-filter="tahak" type="button">Ťahák</button>
+</div>
+    <div class="material-grid">
+        <article class="material-card filterable-material" data-type="pdf">
+    <span class="material-type">PDF</span>
+    <h3>Projekcie PDF</h3>
+    <p>Postup výpočtu priemetov do báz.</p>
+    <a href="../files/msd/projekcie.pdf" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="pdf">
+    <span class="material-type">PDF</span>
+    <h3>Fourier PDF</h3>
+    <p>Trend, DFT a amplitúdové spektrum.</p>
+    <a href="../files/msd/fourier.pdf" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="kviz">
+    <span class="material-type">KVIZ</span>
+    <h3>MSD kvíz</h3>
+    <p>Otázky na precvičenie.</p>
+    <a href="#questions" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="zadanie">
+    <span class="material-type">ZADANIE</span>
+    <h3>Zadania Z1-Z10</h3>
+    <p>Všetky zadania prehľadne.</p>
+    <a href="#assignments" class="material-link">Otvoriť →</a>
+</article>
+        <article class="material-card filterable-material" data-type="tahak">
+    <span class="material-type">TAHAK</span>
+    <h3>Ťahák vzorcov</h3>
+    <p>Najdôležitejšie vzorce na test.</p>
+    <a href="../files/msd/tahak.pdf" class="material-link">Otvoriť →</a>
+</article>
+    </div>
+    <div class="learn-actions"><button class="learn-btn" data-subject="msd" data-key="materials" type="button">Označiť ako naučené</button></div>
+</section>
+
+<section id="questions" class="content-block">
+    <p class="small-title">Kvíz</p>
+    <h2>MSD kvíz na opakovanie</h2>
+
+    <p class="section-description">
+        Otázky z projekcií, Fourierovej transformácie, pravdepodobnosti a rozdelení.
+    </p>
+
+    <div class="quiz-panel">
+        <div class="quiz-mode-panel">
+            <div class="quiz-field">
+                <label for="msdQuizSet">Test</label>
+                <select id="msdQuizSet">
+                    <option value="all">Všetky otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="msdQuizMode">Režim</label>
+                <select id="msdQuizMode">
+                    <option value="practice">Cvičenie – ukáže vysvetlenie</option>
+                    <option value="exam">Skúška – bez ukázania odpovede</option>
+                    <option value="wrong">Iba nesprávne otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="msdQuizShuffle">Miešanie</label>
+                <select id="msdQuizShuffle">
+                    <option value="both">Otázky aj odpovede</option>
+                    <option value="questions">Iba otázky</option>
+                    <option value="answers">Iba odpovede</option>
+                    <option value="none">Nemixovať</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label>&nbsp;</label>
+                <button id="msdQuizStart" class="quiz-btn primary" type="button">Spustiť</button>
+            </div>
+        </div>
+
+        <div class="quiz-top">
+            <div>
+                <span class="quiz-label">Otázka</span>
+                <strong><span id="msdQuizCurrent">1</span> / <span id="msdQuizTotal">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Skóre</span>
+                <strong><span id="msdQuizScore">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Najlepší výsledok</span>
+                <strong><span id="msdQuizBest">0</span></strong>
+            </div>
+        </div>
+
+        <div id="msdQuizBox" class="quiz-box"></div>
+        <div id="msdQuizFeedback" class="quiz-feedback hidden"></div>
+
+        <div class="quiz-actions">
+            <button id="msdQuizCheck" class="quiz-btn primary" type="button">Skontrolovať odpoveď</button>
+            <button id="msdQuizPrev" class="quiz-btn ghost" type="button">← Predošlá</button>
+            <button id="msdQuizNext" class="quiz-btn secondary" type="button">Ďalšia otázka →</button>
+            <button id="msdQuizRestart" class="quiz-btn ghost" type="button">Spustiť odznova</button>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    createQuiz({
+        quizData: msdQuizData,
+        prefix: "msdQuiz",
+        storagePrefix: "msdQuiz"
+    });
+});
+</script>
+
+<section id="downloads" class="content-block">
+    <p class="small-title">Súbory</p>
+    <h2>Súbory na stiahnutie</h2>
+    <div class="download-list">
+        <a href="../files/msd/projekcie.pdf" class="download-item"><strong>MSD projekcie PDF</strong><span>Stiahnuť →</span></a>
+        <a href="../files/msd/fourier.pdf" class="download-item"><strong>Fourierova transformácia PDF</strong><span>Stiahnuť →</span></a>
+        <a href="../files/msd/priklady.xlsx" class="download-item"><strong>Excel príklady XLSX</strong><span>Stiahnuť →</span></a>
+    </div>
+</section>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>© 2026 Study Hub. Všetky práva vyhradené.</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="../script.js"></script>
+<script src="../progress.js"></script>
+<script src="../subject-search.js"></script>
+<script src="../filters.js"></script>
+<script src="../quiz-msd.js"></script>
+<script src="../quiz-engine.js"></script>
+</body>
+</html>
