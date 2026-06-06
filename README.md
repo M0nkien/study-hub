@@ -14,26 +14,6 @@ Autor: **vytvorené mnou**
 - CCNA/Cisco má rozsiahlu sekciu príkazov pre Packet Tracer,
 - ostal progres učenia, vyhľadávanie, filtrovanie materiálov, mobilné menu a kvízy.
 
-## Admin heslo
-
-Predvolené heslo je:
-
-```text
-studyhub2026
-```
-
-Zmeníš ho v súbore:
-
-```text
-admin.js
-```
-
-Premenná:
-
-```js
-const ADMIN_PASSWORD = "studyhub2026";
-```
-
 Pozor: pri čisto statickom HTML/JS webe je toto iba jednoduchá ochrana proti bežnému kliknutiu.
 Skutočné bezpečné prihlásenie treba riešiť cez Firebase Auth alebo server.
 
