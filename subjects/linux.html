@@ -61,7 +61,8 @@
                 <aside class="subject-sidebar">
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
-<a href="#study">Štúdium</a>
+<a href="#linux-deep-theory">Teória</a>
+                    <a href="#study">Štúdium</a>
 <a href="#checklist">Checklist</a>
                     <a href="#command-practice">Tréning príkazov</a>
                     <a href="#materials">Materiály</a>
@@ -129,7 +130,83 @@
     <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="notes" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
-<section id="study" class="content-block">
+<section id="linux-deep-theory" class="content-block">
+    <p class="small-title">Podrobná teória</p>
+    <h2>Linux Essentials – teória a skúškové poznámky</h2>
+
+    <div class="topic-grid">
+        <article class="topic-card">
+            <span>OS</span>
+            <h3>Operačný systém</h3>
+            <p>Operačný systém sprostredkuje komunikáciu medzi hardvérom, aplikáciami a používateľom. Linux je jadro systému, distribúcia je kompletný systém okolo jadra.</p>
+            <ul>
+                <li>kernel = jadro</li>
+                <li>shell = rozhranie pre príkazy</li>
+                <li>distribúcia = kernel + nástroje + balíčky</li>
+            </ul>
+        </article>
+
+        <article class="topic-card">
+            <span>CLI</span>
+            <h3>Shell a terminál</h3>
+            <p>Shell prijíma príkazy a spúšťa programy. Najčastejší shell je Bash.</p>
+            <pre><code>pwd        aktuálny adresár
+ls -la     podrobný výpis
+cd ..      o adresár vyššie
+history    história príkazov</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Súbory</span>
+            <h3>Súborový systém</h3>
+            <p>Linux má stromovú štruktúru od koreňa /. Dôležité adresáre majú presný účel.</p>
+            <pre><code>/home   domovské priečinky
+/etc    konfiguračné súbory
+/bin    základné programy
+/var    logy a meniace sa dáta
+/tmp    dočasné súbory</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Práva</span>
+            <h3>Oprávnenia rwx</h3>
+            <p>Každý súbor má vlastníka, skupinu a práva pre owner/group/others.</p>
+            <pre><code>r = 4 čítanie
+w = 2 zápis
+x = 1 spustenie
+
+chmod 755 file
+owner rwx, group r-x, others r-x</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Text</span>
+            <h3>Pipe a presmerovanie</h3>
+            <p>Pipe spája príkazy. Presmerovanie ukladá výstup do súboru alebo číta vstup zo súboru.</p>
+            <pre><code>cat file.txt | grep "test"
+sort file.txt | uniq
+echo "text" > subor.txt
+echo "dalsi text" >> subor.txt</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Procesy</span>
+            <h3>Procesy a systém</h3>
+            <p>Proces je spustený program. V Linuxe vieš procesy sledovať, ukončovať a filtrovať.</p>
+            <pre><code>ps aux
+top
+kill PID
+whoami
+id</code></pre>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="linux" data-key="linux-deep-theory" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+                    <section id="study" class="content-block">
     <p class="small-title">Štúdium</p>
     <h2>Vysvetlenie príkazov a pojmov</h2>
     <p class="section-description">Príkazy sú rozdelené podľa tém a pri každom je krátke vysvetlenie.</p>
@@ -390,8 +467,8 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <div>
-            <p>Vytvorené MG</p>
-            <p>StudyHub v2.0 • LAST UPDATE: 06/2026</p>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 

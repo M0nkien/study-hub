@@ -65,10 +65,12 @@
                 <aside class="subject-sidebar">
                     <h3>Obsah predmetu</h3>
                     <a href="#overview">Prehľad</a>
+                    <a href="#physics-deep-theory">Rozšírená teória</a>
                     <a href="#theory">Teória</a>
                     <a href="#formulas">Vzorce</a>
                     <a href="#formula-detail-cards">Vzorce detailne</a>
                     <a href="#examples">Príklady</a>
+                    <a href="#physics-lab-templates">Vzorové labáky</a>
                     <a href="#labs">Laboratórium</a>
                     <a href="#checklist">Checklist</a>
                     <a href="#fyzika-questions">Otázky</a>
@@ -139,6 +141,143 @@
                             <button class="learn-btn" data-subject="fyzika" data-key="overview" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
                         </div>
                     </section>
+
+                    <section id="physics-deep-theory" class="content-block">
+    <p class="small-title">Rozšírená teória</p>
+    <h2>Fyzika – vzorce, jednotky, príklady a laboratórne postupy</h2>
+
+    <div class="topic-grid">
+        <article class="topic-card">
+            <span>Vektory</span>
+            <h3>Vektory vo fyzike</h3>
+            <p>Vektor má veľkosť, smer a orientáciu. Vektorové veličiny sú napríklad sila, rýchlosť, zrýchlenie a hybnosť.</p>
+            <pre><code>skalárny súčin:
+a · b = |a||b|cos α
+
+vektorový súčin:
+|a × b| = |a||b|sin α</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Kinematika</span>
+            <h3>Pohyb hmotného bodu</h3>
+            <p>Hmotný bod je zjednodušený model telesa. Sledujeme polohu, dráhu, rýchlosť a zrýchlenie.</p>
+            <pre><code>v = s/t
+a = Δv/Δt
+v = v0 + at
+s = s0 + v0t + 1/2 at²</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Dynamika</span>
+            <h3>Newtonove zákony</h3>
+            <p>Dynamika skúma príčiny pohybu. Keď na teleso pôsobí výsledná sila, teleso sa zrýchľuje.</p>
+            <pre><code>F = ma
+FG = mg
+Ft = fFN</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Energia</span>
+            <h3>Práca, energia a výkon</h3>
+            <p>Práca vzniká pôsobením sily po dráhe. Energia vyjadruje schopnosť konať prácu.</p>
+            <pre><code>W = Fs cos α
+Ek = 1/2 mv²
+Ep = mgh
+P = W/t</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Rotácia</span>
+            <h3>Moment zotrvačnosti</h3>
+            <p>Moment zotrvačnosti vyjadruje odpor telesa proti zmene rotačného pohybu.</p>
+            <pre><code>I = mr²
+M = rF sin α
+M = Iε</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Steiner</span>
+            <h3>Steinerova veta</h3>
+            <p>Použije sa pri výpočte momentu zotrvačnosti vzhľadom na os rovnobežnú s osou cez ťažisko.</p>
+            <pre><code>I = I0 + md²
+
+I0 = moment cez ťažisko
+m = hmotnosť
+d = vzdialenosť osí</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Kyvadlá</span>
+            <h3>Matematické a fyzikálne kyvadlo</h3>
+            <p>Matematické kyvadlo je ideálny model. Fyzikálne kyvadlo je skutočné tuhé teleso.</p>
+            <pre><code>matematické:
+T = 2π√(l/g)
+
+fyzikálne:
+T = 2π√(I/(mgl))</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Jednotky</span>
+            <h3>Najčastejšie prepočty</h3>
+            <p>Pri fyzike býva veľa chýb z nesprávnych jednotiek.</p>
+            <pre><code>1 cm = 0,01 m
+1 mm = 0,001 m
+1 g = 0,001 kg
+1 N = 1 kg·m/s²
+1 J = 1 N·m</code></pre>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="physics-deep-theory" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+<section id="physics-lab-templates" class="content-block">
+    <p class="small-title">Vzorové labáky</p>
+    <h2>Laboratórne merania – vzorový postup</h2>
+
+    <div class="example-list">
+        <div class="example-item">
+            <h3>Labák: Objem valca</h3>
+            <p>Meria sa priemer d a výška h. Objem sa vypočíta zo vzorca pre valec.</p>
+            <pre><code>V = πd²h / 4
+
+postup:
+1. odmeraj d viackrát
+2. odmeraj h viackrát
+3. vypočítaj priemery
+4. dosaď do vzorca
+5. zapíš výsledok s jednotkou a neistotou</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Labák: Kyvadlo</h3>
+            <p>Meria sa perióda kmitania a z nej sa dá overiť tiažové zrýchlenie alebo vzorec pre periódu.</p>
+            <pre><code>T = t / n
+g = 4π²l / T²
+
+n = počet kmitov
+t = celkový čas
+l = dĺžka kyvadla</code></pre>
+        </div>
+
+        <div class="example-item">
+            <h3>Zápis výsledku</h3>
+            <p>Výsledok sa nepíše len ako číslo, ale aj s chybou merania.</p>
+            <pre><code>x = (x̄ ± Δx) jednotka
+
+príklad:
+V = (5619 ± 4) mm³</code></pre>
+        </div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="physics-lab-templates" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+    </div>
+</section>
 
                     <section id="theory" class="content-block">
                         <p class="small-title">Teória</p>
@@ -558,8 +697,8 @@ V = (hodnota ± chyba) jednotka</code></pre>
         </div>
 
         <div>
-            <p>Vytvorené MG</p>
-            <p>StudyHub v2.0 • LAST UPDATE: 06/2026</p>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 

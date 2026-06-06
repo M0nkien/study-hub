@@ -64,7 +64,9 @@
 <a href="#commands">Cisco príkazy</a>
 <a href="#study">Štúdium</a>
 <a href="#packettracer-labs">Packet Tracer</a>
-<a href="#checklist">Checklist</a>
+<a href="#ccna-exam-questions">Otázky skúška</a>
+                    <a href="#ccna-exam-quiz">Kvíz skúška</a>
+                    <a href="#checklist">Checklist</a>
                     <a href="#ccna-troubleshooting">Keď nejde ping</a>
                     <a href="#vlsm-trainer">VLSM tréning</a>
                     <a href="#materials">Materiály</a>
@@ -781,7 +783,277 @@ traceroute 8.8.8.8</code></pre>
 </section>
 
 
-<section id="checklist" class="content-block checklist-section">
+<section id="ccna-exam-questions" class="content-block">
+    <p class="small-title">Otázky na skúšku</p>
+    <h2>Ethernet, LLC, IPv6, rámce a optika</h2>
+
+    <p class="section-description">
+        Táto časť obsahuje otázky zo sietí/CCNA s vyznačenou správnou odpoveďou a krátkym vysvetlením.
+        Hodí sa na rýchle opakovanie pred teoretickým testom.
+    </p>
+
+    <div class="exam-question-list">
+
+        <article class="exam-question-card">
+            <span class="question-type">Vyberte dve</span>
+            <h3>1. Ktoré dve tvrdenia popisujú vlastnosti alebo funkcie podvrstvy LLC v štandarde Ethernet?</h3>
+
+            <div class="answer-box correct">
+                <strong>Správne odpovede:</strong>
+                <ul>
+                    <li>LLC je implementovaná ako softvérový program, teda ako súčasť ovládača sieťového zariadenia.</li>
+                    <li>Linková vrstva používa LLC na komunikáciu s vyššou vrstvou protokolovej sady, teda s vrstvou L3.</li>
+                </ul>
+            </div>
+
+            <div class="answer-box wrong">
+                <strong>Nesprávne odpovede:</strong>
+                <ul>
+                    <li>LLC je špecifikovaná v štandarde IEEE 802.3.</li>
+                    <li>LLC pridáva k dátam hlavičku a pätu vrátane adries, začiatku a konca rámca.</li>
+                    <li>LLC je zodpovedná za vkladanie rámcov na fyzické médium a ich výber z média.</li>
+                </ul>
+            </div>
+
+            <p class="question-note">
+                <strong>Vysvetlenie:</strong>
+                Linková vrstva má podvrstvy LLC a MAC. LLC komunikuje s vyššou vrstvou,
+                zatiaľ čo MAC rieši rámce, MAC adresy a prístup k médiu.
+            </p>
+        </article>
+
+        <article class="exam-question-card">
+            <span class="question-type">Vyberte jednu</span>
+            <h3>2. Ktoré tvrdenie popisuje Ethernet?</h3>
+
+            <div class="answer-box correct">
+                <strong>Správna odpoveď:</strong>
+                <p>Definuje najpoužívanejšiu prenosovú technológiu, teda štandard pre lokálne siete LAN.</p>
+            </div>
+
+            <div class="answer-box wrong">
+                <strong>Nesprávne odpovede:</strong>
+                <ul>
+                    <li>Prepája koncové stanice cez smerovače umiestnené v rôznych krajinách.</li>
+                    <li>Definuje štandardný režim popisujúci, ako PC sieť pracuje.</li>
+                    <li>Je nevyhnutným štandardom prvej a druhej vrstvy pre internetovú komunikáciu.</li>
+                </ul>
+            </div>
+
+            <p class="question-note">
+                <strong>Vysvetlenie:</strong>
+                Ethernet je najčastejšie používaná technológia v LAN sieťach.
+                Pracuje najmä na 1. a 2. vrstve OSI modelu.
+            </p>
+        </article>
+
+        <article class="exam-question-card">
+            <span class="question-type">Vyberte jednu</span>
+            <h3>3. Ktorú výhodu ponúka IPv6 hlavička v porovnaní s IPv4 hlavičkou? Prečo je spracovanie IPv6 paketu efektívnejšie?</h3>
+
+            <div class="answer-box correct">
+                <strong>Správna odpoveď:</strong>
+                <p>Má menší počet položiek v hlavičke.</p>
+            </div>
+
+            <div class="answer-box wrong">
+                <strong>Nesprávne odpovede:</strong>
+                <ul>
+                    <li>Požiadavky na spracovanie kontrolného súčtu sú minimálne.</li>
+                    <li>Má menšiu veľkosť hlavičky.</li>
+                    <li>Má menšie polia pre zdrojovú a cieľovú adresu.</li>
+                </ul>
+            </div>
+
+            <p class="question-note">
+                <strong>Vysvetlenie:</strong>
+                IPv6 hlavička má jednoduchšiu štruktúru a menej polí. IPv6 adresa je síce väčšia,
+                ale spracovanie hlavičky je efektívnejšie vďaka jednoduchšiemu formátu.
+            </p>
+        </article>
+
+        <article class="exam-question-card">
+            <span class="question-type">Vyberte jednu</span>
+            <h3>4. Čo obsahuje päta rámca, teda trailer?</h3>
+
+            <div class="answer-box correct">
+                <strong>Správna odpoveď:</strong>
+                <p>Kontrolný súčet na vykonanie detekcie chýb.</p>
+            </div>
+
+            <div class="answer-box wrong">
+                <strong>Nesprávne odpovede:</strong>
+                <ul>
+                    <li>Dáta pre príjemcu.</li>
+                    <li>Fyzickú adresu odosielateľa.</li>
+                    <li>Logickú adresu odosielateľa.</li>
+                </ul>
+            </div>
+
+            <p class="question-note">
+                <strong>Vysvetlenie:</strong>
+                Trailer ethernetového rámca obsahuje FCS, teda Frame Check Sequence.
+                Slúži na kontrolu, či rámec nebol počas prenosu poškodený.
+            </p>
+        </article>
+
+        <article class="exam-question-card">
+            <span class="question-type">Vyberte jednu</span>
+            <h3>5. Prečo sú zvyčajne použité dve vlákna v jednom optickom spojení?</h3>
+
+            <div class="answer-box correct">
+                <strong>Správna odpoveď:</strong>
+                <p>Povoľujú plne duplexnú komunikáciu.</p>
+            </div>
+
+            <div class="answer-box wrong">
+                <strong>Nesprávne odpovede:</strong>
+                <ul>
+                    <li>Zvyšujú rýchlosť prenosu dát.</li>
+                    <li>Dve vlákna dovoľujú prenášať signál na väčšie vzdialenosti bez útlmu.</li>
+                    <li>Predchádzajú presluchom, teda crosstalku, na spojení.</li>
+                </ul>
+            </div>
+
+            <p class="question-note">
+                <strong>Vysvetlenie:</strong>
+                Pri optike sa často používa jedno vlákno na vysielanie a druhé na prijímanie.
+                Tak je možná full-duplex komunikácia.
+            </p>
+        </article>
+
+        <article class="exam-question-card">
+            <span class="question-type">Vyberte jednu</span>
+            <h3>6. Ktorý konektor sa používa pri ethernetovom kábli s krútenou dvojlinkou?</h3>
+
+            <div class="answer-box correct">
+                <strong>Správna odpoveď:</strong>
+                <p>RJ-45</p>
+            </div>
+
+            <div class="answer-box wrong">
+                <strong>Nesprávne odpovede:</strong>
+                <ul>
+                    <li>PS/2</li>
+                    <li>RJ-11</li>
+                    <li>DIN</li>
+                </ul>
+            </div>
+
+            <p class="question-note">
+                <strong>Vysvetlenie:</strong>
+                Ethernet cez metalický kábel, napríklad UTP, používa konektor RJ-45.
+                RJ-11 sa používa skôr pri telefónnych linkách.
+            </p>
+        </article>
+
+    </div>
+
+    <div class="exam-summary-box">
+        <h3>Rýchle zapamätanie</h3>
+        <ul>
+            <li><strong>LLC</strong> = komunikácia s vyššou vrstvou, softvérová časť.</li>
+            <li><strong>MAC</strong> = rámce, MAC adresy a prístup k médiu.</li>
+            <li><strong>Ethernet</strong> = najpoužívanejšia LAN technológia.</li>
+            <li><strong>IPv6</strong> = jednoduchšia hlavička, menej polí.</li>
+            <li><strong>Trailer</strong> = FCS, kontrola chýb.</li>
+            <li><strong>Optika</strong> = dve vlákna kvôli full-duplexu.</li>
+            <li><strong>RJ-45</strong> = Ethernet konektor.</li>
+        </ul>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="ccna" data-key="exam-questions-ethernet" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+                    <section id="ccna-exam-quiz" class="content-block">
+    <p class="small-title">Kvíz na skúšku</p>
+    <h2>CCNA kvíz – Ethernet, LLC, IPv6, ARP/ND a optika</h2>
+
+    <p class="section-description">
+        Tieto otázky sú spravené ako kvíz na prechádzanie. Pribudla aj Kapitola 9 – rozlíšenie adresy ARP/ND.
+        Funguje ako ostatné kvízy: cvičenie, skúška bez ukázania odpovede a iba nesprávne otázky.
+    </p>
+
+    <div class="quiz-panel">
+        <div class="quiz-mode-panel">
+            <div class="quiz-field">
+                <label for="ccnaQuizSet">Test</label>
+                <select id="ccnaQuizSet">
+                    <option value="all">Všetky otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="ccnaQuizMode">Režim</label>
+                <select id="ccnaQuizMode">
+                    <option value="practice">Cvičenie – ukáže vysvetlenie</option>
+                    <option value="exam">Skúška – bez ukázania odpovede</option>
+                    <option value="wrong">Iba nesprávne otázky</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label for="ccnaQuizShuffle">Miešanie</label>
+                <select id="ccnaQuizShuffle">
+                    <option value="both">Otázky aj odpovede</option>
+                    <option value="questions">Iba otázky</option>
+                    <option value="answers">Iba odpovede</option>
+                    <option value="none">Nemixovať</option>
+                </select>
+            </div>
+
+            <div class="quiz-field">
+                <label>&nbsp;</label>
+                <button id="ccnaQuizStart" class="quiz-btn primary" type="button">Spustiť</button>
+            </div>
+        </div>
+
+        <div class="quiz-top">
+            <div>
+                <span class="quiz-label">Otázka</span>
+                <strong><span id="ccnaQuizCurrent">1</span> / <span id="ccnaQuizTotal">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Skóre</span>
+                <strong><span id="ccnaQuizScore">0</span></strong>
+            </div>
+
+            <div>
+                <span class="quiz-label">Najlepší výsledok</span>
+                <strong><span id="ccnaQuizBest">0</span></strong>
+            </div>
+        </div>
+
+        <div id="ccnaQuizBox" class="quiz-box"></div>
+        <div id="ccnaQuizFeedback" class="quiz-feedback hidden"></div>
+
+        <div class="quiz-actions">
+            <button id="ccnaQuizCheck" class="quiz-btn primary" type="button">Skontrolovať odpoveď</button>
+            <button id="ccnaQuizPrev" class="quiz-btn ghost" type="button">← Predošlá</button>
+            <button id="ccnaQuizNext" class="quiz-btn secondary" type="button">Ďalšia otázka →</button>
+            <button id="ccnaQuizRestart" class="quiz-btn ghost" type="button">Spustiť odznova</button>
+        </div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="ccna" data-key="exam-quiz-ethernet" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    createQuiz({
+        quizData: ccnaQuizData,
+        prefix: "ccnaQuiz",
+        storagePrefix: "ccnaQuiz"
+    });
+});
+</script>
+
+                    <section id="checklist" class="content-block checklist-section">
     <p class="small-title">Checklist pred skúškou</p>
     <h2>Čo by som mal vedieť</h2>
     <p class="section-description">
@@ -960,8 +1232,8 @@ traceroute 8.8.8.8</code></pre>
         </div>
 
         <div>
-            <p>Vytvorené MG</p>
-            <p>StudyHub v2.0 • LAST UPDATE: 06/2026</p>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 
@@ -980,5 +1252,7 @@ traceroute 8.8.8.8</code></pre>
 <script src="../checklist.js"></script>
 <script src="../ccna-tools.js"></script>
 
+<script src="../quiz-ccna.js"></script>
+<script src="../quiz-engine.js"></script>
 </body>
 </html>

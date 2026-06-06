@@ -2618,89 +2618,192 @@ body::before {
 }
 
 
+
 /* =========================================================
-   Jednoduchá hlavná stránka – čistý Study Hub layout
+   CCNA otázky na skúšku – Ethernet, LLC, IPv6
    ========================================================= */
 
-.home-simple-main {
-    background: var(--bg);
-}
-
-.home-simple-hero {
-    min-height: 560px;
-    padding: 86px 0 70px;
-    align-items: center;
-}
-
-.home-simple-hero .grid-bg {
-    opacity: 0.32;
-}
-
-.home-simple-hero-content {
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-.home-simple-hero h2 {
-    font-size: clamp(58px, 8vw, 110px);
-    line-height: 0.88;
-    letter-spacing: -5px;
-}
-
-.home-simple-hero .hero-text {
-    max-width: 690px;
+.exam-question-list {
+    display: grid;
+    gap: 18px;
     margin-top: 24px;
-    font-size: 17px;
 }
 
-.home-simple-hero .hero-buttons {
-    margin-top: 28px;
+.exam-question-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
 }
 
-.home-simple-about-section {
-    padding: 58px 0 72px;
+.exam-question-card h3 {
+    font-size: 22px;
+    line-height: 1.35;
+    margin: 10px 0 18px;
 }
 
-.home-simple-about-box {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 34px 38px;
-    border-radius: 24px;
+.question-type {
+    display: inline-block;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.home-simple-about-box h2 {
-    font-size: clamp(34px, 4vw, 52px);
-    line-height: 1.05;
+.answer-box {
+    border-radius: 18px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.answer-box strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.answer-box.correct {
+    background: rgba(101, 212, 242, 0.10);
+    border: 1px solid var(--accent-border);
+}
+
+.answer-box.correct strong {
+    color: var(--accent);
+}
+
+.answer-box.wrong {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.22);
+}
+
+.answer-box.wrong strong {
+    color: #fecaca;
+}
+
+.answer-box ul,
+.exam-summary-box ul {
+    margin-left: 20px;
+    color: #cbd5e1;
+    line-height: 1.75;
+}
+
+.answer-box p,
+.question-note {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.question-note {
+    margin-top: 14px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px;
+}
+
+.question-note strong {
+    color: var(--accent);
+}
+
+.exam-summary-box {
+    margin-top: 22px;
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.10), transparent 36%),
+        var(--surface-2);
+    border: 1px solid var(--accent-border);
+    border-radius: 22px;
+    padding: 22px;
+}
+
+.exam-summary-box h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+
+
+/* =========================================================
+   Veľké obsahové rozšírenie predmetov – Study Hub
+   ========================================================= */
+
+.deep-note-grid,
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.deep-note-card,
+.topic-card {
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.08), transparent 34%),
+        var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+}
+
+.deep-note-card span,
+.topic-card span {
+    display: inline-block;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.deep-note-card h3,
+.topic-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.deep-note-card p,
+.topic-card p,
+.deep-note-card li,
+.topic-card li {
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 650;
+}
+
+.deep-note-card ul,
+.topic-card ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.formula-table {
+    margin-top: 24px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+}
+
+.formula-table h3 {
+    font-size: 24px;
     margin-bottom: 14px;
 }
 
-.home-simple-about-box p {
-    max-width: 850px;
+#assignments .section-description {
+    margin-bottom: 18px;
 }
 
-.home-simple-about-box p + p {
-    margin-top: 8px;
-}
-
-.home-simple-main + .footer {
-    margin-top: 0;
-}
-
-@media (max-width: 760px) {
-    .home-simple-hero {
-        min-height: 520px;
-        padding: 70px 0 52px;
-    }
-
-    .home-simple-hero h2 {
-        letter-spacing: -2px;
-    }
-
-    .home-simple-about-section {
-        padding: 36px 0 50px;
-    }
-
-    .home-simple-about-box {
-        padding: 26px 22px;
+@media (max-width: 900px) {
+    .deep-note-grid,
+    .topic-grid {
+        grid-template-columns: 1fr;
     }
 }

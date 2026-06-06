@@ -61,7 +61,8 @@
                 <aside class="subject-sidebar">
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
-<a href="#examples">Príklady</a>
+<a href="#msd-deep-theory">Podrobná teória</a>
+                    <a href="#examples">Príklady</a>
 <a href="#excel-formulas">Excel výpočty</a>
                     <a href="#assignments">Zadania</a>
 <a href="#checklist">Checklist</a>
@@ -132,7 +133,145 @@
 </section>
 
 
-<section id="examples" class="content-block">
+<section id="msd-deep-theory" class="content-block">
+    <p class="small-title">Podrobné poznámky</p>
+    <h2>MSD – teória, výpočty a školské postupy</h2>
+
+    <p class="section-description">
+        Táto časť zhŕňa najdôležitejšiu teóriu k zadaniam MSD: aproximácia dát,
+        projekcie do báz, Fourierova transformácia, náhodné premenné, rozdelenia,
+        momentová metóda a maximálna vierohodnosť.
+    </p>
+
+    <div class="deep-note-grid">
+        <article class="deep-note-card">
+            <span>01</span>
+            <h3>Časový rad a dáta</h3>
+            <p>
+                Časový rad je postupnosť hodnôt zoradených podľa času. V Exceli sa najčastejšie pripraví tak,
+                že v stĺpci A je dátum alebo poradové číslo merania a v stĺpci B je hodnota.
+            </p>
+            <ul>
+                <li>stĺpec A = čas, dátum alebo poradové číslo</li>
+                <li>stĺpec B = meraná hodnota</li>
+                <li>graf = čiarový graf alebo bodový graf podľa zadania</li>
+                <li>pri výpočtoch dávaj pozor, aby hodnoty neboli uložené ako text</li>
+            </ul>
+        </article>
+
+        <article class="deep-note-card">
+            <span>02</span>
+            <h3>Aproximácia a priemet</h3>
+            <p>
+                Aproximácia znamená, že pôvodné dáta nahradíme jednoduchším modelom. Hľadáme taký model,
+                ktorý sa k dátam čo najviac približuje.
+            </p>
+            <pre><code>lineárny model:
+ŷ(t) = c0 + c1t
+
+kvadratický model:
+ŷ(t) = c0 + c1t + c2t²
+
+chyba:
+e = y - ŷ
+||e|| = √Σ(yᵢ - ŷᵢ)²</code></pre>
+        </article>
+
+        <article class="deep-note-card">
+            <span>03</span>
+            <h3>Normálne rovnice</h3>
+            <p>
+                Pri metóde najmenších štvorcov sa koeficienty modelu počítajú z normálnych rovníc.
+                V maticovom zápise používame maticu X, vektor hodnôt y a vektor koeficientov c.
+            </p>
+            <pre><code>c = (XᵀX)^(-1)Xᵀy
+
+Excel:
+=MMULT(MINVERSE(MMULT(TRANSPOSE(X);X));MMULT(TRANSPOSE(X);Y))</code></pre>
+        </article>
+
+        <article class="deep-note-card">
+            <span>04</span>
+            <h3>Fourierova transformácia</h3>
+            <p>
+                Fourierova transformácia rozkladá signál na frekvenčné zložky.
+                Pred výpočtom sa často odstráni trend, napríklad lineárny trend.
+            </p>
+            <pre><code>rezíduum:
+r(t) = y(t) - trend(t)
+
+amplitúda:
+A(k) = √(Re(k)² + Im(k)²)
+
+dominantné harmonické:
+najväčšie amplitúdy v spektre</code></pre>
+        </article>
+
+        <article class="deep-note-card">
+            <span>05</span>
+            <h3>Diskrétna náhodná premenná</h3>
+            <p>
+                Diskrétna náhodná premenná nadobúda konečný alebo spočítateľný počet hodnôt.
+                Pravdepodobnosť odhadujeme cez relatívnu početnosť.
+            </p>
+            <pre><code>P(X = xᵢ) = početnosť(xᵢ) / n
+E(X) = Σ xᵢ · pᵢ
+D(X) = Σ (xᵢ - E(X))² · pᵢ
+σ = √D(X)</code></pre>
+        </article>
+
+        <article class="deep-note-card">
+            <span>06</span>
+            <h3>Momentová metóda</h3>
+            <p>
+                Momentová metóda porovnáva teoretické momenty rozdelenia s momentmi vypočítanými z dát.
+                Parametre sa určia tak, aby sa tieto momenty rovnali.
+            </p>
+            <pre><code>Poissonovo rozdelenie:
+λ = priemer dát
+
+Exponenciálne rozdelenie:
+λ = 1 / priemer dát
+
+Normálne rozdelenie:
+μ = priemer
+σ² = rozptyl</code></pre>
+        </article>
+
+        <article class="deep-note-card">
+            <span>07</span>
+            <h3>Maximálna vierohodnosť</h3>
+            <p>
+                Metóda maximálnej vierohodnosti vyberá také parametre alebo také rozdelenie,
+                pri ktorom sú pozorované dáta najpravdepodobnejšie.
+            </p>
+            <pre><code>L = Π P(X = xᵢ)          diskrétne rozdelenie
+L = Π f(xᵢ)             spojité rozdelenie
+
+lepší model:
+má väčšiu vierohodnosť L</code></pre>
+        </article>
+
+        <article class="deep-note-card">
+            <span>08</span>
+            <h3>Kontrola pred odovzdaním MSD zadania</h3>
+            <ul>
+                <li>mám jasne pomenované dáta a zdroj dát</li>
+                <li>mám tabuľku hodnôt a potrebné pomocné stĺpce</li>
+                <li>mám vzorce v Exceli</li>
+                <li>mám graf alebo viac grafov podľa zadania</li>
+                <li>mám vypočítanú chybu alebo charakteristiky</li>
+                <li>mám slovné zhodnotenie výsledku</li>
+            </ul>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="msd" data-key="msd-deep-theory" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+                    <section id="examples" class="content-block">
     <p class="small-title">Vzorce a typické výpočty</p>
     <h2>MSD – vzorce, postupy a Excel výpočty</h2>
 
@@ -586,6 +725,7 @@ D(X)=SUM((xi-E)^2*pi)
                     <section id="assignments" class="content-block">
     <p class="small-title">Zadania</p>
     <h2>MSD zadania Z1 až Z10</h2>
+    <p class="section-description">Zadania sú najprv skryté. Klikni na konkrétne zadanie Z1 až Z10 a otvorí sa ti text aj postup.</p>
 
     <p class="section-description">
         Tu sú zadania z predmetu Metódy spracovania dát prepísané textovo s cieľom zadania,
@@ -1437,8 +1577,8 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <div>
-            <p>Vytvorené MG</p>
-            <p>StudyHub v2.0 • LAST UPDATE: 06/2026</p>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 

@@ -61,7 +61,8 @@
                 <aside class="subject-sidebar">
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
-<a href="#study">Štúdium</a>
+<a href="#math-complete-notes">Kompletná teória</a>
+                    <a href="#study">Štúdium</a>
 <a href="#checklist">Checklist</a>
                     <a href="#dr-recognizer">Rozpoznávač DR</a>
                     <a href="#materials">Materiály</a>
@@ -125,7 +126,185 @@
     <div class="learn-actions"><button class="learn-btn" data-subject="mat" data-key="notes" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
 
-<section id="study" class="content-block">
+<section id="math-complete-notes" class="content-block">
+    <p class="small-title">Kompletné poznámky</p>
+    <h2>Matematika – skúškové témy, vzorce a postupy</h2>
+
+    <p class="section-description">
+        Prehľad tém, ktoré si riešil na skúšku: diferenciálne rovnice 1. rádu,
+        diferenciálne rovnice 2. rádu, sústavy DR, Laplaceova transformácia,
+        Fourierov rad, číselné a funkcionálne rady, mocninové rady, gradient a smerové derivácie.
+    </p>
+
+    <div class="topic-grid">
+        <article class="topic-card">
+            <span>DR 1. rádu</span>
+            <h3>Separovateľná rovnica</h3>
+            <p>Rovnicu rozoznáš tak, že sa dá upraviť na tvar, kde členy s y sú na jednej strane a členy s x na druhej.</p>
+            <pre><code>y' = f(x)g(y)
+dy/dx = f(x)g(y)
+
+1/g(y) dy = f(x) dx
+∫1/g(y) dy = ∫f(x) dx</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>DR 1. rádu</span>
+            <h3>Lineárna rovnica</h3>
+            <p>Typický tvar je y' + p(x)y = q(x). Rieši sa integračným faktorom alebo variáciou konštánt.</p>
+            <pre><code>y' + p(x)y = q(x)
+
+μ(x) = e^(∫p(x)dx)
+(μy)' = μq
+y = 1/μ · ∫μq dx</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>DR 1. rádu</span>
+            <h3>Bernoulliho rovnica</h3>
+            <p>Ak je na pravej strane mocnina y, použije sa substitúcia z = y^(1-n).</p>
+            <pre><code>y' + p(x)y = q(x)yⁿ
+z = y^(1-n)
+
+po substitúcii vznikne lineárna DR</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>DR 2. rádu</span>
+            <h3>Homogénna rovnica</h3>
+            <p>Pri konštantných koeficientoch zostavíš charakteristickú rovnicu.</p>
+            <pre><code>ay'' + by' + cy = 0
+ar² + br + c = 0
+
+r1, r2 reálne rôzne:
+y = C1e^(r1x) + C2e^(r2x)
+
+r dvojitý:
+y = (C1 + C2x)e^(rx)</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>DR 2. rádu</span>
+            <h3>Nehomogénna rovnica</h3>
+            <p>Celkové riešenie je súčet homogénneho riešenia a partikulárneho riešenia.</p>
+            <pre><code>y = yh + yp
+
+typy pravej strany:
+polynóm → skúšam polynóm
+e^(ax) → skúšam Ae^(ax)
+sin bx, cos bx → skúšam A sin bx + B cos bx</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Podmienky</span>
+            <h3>Začiatočné podmienky pri DR</h3>
+            <p>Konštanty C1, C2 sa určujú až po nájdení všeobecného riešenia.</p>
+            <pre><code>pri DR 1. rádu:
+y(x0) = y0
+
+pri DR 2. rádu:
+y(x0) = y0
+y'(x0) = y1</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Sústavy DR</span>
+            <h3>Vlastné čísla a vlastné vektory</h3>
+            <p>Sústava sa zapisuje maticovo. Rieši sa cez vlastné čísla a vektory matice A.</p>
+            <pre><code>X' = AX
+
+det(A - λI) = 0
+(A - λI)v = 0
+
+riešenie:
+X = C1v1e^(λ1t) + C2v2e^(λ2t)</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Laplace</span>
+            <h3>Laplaceova transformácia</h3>
+            <p>Vhodná pri začiatočných podmienkach. Derivácie sa premenia na algebraické výrazy.</p>
+            <pre><code>L{y'} = sY(s) - y(0)
+L{y''} = s²Y(s) - sy(0) - y'(0)
+
+L{1}=1/s
+L{e^(at)}=1/(s-a)
+L{sin at}=a/(s²+a²)
+L{cos at}=s/(s²+a²)</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Fourier</span>
+            <h3>Fourierov rad</h3>
+            <p>Funkcia sa rozkladá na súčet sínusov a kosínusov. Pri párnej funkcii ostávajú kosínusy, pri nepárnej sínusy.</p>
+            <pre><code>f(x) ~ a0/2 + Σ(an cos nx + bn sin nx)
+
+an = 1/π ∫[-π,π] f(x)cos(nx) dx
+bn = 1/π ∫[-π,π] f(x)sin(nx) dx</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Rady</span>
+            <h3>Číselné rady a kritériá</h3>
+            <p>Pri radoch zisťuješ konvergenciu. Najčastejšie sa používa podielové, odmocninové, porovnávacie a Leibnizovo kritérium.</p>
+            <pre><code>Podielové:
+L = lim |a(n+1)/a(n)|
+
+Odmocninové:
+L = lim ⁿ√|an|
+
+L < 1 konverguje
+L > 1 diverguje</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Funkcionálne rady</span>
+            <h3>Mocninový rad</h3>
+            <p>Pri mocninovom rade hľadáš stred x0, polomer R a interval konvergencie.</p>
+            <pre><code>Σ cn(x - x0)^n
+
+R = 1 / lim ⁿ√|cn|
+alebo
+R = lim |cn/c(n+1)|</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Vektorová analýza</span>
+            <h3>Gradient a smerová derivácia</h3>
+            <p>Gradient ukazuje smer najväčšieho rastu funkcie. Smerová derivácia je projekcia gradientu do smeru jednotkového vektora.</p>
+            <pre><code>∇f = (fx, fy)
+
+smerová derivácia:
+Duf = ∇f · u
+
+u musí byť jednotkový vektor</code></pre>
+        </article>
+    </div>
+
+    <div class="formula-table">
+        <h3>Rýchly ťahák vzorcov</h3>
+        <div class="table-box">
+            <table>
+                <thead><tr><th>Téma</th><th>Vzorec / postup</th><th>Kedy použiť</th></tr></thead>
+                <tbody>
+                    <tr><td>Lineárna DR</td><td>y' + p(x)y = q(x)</td><td>keď y je iba v prvej mocnine</td></tr>
+                    <tr><td>Bernoulli</td><td>z = y^(1-n)</td><td>keď je člen yⁿ</td></tr>
+                    <tr><td>DR 2. rádu</td><td>ar² + br + c = 0</td><td>homogénna rovnica s konštantnými koeficientmi</td></tr>
+                    <tr><td>Sústava DR</td><td>det(A - λI)=0</td><td>vlastné čísla a vlastné vektory</td></tr>
+                    <tr><td>Laplace y'</td><td>sY - y(0)</td><td>pri začiatočných podmienkach</td></tr>
+                    <tr><td>Fourier</td><td>a0/2 + Σ(an cos nx + bn sin nx)</td><td>periodické funkcie</td></tr>
+                    <tr><td>Gradient</td><td>∇f = (fx, fy)</td><td>funkcia dvoch premenných</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="mat" data-key="math-complete-notes" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+                    <section id="study" class="content-block">
     <p class="small-title">Štúdium</p>
     <h2>Čo si zopakovať</h2>
     <div class="example-list">
@@ -281,8 +460,8 @@ y(0), y'(0)</code></pre></div>
         </div>
 
         <div>
-            <p>Vytvorené MG</p>
-            <p>StudyHub v2.0 • LAST UPDATE: 06/2026</p>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 

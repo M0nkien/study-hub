@@ -63,6 +63,7 @@
                     <a href="#notes">Poznámky</a>
 <a href="#study">Štúdium</a>
 <a href="#checklist">Checklist</a>
+                    <a href="#esp32-deep-notes">ESP32 teória</a>
                     <a href="#vvs-practice">VVS prax</a>
                     <a href="#materials">Materiály</a>
 <a href="#questions">Kvíz</a>
@@ -188,6 +189,92 @@
     </div>
 </section>
 
+                    <section id="esp32-deep-notes" class="content-block">
+    <p class="small-title">ESP32 a MicroPython</p>
+    <h2>VVS – teória, príklady, príkazy a obhajoba</h2>
+
+    <div class="topic-grid">
+        <article class="topic-card">
+            <span>ESP32</span>
+            <h3>Základná teória</h3>
+            <p>ESP32 je mikrokontrolér. Programuje sa v MicroPythone a vie pracovať s GPIO, PWM, ADC, UART, I2C, časovačmi a web serverom.</p>
+        </article>
+
+        <article class="topic-card">
+            <span>GPIO</span>
+            <h3>Digitálny vstup a výstup</h3>
+            <pre><code>from machine import Pin
+
+led = Pin(21, Pin.OUT)
+led.value(1)
+
+button = Pin(2, Pin.IN, Pin.PULL_UP)</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>PWM</span>
+            <h3>PWM LED a buzzer</h3>
+            <pre><code>from machine import Pin, PWM
+
+pwm = PWM(Pin(5))
+pwm.freq(1000)
+pwm.duty(512)</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>ADC</span>
+            <h3>Analógové meranie</h3>
+            <pre><code>from machine import ADC, Pin
+
+adc = ADC(Pin(3))
+value = adc.read()</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>UART</span>
+            <h3>Sériová komunikácia</h3>
+            <pre><code>from machine import UART
+
+uart = UART(1, baudrate=115200, tx=23, rx=15)
+uart.write("Ahoj;")</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Timer</span>
+            <h3>Časovače</h3>
+            <pre><code>from machine import Timer
+
+def tik(timer):
+    print("timer")
+
+tim = Timer(0)
+tim.init(period=1000, mode=Timer.PERIODIC, callback=tik)</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Web</span>
+            <h3>Web ovládanie robota</h3>
+            <p>ESP32 môže bežať ako jednoduchý web server. Telefón alebo PC otvorí stránku a cez tlačidlá posiela príkazy.</p>
+        </article>
+
+        <article class="topic-card">
+            <span>Obhajoba</span>
+            <h3>Čo povedať na obhajobe</h3>
+            <ul>
+                <li>cieľ projektu</li>
+                <li>použité komponenty</li>
+                <li>hlavné súbory programu</li>
+                <li>ako funguje ovládanie</li>
+                <li>čo by sa dalo zlepšiť</li>
+            </ul>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="vvs" data-key="esp32-deep-notes" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
                     <section id="vvs-practice" class="content-block">
     <p class="small-title">VVS prax</p>
     <h2>ESP32, MicroPython a obhajoba</h2>
@@ -278,8 +365,8 @@ led.value(1)</code></pre></div>
         </div>
 
         <div>
-            <p>Vytvorené MG</p>
-            <p>StudyHub v2.0 • LAST UPDATE: 06/2026</p>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
         </div>
     </div>
 
