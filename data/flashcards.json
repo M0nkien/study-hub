@@ -151,6 +151,26 @@
         [
             "Najčastejšia chyba vo fyzike",
             "Zlé jednotky: cm treba prepočítať na m, g na kg, mm na m."
+        ],
+        [
+            "Tangenciálne zrýchlenie",
+            "at = εr."
+        ],
+        [
+            "Normálové zrýchlenie",
+            "an = v²/r = ω²r."
+        ],
+        [
+            "Uhlová dráha",
+            "φ = N · 2π."
+        ],
+        [
+            "Koleso sa zastaví",
+            "Použi ω² = ω0² + 2εφ a ω = ω0 + εt."
+        ],
+        [
+            "Bernoulliho rovnica",
+            "p + 1/2ρv² + ρgh = konštanta."
         ]
     ],
     "mat": [

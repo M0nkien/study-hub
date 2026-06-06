@@ -40,7 +40,15 @@ const FLASHCARD_DATA = {
         ["Perióda matematického kyvadla", "T = 2π√(l/g)"],
         ["Perióda fyzikálneho kyvadla", "T = 2π√(I/(mgl))"],
         ["Objem valca", "V = πd²h / 4"],
-        ["Najčastejšia chyba vo fyzike", "Zlé jednotky: cm treba prepočítať na m, g na kg, mm na m."]
+        ["Najčastejšia chyba vo fyzike", "Zlé jednotky: cm treba prepočítať na m, g na kg, mm na m."],
+        ["Tangenciálne zrýchlenie", "at = εr, vzniká pri zmene veľkosti rýchlosti pri pohybe po kružnici."],
+        ["Normálové zrýchlenie", "an = v²/r = ω²r, smeruje do stredu kružnice."],
+        ["Uhlová rýchlosť", "ω = 2πf = 2π/T."],
+        ["Uhlová dráha po N otáčkach", "φ = N · 2π."],
+        ["Rovnica pre spomaľujúce sa koleso", "ω² = ω0² + 2εφ."],
+        ["Bernoulliho rovnica", "p + 1/2ρv² + ρgh = konštanta."],
+        ["Rovnica kontinuity", "S1v1 = S2v2."],
+        ["Stokesov zákon", "F = 6πηrv pre odporovú silu pri malých rýchlostiach."]
     ],
     mat: [
         ["Separovateľná DR", "y' = f(x)g(y), členy s y dáš na jednu stranu a členy s x na druhú."],

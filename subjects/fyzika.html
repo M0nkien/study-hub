@@ -68,6 +68,11 @@
                 <aside class="subject-sidebar">
                     <h3>Obsah predmetu</h3>
                     <a href="#overview">Prehľad</a>
+                    <a href="#exam-topics">Okruhy skúška</a>
+                    <a href="#derivations">Odvodenia</a>
+                    <a href="#sample-written-exam">Vzorová písomka</a>
+                    <a href="#wheel-example">Vzorový príklad</a>
+                    <a href="#physics-images">Obrázky</a>
                     <a href="#physics-deep-theory">Rozšírená teória</a>
                     <a href="#theory">Teória</a>
                     <a href="#formulas">Vzorce</a>
@@ -144,6 +149,367 @@
                             <button class="learn-btn" data-subject="fyzika" data-key="overview" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
                         </div>
                     </section>
+
+                    <section id="exam-topics" class="content-block">
+    <p class="small-title">Okruhy na skúšku</p>
+    <h2>Fyzika – teoretické otázky ku skúške</h2>
+
+    <p class="section-description">
+        Táto časť je prepísaná podľa okruhov ku skúške. Pri učení nestačí vedieť iba vzorce,
+        treba vedieť vysvetliť význam veličín, nakresliť obrázok a stručne popísať fyzikálnu situáciu.
+    </p>
+
+    <div class="exam-topic-list">
+        <article class="exam-topic-card">
+            <span>1</span>
+            <h3>Kinematika a pohyb po kružnici</h3>
+            <ul>
+                <li>dráha rovnomerne zrýchleného pohybu</li>
+                <li>polohový vektor, vektor rýchlosti a zrýchlenia</li>
+                <li>pohyb po kružnici, uhlová rýchlosť a uhlové zrýchlenie</li>
+                <li>vzťah medzi obvodovou a uhlovou rýchlosťou</li>
+                <li>perióda, frekvencia, tangenciálne, normálové a celkové zrýchlenie</li>
+            </ul>
+            <pre><code>v = ds/dt
+a = dv/dt
+ω = Δφ/Δt
+v = ωr
+at = εr
+an = v²/r = ω²r
+f = 1/T
+ω = 2πf</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>2</span>
+            <h3>Dynamika a energia</h3>
+            <ul>
+                <li>Newtonove zákony dynamiky</li>
+                <li>impulz sily a pomocou hybnosti</li>
+                <li>hybnosť a moment hybnosti</li>
+                <li>moment sily, práca a výkon</li>
+                <li>kinetická a potenciálna energia</li>
+            </ul>
+            <pre><code>F = ma
+p = mv
+I = FΔt = Δp
+M = rF sin α
+W = Fs cos α
+P = W/t
+Ek = 1/2 mv²
+Ep = mgh</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>3</span>
+            <h3>Gravitácia a vrhy</h3>
+            <ul>
+                <li>Keplerove zákony</li>
+                <li>Newtonov gravitačný zákon</li>
+                <li>intenzita a potenciál gravitačného poľa</li>
+                <li>radiálne gravitačné pole a gravitačné zrýchlenie</li>
+                <li>šikmý, vodorovný a zvislý vrh</li>
+                <li>doba letu, dostreľ a výška vrhu</li>
+            </ul>
+            <pre><code>F = G m1m2/r²
+g = GM/r²
+vx = v0 cos α
+vy = v0 sin α - gt
+H = v0² sin²α / 2g
+D = v0² sin 2α / g</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>4</span>
+            <h3>Trenie</h3>
+            <ul>
+                <li>sila kĺzavého trenia</li>
+                <li>statické a dynamické trenie</li>
+                <li>graf priebehu sily pri prechode zo statického na dynamické trenie</li>
+                <li>koeficient trenia a trecia reakcia</li>
+            </ul>
+            <pre><code>Ft = f · FN
+Ft,max = fs · FN
+dynamické trenie: Ft = fd · FN</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>5</span>
+            <h3>Sústava hmotných bodov a tuhé teleso</h3>
+            <ul>
+                <li>pohybové vektory ťažiska sústavy hmotných bodov a tuhého telesa</li>
+                <li>rýchlosť a zrýchlenie ťažiska</li>
+                <li>kinetická energia translačného a rotačného pohybu tuhého telesa</li>
+                <li>moment zotrvačnosti tuhého telesa a sústavy hmotných bodov</li>
+                <li>pohybová rovnica tuhého telesa pri otáčaní okolo osi</li>
+                <li>Steinerova veta</li>
+            </ul>
+            <pre><code>rT = Σmiri / Σmi
+Ek,trans = 1/2 mv²
+Ek,rot = 1/2 Iω²
+I = Σmiri²
+M = Iε
+I = I0 + md²</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>6</span>
+            <h3>Kmity</h3>
+            <ul>
+                <li>pohybová rovnica harmonických netlmených kmitov</li>
+                <li>riešenie harmonických kmitov</li>
+                <li>koeficient tlmenia</li>
+                <li>pohybová rovnica vynútených harmonických tlmených kmitov</li>
+                <li>amplitúda vynútených kmitov a podmienka rezonancie</li>
+            </ul>
+            <pre><code>x'' + ω0²x = 0
+x = A sin(ωt + φ)
+
+tlmené:
+x'' + 2βx' + ω0²x = 0
+
+vynútené:
+x'' + 2βx' + ω0²x = F0/m · cos(Ωt)</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>7</span>
+            <h3>Deformácia a Hookeov zákon</h3>
+            <ul>
+                <li>krivka deformácie</li>
+                <li>jednotlivé oblasti deformácie</li>
+                <li>deformačné sily</li>
+                <li>Hookeov zákon pre ťah</li>
+            </ul>
+            <pre><code>F = kx
+σ = F/S
+ε = Δl/l0
+σ = Eε</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>8</span>
+            <h3>Kvapaliny</h3>
+            <ul>
+                <li>základná rovnica hydrostatiky</li>
+                <li>Archimedov zákon</li>
+                <li>praktické využitie hydrostatiky</li>
+                <li>rovnica kontinuity prúdenia kvapalín</li>
+                <li>Bernoulliho rovnica</li>
+                <li>príklady využitia Bernoulliho rovnice</li>
+            </ul>
+            <pre><code>p = ρgh
+Fvz = ρgV
+S1v1 = S2v2
+p + 1/2ρv² + ρgh = konšt.</code></pre>
+        </article>
+
+        <article class="exam-topic-card">
+            <span>9</span>
+            <h3>Prúdenie a odpor prostredia</h3>
+            <ul>
+                <li>laminárne a turbulentné prúdenie</li>
+                <li>koeficient dynamickej viskozity</li>
+                <li>vzťah pre veľkosť odporovej sily</li>
+                <li>Stokesov vzťah</li>
+                <li>výsledná rýchlosť pohybu tuhého telesa v kvapaline</li>
+            </ul>
+            <pre><code>Stokesov zákon:
+F = 6πηrv
+
+Reynoldsovo číslo:
+Re = ρvd/η</code></pre>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="exam-topics" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+<section id="derivations" class="content-block">
+    <p class="small-title">Odvodenia</p>
+    <h2>Odvodenia ku skúške z fyziky</h2>
+
+    <p class="section-description">
+        Odvodenia sa netreba učiť ako čistý text naspamäť. Dôležité je vedieť logiku,
+        fyzikálny význam a vedieť z odvodenia použiť aj časť, keď nechceš celý postup.
+    </p>
+
+    <div class="derivation-list">
+        <article class="derivation-card"><span>1</span><p>Odvoďte vzťah pre tangenciálne a normálové zrýchlenie pri pohybe po kružnici.</p></article>
+        <article class="derivation-card"><span>2</span><p>Odvoďte Newtonov gravitačný zákon z 3. Keplerovho zákona.</p></article>
+        <article class="derivation-card"><span>3</span><p>Odvoďte rovnice dráhy pohybu šikmého vrhu, výšku a dolet.</p></article>
+        <article class="derivation-card"><span>4</span><p>Odvoďte I. kozmickú rýchlosť a II. kozmickú rýchlosť.</p></article>
+        <article class="derivation-card"><span>5</span><p>Odvoďte polohový vektor ťažiska sústavy hmotných bodov a tuhého telesa.</p></article>
+        <article class="derivation-card"><span>6</span><p>Odvoďte vzťahy pre kinetickú energiu translačného a rotačného pohybu tuhého telesa.</p></article>
+        <article class="derivation-card"><span>7</span><p>Odvoďte I. vetu impulzovú pre pohyb ťažiska.</p></article>
+        <article class="derivation-card"><span>8</span><p>Odvoďte Steinerovu vetu.</p></article>
+        <article class="derivation-card"><span>9</span><p>Odvoďte pohybovú rovnicu harmonických netlmených kmitov a jej riešenie.</p></article>
+        <article class="derivation-card"><span>10</span><p>Odvoďte pohybovú rovnicu harmonických tlmených kmitov a jej riešenie.</p></article>
+        <article class="derivation-card"><span>11</span><p>Odvoďte amplitúdu vynútených kmitov a z nej podmienku rezonancie. Charakterizujte rezonanciu.</p></article>
+        <article class="derivation-card"><span>12</span><p>Odvoďte Bernoulliho rovnicu.</p></article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="derivations" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+<section id="sample-written-exam" class="content-block">
+    <p class="small-title">Vzorová písomka</p>
+    <h2>Príklad, ako môže vyzerať skúška</h2>
+
+    <div class="exam-written-list">
+        <article class="written-task important">
+            <span>1</span>
+            <p>Odvoďte rovnice dráhy pohybu šikmého vrhu, výšku a dolet.</p>
+        </article>
+        <article class="written-task important">
+            <span>2</span>
+            <p>Odvoďte pohybovú rovnicu harmonických tlmených kmitov a jej riešenie.</p>
+        </article>
+        <article class="written-task">
+            <span>3</span>
+            <p>Načrtnite polohový vektor ťažiska dvoch hmotných bodov, ako aj jednotlivé vektory. Vyjadrite ho vzťahom a popíšte veličiny.</p>
+        </article>
+        <article class="written-task">
+            <span>4</span>
+            <p>Napište Bernoulliho rovnicu s vysvetlením veličín a uveďte aspoň dva príklady využitia Bernoulliho rovnice v praxi.</p>
+        </article>
+        <article class="written-task">
+            <span>5</span>
+            <p>Koleso otáčajúce sa frekvenciou 600 otáčok za minútu sa vplyvom trenia zastaví, pričom vykoná ešte 500 otáčok. Za aký čas sa koleso zastaví a aké bude jeho uhlové zrýchlenie?</p>
+        </article>
+    </div>
+
+    <div class="points-box">
+        <h3>Body a známkovanie</h3>
+        <ul>
+            <li>LC: 10 bodov</li>
+            <li>VC: 10 bodov</li>
+            <li>Skúška: 80 bodov</li>
+            <li>Spolu: 100 bodov</li>
+            <li>Známka: 100–91 A, 90–81 B, 80–71 C, 70–61 D, 60–51 E, 50 a menej FX</li>
+        </ul>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="sample-written-exam" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
+<section id="wheel-example" class="content-block">
+    <p class="small-title">Vzorový príklad</p>
+    <h2>Koleso sa zastaví – čas zastavenia a uhlové zrýchlenie</h2>
+
+    <div class="solved-example-box">
+        <h3>Zadanie</h3>
+        <p>
+            Koleso sa otáča frekvenciou <strong>600 otáčok za minútu</strong>.
+            Vplyvom trenia sa zastaví po <strong>500 otáčkach</strong>.
+            Nájdite čas zastavenia a uhlové zrýchlenie.
+        </p>
+
+        <div class="solution-steps">
+            <article>
+                <span>1</span>
+                <h4>Prevod frekvencie</h4>
+                <pre><code>f = 600 / 60 = 10 Hz</code></pre>
+            </article>
+
+            <article>
+                <span>2</span>
+                <h4>Počiatočná uhlová rýchlosť</h4>
+                <pre><code>ω0 = 2πf
+ω0 = 2π · 10
+ω0 = 20π rad/s</code></pre>
+            </article>
+
+            <article>
+                <span>3</span>
+                <h4>Uhlová dráha</h4>
+                <pre><code>N = 500 otáčok
+φ = N · 2π
+φ = 500 · 2π = 1000π rad</code></pre>
+            </article>
+
+            <article>
+                <span>4</span>
+                <h4>Konečná uhlová rýchlosť</h4>
+                <pre><code>ω = 0</code></pre>
+            </article>
+
+            <article>
+                <span>5</span>
+                <h4>Uhlové zrýchlenie</h4>
+                <pre><code>ω² = ω0² + 2εφ
+
+0 = (20π)² + 2ε(1000π)
+0 = 400π² + 2000πε
+
+ε = -400π² / 2000π
+ε = -π/5
+ε ≈ -0,628 rad/s²</code></pre>
+            </article>
+
+            <article>
+                <span>6</span>
+                <h4>Čas zastavenia</h4>
+                <pre><code>ω = ω0 + εt
+
+0 = 20π - (π/5)t
+(π/5)t = 20π
+t = 100 s</code></pre>
+            </article>
+        </div>
+
+        <div class="result-box">
+            <h3>Výsledok</h3>
+            <p><strong>Uhlové zrýchlenie:</strong> ε = -π/5 ≈ -0,628 rad/s²</p>
+            <p><strong>Čas zastavenia:</strong> t = 100 s</p>
+            <p class="section-description">
+                Znamienko mínus znamená, že ide o spomaľovanie, teda uhlové zrýchlenie pôsobí proti smeru otáčania.
+            </p>
+        </div>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="wheel-example" data-pending-text="Označiť ako vyriešené" data-done-text="Vyriešené ✓" type="button">Označiť ako vyriešené</button>
+    </div>
+</section>
+
+<section id="physics-images" class="content-block">
+    <p class="small-title">Obrázky z podkladov</p>
+    <h2>Originálne obrázky k fyzike</h2>
+
+    <p class="section-description">
+        Sem som pridal obrázky, ktoré si poslal: vzorový príklad, okruhy teoretických otázok,
+        vzorovú písomku a zoznam odvodení.
+    </p>
+
+    <div class="physics-image-grid">
+        <figure>
+            <img src="../files/fyzika/vzorovy-priklad-koleso.png" alt="Vzorový príklad: koleso sa zastaví">
+            <figcaption>Vzorový príklad – koleso sa zastaví</figcaption>
+        </figure>
+
+        <figure>
+            <img src="../files/fyzika/okruhy-teoreticke-otazky.png" alt="Okruhy teoretických otázok ku skúške z fyziky">
+            <figcaption>Teoretické otázky ku skúške</figcaption>
+        </figure>
+
+        <figure>
+            <img src="../files/fyzika/vzorova-pisomka.png" alt="Vzorová písomka z fyziky">
+            <figcaption>Príklad, ako vyzerá skúška</figcaption>
+        </figure>
+
+        <figure>
+            <img src="../files/fyzika/odvodenia-ku-skuske.png" alt="Odvodenia ku skúške z fyziky">
+            <figcaption>Odvodenia ku skúške</figcaption>
+        </figure>
+    </div>
+</section>
 
                     <section id="physics-deep-theory" class="content-block">
     <p class="small-title">Rozšírená teória</p>

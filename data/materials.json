@@ -121,5 +121,50 @@
             "dokumentácia"
         ],
         "url": "subjects/uvod-do-studia.html#project"
+    },
+    {
+        "id": "fyzika-okruhy-skuska",
+        "subject": "fyzika",
+        "title": "Fyzika – okruhy ku skúške",
+        "type": "poznámky",
+        "tags": [
+            "skúška",
+            "teória",
+            "okruhy"
+        ],
+        "url": "subjects/fyzika.html#exam-topics"
+    },
+    {
+        "id": "fyzika-odvodenia",
+        "subject": "fyzika",
+        "title": "Fyzika – odvodenia ku skúške",
+        "type": "poznámky",
+        "tags": [
+            "odvodenia",
+            "skúška"
+        ],
+        "url": "subjects/fyzika.html#derivations"
+    },
+    {
+        "id": "fyzika-vzorova-pisomka",
+        "subject": "fyzika",
+        "title": "Fyzika – vzorová písomka",
+        "type": "zadanie",
+        "tags": [
+            "písomka",
+            "skúška"
+        ],
+        "url": "subjects/fyzika.html#sample-written-exam"
+    },
+    {
+        "id": "fyzika-koleso-priklad",
+        "subject": "fyzika",
+        "title": "Vzorový príklad – koleso sa zastaví",
+        "type": "výpočet",
+        "tags": [
+            "príklad",
+            "otáčavý pohyb"
+        ],
+        "url": "subjects/fyzika.html#wheel-example"
     }
 ]

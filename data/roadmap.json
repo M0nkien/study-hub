@@ -86,5 +86,13 @@
         "status": "pracuje sa",
         "priority": "stredná",
         "updated": "06/2026"
+    },
+    {
+        "category": "hotové",
+        "title": "Fyzika – okruhy, odvodenia a vzorová písomka",
+        "subject": "Fyzika",
+        "status": "hotové",
+        "priority": "vysoká",
+        "updated": "06/2026"
     }
 ]
