@@ -5,34 +5,14 @@ Autor: **vytvorené mnou**
 
 ## Čo je upravené
 
-- web je premenovaný z pôvodného názvu na Study Hub,
-- všetky hlavné texty v hlavičke a pätičke sú upravené na Study Hub,
+- web je premenovaný z pôvodného názvu na StudyHub,
+- všetky hlavné texty v hlavičke a pätičke sú upravené na StudyHub,
 - MSD zadania Z1 až Z10 sú znovu rozšírené s detailným textom, cieľom, postupom a vzorcami,
 - v MSD pribudla veľká sekcia vzorcov a typických výpočtov,
 - Admin panel má heslo,
 - Linux už nemá sekciu rýchly ťahák príkazov,
 - CCNA/Cisco má rozsiahlu sekciu príkazov pre Packet Tracer,
 - ostal progres učenia, vyhľadávanie, filtrovanie materiálov, mobilné menu a kvízy.
-
-## Admin heslo
-
-Predvolené heslo je:
-
-```text
-studyhub2026
-```
-
-Zmeníš ho v súbore:
-
-```text
-admin.js
-```
-
-Premenná:
-
-```js
-const ADMIN_PASSWORD = "studyhub2026";
-```
 
 Pozor: pri čisto statickom HTML/JS webe je toto iba jednoduchá ochrana proti bežnému kliknutiu.
 Skutočné bezpečné prihlásenie treba riešiť cez Firebase Auth alebo server.
@@ -105,7 +85,7 @@ Zoznam predmetov je presunutý z hlavnej stránky do súboru:
 Hlavná stránka `index.html` už neobsahuje veľký zoznam predmetov, iba krátku sekciu s tlačidlom „Otvoriť predmety“.
 
 
-## Study Hub v1.5 – veľký balík vylepšení
+## Study Hub v2.0 – veľký balík vylepšení
 
 Pridané:
 - Checklist pred skúškou pre každý predmet.
