@@ -2616,3 +2616,91 @@ body::before {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* =========================================================
+   Jednoduchá hlavná stránka – čistý Study Hub layout
+   ========================================================= */
+
+.home-simple-main {
+    background: var(--bg);
+}
+
+.home-simple-hero {
+    min-height: 560px;
+    padding: 86px 0 70px;
+    align-items: center;
+}
+
+.home-simple-hero .grid-bg {
+    opacity: 0.32;
+}
+
+.home-simple-hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.home-simple-hero h2 {
+    font-size: clamp(58px, 8vw, 110px);
+    line-height: 0.88;
+    letter-spacing: -5px;
+}
+
+.home-simple-hero .hero-text {
+    max-width: 690px;
+    margin-top: 24px;
+    font-size: 17px;
+}
+
+.home-simple-hero .hero-buttons {
+    margin-top: 28px;
+}
+
+.home-simple-about-section {
+    padding: 58px 0 72px;
+}
+
+.home-simple-about-box {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 34px 38px;
+    border-radius: 24px;
+}
+
+.home-simple-about-box h2 {
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.05;
+    margin-bottom: 14px;
+}
+
+.home-simple-about-box p {
+    max-width: 850px;
+}
+
+.home-simple-about-box p + p {
+    margin-top: 8px;
+}
+
+.home-simple-main + .footer {
+    margin-top: 0;
+}
+
+@media (max-width: 760px) {
+    .home-simple-hero {
+        min-height: 520px;
+        padding: 70px 0 52px;
+    }
+
+    .home-simple-hero h2 {
+        letter-spacing: -2px;
+    }
+
+    .home-simple-about-section {
+        padding: 36px 0 50px;
+    }
+
+    .home-simple-about-box {
+        padding: 26px 22px;
+    }
+}

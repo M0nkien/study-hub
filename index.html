@@ -27,21 +27,18 @@
         <nav class="nav">
             <a href="index.html">Domov</a>
             <a href="subjects.html">Predmety</a>
-            <a href="flashcards.html">Kartičky</a>
-            <a href="results.html">Výsledky</a>
-            <a href="roadmap.html">Roadmapa</a>
             <a href="support.html">Podpora</a>
             <a href="admin.html">Admin</a>
         </nav>
     </div>
 </header>
 
-<main>
+<main class="home-simple-main">
 
-    <section id="home" class="hero">
+    <section id="home" class="hero home-simple-hero">
         <div class="grid-bg"></div>
 
-        <div class="container hero-content">
+        <div class="container hero-content home-simple-hero-content">
             <span class="badge">● Študentská platforma na učenie</span>
 
             <h2>
@@ -50,134 +47,23 @@
             </h2>
 
             <p class="hero-text">
-                Poznámky, príklady, testy, návody a školské postupy
-                vytvorené študentom pre študentov.
+                Poznámky, príklady, testy, návody a školské postupy vytvorené študentom pre študentov.
             </p>
 
             <div class="hero-buttons">
                 <a href="subjects.html" class="btn primary">Začať študovať</a>
-                <a href="#latest" class="btn secondary">Najnovšie pridané</a>
             </div>
         </div>
     </section>
 
-    <section class="continue-section">
-        <div class="container continue-box">
-            <div>
-                <p class="small-title">Pokračovanie</p>
-                <h2>Pokračuj tam, kde si skončil</h2>
-                <p id="continueLearningLabel">Study Hub si uloží posledný otvorený predmet alebo sekciu v tomto prehliadači.</p>
-            </div>
-
-            <a href="subjects.html" id="continueLearningBtn" class="btn primary">Pokračovať v učení</a>
-        </div>
-    </section>
-
-    <section id="latest" class="latest-section">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <p class="small-title">Novinky</p>
-                    <h2>Najnovšie pridané</h2>
-                </div>
-            </div>
-
-            <div class="latest-mini-grid">
-                <a href="subjects/fyzika.html" class="latest-mini-card">
-                    <span>Fyzika</span>
-                    <strong>Pridaný nový predmet</strong>
-                    <p>Teória, vzorce, príklady a laboratórium.</p>
-                </a>
-
-                <a href="subjects/msd.html#assignments" class="latest-mini-card">
-                    <span>MSD</span>
-                    <strong>Zadania Z1 až Z10</strong>
-                    <p>Rozšírený text, postupy a vzorce.</p>
-                </a>
-
-                <a href="subjects/linux.html#study" class="latest-mini-card">
-                    <span>Linux</span>
-                    <strong>Štúdium príkazov</strong>
-                    <p>Prehľad príkazov bez rýchleho ťaháku.</p>
-                </a>
-
-                <a href="subjects/ccna.html#packettracer-labs" class="latest-mini-card">
-                    <span>CCNA</span>
-                    <strong>Packet Tracer príkazy</strong>
-                    <p>VLAN, trunk, DHCP, SSH, routing.</p>
-                </a>
-
-                <a href="support.html" class="latest-mini-card">
-                    <span>Podpora</span>
-                    <strong>Google formulár podpory</strong>
-                    <p>Nahlás chybu alebo navrhni úpravu cez Google Forms.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="dashboard-section">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <p class="small-title">Dashboard</p>
-                    <h2>Prehľad učenia</h2>
-                </div>
-            </div>
-
-            <div class="dashboard-grid" id="studyHubDashboard">
-                <div class="dashboard-card"><span>Rozpracované predmety</span><strong id="dashInProgress">0</strong></div>
-                <div class="dashboard-card"><span>Dokončené sekcie</span><strong id="dashDoneSections">0</strong></div>
-                <div class="dashboard-card"><span>Najlepší výsledok kvízu</span><strong id="dashBestQuiz">0%</strong></div>
-                <div class="dashboard-card"><span>Naposledy otvorené</span><strong id="dashLastOpen">—</strong></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="subjects-preview-section">
-        <div class="container subjects-preview-box">
-            <div>
-                <p class="small-title">Predmety</p>
-                <h2>Všetky predmety sú na samostatnej stránke</h2>
-                <p>
-                    Na hlavnej stránke ostáva úvod a novinky. Zoznam predmetov je teraz
-                    prehľadnejšie na osobitnej podstránke.
-                </p>
-            </div>
-
-            <a href="subjects.html" class="btn primary">Otvoriť predmety</a>
-        </div>
-    </section>
-
-<section id="changelog" class="changelog-section">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <p class="small-title">Changelog</p>
-                    <h2>Čo sa zmenilo vo verzii stránky</h2>
-                </div>
-
-                <a href="roadmap.html" class="btn secondary">Pozrieť roadmapu</a>
-            </div>
-
-            <div class="changelog-list">
-                <article class="changelog-item"><span>v1.5</span><div><strong>Checklisty, kartičky, časovač a výsledky</strong><p>Pridané checklisty pre každý predmet, flashcards, skúškový timer a história výsledkov.</p></div></article>
-                <article class="changelog-item"><span>v1.4</span><div><strong>Stavy predmetov a roadmapa</strong><p>Predmety majú stav hotové / rozpracované / dopĺňa sa.</p></div></article>
-                <article class="changelog-item"><span>v1.3</span><div><strong>Podpora cez Google Forms</strong><p>Pridaná samostatná podstránka podpory.</p></div></article>
-                <article class="changelog-item"><span>v1.2</span><div><strong>Predmety na podstránke</strong><p>Zoznam predmetov je samostatne na subjects.html.</p></div></article>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container about-box">
+    <section id="about" class="about-section home-simple-about-section">
+        <div class="container about-box home-simple-about-box">
             <p class="small-title">O projekte</p>
             <h2>Prečo vznikol tento web?</h2>
 
             <p>
-                Study Hub je neoficiálna študentská stránka,
-                kde sú uložené poznámky, príklady, návody, testové otázky
-                a školské postupy z rôznych predmetov.
+                Study Hub je neoficiálna študentská stránka, kde sú uložené poznámky,
+                príklady, návody, testové otázky a školské postupy z rôznych predmetov.
             </p>
 
             <p>
@@ -197,8 +83,8 @@
         </div>
 
         <div>
-            <p>Vytvorené mnou</p>
-            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
+            <p>Vytvorené MG</p>
+            <p>StudyHub v2.0 • LAST UPDATE: 06/2026</p>
         </div>
     </div>
 
