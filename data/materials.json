@@ -1,0 +1,68 @@
+[
+    {
+        "id": "linux-teoria",
+        "subject": "linux",
+        "title": "Linux teória",
+        "type": "poznámky",
+        "tags": [
+            "skúška",
+            "CLI"
+        ],
+        "url": "subjects/linux.html#linux-deep-theory"
+    },
+    {
+        "id": "msd-teoria",
+        "subject": "msd",
+        "title": "MSD podrobná teória",
+        "type": "poznámky",
+        "tags": [
+            "Excel",
+            "výpočty"
+        ],
+        "url": "subjects/msd.html#msd-deep-theory"
+    },
+    {
+        "id": "ccna-quiz",
+        "subject": "ccna",
+        "title": "CCNA kvíz ARP/Ethernet",
+        "type": "kvíz",
+        "tags": [
+            "siete",
+            "skúška"
+        ],
+        "url": "subjects/ccna.html#ccna-exam-quiz"
+    },
+    {
+        "id": "fyzika-vzorce",
+        "subject": "fyzika",
+        "title": "Fyzika vzorce a labáky",
+        "type": "poznámky",
+        "tags": [
+            "vzorce",
+            "lab"
+        ],
+        "url": "subjects/fyzika.html#physics-deep-theory"
+    },
+    {
+        "id": "mat-teoria",
+        "subject": "mat",
+        "title": "Matematika skúškové témy",
+        "type": "poznámky",
+        "tags": [
+            "DR",
+            "Laplace"
+        ],
+        "url": "subjects/mat.html#math-complete-notes"
+    },
+    {
+        "id": "vvs-esp32",
+        "subject": "vvs",
+        "title": "ESP32 a MicroPython",
+        "type": "poznámky",
+        "tags": [
+            "ESP32",
+            "MicroPython"
+        ],
+        "url": "subjects/vvs.html#esp32-deep-notes"
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "category": "hotové",
+        "title": "Jednoduchá hlavná stránka",
+        "subject": "web",
+        "status": "hotové",
+        "priority": "vysoká",
+        "updated": "06/2026"
+    },
+    {
+        "category": "hotové",
+        "title": "Predmety na samostatnej stránke",
+        "subject": "celý web",
+        "status": "hotové",
+        "priority": "vysoká",
+        "updated": "06/2026"
+    },
+    {
+        "category": "pracuje sa",
+        "title": "MSD – podrobné poznámky",
+        "subject": "MSD",
+        "status": "pracuje sa",
+        "priority": "vysoká",
+        "updated": "06/2026"
+    },
+    {
+        "category": "pracuje sa",
+        "title": "Matematika – skúškové témy",
+        "subject": "Matematika",
+        "status": "pracuje sa",
+        "priority": "vysoká",
+        "updated": "06/2026"
+    },
+    {
+        "category": "plánované",
+        "title": "quizzes.html",
+        "subject": "všetky",
+        "status": "plánované",
+        "priority": "vysoká",
+        "updated": "neskôr"
+    },
+    {
+        "category": "plánované",
+        "title": "files.html",
+        "subject": "všetky",
+        "status": "plánované",
+        "priority": "vysoká",
+        "updated": "neskôr"
+    },
+    {
+        "category": "nápady",
+        "title": "Firebase admin",
+        "subject": "admin",
+        "status": "nápad",
+        "priority": "nižšia",
+        "updated": "verzia 2.0"
+    }
+]

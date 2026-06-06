@@ -1,0 +1,107 @@
+[
+    {
+        "id": "linux",
+        "short": "LNX",
+        "title": "Linux Essentials",
+        "status": "hotové",
+        "updated": "06/2026",
+        "url": "subjects/linux.html",
+        "description": "Príkazy, shell, práva, procesy a finálny kvíz.",
+        "icon": "terminal",
+        "tags": [
+            "CLI",
+            "príkazy",
+            "skúška"
+        ]
+    },
+    {
+        "id": "msd",
+        "short": "MSD",
+        "title": "Metódy spracovania dát",
+        "status": "dopĺňa sa",
+        "updated": "06/2026",
+        "url": "subjects/msd.html",
+        "description": "Excel, časové rady, Fourier, rozdelenia a zadania.",
+        "icon": "chart",
+        "tags": [
+            "Excel",
+            "výpočty",
+            "zadania"
+        ]
+    },
+    {
+        "id": "ccna",
+        "short": "CCNA",
+        "title": "Cisco / CCNA",
+        "status": "dopĺňa sa",
+        "updated": "06/2026",
+        "url": "subjects/ccna.html",
+        "description": "Packet Tracer, Ethernet, ARP, VLAN, VLSM a routing.",
+        "icon": "network",
+        "tags": [
+            "siete",
+            "Packet Tracer",
+            "kvíz"
+        ]
+    },
+    {
+        "id": "fyzika",
+        "short": "FYZ",
+        "title": "Fyzika",
+        "status": "dopĺňa sa",
+        "updated": "06/2026",
+        "url": "subjects/fyzika.html",
+        "description": "Mechanika, vektory, kyvadlá, Steinerova veta a labáky.",
+        "icon": "atom",
+        "tags": [
+            "vzorce",
+            "labáky",
+            "skúška"
+        ]
+    },
+    {
+        "id": "mat",
+        "short": "MAT",
+        "title": "Matematika",
+        "status": "rozpracované",
+        "updated": "06/2026",
+        "url": "subjects/mat.html",
+        "description": "DR, sústavy DR, Laplace, Fourierov rad, rady a gradient.",
+        "icon": "sigma",
+        "tags": [
+            "DR",
+            "Laplace",
+            "rady"
+        ]
+    },
+    {
+        "id": "vvs",
+        "short": "VVS",
+        "title": "VVS / ESP32",
+        "status": "rozpracované",
+        "updated": "06/2026",
+        "url": "subjects/vvs.html",
+        "description": "ESP32, MicroPython, GPIO, PWM, ADC, UART a obhajoba.",
+        "icon": "chip",
+        "tags": [
+            "ESP32",
+            "MicroPython",
+            "projekt"
+        ]
+    },
+    {
+        "id": "java",
+        "short": "JAVA",
+        "title": "Java",
+        "status": "rozpracované",
+        "updated": "06/2026",
+        "url": "subjects/java.html",
+        "description": "OOP, dedičnosť, polymorfizmus, UML, Javadoc a semestrálka.",
+        "icon": "code",
+        "tags": [
+            "OOP",
+            "UML",
+            "projekt"
+        ]
+    }
+]

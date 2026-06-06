@@ -1,0 +1,20 @@
+[
+    {
+        "version": "v1.6",
+        "date": "06/2026",
+        "title": "Uprataná štruktúra",
+        "description": "Pridané assets/css, assets/js a data JSON súbory."
+    },
+    {
+        "version": "v1.5",
+        "date": "06/2026",
+        "title": "Obsah predmetov",
+        "description": "Pridané podrobné poznámky, kartičky a roadmapa."
+    },
+    {
+        "version": "v1.4",
+        "date": "06/2026",
+        "title": "Kvízy a checklisty",
+        "description": "Pridané checklisty, kvízový režim a výsledky."
+    }
+]
