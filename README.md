@@ -1,11 +1,11 @@
 # Study Hub – finálna verzia
 
 Názov webu: **Study Hub**  
-Autor: **vytvorené mnou**
+Autor: **vytvorené MG**
 
 ## Čo je upravené
 
-- web je premenovaný z pôvodného názvu na Study Hub,
+- web je premenovaný na Study Hub,
 - všetky hlavné texty v hlavičke a pätičke sú upravené na Study Hub,
 - MSD zadania Z1 až Z10 sú znovu rozšírené s detailným textom, cieľom, postupom a vzorcami,
 - v MSD pribudla veľká sekcia vzorcov a typických výpočtov,
@@ -17,19 +17,16 @@ Autor: **vytvorené mnou**
 ## Admin heslo
 
 Predvolené heslo je:
-
 ```text
 studyhub2026
 ```
 
 Zmeníš ho v súbore:
-
 ```text
 admin.js
 ```
 
 Premenná:
-
 ```js
 const ADMIN_PASSWORD = "studyhub2026";
 ```
@@ -38,15 +35,12 @@ Pozor: pri čisto statickom HTML/JS webe je toto iba jednoduchá ochrana proti b
 Skutočné bezpečné prihlásenie treba riešiť cez Firebase Auth alebo server.
 
 ## Spustenie
-
-Otvor:
-
+Otvor: 
 ```text
 index.html
 ```
 
 ## Dôležité súbory
-
 - `index.html` – hlavná stránka
 - `style.css` – celý dizajn
 - `script.js` – mobilné menu a vyhľadávanie predmetov
