@@ -97,6 +97,40 @@ const FLASHCARD_DATA = {
         ["Čo je debounce?", "Odstránenie zákmitov tlačidla."],
         ["Čo vysvetliť na obhajobe?", "Cieľ, zapojenie, použité súbory, fungovanie kódu, ovládanie a možné vylepšenia."],
         ["Čo je web server na ESP32?", "ESP32 poskytuje HTML stránku a reaguje na príkazy z prehliadača."]
+    ],
+    tlac3d: [
+        ["Čo je aditívna výroba?", "Výrobný proces, pri ktorom sa materiál pridáva po vrstvách."],
+        ["Čo je FDM/FFF?", "Technológia 3D tlače, kde sa taví filament a ukladá po vrstvách."],
+        ["Čo je SLA?", "3D tlač zo živice, ktorá sa vytvrdzuje svetlom."],
+        ["Čo je SLS?", "Spekanie práškového materiálu laserom."],
+        ["Čo robí slicer?", "Premení 3D model na G-code pre tlačiareň."],
+        ["Čo je layer height?", "Výška jednej tlačenej vrstvy."],
+        ["Čo je infill?", "Vnútorná výplň modelu."],
+        ["Čo sú supports?", "Podpery pre previsy pri tlači."]
+    ],
+    algebra: [
+        ["Čo je matica?", "Obdĺžniková tabuľka čísel používaná napríklad pri sústavách rovníc."],
+        ["Determinant 2×2", "Pre maticu [[a,b],[c,d]] je determinant ad - bc."],
+        ["Kedy existuje inverzná matica?", "Keď je matica štvorcová a det(A) ≠ 0."],
+        ["Čo je Gaussova eliminácia?", "Postup riešenia sústavy cez riadkové úpravy matice."],
+        ["Vlastné číslo", "Číslo λ, pre ktoré platí Av = λv."],
+        ["Vlastný vektor", "Nenulový vektor v, ktorý po násobení maticou nemení smer."]
+    ],
+    praktikum: [
+        ["Čo je trieda v Jave?", "Predpis na vytváranie objektov."],
+        ["Čo je objekt?", "Konkrétna inštancia triedy."],
+        ["Čo je konštruktor?", "Špeciálna metóda, ktorá nastaví objekt pri vytvorení."],
+        ["Čo je ArrayList?", "Dynamický zoznam objektov."],
+        ["Ako pridám objekt do ArrayListu?", "zoznam.add(objekt);"],
+        ["Čo je for-each cyklus?", "Cyklus na prechádzanie prvkov zoznamu alebo poľa."]
+    ],
+    uvod: [
+        ["Čo je cieľ semestrálnej práce?", "Jasne popísať problém, riešenie, návrh tried, plán a výsledok."],
+        ["Čo je Mazy Mouse?", "Projekt, kde myš hľadá syr v prostredí a správanie sa dá hodnotiť stratégiou."],
+        ["Čo má obsahovať UML?", "Triedy, atribúty, metódy a vzťahy medzi triedami."],
+        ["Čo je časový plán?", "Rozdelenie práce na etapy a termíny."],
+        ["Čo povedať na obhajobe?", "Cieľ, riešenie, triedy, výsledok, vlastný prínos a možné vylepšenia."],
+        ["Čo sú možné rozšírenia?", "Nápady, ktoré by projekt mohli v budúcnosti vylepšiť."]
     ]
 };
 

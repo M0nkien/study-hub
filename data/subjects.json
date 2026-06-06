@@ -103,5 +103,65 @@
             "UML",
             "projekt"
         ]
+    },
+    {
+        "id": "tlac3d",
+        "short": "3D",
+        "title": "3D tlač",
+        "status": "rozpracované",
+        "updated": "06/2026",
+        "url": "subjects/3d-tlac.html",
+        "description": "Aditívna výroba, technológie tlače, slicer a projekt teleskopickej posuvnej tyče.",
+        "icon": "printer-3d",
+        "tags": [
+            "3D tlač",
+            "slicer",
+            "projekt"
+        ]
+    },
+    {
+        "id": "algebra",
+        "short": "ALG",
+        "title": "Algebra",
+        "status": "rozpracované",
+        "updated": "06/2026",
+        "url": "subjects/algebra.html",
+        "description": "Matice, determinanty, sústavy, vektorové priestory a vlastné čísla.",
+        "icon": "matrix",
+        "tags": [
+            "matice",
+            "sústavy",
+            "vektory"
+        ]
+    },
+    {
+        "id": "praktikum",
+        "short": "PRG",
+        "title": "Praktikum z programovania",
+        "status": "rozpracované",
+        "updated": "06/2026",
+        "url": "subjects/praktikum.html",
+        "description": "Java základy, OOP, ArrayList, triedy a školské programátorské zadania.",
+        "icon": "code",
+        "tags": [
+            "Java",
+            "OOP",
+            "ArrayList"
+        ]
+    },
+    {
+        "id": "uvod",
+        "short": "ÚDS",
+        "title": "Úvod do štúdia",
+        "status": "rozpracované",
+        "updated": "06/2026",
+        "url": "subjects/uvod-do-studia.html",
+        "description": "Semestrálny projekt, Mazy Mouse, UML, dokumentácia a obhajoba.",
+        "icon": "presentation",
+        "tags": [
+            "projekt",
+            "UML",
+            "obhajoba"
+        ]
     }
 ]

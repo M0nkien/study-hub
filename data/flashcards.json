@@ -352,5 +352,45 @@
             "Čo je web server na ESP32?",
             "ESP32 poskytuje HTML stránku a reaguje na príkazy z prehliadača."
         ]
+    ],
+    "tlac3d": [
+        [
+            "Čo je FDM/FFF?",
+            "Tavenie filamentu a ukladanie po vrstvách."
+        ],
+        [
+            "Čo je slicer?",
+            "Program, ktorý vytvorí G-code pre tlačiareň."
+        ]
+    ],
+    "algebra": [
+        [
+            "Determinant 2×2",
+            "ad - bc"
+        ],
+        [
+            "Vlastné čísla",
+            "det(A - λI)=0"
+        ]
+    ],
+    "praktikum": [
+        [
+            "ArrayList",
+            "Dynamický zoznam objektov."
+        ],
+        [
+            "Konštruktor",
+            "Metóda volaná pri vytvorení objektu."
+        ]
+    ],
+    "uvod": [
+        [
+            "Mazy Mouse",
+            "Semestrálny projekt s myšou hľadajúcou syr."
+        ],
+        [
+            "UML",
+            "Diagram tried, atribútov, metód a vzťahov."
+        ]
     ]
 }

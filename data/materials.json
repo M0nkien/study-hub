@@ -64,5 +64,62 @@
             "MicroPython"
         ],
         "url": "subjects/vvs.html#esp32-deep-notes"
+    },
+    {
+        "id": "tlac3d-teoria",
+        "subject": "tlac3d",
+        "title": "3D tlač – technológie a slicer",
+        "type": "poznámky",
+        "tags": [
+            "3D tlač",
+            "FDM",
+            "PrusaSlicer"
+        ],
+        "url": "subjects/3d-tlac.html#overview"
+    },
+    {
+        "id": "tlac3d-projekt",
+        "subject": "tlac3d",
+        "title": "Teleskopická posuvná tyč",
+        "type": "projekt",
+        "tags": [
+            "Fusion 360",
+            "PLA",
+            "obhajoba"
+        ],
+        "url": "subjects/3d-tlac.html#project"
+    },
+    {
+        "id": "algebra-teoria",
+        "subject": "algebra",
+        "title": "Algebra – matice a sústavy",
+        "type": "poznámky",
+        "tags": [
+            "matice",
+            "determinanty"
+        ],
+        "url": "subjects/algebra.html#theory"
+    },
+    {
+        "id": "praktikum-java",
+        "subject": "praktikum",
+        "title": "Praktikum – Java a ArrayList",
+        "type": "poznámky",
+        "tags": [
+            "Java",
+            "ArrayList"
+        ],
+        "url": "subjects/praktikum.html#java-basics"
+    },
+    {
+        "id": "uvod-mazy-mouse",
+        "subject": "uvod",
+        "title": "Úvod do štúdia – Mazy Mouse",
+        "type": "projekt",
+        "tags": [
+            "UML",
+            "dokumentácia"
+        ],
+        "url": "subjects/uvod-do-studia.html#project"
     }
 ]

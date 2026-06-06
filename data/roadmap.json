@@ -54,5 +54,37 @@
         "status": "nápad",
         "priority": "nižšia",
         "updated": "verzia 2.0"
+    },
+    {
+        "category": "pracuje sa",
+        "title": "Pridať obsah pre 3D tlač",
+        "subject": "3D tlač",
+        "status": "pracuje sa",
+        "priority": "stredná",
+        "updated": "06/2026"
+    },
+    {
+        "category": "pracuje sa",
+        "title": "Pridať obsah pre Algebru",
+        "subject": "Algebra",
+        "status": "pracuje sa",
+        "priority": "stredná",
+        "updated": "06/2026"
+    },
+    {
+        "category": "pracuje sa",
+        "title": "Pridať Praktikum z programovania",
+        "subject": "Praktikum",
+        "status": "pracuje sa",
+        "priority": "stredná",
+        "updated": "06/2026"
+    },
+    {
+        "category": "pracuje sa",
+        "title": "Pridať Úvod do štúdia",
+        "subject": "Úvod do štúdia",
+        "status": "pracuje sa",
+        "priority": "stredná",
+        "updated": "06/2026"
     }
 ]

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D tlač | Study Hub</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/subjects.css">
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="../index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="../index.html">Domov</a>
+            <a href="../subjects.html">Predmety</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
+            <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="../subjects.html" class="back-link">← Späť na všetky predmety</a>
+
+            <span class="badge">● Predmetová kapsula</span>
+
+            <h2>
+                3D<br>
+                <span>TLAČ</span>
+            </h2>
+
+            <p>Aditívna výroba, technológie 3D tlače, slicer, PrusaSlicer, materiály a semestrálny projekt teleskopickej posuvnej tyče.</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="subject-layout">
+
+                <aside class="subject-sidebar">
+                    <h3>Obsah predmetu</h3>
+                    <a href="#overview">Prehľad</a>
+                    <a href="#project">Projekt</a>
+                    <a href="#materials">Materiály</a>
+                    <a href="#checklist">Checklist</a>
+                </aside>
+
+                <div class="subject-main">
+                    <div id="subjectSearchMount"></div>
+
+                    <div class="learn-panel" data-progress-subject="tlac3d">
+                        <h3>Progres učenia predmetu</h3>
+                        <p>Označ si teóriu, príklady, checklist a materiály podľa toho, čo už máš prejdené.</p>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill js-subject-progress-fill"></div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <strong class="js-subject-progress-text">0%</strong>
+                        </div>
+                    </div>
+
+                    <section class="subject-meta-panel content-block">
+                        <div>
+                            <span>Stav predmetu</span>
+                            <strong class="subject-meta-status status-progress">rozpracované</strong>
+                        </div>
+                        <div>
+                            <span>Posledná aktualizácia</span>
+                            <strong>06/2026</strong>
+                        </div>
+                        <div>
+                            <span>Počet sekcií</span>
+                            <strong>4</strong>
+                        </div>
+                        <div>
+                            <span>Tagy</span>
+                            <strong>3D tlač, slicer</strong>
+                        </div>
+                    </section>
+
+                    <section id="overview" class="content-block">
+                        <p class="small-title">Prehľad</p>
+                        <h2>Čo sa učiť z 3D tlače</h2>
+
+                        <div class="topic-grid">
+                            <article class="topic-card">
+                                <span>Základy</span>
+                                <h3>Aditívny a subtraktívny proces</h3>
+                                <p>Aditívna výroba pridáva materiál po vrstvách. Subtraktívna výroba materiál odoberá, napríklad frézovaním alebo vŕtaním.</p>
+                                <ul>
+                                    <li>3D tlač = aditívna výroba</li>
+                                    <li>vrstvy sa ukladajú podľa digitálneho modelu</li>
+                                    <li>výhoda je rýchla výroba prototypov a zložité tvary</li>
+                                </ul>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Technológie</span>
+                                <h3>FDM/FFF, SLA, SLS</h3>
+                                <p>Najčastejšie pojmy na skúšku sú rozdiely medzi technológiami tlače.</p>
+                                <pre><code>FDM/FFF = tavenie filamentu
+SLA = vytvrdzovanie živice svetlom
+SLS = spekanie prášku laserom</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Slicer</span>
+                                <h3>PrusaSlicer a príprava tlače</h3>
+                                <p>Slicer premení 3D model na G-code pre tlačiareň. Nastavuje sa kvalita, výplň, podpery a orientácia modelu.</p>
+                                <pre><code>layer height = výška vrstvy
+infill = výplň modelu
+supports = podpery
+brim/skirt = pomocné okraje pri tlači</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Materiál</span>
+                                <h3>PLA a základné nastavenia</h3>
+                                <p>PLA je vhodné na školské prototypy, jednoduché modely a rýchlu tlač. Pri pevnosti pomáha správna orientácia a výplň.</p>
+                                <ul>
+                                    <li>bežná výplň: 15 až 25 %</li>
+                                    <li>pri školskom projekte často stačí 20 %</li>
+                                    <li>podpery používaj pri previsoch</li>
+                                </ul>
+                            </article>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="tlac3d" data-key="overview" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+                    <section id="project" class="content-block">
+                        <p class="small-title">Semestrálny projekt</p>
+                        <h2>Koncept teleskopickej posuvnej tyče</h2>
+
+                        <div class="example-list">
+                            <div class="example-item">
+                                <h3>Cieľ projektu</h3>
+                                <p>Model teleskopickej posuvnej tyče má ukázať nastaviteľný mechanický prvok s viacerými polohami. Pri obhajobe treba vysvetliť konštrukciu, zámok polôh a funkčnosť.</p>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Konštrukčné riešenie</h3>
+                                <ul>
+                                    <li>dve teleskopické časti</li>
+                                    <li>vnútorné drážky a vedenie</li>
+                                    <li>viac nastaviteľných pozícií</li>
+                                    <li>vôľa medzi dielmi, aby sa časti dali posúvať</li>
+                                    <li>vodiace prvky proti pretočeniu</li>
+                                </ul>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Fusion 360 a príprava do slicera</h3>
+                                <p>Na prezentácii je vhodné ukázať celkový model a aj vnútorný pohľad. V sliceri uveď materiál, výplň, orientáciu, podpery a čas tlače.</p>
+                                <pre><code>materiál: PLA
+výplň: približne 20 %
+orientácia: podľa pevnosti a podpôr
+podpery: podľa previsov
+tlač: školské pracovisko / FRIDLAB / RB101</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Obhajoba</h3>
+                                <p>Pri obhajobe povedz: čo je cieľ, ako funguje posuv, koľko má polôh, aké boli nastavenia tlače, čo sa podarilo a čo by sa dalo vylepšiť.</p>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="tlac3d" data-key="project" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+                        </div>
+                    </section>
+
+                    <section id="materials" class="content-block">
+                        <p class="small-title">Materiály</p>
+                        <h2>Materiály a pomôcky</h2>
+
+                        <div class="material-grid">
+                            <article class="material-card filterable-material" data-type="tahak">
+                                <span class="material-type">Ťahák</span>
+                                <h3>Technológie 3D tlače</h3>
+                                <p>FDM/FFF, SLA, SLS, materiály, výhody a nevýhody.</p>
+                                <a href="#overview" class="material-link">Otvoriť →</a>
+                            </article>
+
+                            <article class="material-card filterable-material" data-type="zadanie">
+                                <span class="material-type">Projekt</span>
+                                <h3>Teleskopická posuvná tyč</h3>
+                                <p>Konštrukcia, slicer, obhajoba a výsledok projektu.</p>
+                                <a href="#project" class="material-link">Otvoriť →</a>
+                            </article>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="tlac3d" data-key="materials" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+                        </div>
+                    </section>
+
+
+                    <section id="checklist" class="content-block checklist-section">
+                        <p class="small-title">Checklist pred skúškou</p>
+                        <h2>Čo by som mal vedieť</h2>
+                        <p class="section-description">
+                            Checklist sa ukladá v tomto prehliadači. Použi ho ako poslednú kontrolu pred testom, zápočtom alebo obhajobou.
+                        </p>
+
+                        <div class="checklist-progress">
+                            <strong><span class="checklist-done" data-checklist-count="tlac3d">0</span> / 8</strong>
+                            <div class="progress-bar"><div class="progress-fill" data-checklist-fill="tlac3d"></div></div>
+                        </div>
+
+                        <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="1">
+                <span>Viem rozdiel medzi aditívnou a subtraktívnou výrobou</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="2">
+                <span>Viem vysvetliť FDM/FFF</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="3">
+                <span>Viem vysvetliť SLA a SLS</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="4">
+                <span>Viem, čo robí slicer</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="5">
+                <span>Viem nastaviť layer height, infill a supports</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="6">
+                <span>Viem vysvetliť brim/skirt</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="7">
+                <span>Viem predstaviť projekt teleskopickej tyče</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="tlac3d" data-checklist-item="8">
+                <span>Viem povedať nastavenia tlače a obhajobu</span>
+            </label>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="tlac3d" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v3.0 • Posledná aktualizácia: 06/2026</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/progress.js"></script>
+<script src="../assets/js/subject-search.js"></script>
+<script src="../assets/js/filters.js"></script>
+<script src="../assets/js/checklist.js"></script>
+</body>
+</html>

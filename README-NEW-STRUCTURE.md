@@ -57,3 +57,8 @@ git add .
 git commit -m "Reorganize frontend assets and add JSON data"
 git push
 ```
+
+
+## Nové predmety
+
+Pridané predmety: 3D tlač, Algebra, Praktikum z programovania, Úvod do štúdia.

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra | Study Hub</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/subjects.css">
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="../index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="../index.html">Domov</a>
+            <a href="../subjects.html">Predmety</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
+            <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="../subjects.html" class="back-link">← Späť na všetky predmety</a>
+
+            <span class="badge">● Predmetová kapsula</span>
+
+            <h2>
+                ALG<br>
+                <span>LINEÁRNA ALGEBRA</span>
+            </h2>
+
+            <p>Matice, determinanty, sústavy rovníc, vektorové priestory, vlastné čísla a vlastné vektory.</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="subject-layout">
+
+                <aside class="subject-sidebar">
+                    <h3>Obsah predmetu</h3>
+                    <a href="#theory">Teória</a>
+                    <a href="#formulas">Vzorce</a>
+                    <a href="#examples">Príklady</a>
+                    <a href="#checklist">Checklist</a>
+                </aside>
+
+                <div class="subject-main">
+                    <div id="subjectSearchMount"></div>
+
+                    <div class="learn-panel" data-progress-subject="algebra">
+                        <h3>Progres učenia predmetu</h3>
+                        <p>Označ si teóriu, príklady, checklist a materiály podľa toho, čo už máš prejdené.</p>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill js-subject-progress-fill"></div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <strong class="js-subject-progress-text">0%</strong>
+                        </div>
+                    </div>
+
+                    <section class="subject-meta-panel content-block">
+                        <div>
+                            <span>Stav predmetu</span>
+                            <strong class="subject-meta-status status-progress">rozpracované</strong>
+                        </div>
+                        <div>
+                            <span>Posledná aktualizácia</span>
+                            <strong>06/2026</strong>
+                        </div>
+                        <div>
+                            <span>Počet sekcií</span>
+                            <strong>4</strong>
+                        </div>
+                        <div>
+                            <span>Tagy</span>
+                            <strong>matice, determinanty</strong>
+                        </div>
+                    </section>
+
+                    <section id="theory" class="content-block">
+                        <p class="small-title">Teória</p>
+                        <h2>Algebra – základné skúškové témy</h2>
+
+                        <div class="topic-grid">
+                            <article class="topic-card">
+                                <span>Matice</span>
+                                <h3>Matice a operácie</h3>
+                                <p>Matica je obdĺžniková tabuľka čísel. Používa sa na zápis sústav rovníc, lineárnych zobrazení a výpočtov.</p>
+                                <pre><code>A + B
+kA
+AB
+Aᵀ</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Sústavy</span>
+                                <h3>Gaussova eliminácia</h3>
+                                <p>Sústava sa zapíše do rozšírenej matice a upravuje sa elementárnymi riadkovými úpravami.</p>
+                                <pre><code>1. zapíš rozšírenú maticu
+2. vytvor schodíkový tvar
+3. dopočítaj neznáme spätným dosadením</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Determinant</span>
+                                <h3>Determinant</h3>
+                                <p>Determinant rozhoduje napríklad o regulárnosti matice. Ak det(A) ≠ 0, matica má inverznú maticu.</p>
+                                <pre><code>2x2:
+|a b|
+|c d| = ad - bc</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Inverzia</span>
+                                <h3>Inverzná matica</h3>
+                                <p>Inverzná matica A⁻¹ existuje len pre štvorcovú regulárnu maticu.</p>
+                                <pre><code>AA⁻¹ = I
+A⁻¹ existuje ⇔ det(A) ≠ 0</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Vektory</span>
+                                <h3>Vektorový priestor</h3>
+                                <p>Vektory sa dajú sčítavať a násobiť skalárom. Dôležité pojmy sú lineárna kombinácia, závislosť, nezávislosť a báza.</p>
+                                <pre><code>lineárna kombinácia:
+c1v1 + c2v2 + ... + cnvn</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Vlastné čísla</span>
+                                <h3>Vlastné čísla a vektory</h3>
+                                <p>Vlastný vektor po zobrazení maticou nemení smer, iba sa násobí číslom λ.</p>
+                                <pre><code>Av = λv
+det(A - λI) = 0</code></pre>
+                            </article>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="algebra" data-key="theory" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+                    <section id="formulas" class="content-block">
+                        <p class="small-title">Vzorce</p>
+                        <h2>Algebra – rýchly ťahák</h2>
+
+                        <div class="formula-table">
+                            <div class="table-box">
+                                <table>
+                                    <thead><tr><th>Téma</th><th>Vzorec</th><th>Použitie</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Determinant 2×2</td><td>ad − bc</td><td>rýchly výpočet det(A)</td></tr>
+                                        <tr><td>Inverzná matica</td><td>AA⁻¹ = I</td><td>riešenie Ax=b</td></tr>
+                                        <tr><td>Vlastné čísla</td><td>det(A − λI)=0</td><td>hľadanie λ</td></tr>
+                                        <tr><td>Vlastný vektor</td><td>(A − λI)v=0</td><td>hľadanie v</td></tr>
+                                        <tr><td>Skalárny súčin</td><td>a·b = Σaᵢbᵢ</td><td>uhol, kolmosť</td></tr>
+                                        <tr><td>Norma</td><td>||v|| = √(v·v)</td><td>dĺžka vektora</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="algebra" data-key="formulas" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+                    <section id="examples" class="content-block">
+                        <p class="small-title">Postupy</p>
+                        <h2>Typické príklady</h2>
+
+                        <div class="example-list">
+                            <div class="example-item">
+                                <h3>Riešenie sústavy cez Gaussa</h3>
+                                <pre><code>1. prepíš rovnice do rozšírenej matice
+2. nuluj prvky pod pivotmi
+3. ak vznikne riadok 0=nenulové číslo → sústava nemá riešenie
+4. ak máš voľnú premennú → nekonečne veľa riešení
+5. inak dopočítaj riešenie spätným dosadením</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Vlastné čísla a vektory</h3>
+                                <pre><code>1. zostav A - λI
+2. vypočítaj det(A - λI)=0
+3. nájdi λ
+4. pre každé λ rieš (A - λI)v=0</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="algebra" data-key="examples" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+                        </div>
+                    </section>
+
+
+                    <section id="checklist" class="content-block checklist-section">
+                        <p class="small-title">Checklist pred skúškou</p>
+                        <h2>Čo by som mal vedieť</h2>
+                        <p class="section-description">
+                            Checklist sa ukladá v tomto prehliadači. Použi ho ako poslednú kontrolu pred testom, zápočtom alebo obhajobou.
+                        </p>
+
+                        <div class="checklist-progress">
+                            <strong><span class="checklist-done" data-checklist-count="algebra">0</span> / 8</strong>
+                            <div class="progress-bar"><div class="progress-fill" data-checklist-fill="algebra"></div></div>
+                        </div>
+
+                        <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="1">
+                <span>Viem počítať s maticami</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="2">
+                <span>Viem Gaussovu elimináciu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="3">
+                <span>Viem determinant 2×2 a základ determinantov</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="4">
+                <span>Viem, kedy existuje inverzná matica</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="5">
+                <span>Viem lineárnu kombináciu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="6">
+                <span>Viem lineárnu závislosť a nezávislosť</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="7">
+                <span>Viem vlastné čísla</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="algebra" data-checklist-item="8">
+                <span>Viem vlastné vektory</span>
+            </label>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="algebra" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v3.0 • Posledná aktualizácia: 06/2026</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/progress.js"></script>
+<script src="../assets/js/subject-search.js"></script>
+<script src="../assets/js/filters.js"></script>
+<script src="../assets/js/checklist.js"></script>
+</body>
+</html>

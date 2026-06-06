@@ -86,6 +86,10 @@ const STUDY_HUB_SUBJECT_STATUS = {
     mat: { label: "rozpracované", className: "status-progress", updated: "Pripravujú sa DR, Laplace a rady" },
     java: { label: "rozpracované", className: "status-progress", updated: "Pripravuje sa OOP a semestrálka" },
     fyzika: { label: "dopĺňa sa", className: "status-updating", updated: "Pridané vzorce, jednotky a otázky" }
+    tlac3d: { label: "rozpracované", className: "status-progress", updated: "Pridané technológie 3D tlače a projekt" },
+    algebra: { label: "rozpracované", className: "status-progress", updated: "Pridané matice, determinanty a sústavy" },
+    praktikum: { label: "rozpracované", className: "status-progress", updated: "Pridané Java základy a školské zadania" },
+    uvod: { label: "rozpracované", className: "status-progress", updated: "Pridaný Mazy Mouse, UML a obhajoba" },
 };
 
 function addSubjectStatusBadges() {

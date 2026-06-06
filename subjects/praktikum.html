@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum z programovania | Study Hub</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/subjects.css">
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="../index.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h1>STUDY HUB</h1>
+                    <p>Digitálna študovňa</p>
+                </div>
+            </div>
+        </a>
+
+        <button class="menu-toggle" type="button">☰ Menu</button>
+
+        <nav class="nav">
+            <a href="../index.html">Domov</a>
+            <a href="../subjects.html">Predmety</a>
+            <a href="../flashcards.html">Kartičky</a>
+            <a href="../results.html">Výsledky</a>
+            <a href="../roadmap.html">Roadmapa</a>
+            <a href="../support.html">Podpora</a>
+            <a href="../admin.html">Admin</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="subject-hero">
+        <div class="grid-bg"></div>
+
+        <div class="container subject-hero-content">
+            <a href="../subjects.html" class="back-link">← Späť na všetky predmety</a>
+
+            <span class="badge">● Predmetová kapsula</span>
+
+            <h2>
+                PRG<br>
+                <span>PROGRAMOVANIE</span>
+            </h2>
+
+            <p>Java základy, OOP, ArrayList, triedy, školské testové úlohy, Internát a evidencia Erasmus pobytov.</p>
+        </div>
+    </section>
+
+    <section class="subject-content">
+        <div class="container">
+            <div class="subject-layout">
+
+                <aside class="subject-sidebar">
+                    <h3>Obsah predmetu</h3>
+                    <a href="#java-basics">Java základy</a>
+                    <a href="#tasks">Zadania</a>
+                    <a href="#cheatsheet">Ťahák</a>
+                    <a href="#checklist">Checklist</a>
+                </aside>
+
+                <div class="subject-main">
+                    <div id="subjectSearchMount"></div>
+
+                    <div class="learn-panel" data-progress-subject="praktikum">
+                        <h3>Progres učenia predmetu</h3>
+                        <p>Označ si teóriu, príklady, checklist a materiály podľa toho, čo už máš prejdené.</p>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill js-subject-progress-fill"></div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <strong class="js-subject-progress-text">0%</strong>
+                        </div>
+                    </div>
+
+                    <section class="subject-meta-panel content-block">
+                        <div>
+                            <span>Stav predmetu</span>
+                            <strong class="subject-meta-status status-progress">rozpracované</strong>
+                        </div>
+                        <div>
+                            <span>Posledná aktualizácia</span>
+                            <strong>06/2026</strong>
+                        </div>
+                        <div>
+                            <span>Počet sekcií</span>
+                            <strong>4</strong>
+                        </div>
+                        <div>
+                            <span>Tagy</span>
+                            <strong>Java, OOP</strong>
+                        </div>
+                    </section>
+
+                    <section id="java-basics" class="content-block">
+                        <p class="small-title">Programovanie</p>
+                        <h2>Praktikum z programovania – Java základy</h2>
+
+                        <div class="topic-grid">
+                            <article class="topic-card">
+                                <span>Základ</span>
+                                <h3>Premenné, podmienky, cykly</h3>
+                                <pre><code>int cislo = 5;
+
+if (cislo > 0) {
+    System.out.println("kladné");
+}
+
+for (int i = 0; i < 10; i++) {
+    System.out.println(i);
+}</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>ArrayList</span>
+                                <h3>Zoznam objektov</h3>
+                                <p>V školských príkladoch často stačí obyčajný ArrayList, for-cykly a jednoduché metódy.</p>
+                                <pre><code>ArrayList&lt;Student&gt; studenti = new ArrayList&lt;&gt;();
+studenti.add(new Student("Jano", 1));
+
+for (Student s : studenti) {
+    s.vypisSa();
+}</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>OOP</span>
+                                <h3>Triedy a objekty</h3>
+                                <p>Trieda je predpis. Objekt je konkrétna inštancia. Atribúty opisujú stav, metódy opisujú správanie.</p>
+                                <pre><code>public class Student {
+    private String meno;
+    private int rocnik;
+
+    public Student(String meno, int rocnik) {
+        this.meno = meno;
+        this.rocnik = rocnik;
+    }
+}</code></pre>
+                            </article>
+
+                            <article class="topic-card">
+                                <span>Testy</span>
+                                <h3>Študentský štýl kódu</h3>
+                                <p>Drž sa jednoduchého štýlu: triedy, atribúty, konštruktory, get/set metódy, for-cykly, ArrayList.</p>
+                                <ul>
+                                    <li>bez zbytočne moderných skratiek</li>
+                                    <li>bez komplikovaných knižníc</li>
+                                    <li>pomenovania nech sú jasné a školské</li>
+                                </ul>
+                            </article>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="praktikum" data-key="java-basics" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+                    <section id="tasks" class="content-block">
+                        <p class="small-title">Príklady</p>
+                        <h2>Typické zadania z praktika</h2>
+
+                        <div class="example-list">
+                            <div class="example-item">
+                                <h3>Internát</h3>
+                                <p>Typické cvičenie s triedami Student, Izba, TypIzby a Internat.</p>
+                                <pre><code>triedy:
+Student
+TypIzby
+Izba
+Internat
+
+metódy:
+pridajStudenta()
+najdiStudenta()
+vypisSa()</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Evidencia Erasmus pobytov</h3>
+                                <p>Príklad s triedami Osoba, Datum, Pobyt, Evidencia a Main. Precvičuje kompozíciu objektov a prácu so zoznamom.</p>
+                                <pre><code>triedy:
+Osoba
+Datum
+Pobyt
+Evidencia
+Main</code></pre>
+                            </div>
+
+                            <div class="example-item">
+                                <h3>Postup pri riešení testovej úlohy</h3>
+                                <pre><code>1. prečítaj celé zadanie
+2. vypíš si triedy
+3. vypíš atribúty
+4. sprav konštruktory
+5. sprav vypisSa()
+6. sprav vyhľadávanie/pridávanie
+7. otestuj v Main</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="praktikum" data-key="tasks" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+                        </div>
+                    </section>
+
+                    <section id="cheatsheet" class="content-block">
+                        <p class="small-title">Ťahák</p>
+                        <h2>Java praktikum – rýchly ťahák</h2>
+
+                        <div class="formula-table">
+                            <div class="table-box">
+                                <table>
+                                    <thead><tr><th>Vec</th><th>Príklad</th><th>Poznámka</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>ArrayList</td><td>new ArrayList&lt;Student&gt;()</td><td>zoznam študentov</td></tr>
+                                        <tr><td>Pridanie</td><td>zoznam.add(objekt)</td><td>vloží objekt</td></tr>
+                                        <tr><td>Veľkosť</td><td>zoznam.size()</td><td>počet prvkov</td></tr>
+                                        <tr><td>For-each</td><td>for (Student s : studenti)</td><td>prechod zoznamom</td></tr>
+                                        <tr><td>Konštruktor</td><td>public Student(...)</td><td>nastaví objekt</td></tr>
+                                        <tr><td>this</td><td>this.meno = meno</td><td>atribút objektu</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="praktikum" data-key="cheatsheet" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+                        </div>
+                    </section>
+
+
+                    <section id="checklist" class="content-block checklist-section">
+                        <p class="small-title">Checklist pred skúškou</p>
+                        <h2>Čo by som mal vedieť</h2>
+                        <p class="section-description">
+                            Checklist sa ukladá v tomto prehliadači. Použi ho ako poslednú kontrolu pred testom, zápočtom alebo obhajobou.
+                        </p>
+
+                        <div class="checklist-progress">
+                            <strong><span class="checklist-done" data-checklist-count="praktikum">0</span> / 8</strong>
+                            <div class="progress-bar"><div class="progress-fill" data-checklist-fill="praktikum"></div></div>
+                        </div>
+
+                        <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="1">
+                <span>Viem premenné, podmienky a cykly</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="2">
+                <span>Viem vytvoriť triedu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="3">
+                <span>Viem konštruktor</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="4">
+                <span>Viem ArrayList</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="5">
+                <span>Viem prejsť zoznam for-cyklom</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="6">
+                <span>Viem vypisSa()</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="7">
+                <span>Viem vyhľadávanie v zozname</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="praktikum" data-checklist-item="8">
+                <span>Viem rozložiť zadanie na triedy</span>
+            </label>
+                        </div>
+
+                        <div class="learn-actions">
+                            <button class="learn-btn" data-subject="praktikum" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <div>
+            <h3>STUDY HUB</h3>
+            <p>Digitálna študovňa pre študentov.</p>
+        </div>
+
+        <div>
+            <p>Vytvorené mnou</p>
+            <p>Study Hub v3.0 • Posledná aktualizácia: 06/2026</p>
+        </div>
+    </div>
+
+    <p class="footer-note">
+        Táto stránka je neoficiálna študentská pomôcka.<br>
+        Materiály slúžia iba na vzdelávacie účely.<br>
+        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
+        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+    </p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/progress.js"></script>
+<script src="../assets/js/subject-search.js"></script>
+<script src="../assets/js/filters.js"></script>
+<script src="../assets/js/checklist.js"></script>
+</body>
+</html>
