@@ -362,3 +362,200 @@ Posledné väčšie úpravy:
 - flashcards farbené podľa predmetu,
 - doplnený README.
 ```
+
+
+---
+
+## Checklisty pred skúškou
+
+Každý predmet má vlastný checklist, ktorý pomáha skontrolovať pripravenosť pred skúškou alebo testom.
+
+Checklist neslúži ako samostatná stránka na celú šírku, ale ako posledná obsahová sekcia v predmete.
+
+Príklady:
+
+```text
+Fyzika:
+- vektory,
+- kinematika,
+- Newtonove zákony,
+- práca a energia,
+- moment zotrvačnosti,
+- Steinerova veta,
+- kyvadlá,
+- laboratórne merania.
+
+CCNA:
+- subnetting,
+- VLSM,
+- VLAN,
+- trunk,
+- DHCP,
+- DNS,
+- routing,
+- SSH,
+- port-security.
+
+Matematika:
+- DR 1. rádu,
+- DR 2. rádu,
+- sústavy DR,
+- Laplaceova transformácia,
+- Fourierov rad,
+- číselné rady,
+- mocninové rady,
+- gradient.
+```
+
+
+---
+
+## Odporúčané ďalšie vylepšenia
+
+### Čo uplatniť teraz
+
+```text
+1. Stabilizovať layout po presune CSS/JS do style/ a script/.
+2. Skontrolovať, že v HTML nie sú staré odkazy assets/css a assets/js.
+3. Zjednotiť checklisty vo všetkých predmetoch.
+4. Doplniť najdôležitejšie predmety: Matematika, Fyzika, CCNA, MSD, Linux.
+5. Skontrolovať kvízové odpovede.
+6. Doplniť viac kartičiek ku každému predmetu.
+7. Pridať stránku quizzes.html so všetkými kvízmi pokope.
+8. Pridať stránku files.html so všetkými materiálmi a PDF pokope.
+9. Pridať globálne vyhľadávanie cez celý web.
+10. Pridať print štýly pre poznámky.
+```
+
+### Čo nechať do budúcna
+
+```text
+1. Backend alebo databáza pre podporu a admin panel.
+2. Firebase alebo Supabase na ukladanie spätnej väzby.
+3. Prihlásenie používateľov.
+4. Zdieľané výsledky kvízov medzi zariadeniami.
+5. Analytics – sledovanie najpoužívanejších predmetov a kvízov.
+6. Automatické generovanie stránok predmetov z JSON dát.
+7. Lepší editor obsahu pre admina.
+8. Export poznámok do PDF.
+9. Print verzia každej predmetovej teórie.
+10. Offline režim ako PWA aplikácia.
+```
+
+
+---
+
+## Návrhy ďalších úprav – krátky plán
+
+### Najbližšie úpravy
+
+```text
+1. Pridať stránku quizzes.html so všetkými kvízmi pokope.
+2. Pridať stránku files.html so všetkými materiálmi, PDF, ťahákmi a zadaniami.
+3. Pridať globálne vyhľadávanie cez celý web.
+4. Doplniť viac flashcards pre každý predmet.
+5. Skontrolovať správnosť kvízových odpovedí.
+6. Zjednotiť vzhľad všetkých checklistov.
+7. Doplniť print štýly pre poznámky.
+8. Pridať tlačidlo „Pokračovať tam, kde som skončil“ na viac miest.
+```
+
+### Väčšie úpravy do budúcna
+
+```text
+1. Backend pre podporu a admin panel.
+2. Databáza cez Firebase alebo Supabase.
+3. Prihlasovanie používateľov.
+4. Synchronizácia výsledkov medzi zariadeniami.
+5. Editor obsahu pre admina.
+6. Automatické generovanie predmetových stránok z JSON súborov.
+7. Export poznámok do PDF.
+8. Offline režim ako PWA aplikácia.
+9. Analytics pre sledovanie najpoužívanejších predmetov.
+10. Svetlý režim doladený pre všetky sekcie.
+```
+
+---
+
+## Study Hub v3.3 – nové funkcie
+
+### Changelog
+
+Pridaná stránka:
+
+```text
+changelog.html
+```
+
+Obsahuje históriu zmien, aktuálnu verziu, poslednú aktualizáciu a plán ďalších úprav.
+
+### Hlavná stránka
+
+Hlavná stránka obsahuje:
+
+```text
+- tlačidlo Pokračovať tam, kde som skončil,
+- posledný otvorený predmet,
+- najnovšie pridané,
+- malé vysvetlenie čo je Study Hub,
+- rýchle odkazy,
+- mini dashboard,
+- verziu stránky,
+- dátum poslednej aktualizácie.
+```
+
+### Flashcards v3.3
+
+Flashcards teraz podporujú:
+
+```text
+- výber predmetu,
+- výber témy,
+- náhodné poradie,
+- režim učenia,
+- režim skúšania,
+- opakovanie iba nevedených kartičiek,
+- označenie Viem / Neviem,
+- počítadlo kartičiek,
+- históriu učenia,
+- export stavu kartičiek.
+```
+
+### Roadmapa ako projektový plán
+
+Roadmapa je rozdelená na:
+
+```text
+- Hotové,
+- Pracuje sa,
+- Plánované,
+- Nápady,
+- Nahlásené chyby,
+- Odložené.
+```
+
+Každá položka má:
+
+```text
+- názov,
+- popis,
+- predmet,
+- stav,
+- prioritu,
+- dátum,
+- typ.
+```
+
+### Predmetové stránky
+
+Do predmetových stránok bola pridaná sekcia:
+
+```text
+Štruktúra predmetu a plán doplnenia
+```
+
+Obsahuje plán, čo sa má v danom predmete doplniť.
+
+### Checklisty
+
+Checklisty sú rozdelené podľa tém a ukladajú sa do localStorage.

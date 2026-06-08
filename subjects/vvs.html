@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VVS | Study Hub</title>
 
-    <link rel="stylesheet" href="../style/main.css?v=20260608-style-script">
-    <link rel="stylesheet" href="../style/subject-pages.css?v=20260608-style-script">
-    <link rel="stylesheet" href="../style/quiz.css?v=20260608-style-script">
-    <link rel="stylesheet" href="../style/responsive.css?v=20260608-style-script">
-    <link rel="stylesheet" href="../style/fix.css?v=20260608-style-script">
+    <link rel="stylesheet" href="../style/main.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="../style/subject-pages.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="../style/quiz.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="../style/responsive.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="../style/fix.css?v=20260608-big-upgrade">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="page-subject-detail subject-theme-vvs">
@@ -34,6 +34,8 @@
             <a href="../flashcards.html">Kartičky</a>
             <a href="../results.html">Výsledky</a>
             <a href="../roadmap.html">Roadmapa</a>
+            <a href="../changelog.html">Zmeny</a>
+            <a href="../changelog.html">Zmeny</a>
             <a href="../support.html">Podpora</a>
             <a href="../admin.html">Admin</a>
         </nav>
@@ -83,6 +85,7 @@
                     <h3>Obsah predmetu</h3>
                     <a href="#notes">Poznámky</a>
 <a href="#study">Štúdium</a>
+                    <a href="#subject-structure">Štruktúra</a>
 <a href="#checklist">Checklist</a>
                     <a href="#esp32-deep-notes">ESP32 teória</a>
                     <a href="#vvs-practice">VVS prax</a>
@@ -124,6 +127,42 @@
     </div>
 </div>
                     
+
+<section id="subject-structure" class="content-block subject-structure-section">
+    <p class="small-title">Štruktúra predmetu</p>
+    <h2>Čo bude v predmete doplnené</h2>
+    <p>Táto časť ukazuje, čo má predmet obsahovať, aby bol použiteľný na opakovanie, skúšku alebo projekt.</p>
+
+    <div class="subject-structure-grid">
+        <article><strong>Poznámky</strong><span>teória, definície a vysvetlenia</span></article>
+        <article><strong>Príklady</strong><span>typické postupy a riešenia</span></article>
+        <article><strong>Kvíz</strong><span>cvičný a skúškový režim</span></article>
+        <article><strong>Kartičky</strong><span>pojmy, vzorce a príkazy</span></article>
+        <article><strong>Checklist</strong><span>kontrola pred skúškou</span></article>
+        <article><strong>Súbory</strong><span>PDF, ťaháky a zadania</span></article>
+    </div>
+
+    <div class="planned-content-box">
+        <h3>Plán doplnenia obsahu</h3>
+        <div class="planned-content-tags">
+            <span>ESP32 piny</span>
+<span>MicroPython základy</span>
+<span>GPIO</span>
+<span>PWM</span>
+<span>ADC</span>
+<span>UART</span>
+<span>timery</span>
+<span>OLED</span>
+<span>buzzer</span>
+<span>RGB LED</span>
+<span>robot</span>
+<span>web server</span>
+<span>obhajoba projektu</span>
+        </div>
+    </div>
+</section>
+
+
 <section id="notes" class="content-block">
     <p class="small-title">Poznámky</p>
     <h2>VVS – študijný obsah</h2>
@@ -322,55 +361,75 @@ led.value(1)</code></pre></div>
             </div>
         </div>
     </section>
-                    <section id="checklist" class="content-block checklist-section">
+
+<section id="checklist" class="content-block checklist-section" data-checklist-subject="vvs">
     <p class="small-title">Checklist pred skúškou</p>
     <h2>Čo by som mal vedieť</h2>
-    <p class="section-description">
-        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
-    </p>
+    <p>Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom, skúškou alebo odovzdaním projektu.</p>
 
-    <div class="checklist-progress">
-        <strong><span class="checklist-done" data-checklist-count="vvs">0</span> / 8</strong>
-        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="vvs"></div></div>
+    <div class="checklist-progress-row">
+        <strong class="checklist-count">0 / 12</strong>
+        <div class="checklist-progress-track"><span class="checklist-progress-fill"></span></div>
     </div>
 
-    <div class="checklist-grid">
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="1">
-                <span>Viem základné piny ESP32-C6</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="2">
-                <span>Viem GPIO vstup a výstup v MicroPythone</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="3">
-                <span>Viem PWM pre LED a buzzer</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="4">
-                <span>Viem ADC a čítanie analógovej hodnoty</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="5">
-                <span>Viem UART komunikáciu</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="6">
-                <span>Viem Timer a prerušenia</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="7">
-                <span>Viem OLED displej a web ovládanie</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="vvs" data-checklist-item="8">
-                <span>Viem obhájiť semestrálny projekt</span>
-            </label>
+    <div class="checklist-groups">
+        <article class="checklist-group">
+    <h3>ESP32</h3>
+    <div class="checklist-items">
+        <label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-1">
+    <span>Viem ESP32 piny</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-2">
+    <span>Viem GPIO</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-3">
+    <span>Viem PWM</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-4">
+    <span>Viem ADC</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-5">
+    <span>Viem UART</span>
+</label>
+    </div>
+</article><article class="checklist-group">
+    <h3>Projekt</h3>
+    <div class="checklist-items">
+        <label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-6">
+    <span>Viem MicroPython základy</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-7">
+    <span>Viem web server</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-8">
+    <span>Viem robot projekt</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-9">
+    <span>Viem OLED/buzzer/RGB LED</span>
+</label>
+    </div>
+</article><article class="checklist-group">
+    <h3>Obhajoba</h3>
+    <div class="checklist-items">
+        <label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-10">
+    <span>Viem vysvetliť zapojenie</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-11">
+    <span>Viem vysvetliť kód</span>
+</label><label class="checklist-item">
+    <input type="checkbox" data-checklist-item="vvs-12">
+    <span>Viem povedať čo projekt robí</span>
+</label>
+    </div>
+</article>
     </div>
 
-    <div class="learn-actions">
-        <button class="learn-btn" data-subject="vvs" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    <div class="checklist-actions">
+        <button type="button" class="btn secondary checklist-complete-btn">Označiť všetko</button>
+        <button type="button" class="btn secondary checklist-reset-btn">Reset</button>
     </div>
 </section>
 
@@ -399,6 +458,7 @@ led.value(1)</code></pre></div>
             <a href="../subjects.html">Predmety</a>
             <a href="../support.html">Podpora</a>
             <a href="../roadmap.html">Roadmapa</a>
+            <a href="../changelog.html">Zmeny</a>
         </div>
     </div>
 
@@ -413,10 +473,10 @@ led.value(1)</code></pre></div>
 </footer>
 
 <script src="../script/main.js?v=20260608-style-script"></script>
-<script src="../script/progress.js?v=20260608-style-script"></script>
-<script src="../script/subject-search.js?v=20260608-style-script"></script>
-<script src="../script/filters.js?v=20260608-style-script"></script>
-<script src="../script/checklist.js?v=20260608-style-script"></script>
+<script src="../script/progress.js?v=20260608-big-upgrade"></script>
+<script src="../script/subject-search.js?v=20260608-big-upgrade"></script>
+<script src="../script/filters.js?v=20260608-big-upgrade"></script>
+<script src="../script/checklist.js?v=20260608-big-upgrade"></script>
 
 <script src="../script/fix.js?v=20260608-style-script"></script>
 </body>

@@ -252,3 +252,68 @@ Upravené:
 - flashcards používajú farbu aktuálne zvoleného predmetu,
 - roadmapa bola prepracovaná na nové rozloženie,
 - pridaný hlavný `README.md` pre GitHub.
+
+
+## Oprava šírky checklistu na predmetových stránkach
+
+Upravené:
+- checklist pred skúškou už nemá pôsobiť ako sekcia na celú šírku obrazovky,
+- v `style/fix.css` a `style/subject-pages.css` bol pridaný blok na obmedzenie šírky checklistu,
+- ak je checklist mimo hlavného content stĺpca, nastaví sa na šírku `min(100%, 920px)`,
+- do `README.md` boli doplnené odporúčané vylepšenia projektu.
+
+
+## Finálna oprava checklist layoutu
+
+Upravené:
+- pridaný `style/checklist.css`,
+- checklist v predmetoch má obmedzenú šírku na `min(100%, 920px)`,
+- ak je checklist vo vnútri `.subject-main`, správa sa ako ostatné obsahové sekcie,
+- položky checklistu majú 2 stĺpce na veľkej obrazovke a 1 stĺpec na mobile,
+- README.md bol doplnený o návrhy ďalších úprav.
+
+
+## Study Hub v3.3 – changelog a veľké frontendové vylepšenia
+
+Pridané:
+- `changelog.html`,
+- vylepšená hlavná stránka s mini dashboardom,
+- tlačidlo Pokračovať tam, kde som skončil,
+- najnovšie pridané,
+- nové flashcards režimy,
+- história flashcards,
+- export flashcards,
+- roadmapa ako projektový plán,
+- sekcia Štruktúra predmetu v každom predmete,
+- nové tematické checklisty,
+- `script/checklist.js`.
+
+
+## Presmerovanie starých JS odkazov
+
+Upravené:
+- staré `assets/js/*.js` odkazy boli prepísané na `script/*.js`,
+- do patchu boli doplnené pôvodné pomocné skripty pre kvízy, filtre a progress,
+- tým sa znižuje riziko 404 chýb po presune štruktúry.
+
+
+## Vrátenie hlavnej stránky do jednoduchého rozloženia
+
+Upravené:
+- `index.html` bol vrátený do jednoduchého layoutu,
+- odstránený bol mini dashboard z hlavnej stránky,
+- odstránený bol blok najnovšie pridané z hlavnej stránky,
+- odstránené boli rýchle odkazy z hlavnej stránky,
+- ostala hero sekcia a jeden informačný blok o projekte,
+- v navigácii bol opravený duplicitný odkaz `Zmeny`,
+- do `style/fix.css` bola pridaná poistka proti zobrazeniu starých homepage v3.3 blokov.
+
+
+## Tlačidlo Posledné miesto na hlavnej stránke
+
+Upravené:
+- do `index.html` bolo pridané tlačidlo `Posledné miesto`,
+- tlačidlo používa `id="continueLearningBtn"`,
+- `script/main.js` nastaví odkaz podľa hodnoty `studyHubLastLocation` v localStorage,
+- ak nie je uložené posledné miesto, otvorí sa `subjects.html`,
+- rozloženie hlavnej stránky sa inak nemenilo.

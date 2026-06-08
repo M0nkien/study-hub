@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roadmapa | Study Hub</title>
-    <link rel="stylesheet" href="style/main.css?v=20260608-style-script">
-    <link rel="stylesheet" href="style/subject-pages.css?v=20260608-style-script">
+    <link rel="stylesheet" href="style/main.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="style/subject-pages.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="style/quiz.css?v=20260608-style-script">
-    <link rel="stylesheet" href="style/responsive.css?v=20260608-style-script">
-    <link rel="stylesheet" href="style/fix.css?v=20260608-style-script">
+    <link rel="stylesheet" href="style/responsive.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="style/fix.css?v=20260608-big-upgrade">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="page-roadmap">
@@ -31,6 +31,7 @@
             <a href="subjects.html">Predmety</a>
             <a href="flashcards.html">Kartičky</a>
             <a href="results.html">Výsledky</a>
+            <a href="changelog.html">Zmeny</a>
             <a href="support.html">Podpora</a>
             <a href="admin.html">Admin</a>
         </nav>
@@ -44,183 +45,74 @@
         <div class="grid-bg"></div>
         <div class="container subject-hero-content">
             <a href="index.html" class="back-link">← Späť na hlavnú stránku</a>
-            <span class="badge">● Plán vývoja</span>
+            <span class="badge">● Projektový plán</span>
             <h2>ROADMAPA<br><span>STUDY HUB</span></h2>
-            <p>Prehľad toho, čo je hotové, čo sa práve dopĺňa, čo je plánované a čo ešte treba skontrolovať.</p>
+            <p>Projektový prehľad rozdelený podľa stavu, priority, typu a predmetu.</p>
         </div>
     </section>
 
-    <section class="roadmap-v2-section">
+    <section class="roadmap-v33-section">
         <div class="container">
-            <div class="roadmap-v2-overview">
-                <article class="roadmap-v2-card">
-                    <p class="small-title">Prehľad vývoja</p>
-                    <h2>Rozdelené podľa stavu a priority</h2>
-                    <p>
-                        Roadmapa je rozdelená na hotové časti, rozpracované časti, plánované stránky,
-                        dizajnové nápady a chyby na kontrolu. Takto budeš vedieť, čo sa na Study Hub ešte dopĺňa.
-                    </p>
+            <div class="roadmap-board-head">
+                <article>
+                    <p class="small-title">Roadmapa v3.3</p>
+                    <h2>Čo je hotové, čo sa robí a čo príde neskôr</h2>
+                    <p>Každá položka má názov, popis, predmet, stav, prioritu, dátum a typ.</p>
                 </article>
-
-                <article class="roadmap-v2-card">
-                    <p class="small-title">Stav projektu</p>
-                    <div class="roadmap-v2-stats">
-                        <div class="roadmap-stat"><strong>4</strong><span>hotové časti</span></div>
-                        <div class="roadmap-stat"><strong>4</strong><span>pracuje sa</span></div>
-                        <div class="roadmap-stat"><strong>4</strong><span>plánované</span></div>
-                        <div class="roadmap-stat"><strong>3</strong><span>kontrola</span></div>
-                    </div>
-                </article>
+                <div class="roadmap-legend">
+                    <span class="priority-high">vysoká</span>
+                    <span class="priority-mid">stredná</span>
+                    <span class="priority-low">nízka</span>
+                </div>
             </div>
 
-            <div class="roadmap-v2-grid">
-                <section class="roadmap-v2-column done">
-                    <div class="roadmap-v2-head">
-                        <div><p class="small-title">Hotové</p><h2>Dokončené</h2></div>
-                        <span>OK</span>
-                    </div>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Hlavná stránka</h3>
-                        <p>Jednoduchý vstup do Study Hubu s tlačidlom na predmety a podporu.</p>
-                        <div class="roadmap-v2-meta"><span>web</span><span>hotové</span><span>vysoká priorita</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Predmety na samostatnej stránke</h3>
-                        <p>Zoznam predmetov je oddelený od hlavnej stránky a obsahuje stav, tagy a vyhľadávanie.</p>
-                        <div class="roadmap-v2-meta"><span>predmety</span><span>hotové</span><span>06/2026</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Podpora cez Google Forms</h3>
-                        <p>Samostatná stránka podpory pre chyby, návrhy a spätnú väzbu.</p>
-                        <div class="roadmap-v2-meta"><span>podpora</span><span>hotové</span><span>formulár</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Kartičky na učenie</h3>
-                        <p>Flashcards pre rýchle opakovanie pojmov z jednotlivých predmetov.</p>
-                        <div class="roadmap-v2-meta"><span>kartičky</span><span>hotové</span><span>farby predmetov</span></div>
-                    </article>
+            <div class="roadmap-board">
+                <section class="roadmap-lane done">
+                    <header><span>Hotové</span><strong>4</strong></header>
+                    <article class="roadmap-ticket"><h3>Predmety na samostatnej stránke</h3><p>Zoznam predmetov je mimo hlavnej stránky, s tagmi, farbami a stavom.</p><div><span>Predmety</span><span>hotové</span><span>vysoká</span><span>06/2026</span><span>funkcia</span></div></article>
+                    <article class="roadmap-ticket"><h3>Flashcards základ</h3><p>Kartičky na učenie pojmov podľa predmetov.</p><div><span>Flashcards</span><span>hotové</span><span>vysoká</span><span>06/2026</span><span>funkcia</span></div></article>
+                    <article class="roadmap-ticket"><h3>Podpora</h3><p>Samostatná stránka s Google Forms formulárom.</p><div><span>Podpora</span><span>hotové</span><span>stredná</span><span>06/2026</span><span>admin</span></div></article>
+                    <article class="roadmap-ticket"><h3>Štruktúra style/script</h3><p>CSS a JS sú rozdelené do priečinkov style/ a script/.</p><div><span>Web</span><span>hotové</span><span>vysoká</span><span>06/2026</span><span>oprava</span></div></article>
                 </section>
 
-                <section class="roadmap-v2-column progress">
-                    <div class="roadmap-v2-head">
-                        <div><p class="small-title">Pracuje sa</p><h2>Aktuálne dopĺňanie</h2></div>
-                        <span>IN PROGRESS</span>
-                    </div>
-
-                    <article class="roadmap-v2-item">
-                        <h3>MSD – podrobné poznámky</h3>
-                        <p>Doplniť viac teórie, Excel vzorce, typické tabuľky, grafy a najčastejšie chyby.</p>
-                        <div class="roadmap-v2-meta"><span>MSD</span><span>dopĺňa sa</span><span>vysoká priorita</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Matematika – skúškové témy</h3>
-                        <p>DR, Laplace, rady, Fourierov rad, gradient, funkcie dvoch premenných a vzorce.</p>
-                        <div class="roadmap-v2-meta"><span>MAT</span><span>rozpracované</span><span>skúška</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Fyzika – odvodenia a príklady</h3>
-                        <p>Doplniť viac odvodení, jednotky, typické príklady, laboratórne výpočty a vzorové písomky.</p>
-                        <div class="roadmap-v2-meta"><span>Fyzika</span><span>dopĺňa sa</span><span>skúška</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>CCNA – konfigurácie a kvízy</h3>
-                        <p>Doplniť Packet Tracer príkazy, troubleshooting, VLSM tréning a ďalšie kapitoly.</p>
-                        <div class="roadmap-v2-meta"><span>CCNA</span><span>dopĺňa sa</span><span>praktická skúška</span></div>
-                    </article>
+                <section class="roadmap-lane progress">
+                    <header><span>Pracuje sa</span><strong>5</strong></header>
+                    <article class="roadmap-ticket"><h3>Matematika – skúška</h3><p>DR, Laplace, Fourierov rad, rady, gradient a rozpoznávač príkladu.</p><div><span>Matematika</span><span>pracuje sa</span><span>vysoká</span><span>06/2026</span><span>obsah</span></div></article>
+                    <article class="roadmap-ticket"><h3>Fyzika – vzorce a odvodenia</h3><p>Vektory, kinematika, dynamika, moment zotrvačnosti, kyvadlá a labáky.</p><div><span>Fyzika</span><span>pracuje sa</span><span>vysoká</span><span>06/2026</span><span>obsah</span></div></article>
+                    <article class="roadmap-ticket"><h3>CCNA – Packet Tracer</h3><p>Subnetting, VLSM, VLAN, trunk, DHCP, DNS, ARP, routing a ping checklist.</p><div><span>CCNA</span><span>pracuje sa</span><span>vysoká</span><span>06/2026</span><span>obsah</span></div></article>
+                    <article class="roadmap-ticket"><h3>MSD – Excel postupy</h3><p>Vzorce, tabuľky, Fourier, pravdepodobnosť, rozdelenia a chyby v zadaniach.</p><div><span>MSD</span><span>pracuje sa</span><span>vysoká</span><span>06/2026</span><span>obsah</span></div></article>
+                    <article class="roadmap-ticket"><h3>Checklisty</h3><p>Zjednotiť checklisty a rozdeliť ich podľa tém v každom predmete.</p><div><span>Všetky</span><span>pracuje sa</span><span>stredná</span><span>06/2026</span><span>dizajn</span></div></article>
                 </section>
 
-                <section class="roadmap-v2-column planned">
-                    <div class="roadmap-v2-head">
-                        <div><p class="small-title">Plánované</p><h2>Ďalšie stránky</h2></div>
-                        <span>PLAN</span>
-                    </div>
-
-                    <article class="roadmap-v2-item">
-                        <h3>quizzes.html</h3>
-                        <p>Jedna stránka so všetkými kvízmi pokope, filtrovaním podľa predmetu a režimom skúšky.</p>
-                        <div class="roadmap-v2-meta"><span>kvízy</span><span>plánované</span><span>vysoká priorita</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>files.html</h3>
-                        <p>Prehľad všetkých materiálov, PDF, ťahákov, zadaní a súborov na jednom mieste.</p>
-                        <div class="roadmap-v2-meta"><span>materiály</span><span>plánované</span><span>prehľad</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>search.html</h3>
-                        <p>Globálne vyhľadávanie cez celý Study Hub: predmety, poznámky, kvízy, kartičky a súbory.</p>
-                        <div class="roadmap-v2-meta"><span>vyhľadávanie</span><span>plánované</span><span>komfort</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>settings.html</h3>
-                        <p>Nastavenia používateľa: reset progresu, export/import výsledkov a prepínanie témy.</p>
-                        <div class="roadmap-v2-meta"><span>nastavenia</span><span>plánované</span><span>localStorage</span></div>
-                    </article>
+                <section class="roadmap-lane planned">
+                    <header><span>Plánované</span><strong>5</strong></header>
+                    <article class="roadmap-ticket"><h3>quizzes.html</h3><p>Všetky kvízy na jednom mieste s režimom cvičenia a skúšky.</p><div><span>Kvízy</span><span>plánované</span><span>vysoká</span><span>neskôr</span><span>funkcia</span></div></article>
+                    <article class="roadmap-ticket"><h3>files.html</h3><p>Všetky materiály, PDF, ťaháky, zadania a súbory pokope.</p><div><span>Materiály</span><span>plánované</span><span>vysoká</span><span>neskôr</span><span>funkcia</span></div></article>
+                    <article class="roadmap-ticket"><h3>search.html</h3><p>Globálne vyhľadávanie cez predmety, poznámky, kartičky a kvízy.</p><div><span>Web</span><span>plánované</span><span>vysoká</span><span>neskôr</span><span>funkcia</span></div></article>
+                    <article class="roadmap-ticket"><h3>print.css</h3><p>Tlačiteľná verzia poznámok bez pozadia, menu a tlačidiel.</p><div><span>Poznámky</span><span>plánované</span><span>stredná</span><span>neskôr</span><span>dizajn</span></div></article>
+                    <article class="roadmap-ticket"><h3>settings.html</h3><p>Reset progresu, export/import a nastavenia témy.</p><div><span>Nastavenia</span><span>plánované</span><span>stredná</span><span>neskôr</span><span>funkcia</span></div></article>
                 </section>
 
-                <section class="roadmap-v2-column ideas">
-                    <div class="roadmap-v2-head">
-                        <div><p class="small-title">Nápady</p><h2>Vylepšenia dizajnu</h2></div>
-                        <span>IDEA</span>
-                    </div>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Vlastné SVG ikony predmetov</h3>
-                        <p>Každý predmet môže mať vlastnú ikonu: terminál, graf, sieť, atóm, sigma, čip alebo Java symbol.</p>
-                        <div class="roadmap-v2-meta"><span>dizajn</span><span>nápad</span><span>unikátnosť</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Print verzia poznámok</h3>
-                        <p>Režim tlače bez pozadia, animácií a navigácie, aby sa poznámky dali ľahko vytlačiť.</p>
-                        <div class="roadmap-v2-meta"><span>poznámky</span><span>nápad</span><span>praktické</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Mini dashboard</h3>
-                        <p>Naposledy otvorený predmet, najlepší výsledok kvízu a počet dokončených sekcií.</p>
-                        <div class="roadmap-v2-meta"><span>dashboard</span><span>nápad</span><span>prehľad</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Analytics</h3>
-                        <p>Neskôr sledovať, ktoré predmety a kvízy sa používajú najviac, napríklad cez Plausible alebo Firebase.</p>
-                        <div class="roadmap-v2-meta"><span>analytics</span><span>neskôr</span><span>voliteľné</span></div>
-                    </article>
+                <section class="roadmap-lane ideas">
+                    <header><span>Nápady</span><strong>4</strong></header>
+                    <article class="roadmap-ticket"><h3>Vlastné ikonky predmetov</h3><p>Linux terminál, CCNA sieťový uzol, Fyzika atóm, Matematika sigma, MSD graf, VVS čip, Java kód.</p><div><span>Dizajn</span><span>nápad</span><span>stredná</span><span>neskôr</span><span>dizajn</span></div></article>
+                    <article class="roadmap-ticket"><h3>Kompaktný režim</h3><p>Menšie medzery a hustejšie karty pre rýchle opakovanie.</p><div><span>Web</span><span>nápad</span><span>nízka</span><span>neskôr</span><span>dizajn</span></div></article>
+                    <article class="roadmap-ticket"><h3>PWA offline</h3><p>Možnosť používať poznámky a kvízy aj bez internetu.</p><div><span>Web</span><span>nápad</span><span>nízka</span><span>budúcnosť</span><span>backend</span></div></article>
+                    <article class="roadmap-ticket"><h3>Admin editor</h3><p>Pridávanie otázok, kartičiek a materiálov bez úpravy HTML.</p><div><span>Admin</span><span>nápad</span><span>stredná</span><span>budúcnosť</span><span>admin</span></div></article>
                 </section>
 
-                <section class="roadmap-v2-column bugs">
-                    <div class="roadmap-v2-head">
-                        <div><p class="small-title">Kontrola</p><h2>Nahlásené chyby</h2></div>
-                        <span>CHECK</span>
-                    </div>
+                <section class="roadmap-lane bugs">
+                    <header><span>Nahlásené chyby</span><strong>3</strong></header>
+                    <article class="roadmap-ticket"><h3>Kontrola CSS ciest</h3><p>Skontrolovať, či nikde neostali staré odkazy assets/css a assets/js.</p><div><span>Web</span><span>kontrola</span><span>vysoká</span><span>06/2026</span><span>oprava</span></div></article>
+                    <article class="roadmap-ticket"><h3>Kontrola kvíz odpovedí</h3><p>Overiť správnosť odpovedí hlavne pri CCNA a Linuxe.</p><div><span>Kvízy</span><span>kontrola</span><span>vysoká</span><span>06/2026</span><span>oprava</span></div></article>
+                    <article class="roadmap-ticket"><h3>Mobilné rozloženie</h3><p>Testovať menu, karty, checklisty a flashcards na telefóne.</p><div><span>Mobil</span><span>kontrola</span><span>stredná</span><span>06/2026</span><span>oprava</span></div></article>
+                </section>
 
-                    <article class="roadmap-v2-item">
-                        <h3>Kontrola PDF odkazov</h3>
-                        <p>Priebežne skontrolovať, či všetky materiály, PDF a súbory smerujú na správne miesto.</p>
-                        <div class="roadmap-v2-meta"><span>súbory</span><span>kontrola</span><span>stredná priorita</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Kontrola kvíz odpovedí</h3>
-                        <p>Overiť správnosť odpovedí hlavne pri Linuxe, CCNA a MSD, aby boli vhodné na opakovanie.</p>
-                        <div class="roadmap-v2-meta"><span>kvízy</span><span>kontrola</span><span>vysoká priorita</span></div>
-                    </article>
-
-                    <article class="roadmap-v2-item">
-                        <h3>Mobilné rozloženie</h3>
-                        <p>Testovať stránku na telefóne, aby menu, karty, kvízy a predmety neboli rozbité.</p>
-                        <div class="roadmap-v2-meta"><span>mobil</span><span>testovať</span><span>priebežne</span></div>
-                    </article>
+                <section class="roadmap-lane delayed">
+                    <header><span>Odložené</span><strong>3</strong></header>
+                    <article class="roadmap-ticket"><h3>Prihlasovanie používateľov</h3><p>Zatiaľ netreba, najprv stačí localStorage a jednoduché používanie.</p><div><span>Backend</span><span>odložené</span><span>nízka</span><span>budúcnosť</span><span>backend</span></div></article>
+                    <article class="roadmap-ticket"><h3>Databáza</h3><p>Firebase alebo Supabase až vtedy, keď bude stabilný obsah.</p><div><span>Backend</span><span>odložené</span><span>nízka</span><span>budúcnosť</span><span>backend</span></div></article>
+                    <article class="roadmap-ticket"><h3>Analytics</h3><p>Sledovanie najpoužívanejších predmetov až po zverejnení širšej skupine.</p><div><span>Analytics</span><span>odložené</span><span>nízka</span><span>budúcnosť</span><span>backend</span></div></article>
                 </section>
             </div>
         </div>
@@ -242,7 +134,7 @@
         <div class="footer-info-card">
             <span>Autor projektu</span>
             <strong>Vytvorené MG</strong>
-            <p>Study Hub v3.1 • Posledná aktualizácia: 06/2026</p>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
         </div>
 
         <div class="footer-links-card">
@@ -250,6 +142,7 @@
             <a href="subjects.html">Predmety</a>
             <a href="support.html">Podpora</a>
             <a href="roadmap.html">Roadmapa</a>
+            <a href="changelog.html">Zmeny</a>
         </div>
     </div>
 

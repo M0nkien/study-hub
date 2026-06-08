@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kartičky | Study Hub</title>
-    <link rel="stylesheet" href="style/main.css?v=20260608-style-script">
-    <link rel="stylesheet" href="style/subject-pages.css?v=20260608-style-script">
-    <link rel="stylesheet" href="style/quiz.css?v=20260608-style-script">
-    <link rel="stylesheet" href="style/responsive.css?v=20260608-style-script">
-    <link rel="stylesheet" href="style/fix.css?v=20260608-style-script">
+    <link rel="stylesheet" href="style/main.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="style/subject-pages.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="style/quiz.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="style/responsive.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="style/fix.css?v=20260608-big-upgrade">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="page-flashcards">
@@ -29,9 +29,9 @@
         <nav class="nav">
             <a href="index.html">Domov</a>
             <a href="subjects.html">Predmety</a>
-            <a href="flashcards.html">Kartičky</a>
             <a href="results.html">Výsledky</a>
             <a href="roadmap.html">Roadmapa</a>
+            <a href="changelog.html">Zmeny</a>
             <a href="support.html">Podpora</a>
             <a href="admin.html">Admin</a>
         </nav>
@@ -50,15 +50,35 @@
         </div>
     </section>
 
-    <section class="flashcards-section">
+    <section class="flashcards-section flashcards-v33">
         <div class="container">
-            <div class="flashcard-controls">
+            <div class="flashcard-toolbar">
                 <div>
                     <label for="flashcardSubject">Predmet</label>
                     <select id="flashcardSubject"></select>
                 </div>
-                <button id="shuffleFlashcards" class="btn secondary" type="button">Zamiešať</button>
+                <div>
+                    <label for="flashcardTopic">Téma</label>
+                    <select id="flashcardTopic"></select>
+                </div>
+                <div>
+                    <label for="flashcardMode">Režim</label>
+                    <select id="flashcardMode">
+                        <option value="study">Režim učenia</option>
+                        <option value="test">Režim skúšania</option>
+                        <option value="unknown">Iba nevedené</option>
+                    </select>
+                </div>
+                <button id="shuffleFlashcards" class="btn secondary" type="button">Náhodne</button>
                 <button id="resetFlashcards" class="btn secondary" type="button">Od začiatku</button>
+                <button id="exportFlashcards" class="btn secondary" type="button">Export</button>
+            </div>
+
+            <div class="flashcard-learning-panel">
+                <div><strong id="flashKnownCount">0</strong><span>Viem</span></div>
+                <div><strong id="flashUnknownCount">0</strong><span>Neviem</span></div>
+                <div><strong id="flashHistoryCount">0</strong><span>História</span></div>
+                <div><strong id="flashTopicLabel">Všetky</strong><span>Téma</span></div>
             </div>
 
             <div class="flashcard-stage">
@@ -68,7 +88,7 @@
                         <div class="flashcard-face flashcard-front">
                             <span id="flashcardMeta">Linux</span>
                             <h3 id="flashcardQuestion">Čo je chmod?</h3>
-                            <p>Klikni na kartičku pre odpoveď.</p>
+                            <p id="flashcardHint">Klikni na kartičku pre odpoveď.</p>
                         </div>
                         <div class="flashcard-face flashcard-back">
                             <span>Odpoveď</span>
@@ -79,7 +99,20 @@
                 <button id="nextFlashcard" class="quiz-btn ghost" type="button">→</button>
             </div>
 
+            <div class="flashcard-actions-v33">
+                <button id="markKnownFlashcard" class="btn secondary" type="button">Viem</button>
+                <button id="markUnknownFlashcard" class="btn secondary" type="button">Neviem</button>
+                <button id="repeatUnknownFlashcards" class="btn secondary" type="button">Opakovať nevedené</button>
+            </div>
+
             <p id="flashcardCounter" class="flashcard-counter">1 / 1</p>
+
+            <section class="flashcard-history-box">
+                <p class="small-title">História učenia</p>
+                <div id="flashcardHistoryList" class="flashcard-history-list">
+                    <p>Zatiaľ nemáš históriu kartičiek.</p>
+                </div>
+            </section>
         </div>
     </section>
 </main>
@@ -98,7 +131,7 @@
         <div class="footer-info-card">
             <span>Autor projektu</span>
             <strong>Vytvorené MG</strong>
-            <p>Study Hub v3.1 • Posledná aktualizácia: 06/2026</p>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
         </div>
 
         <div class="footer-links-card">
@@ -106,6 +139,7 @@
             <a href="subjects.html">Predmety</a>
             <a href="support.html">Podpora</a>
             <a href="roadmap.html">Roadmapa</a>
+            <a href="changelog.html">Zmeny</a>
         </div>
     </div>
 

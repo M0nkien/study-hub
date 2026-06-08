@@ -362,3 +362,794 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+
+/* =========================================================
+   PATCH – Checklist v predmete nemá byť na celú šírku
+   ========================================================= */
+
+/*
+   Checklist pred skúškou / Čo by som mal vedieť bol na niektorých
+   predmetových podstránkach príliš široký. Tento blok ho drží v rovnakej
+   vizuálnej šírke ako ostatné obsahové sekcie predmetu.
+*/
+
+.page-subject-detail section#checklist,
+.page-subject-detail .checklist-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ak je checklist v hlavnom content stĺpci, nech sa správa ako ostatné sekcie */
+.page-subject-detail .subject-main section#checklist,
+.page-subject-detail .subject-main .checklist-section {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Ak sa checklist dostal mimo .subject-main, nenechaj ho ísť cez celú obrazovku */
+.page-subject-detail .subject-content > .container > section#checklist,
+.page-subject-detail .subject-content > .container > .checklist-section {
+    width: min(100%, 920px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Rovnaký card štýl ako ostatné obsahové bloky */
+.page-subject-detail section#checklist.content-block,
+.page-subject-detail .checklist-section.content-block,
+.page-subject-detail section#checklist {
+    border-radius: 28px;
+    padding: clamp(22px, 3vw, 34px);
+}
+
+/* Grid v checkliste nech sa neroztiahne mimo kartu */
+.page-subject-detail section#checklist .checklist-grid,
+.page-subject-detail .checklist-section .checklist-grid,
+.page-subject-detail section#checklist ul,
+.page-subject-detail .checklist-section ul {
+    max-width: 100%;
+}
+
+/* Mobil: checklist nech je plná dostupná šírka kontajnera, nie viewportu */
+@media (max-width: 900px) {
+    .page-subject-detail .subject-content > .container > section#checklist,
+    .page-subject-detail .subject-content > .container > .checklist-section {
+        width: 100%;
+    }
+}
+
+
+
+/* =========================================================
+   PATCH FINAL – Checklist v predmete ako normálna obsahová karta
+   ========================================================= */
+
+/*
+   Finálna oprava checklistu:
+   Na niektorých predmetoch sa checklist zobrazil cez celú šírku stránky.
+   Toto pravidlo ho vždy obmedzí na šírku podobnú ostatným obsahovým sekciám.
+*/
+
+.page-subject-detail #checklist,
+.page-subject-detail section#checklist,
+.page-subject-detail .checklist-section {
+    display: block !important;
+    width: min(100%, 920px) !important;
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Ak je checklist vložený priamo v hlavnom stĺpci, stále bude vyzerať ako karta */
+.page-subject-detail .subject-main #checklist,
+.page-subject-detail .subject-main section#checklist,
+.page-subject-detail .subject-main .checklist-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Ak je checklist mimo subject-main, zarovnaj ho s hlavným obsahovým stĺpcom */
+.page-subject-detail .subject-content #checklist:not(.subject-main #checklist),
+.page-subject-detail .subject-content section#checklist:not(.subject-main section#checklist),
+.page-subject-detail .subject-content .checklist-section:not(.subject-main .checklist-section) {
+    width: min(100%, 920px) !important;
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Nadpis a vnútro checklistu nech nepôsobia ako veľký full-width banner */
+.page-subject-detail #checklist.content-block,
+.page-subject-detail section#checklist.content-block,
+.page-subject-detail .checklist-section.content-block {
+    padding: clamp(22px, 3vw, 34px) !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+}
+
+/* Položky checklistu: namiesto dvoch príliš širokých stĺpcov bude čitateľnejší grid */
+.page-subject-detail #checklist .checklist-items,
+.page-subject-detail #checklist .checklist-grid,
+.page-subject-detail .checklist-section .checklist-items,
+.page-subject-detail .checklist-section .checklist-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 10px !important;
+    max-width: 100% !important;
+}
+
+/* Ak sú checkboxy iba v labeloch alebo riadkoch, drž ich v karte */
+.page-subject-detail #checklist label,
+.page-subject-detail .checklist-section label {
+    max-width: 100% !important;
+    border-radius: 14px !important;
+}
+
+/* Progress bar v checkliste nech neťahá kartu cez viewport */
+.page-subject-detail #checklist .progress-bar,
+.page-subject-detail #checklist .progress-track,
+.page-subject-detail .checklist-section .progress-bar,
+.page-subject-detail .checklist-section .progress-track {
+    max-width: 100% !important;
+}
+
+/* Menšie obrazovky */
+@media (max-width: 900px) {
+    .page-subject-detail #checklist,
+    .page-subject-detail section#checklist,
+    .page-subject-detail .checklist-section {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .page-subject-detail #checklist .checklist-items,
+    .page-subject-detail #checklist .checklist-grid,
+    .page-subject-detail .checklist-section .checklist-items,
+    .page-subject-detail .checklist-section .checklist-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+
+/* =========================================================
+   PATCH v3.3 – changelog, homepage, roadmap, flashcards, predmety
+   ========================================================= */
+
+/* Homepage v3.3 */
+.home-overview-v33 {
+    padding: 34px 0 70px;
+}
+
+.home-overview-grid,
+.home-bottom-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+.home-overview-card,
+.home-latest-card,
+.home-quick-card {
+    border-radius: 30px;
+    padding: 28px;
+    background:
+        radial-gradient(circle at 92% 18%, rgba(101, 212, 242, .13), transparent 32%),
+        linear-gradient(145deg, rgba(15, 23, 42, .92), rgba(2, 6, 23, .96));
+    border: 1px solid rgba(101, 212, 242, .18);
+    box-shadow: 0 24px 80px rgba(0,0,0,.22);
+}
+
+.home-overview-card h2,
+.home-latest-card h2 {
+    margin: 0 0 14px;
+    font-size: clamp(30px, 3vw, 48px);
+    line-height: 1.05;
+}
+
+.home-overview-card p,
+.home-latest-card p,
+.home-quick-card p,
+.home-continue-label {
+    color: #aab7c9;
+    line-height: 1.65;
+    font-weight: 750;
+}
+
+.home-continue-label {
+    margin-top: 16px;
+}
+
+.home-version-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.home-version-row span,
+.mini-link {
+    border-radius: 999px;
+    padding: 8px 11px;
+    background: rgba(101,212,242,.08);
+    border: 1px solid rgba(101,212,242,.18);
+    color: #65d4f2;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.home-dashboard-grid,
+.latest-mini-grid,
+.quick-link-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.home-dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-dashboard-grid div,
+.latest-mini-grid article,
+.quick-link-grid a {
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(2,6,23,.62);
+    border: 1px solid rgba(101,212,242,.14);
+}
+
+.home-dashboard-grid strong {
+    display: block;
+    color: #65d4f2;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.home-dashboard-grid span,
+.latest-mini-grid span {
+    color: #aab7c9;
+    font-size: 12px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.latest-mini-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.latest-mini-grid h3 {
+    margin: 10px 0 8px;
+}
+
+.quick-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quick-link-grid a {
+    color: #65d4f2;
+    text-decoration: none;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+/* Changelog */
+.changelog-section {
+    padding: 54px 0 82px;
+}
+
+.changelog-layout {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.changelog-summary,
+.changelog-card {
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at 92% 14%, rgba(101,212,242,.12), transparent 34%),
+        linear-gradient(145deg, rgba(15,23,42,.92), rgba(2,6,23,.96));
+    border: 1px solid rgba(101,212,242,.18);
+    padding: 24px;
+}
+
+.changelog-summary {
+    position: sticky;
+    top: 98px;
+}
+
+.changelog-mini-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.changelog-mini-stats div {
+    border-radius: 16px;
+    padding: 14px;
+    background: rgba(2,6,23,.6);
+    border: 1px solid rgba(101,212,242,.14);
+}
+
+.changelog-mini-stats strong {
+    display: block;
+    color: #65d4f2;
+    font-size: 25px;
+}
+
+.changelog-mini-stats span {
+    color: #aab7c9;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.changelog-timeline {
+    display: grid;
+    gap: 18px;
+}
+
+.changelog-entry {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 16px;
+}
+
+.changelog-date {
+    color: #65d4f2;
+    font-weight: 950;
+    padding-top: 24px;
+}
+
+.changelog-card.current {
+    border-color: rgba(101,212,242,.42);
+    box-shadow: 0 0 60px rgba(101,212,242,.08);
+}
+
+.changelog-card h3 {
+    margin: 0 0 12px;
+    font-size: 26px;
+}
+
+.changelog-card li {
+    color: #cbd5e1;
+    line-height: 1.65;
+    font-weight: 750;
+}
+
+/* Roadmap board */
+.roadmap-v33-section {
+    padding: 54px 0 86px;
+}
+
+.roadmap-board-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: end;
+    margin-bottom: 26px;
+}
+
+.roadmap-board-head article {
+    border-radius: 28px;
+    padding: 26px;
+    background: rgba(15,23,42,.78);
+    border: 1px solid rgba(101,212,242,.18);
+}
+
+.roadmap-board-head h2 {
+    margin: 0 0 12px;
+    font-size: clamp(34px, 3.8vw, 58px);
+    line-height: 1.02;
+}
+
+.roadmap-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.roadmap-legend span {
+    border-radius: 999px;
+    padding: 8px 11px;
+    border: 1px solid currentColor;
+    font-weight: 950;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.priority-high { color: #fb7185; }
+.priority-mid { color: #fbbf24; }
+.priority-low { color: #65d4f2; }
+
+.roadmap-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.roadmap-lane {
+    border-radius: 26px;
+    padding: 18px;
+    background: rgba(15,23,42,.66);
+    border: 1px solid rgba(101,212,242,.16);
+}
+
+.roadmap-lane header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.roadmap-lane header span {
+    font-size: 13px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .9px;
+}
+
+.roadmap-lane header strong {
+    border-radius: 999px;
+    padding: 7px 10px;
+    background: rgba(2,6,23,.62);
+    color: #65d4f2;
+}
+
+.roadmap-ticket {
+    border-radius: 20px;
+    padding: 16px;
+    margin-top: 12px;
+    background: rgba(2,6,23,.62);
+    border: 1px solid rgba(148,163,184,.14);
+}
+
+.roadmap-ticket h3 {
+    margin: 0 0 8px;
+}
+
+.roadmap-ticket p {
+    color: #aab7c9;
+    line-height: 1.55;
+    font-weight: 750;
+}
+
+.roadmap-ticket div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.roadmap-ticket div span {
+    border-radius: 999px;
+    padding: 6px 8px;
+    background: rgba(101,212,242,.08);
+    border: 1px solid rgba(101,212,242,.14);
+    color: #cbd5e1;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.roadmap-lane.done header span { color: #65d4f2; }
+.roadmap-lane.progress header span { color: #fbbf24; }
+.roadmap-lane.planned header span { color: #a78bfa; }
+.roadmap-lane.ideas header span { color: #34d399; }
+.roadmap-lane.bugs header span { color: #fb7185; }
+.roadmap-lane.delayed header span { color: #94a3b8; }
+
+/* Subject structure */
+.subject-structure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.subject-structure-grid article,
+.planned-content-box {
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(2,6,23,.62);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 22%, rgba(148,163,184,.14));
+}
+
+.subject-structure-grid strong {
+    display: block;
+    color: var(--subject-accent, #65d4f2);
+    margin-bottom: 6px;
+}
+
+.subject-structure-grid span,
+.planned-content-box p {
+    color: #aab7c9;
+    line-height: 1.5;
+    font-weight: 750;
+}
+
+.planned-content-box {
+    margin-top: 16px;
+}
+
+.planned-content-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.planned-content-tags span {
+    border-radius: 999px;
+    padding: 7px 10px;
+    color: var(--subject-accent, #65d4f2);
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 24%, transparent);
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+/* Checklist v3.3 */
+.checklist-progress-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin: 18px 0;
+}
+
+.checklist-progress-row strong {
+    color: var(--subject-accent, #65d4f2);
+    font-size: 22px;
+}
+
+.checklist-progress-track {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(2,6,23,.8);
+    overflow: hidden;
+}
+
+.checklist-progress-fill {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--subject-accent, #65d4f2);
+    transition: width .2s ease;
+}
+
+.checklist-groups {
+    display: grid;
+    gap: 14px;
+}
+
+.checklist-group {
+    border-radius: 20px;
+    padding: 16px;
+    background: rgba(2,6,23,.50);
+    border: 1px solid rgba(148,163,184,.14);
+}
+
+.checklist-group h3 {
+    margin: 0 0 12px;
+}
+
+.checklist-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px,1fr));
+    gap: 10px;
+}
+
+.checklist-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(2,6,23,.66);
+    border: 1px solid rgba(148,163,184,.12);
+    color: #cbd5e1;
+    font-weight: 800;
+}
+
+.checklist-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/* Flashcards v3.3 */
+.flashcard-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto auto auto;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.flashcard-toolbar div {
+    display: grid;
+    gap: 7px;
+}
+
+.flashcard-toolbar label {
+    color: #aab7c9;
+    font-size: 12px;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+.flashcard-toolbar select {
+    min-height: 44px;
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--flashcard-accent, #65d4f2) 30%, rgba(148,163,184,.16));
+    background: rgba(2,6,23,.72);
+    color: #fff;
+    padding: 0 12px;
+    font-weight: 850;
+}
+
+.flashcard-learning-panel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.flashcard-learning-panel div {
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(2,6,23,.62);
+    border: 1px solid color-mix(in srgb, var(--flashcard-accent, #65d4f2) 24%, rgba(148,163,184,.14));
+}
+
+.flashcard-learning-panel strong {
+    display: block;
+    color: var(--flashcard-accent, #65d4f2);
+    font-size: 26px;
+}
+
+.flashcard-learning-panel span {
+    color: #aab7c9;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.flashcard-actions-v33 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.flashcard-history-box {
+    margin-top: 26px;
+    border-radius: 24px;
+    padding: 20px;
+    background: rgba(15,23,42,.72);
+    border: 1px solid color-mix(in srgb, var(--flashcard-accent, #65d4f2) 22%, rgba(148,163,184,.14));
+}
+
+.flashcard-history-list {
+    display: grid;
+    gap: 10px;
+}
+
+.flashcard-history-list article {
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(2,6,23,.62);
+    border: 1px solid rgba(148,163,184,.12);
+}
+
+.flashcard-history-list strong {
+    display: block;
+    color: var(--flashcard-accent, #65d4f2);
+}
+
+.flashcard-history-list span,
+.flashcard-history-list p {
+    color: #aab7c9;
+}
+
+/* Quiz modes plan block */
+.quiz-modes-plan {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 12px;
+}
+
+.quiz-modes-plan span {
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(2,6,23,.62);
+    border: 1px solid rgba(101,212,242,.14);
+    color: #cbd5e1;
+    font-weight: 850;
+}
+
+@media (max-width: 1080px) {
+    .roadmap-board,
+    .latest-mini-grid,
+    .subject-structure-grid,
+    .flashcard-toolbar {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+}
+
+@media (max-width: 820px) {
+    .home-overview-grid,
+    .home-bottom-grid,
+    .changelog-layout,
+    .roadmap-board-head {
+        grid-template-columns: 1fr;
+    }
+
+    .roadmap-board,
+    .latest-mini-grid,
+    .subject-structure-grid,
+    .flashcard-toolbar,
+    .flashcard-learning-panel,
+    .checklist-items,
+    .quiz-modes-plan {
+        grid-template-columns: 1fr;
+    }
+
+    .changelog-summary {
+        position: static;
+    }
+
+    .changelog-entry {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* =========================================================
+   PATCH – Návrat hlavnej stránky do pôvodného jednoduchého rozloženia
+   ========================================================= */
+
+/*
+   Hlavná stránka sa vracia k jednoduchému rozloženiu:
+   hero sekcia + jeden blok "Prečo vznikol tento web?".
+   Nasledujúce pravidlá iba poisťujú, že staré v3.3 dashboard bloky nebudú rušiť layout,
+   ak by prehliadač/GitHub Pages načítal starší HTML/CSS z cache.
+*/
+
+.page-home .home-overview-v33 {
+    display: none !important;
+}
+
+.page-home .home-clean-about {
+    padding-top: 70px;
+}
+
+.page-home .home-clean-about-box {
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-home .home-clean-content {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}

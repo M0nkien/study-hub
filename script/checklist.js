@@ -1,53 +1,66 @@
-// Checklist pred skúškou pre každý predmet
+/* Study Hub – checklist localStorage */
 
-const CHECKLIST_KEY = "studyHubChecklist";
+(function () {
+    function storageKey(section) {
+        return "studyHubChecklist:" + (section.dataset.checklistSubject || "general");
+    }
 
-function getChecklistStore() {
-    const saved = localStorage.getItem(CHECKLIST_KEY);
-    if (!saved) return {};
-    try { return JSON.parse(saved); } catch { return {}; }
-}
+    function readState(section) {
+        try { return JSON.parse(localStorage.getItem(storageKey(section)) || "{}"); }
+        catch { return {}; }
+    }
 
-function saveChecklistStore(store) {
-    localStorage.setItem(CHECKLIST_KEY, JSON.stringify(store));
-}
+    function saveState(section, state) {
+        localStorage.setItem(storageKey(section), JSON.stringify(state));
+    }
 
-function updateChecklist(subject) {
-    const boxes = document.querySelectorAll(`input[data-checklist-subject="${subject}"]`);
-    const store = getChecklistStore();
-    let done = 0;
+    function update(section) {
+        const items = Array.from(section.querySelectorAll("[data-checklist-item]"));
+        const checked = items.filter(item => item.checked).length;
+        const count = section.querySelector(".checklist-count");
+        const fill = section.querySelector(".checklist-progress-fill");
 
-    boxes.forEach(box => {
-        const key = `${subject}:${box.dataset.checklistItem}`;
-        box.checked = !!store[key];
-        if (box.checked) done++;
-    });
+        if (count) count.textContent = checked + " / " + items.length;
+        if (fill) fill.style.width = items.length ? Math.round((checked / items.length) * 100) + "%" : "0%";
+    }
 
-    const count = document.querySelector(`[data-checklist-count="${subject}"]`);
-    const fill = document.querySelector(`[data-checklist-fill="${subject}"]`);
-    const percent = boxes.length ? Math.round((done / boxes.length) * 100) : 0;
+    function initChecklist(section) {
+        const state = readState(section);
+        const items = Array.from(section.querySelectorAll("[data-checklist-item]"));
 
-    if (count) count.textContent = done;
-    if (fill) fill.style.width = percent + "%";
-}
+        items.forEach(item => {
+            const id = item.dataset.checklistItem;
+            item.checked = !!state[id];
 
-document.addEventListener("DOMContentLoaded", function () {
-    const store = getChecklistStore();
-    const subjects = new Set();
-
-    document.querySelectorAll("input[data-checklist-subject]").forEach(box => {
-        subjects.add(box.dataset.checklistSubject);
-
-        const key = `${box.dataset.checklistSubject}:${box.dataset.checklistItem}`;
-        box.checked = !!store[key];
-
-        box.addEventListener("change", function () {
-            const next = getChecklistStore();
-            next[key] = box.checked;
-            saveChecklistStore(next);
-            updateChecklist(box.dataset.checklistSubject);
+            item.addEventListener("change", () => {
+                state[id] = item.checked;
+                saveState(section, state);
+                update(section);
+            });
         });
-    });
 
-    subjects.forEach(updateChecklist);
-});
+        section.querySelector(".checklist-complete-btn")?.addEventListener("click", () => {
+            items.forEach(item => {
+                item.checked = true;
+                state[item.dataset.checklistItem] = true;
+            });
+            saveState(section, state);
+            update(section);
+        });
+
+        section.querySelector(".checklist-reset-btn")?.addEventListener("click", () => {
+            items.forEach(item => {
+                item.checked = false;
+                state[item.dataset.checklistItem] = false;
+            });
+            saveState(section, state);
+            update(section);
+        });
+
+        update(section);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".checklist-section[data-checklist-subject]").forEach(initChecklist);
+    });
+})();

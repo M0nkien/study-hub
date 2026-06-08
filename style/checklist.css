@@ -1,0 +1,93 @@
+
+/* =========================================================
+   PATCH FINAL – Checklist v predmete ako normálna obsahová karta
+   ========================================================= */
+
+/*
+   Finálna oprava checklistu:
+   Na niektorých predmetoch sa checklist zobrazil cez celú šírku stránky.
+   Toto pravidlo ho vždy obmedzí na šírku podobnú ostatným obsahovým sekciám.
+*/
+
+.page-subject-detail #checklist,
+.page-subject-detail section#checklist,
+.page-subject-detail .checklist-section {
+    display: block !important;
+    width: min(100%, 920px) !important;
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Ak je checklist vložený priamo v hlavnom stĺpci, stále bude vyzerať ako karta */
+.page-subject-detail .subject-main #checklist,
+.page-subject-detail .subject-main section#checklist,
+.page-subject-detail .subject-main .checklist-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Ak je checklist mimo subject-main, zarovnaj ho s hlavným obsahovým stĺpcom */
+.page-subject-detail .subject-content #checklist:not(.subject-main #checklist),
+.page-subject-detail .subject-content section#checklist:not(.subject-main section#checklist),
+.page-subject-detail .subject-content .checklist-section:not(.subject-main .checklist-section) {
+    width: min(100%, 920px) !important;
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Nadpis a vnútro checklistu nech nepôsobia ako veľký full-width banner */
+.page-subject-detail #checklist.content-block,
+.page-subject-detail section#checklist.content-block,
+.page-subject-detail .checklist-section.content-block {
+    padding: clamp(22px, 3vw, 34px) !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+}
+
+/* Položky checklistu: namiesto dvoch príliš širokých stĺpcov bude čitateľnejší grid */
+.page-subject-detail #checklist .checklist-items,
+.page-subject-detail #checklist .checklist-grid,
+.page-subject-detail .checklist-section .checklist-items,
+.page-subject-detail .checklist-section .checklist-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 10px !important;
+    max-width: 100% !important;
+}
+
+/* Ak sú checkboxy iba v labeloch alebo riadkoch, drž ich v karte */
+.page-subject-detail #checklist label,
+.page-subject-detail .checklist-section label {
+    max-width: 100% !important;
+    border-radius: 14px !important;
+}
+
+/* Progress bar v checkliste nech neťahá kartu cez viewport */
+.page-subject-detail #checklist .progress-bar,
+.page-subject-detail #checklist .progress-track,
+.page-subject-detail .checklist-section .progress-bar,
+.page-subject-detail .checklist-section .progress-track {
+    max-width: 100% !important;
+}
+
+/* Menšie obrazovky */
+@media (max-width: 900px) {
+    .page-subject-detail #checklist,
+    .page-subject-detail section#checklist,
+    .page-subject-detail .checklist-section {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .page-subject-detail #checklist .checklist-items,
+    .page-subject-detail #checklist .checklist-grid,
+    .page-subject-detail .checklist-section .checklist-items,
+    .page-subject-detail .checklist-section .checklist-grid {
+        grid-template-columns: 1fr !important;
+    }
+}

@@ -29,3 +29,5 @@
 @import url("./github-fix.css?v=20260608-style-script"); /* PATCH – Vyhľadávanie predmetov, kartičky, sidebar a checklist */
 @import url("./patches.css?v=20260608-style-script"); /* PATCH – Vycentrovanie panelu tagov v predmete */
 @import url("./overrides.css?v=20260608-style-script"); /* PATCH – Iba jeden stavový tag na karte a statický stav na podstránkach */
+
+@import url("./checklist.css?v=20260608-checklist-final"); /* finálna oprava checklistu */

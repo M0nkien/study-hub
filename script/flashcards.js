@@ -622,6 +622,7 @@ Object.keys(STUDY_HUB_EXTRA_FLASHCARDS).forEach(subject => {
 
 
 
+
 const FLASHCARD_SUBJECT_COLORS = {
     linux: "#65d4f2",
     msd: "#22d3ee",
@@ -636,22 +637,124 @@ const FLASHCARD_SUBJECT_COLORS = {
     uvod: "#2dd4bf"
 };
 
+const FLASHCARD_TOPIC_SETS = {
+    linux: ["príkazy", "práva", "procesy", "open-source"],
+    ccna: ["subnetting", "ARP", "VLAN", "DHCP", "routing"],
+    fyzika: ["vzorce", "jednotky", "odvodenia", "mechanika"],
+    mat: ["DR", "Laplace", "rady", "gradient"],
+    java: ["OOP", "dedičnosť", "výnimky", "UML"],
+    msd: ["Excel", "Fourier", "pravdepodobnosť", "rozdelenia"],
+    vvs: ["ESP32", "MicroPython", "GPIO", "projekt"],
+    tlac3d: ["tlač", "slicer", "materiál", "projekt"],
+    algebra: ["matice", "sústavy", "vektory"],
+    praktikum: ["Java", "ArrayList", "triedy"],
+    uvod: ["projekt", "UML", "obhajoba"]
+};
+
+const topicKeywords = {
+    "príkazy": ["príkaz", "pwd", "ls", "cd", "grep", "sort", "uniq", "tar", "ssh", "pipe", "cat"],
+    "práva": ["chmod", "práv", "rwx", "755", "vlastník"],
+    "procesy": ["proces", "ps", "kill", "top"],
+    "open-source": ["open", "licenc", "linux"],
+    "subnetting": ["subnet", "maska", "host", "sieť"],
+    "ARP": ["arp", "mac", "poison"],
+    "VLAN": ["vlan", "trunk"],
+    "DHCP": ["dhcp", "dns", "gateway"],
+    "routing": ["routing", "router", "smerov"],
+    "vzorce": ["vzorec", "energia", "sila", "rýchlosť", "zrýchlenie"],
+    "jednotky": ["jednot", "meter", "sekunda", "newton", "joule"],
+    "odvodenia": ["odvod", "derive", "prečo"],
+    "mechanika": ["vektor", "kinematika", "dynamika", "moment", "kyvadlo"],
+    "DR": ["diferenciál", "dr", "y'", "rovnica", "bernoulli"],
+    "Laplace": ["laplace", "transform"],
+    "rady": ["rad", "konverg", "diverg", "kritéri"],
+    "gradient": ["gradient", "deriv", "funkcia dvoch"],
+    "OOP": ["oop", "tried", "objekt", "metód", "atribút"],
+    "dedičnosť": ["dedič", "extends", "super"],
+    "výnimky": ["výnim", "exception", "try", "catch"],
+    "UML": ["uml", "diagram"],
+    "Excel": ["excel", "tabuľ", "graf", "priemer"],
+    "Fourier": ["fourier", "spektrum"],
+    "pravdepodobnosť": ["pravdepodob", "náhod", "p("],
+    "rozdelenia": ["rozdelen", "poisson", "binom", "norm"],
+    "ESP32": ["esp32", "pin", "gpio"],
+    "MicroPython": ["micropython", "python"],
+    "GPIO": ["gpio", "pwm", "adc", "uart"],
+    "projekt": ["projekt", "obhajoba", "semestr"],
+    "tlač": ["tlač", "3d", "filament"],
+    "slicer": ["slicer", "g-code", "prusa"],
+    "materiál": ["pla", "abs", "materiál"],
+    "matice": ["matica", "determinant"],
+    "sústavy": ["sústava", "gauss"],
+    "vektory": ["vektor", "báza"],
+    "Java": ["java", "arraylist"],
+    "ArrayList": ["arraylist", "zoznam"],
+    "triedy": ["tried", "objekt"],
+    "obhajoba": ["obhajob", "prezent"]
+};
+
+let currentSubject = "linux";
+let currentCards = [];
+let currentIndex = 0;
+let currentTopic = "all";
+let currentMode = "study";
+
+const subjectSelect = document.getElementById("flashcardSubject");
+const topicSelect = document.getElementById("flashcardTopic");
+const modeSelect = document.getElementById("flashcardMode");
+const card = document.getElementById("flashcard");
+const questionEl = document.getElementById("flashcardQuestion");
+const answerEl = document.getElementById("flashcardAnswer");
+const metaEl = document.getElementById("flashcardMeta");
+const counterEl = document.getElementById("flashcardCounter");
+const hintEl = document.getElementById("flashcardHint");
+
+function getFlashState() {
+    try { return JSON.parse(localStorage.getItem("studyHubFlashcardsState") || "{}"); }
+    catch { return {}; }
+}
+
+function saveFlashState(state) {
+    localStorage.setItem("studyHubFlashcardsState", JSON.stringify(state));
+}
+
+function getFlashHistory() {
+    try { return JSON.parse(localStorage.getItem("studyHubFlashcardsHistory") || "[]"); }
+    catch { return []; }
+}
+
+function saveFlashHistory(history) {
+    localStorage.setItem("studyHubFlashcardsHistory", JSON.stringify(history.slice(-50)));
+}
+
+function cardId(subject, item) {
+    return subject + "::" + item[0];
+}
+
 function applyFlashcardSubjectTheme(subject) {
     const color = FLASHCARD_SUBJECT_COLORS[subject] || "#65d4f2";
     document.documentElement.style.setProperty("--flashcard-accent", color);
     document.body.setAttribute("data-flashcard-subject", subject);
 }
 
-let currentSubject = "linux";
-let currentCards = [];
-let currentIndex = 0;
+function detectTopic(subject, item) {
+    const text = (item[0] + " " + item[1]).toLowerCase();
+    const topics = FLASHCARD_TOPIC_SETS[subject] || ["všetko"];
+    for (const topic of topics) {
+        const keywords = topicKeywords[topic] || [topic.toLowerCase()];
+        if (keywords.some(k => text.includes(k.toLowerCase()))) return topic;
+    }
+    return topics[0] || "všeobecné";
+}
 
-const subjectSelect = document.getElementById("flashcardSubject");
-const card = document.getElementById("flashcard");
-const questionEl = document.getElementById("flashcardQuestion");
-const answerEl = document.getElementById("flashcardAnswer");
-const metaEl = document.getElementById("flashcardMeta");
-const counterEl = document.getElementById("flashcardCounter");
+function withTopics(subject) {
+    return (FLASHCARD_DATA[subject] || []).map(item => ({
+        q: item[0],
+        a: item[1],
+        topic: detectTopic(subject, item),
+        raw: item
+    }));
+}
 
 function shuffleArray(arr) {
     const copy = [...arr];
@@ -662,20 +765,126 @@ function shuffleArray(arr) {
     return copy;
 }
 
+function populateTopics(subject) {
+    if (!topicSelect) return;
+    const topics = ["all", ...(FLASHCARD_TOPIC_SETS[subject] || [])];
+    topicSelect.innerHTML = topics.map(t => `<option value="${t}">${t === "all" ? "Všetky témy" : t}</option>`).join("");
+    currentTopic = "all";
+}
+
+function filterCards() {
+    const state = getFlashState();
+    let cards = withTopics(currentSubject);
+
+    if (currentTopic !== "all") {
+        cards = cards.filter(card => card.topic === currentTopic);
+    }
+
+    if (currentMode === "unknown") {
+        cards = cards.filter(card => state[cardId(currentSubject, card.raw)] === "unknown");
+    }
+
+    currentCards = cards.map(card => card.raw);
+
+    if (!currentCards.length) {
+        currentCards = [["Žiadne kartičky", "Pre túto kombináciu predmetu, témy a režimu zatiaľ nie sú kartičky."]];
+    }
+
+    currentIndex = 0;
+}
+
 function renderFlashcard() {
     const item = currentCards[currentIndex];
+    if (!item || !card) return;
+
     card.classList.remove("flipped");
     questionEl.textContent = item[0];
     answerEl.textContent = item[1];
-    metaEl.textContent = currentSubject.toUpperCase();
+
+    const topic = detectTopic(currentSubject, item);
+    metaEl.textContent = currentSubject.toUpperCase() + " • " + topic;
     counterEl.textContent = `${currentIndex + 1} / ${currentCards.length}`;
+    if (hintEl) {
+        hintEl.textContent = currentMode === "test"
+            ? "Režim skúšania: najprv si odpovedz v hlave, potom klikni."
+            : "Klikni na kartičku pre odpoveď.";
+    }
+
+    updateStats();
+}
+
+function updateStats() {
+    const state = getFlashState();
+    const subjectCards = FLASHCARD_DATA[currentSubject] || [];
+    let known = 0;
+    let unknown = 0;
+
+    subjectCards.forEach(item => {
+        const value = state[cardId(currentSubject, item)];
+        if (value === "known") known++;
+        if (value === "unknown") unknown++;
+    });
+
+    const history = getFlashHistory();
+    const knownEl = document.getElementById("flashKnownCount");
+    const unknownEl = document.getElementById("flashUnknownCount");
+    const historyEl = document.getElementById("flashHistoryCount");
+    const topicEl = document.getElementById("flashTopicLabel");
+
+    if (knownEl) knownEl.textContent = known;
+    if (unknownEl) unknownEl.textContent = unknown;
+    if (historyEl) historyEl.textContent = history.length;
+    if (topicEl) topicEl.textContent = currentTopic === "all" ? "Všetky" : currentTopic;
+
+    renderHistory();
+}
+
+function renderHistory() {
+    const box = document.getElementById("flashcardHistoryList");
+    if (!box) return;
+
+    const history = getFlashHistory().slice(-6).reverse();
+    if (!history.length) {
+        box.innerHTML = "<p>Zatiaľ nemáš históriu kartičiek.</p>";
+        return;
+    }
+
+    box.innerHTML = history.map(item => `
+        <article>
+            <strong>${item.subject.toUpperCase()} • ${item.result === "known" ? "Viem" : "Neviem"}</strong>
+            <span>${item.question}</span>
+        </article>
+    `).join("");
+}
+
+function markCurrent(result) {
+    const item = currentCards[currentIndex];
+    if (!item || item[0] === "Žiadne kartičky") return;
+
+    const state = getFlashState();
+    state[cardId(currentSubject, item)] = result;
+    saveFlashState(state);
+
+    const history = getFlashHistory();
+    history.push({
+        subject: currentSubject,
+        question: item[0],
+        result,
+        date: new Date().toISOString()
+    });
+    saveFlashHistory(history);
+
+    updateStats();
+    currentIndex = (currentIndex + 1) % currentCards.length;
+    renderFlashcard();
 }
 
 function loadSubject(subject) {
     currentSubject = subject;
     applyFlashcardSubjectTheme(subject);
-    currentCards = [...FLASHCARD_DATA[subject]];
-    currentIndex = 0;
+    populateTopics(subject);
+    currentMode = modeSelect ? modeSelect.value : "study";
+    filterCards();
     renderFlashcard();
 }
 
@@ -687,6 +896,17 @@ Object.keys(FLASHCARD_DATA).forEach(key => {
 });
 
 subjectSelect.addEventListener("change", () => loadSubject(subjectSelect.value));
+if (topicSelect) topicSelect.addEventListener("change", () => {
+    currentTopic = topicSelect.value;
+    filterCards();
+    renderFlashcard();
+});
+if (modeSelect) modeSelect.addEventListener("change", () => {
+    currentMode = modeSelect.value;
+    filterCards();
+    renderFlashcard();
+});
+
 card.addEventListener("click", () => card.classList.toggle("flipped"));
 
 document.getElementById("nextFlashcard").addEventListener("click", () => {
@@ -705,6 +925,35 @@ document.getElementById("shuffleFlashcards").addEventListener("click", () => {
     renderFlashcard();
 });
 
-document.getElementById("resetFlashcards").addEventListener("click", () => loadSubject(currentSubject));
+document.getElementById("resetFlashcards").addEventListener("click", () => {
+    filterCards();
+    renderFlashcard();
+});
+
+document.getElementById("markKnownFlashcard")?.addEventListener("click", () => markCurrent("known"));
+document.getElementById("markUnknownFlashcard")?.addEventListener("click", () => markCurrent("unknown"));
+document.getElementById("repeatUnknownFlashcards")?.addEventListener("click", () => {
+    if (modeSelect) modeSelect.value = "unknown";
+    currentMode = "unknown";
+    filterCards();
+    renderFlashcard();
+});
+
+document.getElementById("exportFlashcards")?.addEventListener("click", () => {
+    const payload = {
+        subject: currentSubject,
+        mode: currentMode,
+        topic: currentTopic,
+        state: getFlashState(),
+        history: getFlashHistory()
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "studyhub-flashcards-export.json";
+    a.click();
+    URL.revokeObjectURL(url);
+});
 
 loadSubject("linux");

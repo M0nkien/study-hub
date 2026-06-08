@@ -2,178 +2,80 @@
 
 ## Názov patchu
 
-Oprava farebnosti stavov na predmetových stránkach, návrat pozadí predmetov, prepracovaná roadmapa, farebné flashcards podľa predmetu a nový GitHub README.
+Pridanie tlačidla „Posledné miesto“ na hlavnú stránku.
 
 ## Dôvod úpravy
 
-Používateľ nahlásil:
+Používateľ chcel pridať na hlavnú stránku tlačidlo posledného miesta, kde bol, vedľa existujúcich dvoch tlačidiel.
 
-```text
-- v predmetoch nevidno poriadne stav rozpracované / dopĺňa sa / hotové,
-- chýba farebnosť stavov,
-- roadmapa má byť inak rozdelená a lepšie rozložená,
-- flashcards majú mať farbu podľa aktuálne zvoleného predmetu,
-- má byť pridaný README súbor na GitHub s podrobným popisom stránky,
-- pozadia jednotlivých predmetových podstránok sa majú vrátiť naspäť ako predtým.
-```
+Hlavná stránka sa inak nemala upravovať.
 
 ## Súbory v tomto patchi
 
 ```text
-README.md
+index.html
+script/main.js
 README-PATCH.md
 README-NEW-STRUCTURE.md
-roadmap.html
-style/fix.css
-style/subject-pages.css
-script/flashcards.js
 ```
-
-## Čo bolo pridané
-
-### 1. GitHub README
-
-Pridaný nový súbor:
-
-```text
-README.md
-```
-
-Obsahuje podrobný popis:
-
-```text
-- čo je Study Hub,
-- čo stránka obsahuje,
-- zoznam predmetov,
-- čo obsahuje predmetová stránka,
-- kvízy,
-- flashcards,
-- roadmapu,
-- podporu,
-- admin časť,
-- štruktúru súborov,
-- ako stránku spustiť lokálne,
-- ako ju používať cez GitHub Pages,
-- upozornenie, že stránka je neoficiálna študentská pomôcka.
-```
-
-### 2. `style/fix.css`
-
-Pridaný alebo doplnený opravný CSS súbor:
-
-```text
-style/fix.css
-```
-
-Tento súbor sa načítava ako posledný a opravuje:
-
-```text
-- pozadia predmetových stránok,
-- farebnosť stavov,
-- viditeľnosť tagov,
-- farebnosť flashcards,
-- nový layout roadmapy.
-```
-
-### 3. `style/subject-pages.css`
-
-Pridaný súbor:
-
-```text
-style/subject-pages.css
-```
-
-Dôvod:
-
-```text
-HTML stránky už na tento súbor odkazovali, ale súbor chýbal.
-```
-
-Tento súbor teraz existuje a obsahuje doplnkové štýly pre predmetové podstránky.
 
 ## Čo bolo upravené
 
-### 1. Predmetové podstránky
+### 1. index.html
 
-Pozadia predmetových stránok boli vrátené späť do výraznejšieho štýlu.
+Do hero sekcie hlavnej stránky bolo pridané tlačidlo:
 
-Hero sekcia predmetu má znova:
-
-```text
-- farebný gradient podľa predmetu,
-- jemné tvary v pozadí,
-- farebný panel tagov,
-- stav predmetu vo farbe podľa stavu.
+```html
+<a href="subjects.html" id="continueLearningBtn" class="btn secondary home-secondary-btn">Posledné miesto</a>
 ```
 
-### 2. Stavy predmetov
-
-Stavy sú teraz lepšie viditeľné:
+Tlačidlá na hlavnej stránke sú teraz:
 
 ```text
-Hotové – modrá
-Dopĺňa sa – žltá
-Rozpracované – fialová
+Začať študovať
+Posledné miesto
+Nahlásiť chybu
 ```
 
-Týka sa hlavne panelu na predmetovej stránke, kde je napríklad:
+### 2. script/main.js
+
+Bola doplnená poistka, aby tlačidlo fungovalo aj vtedy, keď neexistuje textový popis posledného miesta.
+
+Logika:
 
 ```text
-MATEMATIKA
-ROZPRACOVANÉ
+- ak je v localStorage uložené studyHubLastLocation, tlačidlo otvorí posledný predmet/miesto,
+- ak uložené miesto ešte neexistuje, tlačidlo otvorí subjects.html.
 ```
 
-### 3. Flashcards
+### 3. Oprava navigácie
 
-Súbor:
+Ak sa v hlavnej navigácii nachádzal duplicitný odkaz:
 
 ```text
-script/flashcards.js
+Zmeny
 ```
 
-bol upravený tak, aby pri výbere predmetu nastavil CSS premennú:
+ponechal sa iba jeden.
+
+## Čo sa nemenilo
+
+Tento patch nemení rozloženie hlavnej stránky.
+
+Nemení:
 
 ```text
---flashcard-accent
+- hero sekciu,
+- texty,
+- sekciu Prečo vznikol tento web?,
+- footer,
+- roadmapu,
+- flashcards,
+- predmetové stránky,
+- kvízy.
 ```
 
-Každý predmet má inú farbu kartičiek:
-
-```text
-Linux – svetlomodrá
-MSD – tyrkysová
-CCNA – modrá
-Fyzika – oranžová
-Matematika – fialová
-VVS – zelená
-Java – oranžová
-3D tlač – ružová
-Algebra – fialová
-Praktikum – žltá
-Úvod do štúdia – tyrkysová
-```
-
-### 4. Roadmapa
-
-Súbor:
-
-```text
-roadmap.html
-```
-
-bol prepracovaný.
-
-Roadmapa je teraz rozdelená do prehľadných častí:
-
-```text
-Hotové
-Pracuje sa
-Plánované
-Nápady
-Kontrola
-```
-
-Pridaný bol aj horný prehľad so štatistikami.
+Pridané bolo iba jedno tlačidlo a malá JS poistka.
 
 ## Ako nahrať patch
 
@@ -182,32 +84,23 @@ Rozbaľ ZIP do koreňa projektu Study Hub a nahraď existujúce súbory.
 Potom použi:
 
 ```bash
-git add README.md README-PATCH.md README-NEW-STRUCTURE.md roadmap.html style/fix.css style/subject-pages.css script/flashcards.js
-git commit -m "Improve subject visuals roadmap flashcards and add README"
+git add index.html script/main.js README-PATCH.md README-NEW-STRUCTURE.md
+git commit -m "Add last location button to homepage"
 git push
 ```
 
 ## Čo skontrolovať po nahratí
 
-Skontroluj:
-
 ```text
-1. Otvor subjects/mat.html.
-2. Panel musí ukazovať MATEMATIKA a ROZPRACOVANÉ farebne.
-3. Pozadie predmetovej stránky má mať znova farebný gradient a jemné tvary.
-4. Otvor subjects/linux.html.
-5. Stav HOTOVÉ má byť viditeľný.
-6. Otvor subjects/msd.html alebo subjects/ccna.html.
-7. Stav DOPĹŇA SA má byť žltý.
-8. Otvor flashcards.html.
-9. Prepni predmet na Matematiku, Fyziku, Java, CCNA.
-10. Kartička má zmeniť farbu podľa predmetu.
-11. Otvor roadmap.html.
-12. Roadmapa má byť rozdelená na Hotové / Pracuje sa / Plánované / Nápady / Kontrola.
-13. Na GitHube má byť viditeľný README.md.
+1. Otvor index.html.
+2. V hero sekcii majú byť tri tlačidlá:
+   - Začať študovať
+   - Posledné miesto
+   - Nahlásiť chybu
+3. Klikni na niektorý predmet.
+4. Vráť sa na hlavnú stránku.
+5. Klikni na Posledné miesto.
+6. Malo by ťa presmerovať na posledný uložený predmet.
+7. Ak ešte nie je nič uložené, tlačidlo otvorí subjects.html.
+8. Po nahratí na GitHub Pages stlač Ctrl + F5.
 ```
-
-## Poznámka
-
-Tento patch nemení obsah učiva ani otázky kvízov.  
-Mení hlavne vzhľad predmetových stránok, roadmapy, flashcards a dokumentáciu projektu.

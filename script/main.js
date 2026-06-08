@@ -85,7 +85,7 @@ const STUDY_HUB_SUBJECT_STATUS = {
     vvs: { label: "rozpracované", className: "status-progress", updated: "Pripravujú sa kódy a obhajoba" },
     mat: { label: "rozpracované", className: "status-progress", updated: "Pripravujú sa DR, Laplace a rady" },
     java: { label: "rozpracované", className: "status-progress", updated: "Pripravuje sa OOP a semestrálka" },
-    fyzika: { label: "dopĺňa sa", className: "status-updating", updated: "Pridané vzorce, jednotky a otázky" }
+    fyzika: { label: "dopĺňa sa", className: "status-updating", updated: "Pridané vzorce, jednotky a otázky" },
     tlac3d: { label: "rozpracované", className: "status-progress", updated: "Pridané technológie 3D tlače a projekt" },
     algebra: { label: "rozpracované", className: "status-progress", updated: "Pridané matice, determinanty a sústavy" },
     praktikum: { label: "rozpracované", className: "status-progress", updated: "Pridané Java základy a školské zadania" },
@@ -118,6 +118,7 @@ function normalizeStudyHubHref() {
     if (path.endsWith("flashcards.html")) return "flashcards.html";
     if (path.endsWith("results.html")) return "results.html";
     if (path.endsWith("roadmap.html")) return "roadmap.html";
+    if (path.endsWith("changelog.html")) return "changelog.html";
     return "";
 }
 
@@ -535,3 +536,77 @@ function initSubjectCardsFilter() {
 document.addEventListener("DOMContentLoaded", function () {
     initSubjectCardsFilter();
 });
+
+
+
+/* =========================================================
+   Study Hub v3.3 – hlavná stránka, dashboard a quick info
+   ========================================================= */
+
+function initStudyHubV33Home() {
+    const continueBtn = document.getElementById("continueLearningBtn");
+    const continueLabel = document.getElementById("continueLearningLabel");
+
+    if (continueBtn) {
+        let saved = null;
+        try { saved = JSON.parse(localStorage.getItem("studyHubLastLocation") || "null"); } catch {}
+        if (saved && saved.href) {
+            continueBtn.href = saved.href;
+            continueBtn.textContent = "Posledné miesto";
+            continueBtn.title = "Pokračovať: " + (saved.label || saved.href);
+            if (continueLabel) continueLabel.textContent = "Naposledy otvorené: " + (saved.label || saved.href);
+        } else {
+            continueBtn.href = "subjects.html";
+            continueBtn.textContent = "Posledné miesto";
+            continueBtn.title = "Zatiaľ nemáš uložené miesto – otvorí sa zoznam predmetov";
+        }
+    }
+
+    document.querySelectorAll(".subject-card[href], a[href*='subjects/']").forEach(link => {
+        link.addEventListener("click", function () {
+            const href = link.getAttribute("href");
+            if (!href || !href.includes("subjects/")) return;
+            localStorage.setItem("studyHubLastLocation", JSON.stringify({
+                href,
+                label: link.querySelector("h3")?.textContent?.trim() || link.textContent.trim() || "Predmet",
+                savedAt: new Date().toISOString()
+            }));
+        });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", initStudyHubV33Home);
+
+
+/* =========================================================
+   Study Hub – pokračovanie z posledného miesta
+   ========================================================= */
+(function () {
+    function initLastPlaceButton() {
+        const button = document.getElementById("continueLearningBtn");
+        if (!button) return;
+
+        let saved = null;
+        try {
+            saved = JSON.parse(localStorage.getItem("studyHubLastLocation") || "null");
+        } catch (error) {
+            saved = null;
+        }
+
+        if (saved && saved.href) {
+            button.href = saved.href;
+            button.textContent = "Posledné miesto";
+            button.title = "Pokračovať: " + (saved.label || saved.href);
+        } else {
+            button.href = "subjects.html";
+            button.textContent = "Posledné miesto";
+            button.title = "Zatiaľ nemáš uložené miesto – otvorí sa zoznam predmetov";
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLastPlaceButton);
+    } else {
+        initLastPlaceButton();
+    }
+})();
