@@ -1,0 +1,178 @@
+/*
+   Study Hub – subject-pages.css
+
+   Alias/rozšírenie pre predmetové podstránky.
+   Tento súbor existuje preto, aby HTML odkazy na style/subject-pages.css fungovali.
+   Detailné štýly predmetov sú v main.css a moduloch, tento súbor pridáva iba bezpečné prepisy.
+*/
+
+.page-subject-detail {
+    --subject-glow: color-mix(in srgb, var(--subject-accent, #65d4f2) 18%, transparent);
+}
+
+.page-subject-detail .subject-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    background:
+        radial-gradient(circle at 16% 16%, color-mix(in srgb, var(--subject-accent, #65d4f2) 18%, transparent), transparent 32%),
+        radial-gradient(circle at 86% 16%, color-mix(in srgb, var(--subject-accent, #65d4f2) 10%, transparent), transparent 30%),
+        linear-gradient(180deg, rgba(2, 6, 23, 0.16), rgba(8, 47, 73, 0.20), rgba(2, 6, 23, 0.08));
+}
+
+.page-subject-detail .subject-hero::before {
+    content: "";
+    position: absolute;
+    right: 8%;
+    top: 23%;
+    width: 210px;
+    height: 210px;
+    border-radius: 52px;
+    transform: rotate(18deg);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 20%, transparent);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--subject-accent, #65d4f2) 8%, transparent), transparent);
+    pointer-events: none;
+    opacity: .8;
+}
+
+.page-subject-detail .subject-hero::after {
+    content: "";
+    position: absolute;
+    left: 6%;
+    bottom: 8%;
+    width: 145px;
+    height: 145px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 16%, transparent);
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 6%, transparent);
+    pointer-events: none;
+    opacity: .5;
+}
+
+.page-subject-detail .subject-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.page-subject-detail .subject-page-tags,
+.page-subject-detail .subject-page-tags-static {
+    position: relative;
+    z-index: 3;
+    width: min(920px, calc(100vw - 48px));
+    max-width: 920px;
+    margin: 28px auto 0 !important;
+    padding: 18px;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 95% 20%, color-mix(in srgb, var(--subject-accent, #65d4f2) 15%, transparent), transparent 34%),
+        rgba(15, 23, 42, 0.72);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 34%, rgba(148, 163, 184, 0.14));
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
+}
+
+.page-subject-detail .subject-page-tag-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.page-subject-detail .subject-page-tag-head > span {
+    color: var(--subject-accent, #65d4f2);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .9px;
+    font-size: 13px;
+}
+
+.page-subject-detail .subject-page-tag-head strong {
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    border: 1px solid currentColor;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.page-subject-detail .subject-page-tags-static.subject-status-done .subject-page-tag-head strong {
+    color: #65d4f2;
+}
+
+.page-subject-detail .subject-page-tags-static.subject-status-updating .subject-page-tag-head strong {
+    color: #fbbf24;
+}
+
+.page-subject-detail .subject-page-tags-static.subject-status-progress .subject-page-tag-head strong {
+    color: #c4b5fd;
+}
+
+.page-subject-detail .subject-page-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.page-subject-detail .subject-page-tag-list span {
+    color: var(--subject-accent, #65d4f2);
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 10%, rgba(2, 6, 23, 0.55));
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 28%, rgba(148, 163, 184, 0.12));
+    border-radius: 999px;
+    padding: 8px 11px;
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+}
+
+.page-subject-detail .subject-meta-panel,
+.page-subject-detail .progress-panel,
+.page-subject-detail .content-block,
+.page-subject-detail .subject-sidebar {
+    border-color: color-mix(in srgb, var(--subject-accent, #65d4f2) 24%, rgba(148, 163, 184, 0.16)) !important;
+}
+
+.page-subject-detail .subject-sidebar a:hover {
+    color: var(--subject-accent, #65d4f2) !important;
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 11%, rgba(2, 6, 23, 0.55));
+    border-color: color-mix(in srgb, var(--subject-accent, #65d4f2) 28%, rgba(148, 163, 184, 0.14));
+}
+
+.page-subject-detail .progress-panel strong,
+.page-subject-detail .subject-meta-panel strong,
+.page-subject-detail .stat-card strong,
+.page-subject-detail .meta-card strong {
+    color: var(--subject-accent, #65d4f2);
+}
+
+/* Stav predmetu vo vnútri progress/meta kariet */
+.page-subject-detail .status-pill,
+.page-subject-detail .subject-status-pill,
+.page-subject-detail [class*="status-"] {
+    border-color: currentColor;
+}
+
+.page-subject-detail .status-done,
+.page-subject-detail .subject-status-done {
+    color: #65d4f2 !important;
+}
+
+.page-subject-detail .status-updating,
+.page-subject-detail .subject-status-updating {
+    color: #fbbf24 !important;
+}
+
+.page-subject-detail .status-progress,
+.page-subject-detail .subject-status-progress {
+    color: #c4b5fd !important;
+}
+
+@media (max-width: 700px) {
+    .page-subject-detail .subject-page-tags,
+    .page-subject-detail .subject-page-tags-static {
+        width: 100%;
+        transform: none !important;
+        left: auto !important;
+    }
+}

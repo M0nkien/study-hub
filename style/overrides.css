@@ -1,0 +1,48 @@
+/*
+   Study Hub CSS module 22
+   Zdrojový blok: PATCH – Iba jeden stavový tag na karte a statický stav na podstránkach
+*/
+
+/* =========================================================
+   PATCH – Iba jeden stavový tag na karte a statický stav na podstránkach
+   ========================================================= */
+
+/* Na kartách predmetov nech ostane iba spodný/kompaktný stavový tag.
+   Starší .subject-status pridaný cez JS sa na nových kartách skryje. */
+.subject-card-with-static-tags .subject-status {
+    display: none !important;
+}
+
+/* Statický panel tagov v hero sekcii predmetovej stránky */
+.subject-page-tags-static {
+    display: block;
+}
+
+/* Farba statusu v hero paneli podľa stavu */
+.subject-page-tags-static.subject-status-done .subject-page-tag-head strong {
+    color: var(--accent);
+}
+
+.subject-page-tags-static.subject-status-updating .subject-page-tag-head strong {
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.10);
+    border-color: rgba(251, 191, 36, 0.26);
+}
+
+.subject-page-tags-static.subject-status-progress .subject-page-tag-head strong {
+    color: #c4b5fd;
+    background: rgba(167, 139, 250, 0.10);
+    border-color: rgba(167, 139, 250, 0.26);
+}
+
+/* Pre istotu: ak JS vloží druhý ribbon do karty, ponechaj iba prvý subject-state-ribbon */
+.subject-card-with-static-tags .subject-state-ribbon + .subject-state-ribbon {
+    display: none !important;
+}
+
+/* Kompaktnejší vzhľad stavového tagu na karte */
+.subject-card-with-static-tags .subject-state-ribbon {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    max-width: fit-content;
+}

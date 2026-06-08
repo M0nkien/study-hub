@@ -1,0 +1,480 @@
+/*
+   Study Hub CSS module 17
+   Zdrojový blok: Study Hub v3.1 – hlavná stránka, tvary, pätička a témy
+*/
+
+/* =========================================================
+   Study Hub v3.1 – hlavná stránka, tvary, pätička a témy
+   ========================================================= */
+
+/* odstránenie veľkého textového STUDYHUB pozadia z hlavnej stránky */
+.page-home .home-simple-about-box::after,
+.page-home .home-v4-about::after,
+.page-home .hero::after,
+.page-home .home-simple-hero::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* nový layout hlavnej stránky */
+.home-v4-main {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-v4-hero {
+    position: relative;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    padding: 96px 0 78px;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(101, 212, 242, 0.12), transparent 32%),
+        radial-gradient(circle at 82% 16%, rgba(59, 130, 246, 0.10), transparent 28%),
+        linear-gradient(135deg, rgba(2, 6, 23, 0.08), rgba(8, 47, 73, 0.20), rgba(2, 6, 23, 0.18));
+}
+
+.home-v4-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, .62fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.home-v4-left {
+    text-align: left;
+}
+
+.home-v4-left .badge {
+    margin-left: 0;
+}
+
+.home-v4-left h2 {
+    margin-top: 24px;
+    font-size: clamp(64px, 8vw, 118px);
+    line-height: .86;
+    letter-spacing: -6px;
+}
+
+.home-v4-left h2 span {
+    color: var(--accent);
+}
+
+.home-v4-left .hero-text {
+    max-width: 650px;
+    margin: 28px 0 0;
+    color: #cbd5e1;
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 800;
+}
+
+.home-v4-left .hero-buttons {
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.home-secondary-btn {
+    background: rgba(101, 212, 242, 0.08);
+    border: 1px solid rgba(101, 212, 242, 0.25);
+    color: var(--accent);
+}
+
+.home-v4-panel {
+    position: relative;
+    min-height: 330px;
+    border-radius: 34px;
+    padding: 30px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(101, 212, 242, 0.22), transparent 36%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.88), rgba(2, 6, 23, 0.96));
+    border: 1px solid rgba(101, 212, 242, 0.24);
+    box-shadow: 0 30px 110px rgba(0, 0, 0, .34);
+    overflow: hidden;
+}
+
+.home-v4-panel::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    bottom: -78px;
+    width: 230px;
+    height: 230px;
+    border-radius: 52px;
+    transform: rotate(18deg);
+    border: 1px solid rgba(101, 212, 242, .18);
+    background: linear-gradient(135deg, rgba(101, 212, 242, .10), transparent);
+}
+
+.home-v4-panel h3 {
+    position: relative;
+    z-index: 2;
+    font-size: 34px;
+    margin-bottom: 14px;
+}
+
+.home-v4-panel p {
+    position: relative;
+    z-index: 2;
+    color: #cbd5e1;
+    line-height: 1.75;
+    font-weight: 750;
+}
+
+.home-mini-list {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.home-mini-list span {
+    border-radius: 999px;
+    padding: 9px 12px;
+    color: var(--accent);
+    background: rgba(101, 212, 242, .10);
+    border: 1px solid rgba(101, 212, 242, .25);
+    font-size: 12px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+/* tvary v pozadí namiesto STUDYHUB textu */
+.home-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.home-shapes .shape {
+    position: absolute;
+    display: block;
+    border: 1px solid rgba(101, 212, 242, .16);
+    background: linear-gradient(135deg, rgba(101, 212, 242, .075), transparent);
+}
+
+.shape-one {
+    width: 210px;
+    height: 210px;
+    right: 9%;
+    top: 20%;
+    border-radius: 52px;
+    transform: rotate(18deg);
+}
+
+.shape-two {
+    width: 140px;
+    height: 140px;
+    left: 7%;
+    bottom: 12%;
+    border-radius: 999px;
+    opacity: .7;
+}
+
+.shape-three {
+    width: 320px;
+    height: 320px;
+    right: -120px;
+    bottom: -80px;
+    border-radius: 70px;
+    transform: rotate(-20deg);
+    opacity: .48;
+}
+
+.shape-four {
+    width: 95px;
+    height: 95px;
+    left: 34%;
+    top: 18%;
+    border-radius: 24px;
+    transform: rotate(45deg);
+    opacity: .45;
+}
+
+.shape-five {
+    width: 170px;
+    height: 34px;
+    left: 18%;
+    top: 72%;
+    border-radius: 999px;
+    opacity: .38;
+}
+
+/* O projekte – krajšie rozloženie */
+.home-v4-about {
+    padding: 66px 0 78px;
+}
+
+.home-v4-about-grid {
+    display: grid;
+    grid-template-columns: 1.35fr .65fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.home-about-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    padding: 34px;
+    background:
+        radial-gradient(circle at 90% 20%, rgba(101, 212, 242, .13), transparent 32%),
+        linear-gradient(145deg, rgba(15, 23, 42, .92), rgba(2, 6, 23, .96));
+    border: 1px solid rgba(101, 212, 242, .18);
+    box-shadow: 0 24px 90px rgba(0, 0, 0, .24);
+}
+
+.home-about-card h2 {
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+}
+
+.home-about-card h3 {
+    font-size: 28px;
+    margin-bottom: 14px;
+}
+
+.home-about-card p,
+.home-about-card li {
+    color: #cbd5e1;
+    font-weight: 750;
+    line-height: 1.75;
+}
+
+.home-about-card ul {
+    margin-left: 20px;
+}
+
+.small-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* nová čitateľnejšia pätička */
+.home-footer-v4,
+.footer {
+    background:
+        linear-gradient(135deg, rgba(2, 6, 23, .98), rgba(8, 47, 73, .55), rgba(2, 6, 23, .98));
+    border-top: 1px solid rgba(101, 212, 242, .18);
+    color: #dbeafe;
+}
+
+.footer-v4-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .9fr .7fr;
+    gap: 22px;
+    align-items: stretch;
+    padding: 40px 0 24px;
+}
+
+.footer-logo-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.footer-logo-row h3,
+.footer-info-card strong {
+    color: #ffffff;
+}
+
+.footer-logo-row p,
+.footer-info-card p,
+.footer-links-card a,
+.footer-warning p {
+    color: #cbd5e1;
+}
+
+.footer-info-card,
+.footer-links-card {
+    border-radius: 22px;
+    padding: 20px;
+    background: rgba(15, 23, 42, .62);
+    border: 1px solid rgba(101, 212, 242, .16);
+}
+
+.footer-info-card span,
+.footer-links-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .9px;
+    text-transform: uppercase;
+}
+
+.footer-info-card strong {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.footer-links-card {
+    display: grid;
+    gap: 7px;
+}
+
+.footer-links-card a {
+    text-decoration: none;
+    font-weight: 850;
+}
+
+.footer-links-card a:hover {
+    color: var(--accent);
+}
+
+.footer-warning {
+    padding: 16px 0 34px;
+}
+
+.footer-warning p {
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.75;
+    font-weight: 700;
+}
+
+/* Tlačidlo prepínania témy */
+.theme-toggle-btn {
+    border: 1px solid rgba(101, 212, 242, .25);
+    background: rgba(101, 212, 242, .10);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 9px 12px;
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    cursor: pointer;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--accent);
+    color: #041018;
+}
+
+/* Svetlý režim */
+body.theme-light {
+    --bg: #eef7fb;
+    --bg-2: #e0f2fe;
+    --surface: #ffffff;
+    --surface-2: #f8fbff;
+    --text: #08111f;
+    --muted: #475569;
+    --border: rgba(15, 23, 42, .12);
+    background:
+        radial-gradient(circle at 12% 12%, rgba(101, 212, 242, .30), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(59, 130, 246, .14), transparent 28%),
+        linear-gradient(180deg, #f8fbff, #e9f7fc 48%, #f8fbff);
+    color: var(--text);
+}
+
+body.theme-light .header {
+    background: rgba(255, 255, 255, .78);
+    border-bottom-color: rgba(15, 23, 42, .10);
+}
+
+body.theme-light .nav a,
+body.theme-light .logo h1,
+body.theme-light .home-v4-left h2,
+body.theme-light .home-about-card h2,
+body.theme-light .home-about-card h3,
+body.theme-light .home-v4-panel h3 {
+    color: #07111f;
+}
+
+body.theme-light .home-v4-left .hero-text,
+body.theme-light .home-v4-panel p,
+body.theme-light .home-about-card p,
+body.theme-light .home-about-card li {
+    color: #334155;
+}
+
+body.theme-light .home-v4-panel,
+body.theme-light .home-about-card,
+body.theme-light .footer-info-card,
+body.theme-light .footer-links-card {
+    background:
+        radial-gradient(circle at 92% 12%, rgba(101, 212, 242, .18), transparent 34%),
+        rgba(255, 255, 255, .84);
+    border-color: rgba(15, 23, 42, .10);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, .10);
+}
+
+body.theme-light .home-footer-v4,
+body.theme-light .footer {
+    background: linear-gradient(135deg, #e0f2fe, #ffffff, #dff8ff);
+    border-top-color: rgba(15, 23, 42, .10);
+}
+
+body.theme-light .footer-logo-row h3,
+body.theme-light .footer-info-card strong {
+    color: #07111f;
+}
+
+body.theme-light .footer-logo-row p,
+body.theme-light .footer-info-card p,
+body.theme-light .footer-links-card a,
+body.theme-light .footer-warning p {
+    color: #334155;
+}
+
+body.theme-light .theme-toggle-btn {
+    background: #07111f;
+    color: #ffffff;
+    border-color: #07111f;
+}
+
+/* Responzívne */
+@media (max-width: 980px) {
+    .home-v4-grid,
+    .home-v4-about-grid,
+    .footer-v4-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-v4-left {
+        text-align: center;
+    }
+
+    .home-v4-left .badge {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-v4-left .hero-buttons {
+        justify-content: center;
+    }
+
+    .home-v4-left .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .home-v4-hero {
+        padding: 74px 0 54px;
+    }
+
+    .home-v4-left h2 {
+        letter-spacing: -3px;
+    }
+
+    .theme-toggle-btn {
+        width: 100%;
+        margin-top: 8px;
+    }
+}

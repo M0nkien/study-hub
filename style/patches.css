@@ -1,0 +1,35 @@
+/*
+   Study Hub CSS module 21
+   Zdrojový blok: PATCH – Vycentrovanie panelu tagov v predmete
+*/
+
+/* =========================================================
+   PATCH – Vycentrovanie panelu tagov v predmete
+   ========================================================= */
+
+/*
+   Panel s tagmi v hornej časti predmetovej stránky bol vizuálne posunutý
+   podľa textu hero sekcie. Toto ho vycentruje na stred stránky.
+*/
+.page-subject-detail .subject-page-tags {
+    width: min(920px, calc(100vw - 48px));
+    max-width: 920px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.page-subject-detail .subject-page-tag-head,
+.page-subject-detail .subject-page-tag-list {
+    text-align: left;
+}
+
+/* Mobil: bez posunu, aby nevznikol horizontálny scroll */
+@media (max-width: 700px) {
+    .page-subject-detail .subject-page-tags {
+        width: 100%;
+        left: auto;
+        transform: none;
+    }
+}

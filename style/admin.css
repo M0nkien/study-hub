@@ -1,0 +1,89 @@
+/*
+   Study Hub CSS module 13
+   Zdrojový blok: Study Hub – tagy v každom predmete
+*/
+
+/* =========================================================
+   Study Hub – tagy v každom predmete
+   ========================================================= */
+
+.subject-page-tags {
+    position: relative;
+    z-index: 3;
+    max-width: 920px;
+    margin: 28px auto 0;
+    padding: 18px;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 95% 20%, rgba(101, 212, 242, 0.14), transparent 34%),
+        rgba(15, 23, 42, 0.68);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, var(--accent)) 32%, rgba(148, 163, 184, 0.16));
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
+}
+
+.subject-page-tag-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.subject-page-tag-head span {
+    color: var(--text);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .9px;
+    font-size: 13px;
+}
+
+.subject-page-tag-head strong {
+    color: var(--subject-accent, var(--accent));
+    background: color-mix(in srgb, var(--subject-accent, var(--accent)) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, var(--accent)) 26%, transparent);
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+.subject-page-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.subject-page-tag-list span {
+    color: var(--subject-accent, var(--accent));
+    background: color-mix(in srgb, var(--subject-accent, var(--accent)) 10%, rgba(2, 6, 23, 0.55));
+    border: 1px solid color-mix(in srgb, var(--subject-accent, var(--accent)) 28%, rgba(148, 163, 184, 0.12));
+    border-radius: 999px;
+    padding: 8px 11px;
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+}
+
+/* Karty predmetov – tagy nech sú viditeľnejšie */
+.subject-card-tags {
+    margin-top: 16px;
+}
+
+.subject-card-tags span {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+@media (max-width: 700px) {
+    .subject-page-tag-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .subject-page-tags {
+        margin-top: 22px;
+        padding: 15px;
+    }
+}

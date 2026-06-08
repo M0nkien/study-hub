@@ -1,0 +1,392 @@
+/*
+   Study Hub CSS module 12
+   Zdrojový blok: Study Hub v3 – unikátny vzhľad všetkých stránok
+*/
+
+/* =========================================================
+   Study Hub v3 – unikátny vzhľad všetkých stránok
+   ========================================================= */
+
+/* Vlastná vizuálna identita: modrý "study dashboard", jemné ambientné tvary */
+body {
+    position: relative;
+    background:
+        radial-gradient(circle at 8% 8%, rgba(101, 212, 242, 0.08), transparent 28%),
+        radial-gradient(circle at 92% 12%, rgba(59, 130, 246, 0.06), transparent 30%),
+        linear-gradient(180deg, #020617 0%, #050816 48%, #020617 100%);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -3;
+    background-image:
+        linear-gradient(rgba(101, 212, 242, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101, 212, 242, 0.028) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: radial-gradient(circle at center, black 0%, black 62%, transparent 92%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+    background:
+        linear-gradient(115deg, transparent 0%, rgba(101, 212, 242, 0.025) 45%, transparent 46%),
+        linear-gradient(245deg, transparent 0%, rgba(101, 212, 242, 0.020) 58%, transparent 59%);
+}
+
+/* Dekoratívne tvary na každej stránke */
+.page-ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.page-ambient span {
+    position: absolute;
+    display: block;
+    border: 1px solid rgba(101, 212, 242, 0.13);
+    background: linear-gradient(135deg, rgba(101, 212, 242, 0.055), transparent);
+    filter: blur(0.2px);
+}
+
+.page-ambient span:nth-child(1) {
+    width: 230px;
+    height: 230px;
+    right: 6%;
+    top: 16%;
+    border-radius: 52px;
+    transform: rotate(18deg);
+}
+
+.page-ambient span:nth-child(2) {
+    width: 170px;
+    height: 170px;
+    left: 7%;
+    top: 42%;
+    border-radius: 999px;
+    opacity: 0.55;
+}
+
+.page-ambient span:nth-child(3) {
+    width: 360px;
+    height: 360px;
+    right: -120px;
+    bottom: 5%;
+    border-radius: 70px;
+    transform: rotate(-24deg);
+    opacity: 0.35;
+}
+
+/* Header trochu vlastnejší */
+.header {
+    background:
+        linear-gradient(90deg, rgba(2, 6, 23, 0.88), rgba(8, 47, 73, 0.34), rgba(2, 6, 23, 0.88));
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(101, 212, 242, 0.12);
+}
+
+.logo-icon {
+    border-radius: 14px 18px 14px 18px;
+    box-shadow: 0 0 30px rgba(101, 212, 242, 0.24);
+}
+
+.nav a {
+    position: relative;
+    border-radius: 999px;
+    padding: 8px 10px;
+    transition: background .2s ease, color .2s ease;
+}
+
+.nav a:hover {
+    color: var(--accent);
+    background: rgba(101, 212, 242, 0.08);
+}
+
+/* Spoločné karty: viac dashboard, menej fricapsule */
+.content-block,
+.about-box,
+.support-box,
+.quiz-panel,
+.flashcard-shell,
+.result-card,
+.roadmap-card,
+.subject-meta-panel,
+.learn-panel {
+    border-color: rgba(101, 212, 242, 0.15) !important;
+    box-shadow:
+        0 22px 80px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+/* Hlavná stránka – čistý portál */
+.page-home .home-simple-hero {
+    min-height: 610px;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(101, 212, 242, 0.09), transparent 34%),
+        linear-gradient(180deg, rgba(2, 6, 23, 0.0), rgba(2, 6, 23, 0.58));
+}
+
+.page-home .home-simple-hero h2 {
+    text-shadow: 0 20px 70px rgba(101, 212, 242, 0.10);
+}
+
+.page-home .home-simple-about-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-home .home-simple-about-box::after {
+    content: "STUDY";
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 110px;
+    line-height: 1;
+    font-weight: 950;
+    letter-spacing: -6px;
+    color: rgba(101, 212, 242, 0.035);
+}
+
+/* Stránka predmety – už viac dashboard */
+.page-subjects .subject-hero,
+.page-subjects .subjects-section {
+    background:
+        radial-gradient(circle at 12% 14%, rgba(101, 212, 242, 0.10), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(167, 139, 250, 0.07), transparent 24%);
+}
+
+/* Flashcards – vzhľad kartotéky */
+.page-flashcards main {
+    background:
+        radial-gradient(circle at 12% 22%, rgba(101, 212, 242, 0.10), transparent 26%),
+        radial-gradient(circle at 88% 66%, rgba(59, 130, 246, 0.08), transparent 30%);
+}
+
+.page-flashcards .flashcard,
+.page-flashcards .flashcard-shell {
+    border-radius: 32px;
+}
+
+.page-flashcards .flashcard {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.page-flashcards .flashcard::before {
+    content: "";
+    position: absolute;
+    inset: 12px -12px -12px 12px;
+    border-radius: 30px;
+    background: rgba(101, 212, 242, 0.055);
+    border: 1px solid rgba(101, 212, 242, 0.10);
+    z-index: -1;
+}
+
+/* Výsledky – dátový panel */
+.page-results main {
+    background:
+        linear-gradient(180deg, rgba(101, 212, 242, 0.035), transparent 35%),
+        radial-gradient(circle at 82% 20%, rgba(101, 212, 242, 0.09), transparent 30%);
+}
+
+.page-results .result-card,
+.page-results .history-card,
+.page-results .results-card {
+    border-radius: 26px;
+}
+
+/* Roadmap – produktová mapa */
+.page-roadmap .roadmap-board {
+    align-items: start;
+}
+
+.page-roadmap .roadmap-column {
+    position: relative;
+}
+
+.page-roadmap .roadmap-column::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 72px;
+    bottom: 16px;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(101, 212, 242, 0.3), transparent);
+}
+
+.page-roadmap .roadmap-card {
+    position: relative;
+    margin-left: 8px;
+}
+
+.design-suggestion-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.design-roadmap-section {
+    padding-top: 0;
+}
+
+/* Podpora – kontaktný portál */
+.page-support .support-page {
+    position: relative;
+}
+
+.page-support .support-box {
+    border-radius: 32px;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(101, 212, 242, 0.08), rgba(15, 23, 42, 0.96));
+}
+
+.page-support .support-box::before {
+    content: "SUPPORT";
+    display: block;
+    color: rgba(101, 212, 242, 0.11);
+    font-size: clamp(42px, 8vw, 120px);
+    line-height: .8;
+    font-weight: 950;
+    letter-spacing: -5px;
+    padding: 20px 20px 0;
+}
+
+/* Admin – kontrolný panel */
+.page-admin main,
+.page-admin .admin-page {
+    background:
+        radial-gradient(circle at 18% 20%, rgba(101, 212, 242, 0.10), transparent 28%),
+        radial-gradient(circle at 82% 75%, rgba(248, 113, 113, 0.05), transparent 24%);
+}
+
+.page-admin .admin-box,
+.page-admin .admin-card,
+.page-admin .content-block {
+    border-radius: 28px;
+    border-color: rgba(101, 212, 242, 0.18);
+}
+
+/* Predmetové stránky – spoločný layout */
+.page-subject-detail .subject-hero {
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+}
+
+.page-subject-detail .subject-hero::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    top: 120px;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(101, 212, 242, 0.12);
+    border-radius: 90px;
+    transform: rotate(24deg);
+    background: linear-gradient(135deg, rgba(101, 212, 242, 0.055), transparent);
+}
+
+.page-subject-detail .subject-layout {
+    align-items: start;
+}
+
+.page-subject-detail .subject-sidebar {
+    position: sticky;
+    top: 92px;
+    border-radius: 28px;
+    background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(2, 6, 23, 0.94));
+    border: 1px solid rgba(101, 212, 242, 0.16);
+}
+
+.page-subject-detail .subject-sidebar a {
+    border-radius: 14px;
+    transition: transform .18s ease, background .18s ease, color .18s ease;
+}
+
+.page-subject-detail .subject-sidebar a:hover {
+    transform: translateX(5px);
+    background: rgba(101, 212, 242, 0.08);
+    color: var(--accent);
+}
+
+.page-subject-detail .content-block {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+}
+
+.page-subject-detail .content-block::before {
+    content: "";
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    background: rgba(101, 212, 242, 0.04);
+    pointer-events: none;
+}
+
+/* Jemné rôzne farebné akcenty podľa predmetu */
+.subject-theme-linux { --subject-accent: #65d4f2; }
+.subject-theme-msd { --subject-accent: #38bdf8; }
+.subject-theme-ccna { --subject-accent: #60a5fa; }
+.subject-theme-fyzika { --subject-accent: #22d3ee; }
+.subject-theme-mat { --subject-accent: #a78bfa; }
+.subject-theme-vvs { --subject-accent: #34d399; }
+.subject-theme-java { --subject-accent: #f59e0b; }
+.subject-theme-tlac3d { --subject-accent: #fb7185; }
+.subject-theme-algebra { --subject-accent: #c084fc; }
+.subject-theme-praktikum { --subject-accent: #fbbf24; }
+.subject-theme-uvod { --subject-accent: #2dd4bf; }
+
+.page-subject-detail .badge,
+.page-subject-detail .small-title,
+.page-subject-detail .back-link,
+.page-subject-detail .material-link,
+.page-subject-detail .card-link {
+    color: var(--subject-accent, var(--accent));
+}
+
+.page-subject-detail .subject-hero span {
+    color: var(--subject-accent, var(--accent));
+}
+
+.page-subject-detail .content-block,
+.page-subject-detail .subject-sidebar,
+.page-subject-detail .learn-panel {
+    border-color: color-mix(in srgb, var(--subject-accent, var(--accent)) 24%, rgba(148, 163, 184, 0.16));
+}
+
+/* Mobile */
+@media (max-width: 1000px) {
+    .design-suggestion-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .page-subject-detail .subject-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 700px) {
+    .design-suggestion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-ambient span:nth-child(1),
+    .page-ambient span:nth-child(2),
+    .page-ambient span:nth-child(3) {
+        opacity: 0.25;
+    }
+}

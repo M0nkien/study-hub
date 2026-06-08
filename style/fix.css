@@ -1,0 +1,364 @@
+/*
+   Study Hub – fix.css
+
+   Tento súbor sa načítava ako posledný.
+   Rieši opravy po presune CSS/JS, farebnosť stavov, pozadia predmetov,
+   roadmapu a flashcards podľa farby predmetu.
+*/
+
+@import url("./github-fix.css?v=20260608-style-script");
+
+/* === Predmetové podstránky – návrat farebných pozadí a viditeľné stavy === */
+.page-subject-detail {
+    --subject-glow: color-mix(in srgb, var(--subject-accent, #65d4f2) 18%, transparent);
+}
+
+.page-subject-detail .subject-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+    background:
+        radial-gradient(circle at 16% 16%, color-mix(in srgb, var(--subject-accent, #65d4f2) 18%, transparent), transparent 32%),
+        radial-gradient(circle at 86% 16%, color-mix(in srgb, var(--subject-accent, #65d4f2) 10%, transparent), transparent 30%),
+        linear-gradient(180deg, rgba(2, 6, 23, 0.16), rgba(8, 47, 73, 0.20), rgba(2, 6, 23, 0.08));
+}
+
+.page-subject-detail .subject-hero::before {
+    content: "";
+    position: absolute;
+    right: 8%;
+    top: 23%;
+    width: 210px;
+    height: 210px;
+    border-radius: 52px;
+    transform: rotate(18deg);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 20%, transparent);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--subject-accent, #65d4f2) 8%, transparent), transparent);
+    pointer-events: none;
+    opacity: .8;
+}
+
+.page-subject-detail .subject-hero::after {
+    content: "";
+    position: absolute;
+    left: 6%;
+    bottom: 8%;
+    width: 145px;
+    height: 145px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 16%, transparent);
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 6%, transparent);
+    pointer-events: none;
+    opacity: .5;
+}
+
+.page-subject-detail .subject-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.page-subject-detail .subject-page-tags,
+.page-subject-detail .subject-page-tags-static {
+    position: relative;
+    z-index: 3;
+    width: min(920px, calc(100vw - 48px));
+    max-width: 920px;
+    margin: 28px auto 0 !important;
+    padding: 18px;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 95% 20%, color-mix(in srgb, var(--subject-accent, #65d4f2) 15%, transparent), transparent 34%),
+        rgba(15, 23, 42, 0.72);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 34%, rgba(148, 163, 184, 0.14));
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
+}
+
+.page-subject-detail .subject-page-tag-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.page-subject-detail .subject-page-tag-head > span {
+    color: var(--subject-accent, #65d4f2);
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .9px;
+    font-size: 13px;
+}
+
+.page-subject-detail .subject-page-tag-head strong {
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    border: 1px solid currentColor;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.page-subject-detail .subject-page-tags-static.subject-status-done .subject-page-tag-head strong,
+.page-subject-detail .subject-page-tags-static.subject-status-hotove .subject-page-tag-head strong {
+    color: #65d4f2;
+}
+
+.page-subject-detail .subject-page-tags-static.subject-status-updating .subject-page-tag-head strong,
+.page-subject-detail .subject-page-tags-static.subject-status-doplna .subject-page-tag-head strong {
+    color: #fbbf24;
+}
+
+.page-subject-detail .subject-page-tags-static.subject-status-progress .subject-page-tag-head strong,
+.page-subject-detail .subject-page-tags-static.subject-status-rozpracovane .subject-page-tag-head strong {
+    color: #c4b5fd;
+}
+
+.page-subject-detail .subject-page-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.page-subject-detail .subject-page-tag-list span {
+    color: var(--subject-accent, #65d4f2);
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 10%, rgba(2, 6, 23, 0.55));
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 28%, rgba(148, 163, 184, 0.12));
+    border-radius: 999px;
+    padding: 8px 11px;
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+}
+
+.page-subject-detail .subject-meta-panel,
+.page-subject-detail .progress-panel,
+.page-subject-detail .content-block,
+.page-subject-detail .subject-sidebar {
+    border-color: color-mix(in srgb, var(--subject-accent, #65d4f2) 24%, rgba(148, 163, 184, 0.16)) !important;
+}
+
+.page-subject-detail .progress-panel strong,
+.page-subject-detail .subject-meta-panel strong,
+.page-subject-detail .stat-card strong,
+.page-subject-detail .meta-card strong {
+    color: var(--subject-accent, #65d4f2);
+}
+
+.page-subject-detail .status-pill,
+.page-subject-detail .subject-status-pill,
+.page-subject-detail [class*="status-"] {
+    border-color: currentColor;
+}
+
+.page-subject-detail .status-done,
+.page-subject-detail .subject-status-done {
+    color: #65d4f2 !important;
+}
+
+.page-subject-detail .status-updating,
+.page-subject-detail .subject-status-updating {
+    color: #fbbf24 !important;
+}
+
+.page-subject-detail .status-progress,
+.page-subject-detail .subject-status-progress {
+    color: #c4b5fd !important;
+}
+
+/* === Flashcards – farba podľa predmetu === */
+.page-flashcards {
+    --flashcard-accent: #65d4f2;
+}
+
+.page-flashcards .flashcard,
+.page-flashcards .flashcard-inner,
+.page-flashcards .flashcard-face,
+.page-flashcards .flashcard-stage,
+.page-flashcards .flashcard-controls {
+    border-color: color-mix(in srgb, var(--flashcard-accent) 36%, rgba(148, 163, 184, 0.16)) !important;
+}
+
+.page-flashcards .flashcard {
+    background:
+        radial-gradient(circle at 92% 14%, color-mix(in srgb, var(--flashcard-accent) 18%, transparent), transparent 34%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.94), rgba(2, 6, 23, 0.98)) !important;
+    box-shadow:
+        0 28px 90px rgba(0,0,0,.32),
+        0 0 0 1px color-mix(in srgb, var(--flashcard-accent) 15%, transparent),
+        0 0 55px color-mix(in srgb, var(--flashcard-accent) 10%, transparent);
+}
+
+.page-flashcards .flashcard::before {
+    background: color-mix(in srgb, var(--flashcard-accent) 8%, transparent) !important;
+    border-color: color-mix(in srgb, var(--flashcard-accent) 22%, transparent) !important;
+}
+
+.page-flashcards #flashcardMeta,
+.page-flashcards #flashcardAnswer + p,
+.page-flashcards .flashcard-counter,
+.page-flashcards .small-title,
+.page-flashcards .flashcard-face span {
+    color: var(--flashcard-accent) !important;
+}
+
+.page-flashcards .flashcard-controls select:focus,
+.page-flashcards .flashcard-controls button:hover,
+.page-flashcards .flashcard-actions button:hover,
+.page-flashcards .quiz-btn:hover {
+    border-color: var(--flashcard-accent) !important;
+    background: color-mix(in srgb, var(--flashcard-accent) 16%, rgba(2,6,23,.8)) !important;
+    color: var(--flashcard-accent) !important;
+}
+
+/* === Roadmap nový layout === */
+.roadmap-v2-section {
+    padding: 54px 0 80px;
+}
+
+.roadmap-v2-overview {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 22px;
+    margin-bottom: 28px;
+}
+
+.roadmap-v2-card {
+    border-radius: 28px;
+    padding: 24px;
+    background:
+        radial-gradient(circle at 92% 16%, rgba(101,212,242,.12), transparent 34%),
+        linear-gradient(145deg, rgba(15,23,42,.92), rgba(2,6,23,.96));
+    border: 1px solid rgba(101,212,242,.18);
+    box-shadow: 0 24px 80px rgba(0,0,0,.22);
+}
+
+.roadmap-v2-card h2,
+.roadmap-v2-card h3 {
+    margin: 0 0 12px;
+}
+
+.roadmap-v2-card p {
+    color: #aab7c9;
+    line-height: 1.7;
+    font-weight: 750;
+}
+
+.roadmap-v2-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+}
+
+.roadmap-stat {
+    border-radius: 18px;
+    padding: 16px;
+    background: rgba(2,6,23,.62);
+    border: 1px solid rgba(101,212,242,.15);
+}
+
+.roadmap-stat strong {
+    display: block;
+    color: #65d4f2;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.roadmap-stat span {
+    color: #aab7c9;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.roadmap-v2-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 22px;
+}
+
+.roadmap-v2-column {
+    border-radius: 28px;
+    padding: 20px;
+    background: rgba(15,23,42,.72);
+    border: 1px solid rgba(101,212,242,.16);
+}
+
+.roadmap-v2-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.roadmap-v2-head span {
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    border: 1px solid currentColor;
+}
+
+.roadmap-v2-head h2 {
+    margin: 0;
+}
+
+.roadmap-v2-item {
+    position: relative;
+    padding: 18px;
+    margin-top: 12px;
+    border-radius: 20px;
+    background: rgba(2,6,23,.58);
+    border: 1px solid rgba(148,163,184,.14);
+}
+
+.roadmap-v2-item h3 {
+    margin: 0 0 10px;
+}
+
+.roadmap-v2-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.roadmap-v2-meta span {
+    border-radius: 999px;
+    padding: 6px 9px;
+    background: rgba(101,212,242,.08);
+    border: 1px solid rgba(101,212,242,.14);
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 850;
+}
+
+.roadmap-v2-column.done .roadmap-v2-head span { color: #65d4f2; }
+.roadmap-v2-column.progress .roadmap-v2-head span { color: #fbbf24; }
+.roadmap-v2-column.planned .roadmap-v2-head span { color: #a78bfa; }
+.roadmap-v2-column.ideas .roadmap-v2-head span { color: #34d399; }
+.roadmap-v2-column.bugs .roadmap-v2-head span { color: #fb7185; }
+
+@media (max-width: 980px) {
+    .roadmap-v2-overview,
+    .roadmap-v2-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .page-subject-detail .subject-page-tags,
+    .page-subject-detail .subject-page-tags-static {
+        width: 100%;
+        transform: none !important;
+        left: auto !important;
+    }
+
+    .roadmap-v2-stats {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,126 @@
+/*
+   Study Hub CSS module 16
+   Zdrojový blok: Predmety – funkčný vyhľadávač a filter
+*/
+
+/* =========================================================
+   Predmety – funkčný vyhľadávač a filter
+   ========================================================= */
+
+.studyhub-subject-filter {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 28px;
+    padding: 24px;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 92% 20%, rgba(101, 212, 242, 0.16), transparent 34%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.96));
+    border: 1px solid rgba(101, 212, 242, 0.22);
+    box-shadow: 0 22px 80px rgba(0, 0, 0, 0.24);
+}
+
+.subject-filter-main {
+    display: grid;
+    grid-template-columns: 1.2fr .9fr;
+    gap: 22px;
+    align-items: end;
+}
+
+.subject-filter-main h2 {
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.03;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.subject-filter-main p:not(.small-title) {
+    color: var(--muted);
+    font-weight: 750;
+    line-height: 1.65;
+}
+
+.subject-filter-input-wrap {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.subject-filter-input-wrap input {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 18px;
+    border: 1px solid rgba(101, 212, 242, 0.24);
+    background: rgba(2, 6, 23, 0.62);
+    color: var(--text);
+    padding: 0 16px;
+    font-size: 15px;
+    font-weight: 800;
+    outline: none;
+}
+
+.subject-filter-input-wrap input:focus {
+    border-color: rgba(101, 212, 242, 0.58);
+    box-shadow: 0 0 0 4px rgba(101, 212, 242, 0.08);
+}
+
+.subject-filter-input-wrap button,
+.subject-filter-chip {
+    min-height: 42px;
+    border: 1px solid rgba(101, 212, 242, 0.24);
+    background: rgba(101, 212, 242, 0.08);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 0 14px;
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.subject-filter-input-wrap button:hover,
+.subject-filter-chip:hover,
+.subject-filter-chip.active {
+    background: var(--accent);
+    color: #03131a;
+    border-color: var(--accent);
+}
+
+.subject-filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.subject-filter-count {
+    margin-top: 14px;
+    color: var(--muted);
+    font-weight: 850;
+}
+
+.subject-filter-empty {
+    margin-top: 16px;
+    color: #fecaca;
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.22);
+    border-radius: 18px;
+    padding: 14px;
+    font-weight: 850;
+}
+
+.subject-card[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .subject-filter-main {
+        grid-template-columns: 1fr;
+    }
+
+    .subject-filter-input-wrap {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

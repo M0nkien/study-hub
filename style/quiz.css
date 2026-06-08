@@ -1,0 +1,86 @@
+/*
+   Study Hub CSS module 08
+   Zdrojový blok: Veľké obsahové rozšírenie predmetov – Study Hub
+*/
+
+/* =========================================================
+   Veľké obsahové rozšírenie predmetov – Study Hub
+   ========================================================= */
+
+.deep-note-grid,
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.deep-note-card,
+.topic-card {
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.08), transparent 34%),
+        var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+}
+
+.deep-note-card span,
+.topic-card span {
+    display: inline-block;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.deep-note-card h3,
+.topic-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.deep-note-card p,
+.topic-card p,
+.deep-note-card li,
+.topic-card li {
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 650;
+}
+
+.deep-note-card ul,
+.topic-card ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.formula-table {
+    margin-top: 24px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+}
+
+.formula-table h3 {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+#assignments .section-description {
+    margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+    .deep-note-grid,
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+}

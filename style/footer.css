@@ -1,0 +1,85 @@
+/*
+   Study Hub CSS module 14
+   Zdrojový blok: Predmety – tagy priamo na každej karte v sekcii Predmety
+*/
+
+/* =========================================================
+   Predmety – tagy priamo na každej karte v sekcii Predmety
+   ========================================================= */
+
+.subject-card-with-static-tags {
+    min-height: 365px;
+}
+
+.subject-card-with-static-tags .subject-state-ribbon {
+    margin-top: 14px;
+    margin-bottom: 16px;
+}
+
+.subject-card-with-static-tags h3 {
+    margin-top: 18px;
+}
+
+.subject-card-with-static-tags .subject-card-tags.static-tags {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+    position: relative;
+    z-index: 5;
+}
+
+.subject-card-with-static-tags .subject-card-tags.static-tags span {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 28px;
+    color: var(--accent);
+    background: rgba(101, 212, 242, 0.10);
+    border: 1px solid rgba(101, 212, 242, 0.28);
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: .55px;
+    text-transform: uppercase;
+}
+
+.subject-card-with-static-tags .subject-card-action {
+    display: none;
+}
+
+.subject-card-with-static-tags .card-link {
+    margin-top: 22px;
+}
+
+.subject-card-with-static-tags .subject-state-ribbon {
+    background: rgba(2, 6, 23, 0.82);
+}
+
+.subject-card-with-static-tags .subject-state-ribbon.state-done span {
+    color: var(--accent);
+}
+
+.subject-card-with-static-tags .subject-state-ribbon.state-updating span {
+    color: #fbbf24;
+}
+
+.subject-card-with-static-tags .subject-state-ribbon.state-progress span {
+    color: #c4b5fd;
+}
+
+.subject-card-with-static-tags .subject-state-ribbon small {
+    opacity: .95;
+}
+
+@media (max-width: 700px) {
+    .subject-card-with-static-tags {
+        min-height: auto;
+    }
+
+    .subject-card-with-static-tags .subject-card-tags.static-tags span {
+        font-size: 10px;
+    }
+}

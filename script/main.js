@@ -85,7 +85,7 @@ const STUDY_HUB_SUBJECT_STATUS = {
     vvs: { label: "rozpracované", className: "status-progress", updated: "Pripravujú sa kódy a obhajoba" },
     mat: { label: "rozpracované", className: "status-progress", updated: "Pripravujú sa DR, Laplace a rady" },
     java: { label: "rozpracované", className: "status-progress", updated: "Pripravuje sa OOP a semestrálka" },
-    fyzika: { label: "dopĺňa sa", className: "status-updating", updated: "Pridané vzorce, jednotky a otázky" },
+    fyzika: { label: "dopĺňa sa", className: "status-updating", updated: "Pridané vzorce, jednotky a otázky" }
     tlac3d: { label: "rozpracované", className: "status-progress", updated: "Pridané technológie 3D tlače a projekt" },
     algebra: { label: "rozpracované", className: "status-progress", updated: "Pridané matice, determinanty a sústavy" },
     praktikum: { label: "rozpracované", className: "status-progress", updated: "Pridané Java základy a školské zadania" },
@@ -94,9 +94,7 @@ const STUDY_HUB_SUBJECT_STATUS = {
 
 function addSubjectStatusBadges() {
     document.querySelectorAll(".subject-card[data-subject-id]").forEach(card => {
-        
-        if (card.querySelector(".subject-state-ribbon") || card.classList.contains("subject-card-with-static-tags")) return;
-const subjectId = card.dataset.subjectId;
+        const subjectId = card.dataset.subjectId;
         const status = STUDY_HUB_SUBJECT_STATUS[subjectId];
 
         if (!status || card.querySelector(".subject-status")) return;
@@ -460,12 +458,9 @@ function initSubjectCardsFilter() {
     const count = document.getElementById("subjectFilterCount");
     const empty = document.getElementById("subjectFilterEmpty");
     const chips = Array.from(document.querySelectorAll("[data-status-filter]"));
-    let cards = Array.from(document.querySelectorAll(".subjects-grid .subject-card"));
-    if (!cards.length) {
-        cards = Array.from(document.querySelectorAll(".subject-card"));
-    }
+    const cards = Array.from(document.querySelectorAll(".subjects-grid .subject-card"));
 
-    if (!input) return;
+    if (!input || !cards.length) return;
 
     let activeStatus = "all";
 
@@ -539,49 +534,4 @@ function initSubjectCardsFilter() {
 
 document.addEventListener("DOMContentLoaded", function () {
     initSubjectCardsFilter();
-});
-
-
-
-/* =========================================================
-   Study Hub – prepínanie témy čierna / svetlá
-   ========================================================= */
-
-function initStudyHubThemeToggle() {
-    const storageKey = "studyHubTheme";
-    const body = document.body;
-
-    function applyTheme(theme) {
-        body.classList.toggle("theme-light", theme === "light");
-        body.classList.toggle("theme-dark", theme !== "light");
-
-        const btn = document.querySelector(".theme-toggle-btn");
-        if (btn) {
-            btn.textContent = theme === "light" ? "Čierny režim" : "Svetlý režim";
-            btn.setAttribute("aria-label", theme === "light" ? "Prepnúť na čierny režim" : "Prepnúť na svetlý režim");
-        }
-    }
-
-    const saved = localStorage.getItem(storageKey) || "dark";
-    applyTheme(saved);
-
-    const headerContent = document.querySelector(".header-content");
-    if (!headerContent || document.querySelector(".theme-toggle-btn")) return;
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "theme-toggle-btn";
-    headerContent.appendChild(button);
-
-    applyTheme(localStorage.getItem(storageKey) || "dark");
-
-    button.addEventListener("click", () => {
-        const next = body.classList.contains("theme-light") ? "dark" : "light";
-        localStorage.setItem(storageKey, next);
-        applyTheme(next);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    initStudyHubThemeToggle();
 });

@@ -1,0 +1,115 @@
+/*
+   Study Hub CSS module 20
+   Zdrojový blok: PATCH – Vyhľadávanie predmetov, kartičky, sidebar a checklist
+*/
+
+/* =========================================================
+   PATCH – Vyhľadávanie predmetov, kartičky, sidebar a checklist
+   ========================================================= */
+
+/* Poistka: druhé vyhľadávanie vnútri predmetovej stránky je vypnuté */
+#subjectSearchMount,
+.subject-search-panel,
+.subject-search-row,
+#subjectSearchInput,
+#subjectSearchClear {
+    display: none !important;
+}
+
+/* Bočný panel v predmete – hover podľa farby predmetu */
+.page-subject-detail .subject-sidebar {
+    border-color: color-mix(in srgb, var(--subject-accent, var(--accent)) 24%, rgba(148, 163, 184, 0.16));
+}
+
+.page-subject-detail .subject-sidebar h3 {
+    color: var(--text);
+}
+
+.page-subject-detail .subject-sidebar a {
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.page-subject-detail .subject-sidebar a:hover {
+    color: var(--subject-accent, var(--accent)) !important;
+    background: color-mix(in srgb, var(--subject-accent, var(--accent)) 11%, rgba(2, 6, 23, 0.55));
+    border-color: color-mix(in srgb, var(--subject-accent, var(--accent)) 28%, rgba(148, 163, 184, 0.14));
+    box-shadow: 0 10px 28px color-mix(in srgb, var(--subject-accent, var(--accent)) 10%, transparent);
+}
+
+.page-subject-detail .subject-sidebar a:hover::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--subject-accent, var(--accent));
+    transform: translateY(-50%);
+    box-shadow: 0 0 18px var(--subject-accent, var(--accent));
+}
+
+/* Checklist ako posledná časť nech pôsobí ako finálna kontrola */
+.page-subject-detail .checklist-section {
+    border-color: color-mix(in srgb, var(--subject-accent, var(--accent)) 30%, rgba(148, 163, 184, 0.16)) !important;
+    background:
+        radial-gradient(circle at 92% 16%, color-mix(in srgb, var(--subject-accent, var(--accent)) 12%, transparent), transparent 34%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.96));
+}
+
+/* Flashcards – farba kartičiek podľa predmetu */
+.page-flashcards {
+    --flashcard-accent: var(--accent);
+}
+
+.page-flashcards .flashcard-shell,
+.page-flashcards .flashcard,
+.page-flashcards .flashcard-face {
+    border-color: color-mix(in srgb, var(--flashcard-accent) 34%, rgba(148, 163, 184, 0.16)) !important;
+}
+
+.page-flashcards .flashcard-shell {
+    background:
+        radial-gradient(circle at 92% 16%, color-mix(in srgb, var(--flashcard-accent) 14%, transparent), transparent 34%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.96));
+}
+
+.page-flashcards .flashcard {
+    box-shadow:
+        0 28px 90px rgba(0, 0, 0, .28),
+        0 0 0 1px color-mix(in srgb, var(--flashcard-accent) 14%, transparent);
+}
+
+.page-flashcards .flashcard::before {
+    background: color-mix(in srgb, var(--flashcard-accent) 8%, transparent);
+    border-color: color-mix(in srgb, var(--flashcard-accent) 22%, transparent);
+}
+
+.page-flashcards #flashcardMeta,
+.page-flashcards .flashcard-counter,
+.page-flashcards .small-title {
+    color: var(--flashcard-accent) !important;
+}
+
+.page-flashcards .flashcard-controls select,
+.page-flashcards .flashcard-controls button,
+.page-flashcards .flashcard-actions button {
+    border-color: color-mix(in srgb, var(--flashcard-accent) 32%, rgba(148, 163, 184, 0.16));
+}
+
+.page-flashcards .flashcard-controls button:hover,
+.page-flashcards .flashcard-actions button:hover {
+    background: var(--flashcard-accent);
+    color: #06111a;
+    border-color: var(--flashcard-accent);
+}
+
+/* Vyhľadávač predmetov – lepšie viditeľné výsledky */
+.studyhub-subject-filter .subject-filter-count {
+    color: #cbd5e1;
+}
+
+body.theme-light .studyhub-subject-filter .subject-filter-count {
+    color: #334155;
+}

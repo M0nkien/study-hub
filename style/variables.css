@@ -1,0 +1,191 @@
+/*
+   Study Hub CSS module 02
+   Zdrojový blok: STUDY HUB – vlastný dizajn, podpora, timeline noviniek, fyzika
+*/
+
+/* =========================================================
+   STUDY HUB – vlastný dizajn, podpora, timeline noviniek, fyzika
+   ========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 8% 18%, rgba(101, 212, 242, 0.11), transparent 28%),
+        radial-gradient(circle at 92% 12%, rgba(101, 212, 242, 0.08), transparent 26%),
+        radial-gradient(circle at 50% 90%, rgba(59, 130, 246, 0.08), transparent 32%);
+}
+
+.hero::after,
+.subject-hero::after {
+    content: "STUDY HUB";
+    position: absolute;
+    right: -80px;
+    bottom: 30px;
+    font-size: clamp(70px, 13vw, 180px);
+    font-weight: 900;
+    letter-spacing: -8px;
+    color: rgba(101, 212, 242, 0.035);
+    pointer-events: none;
+}
+
+.subject-card {
+    border-radius: 30px;
+    background:
+        linear-gradient(145deg, rgba(11, 18, 32, 0.98), rgba(7, 12, 24, 0.98)),
+        radial-gradient(circle at 90% 10%, rgba(101, 212, 242, 0.16), transparent 28%);
+}
+
+.subject-card::after {
+    content: "";
+    position: absolute;
+    right: -45px;
+    bottom: -45px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(101, 212, 242, 0.12);
+    border-radius: 36px;
+    transform: rotate(18deg);
+}
+
+.update-feed {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 16px;
+    display: grid;
+    gap: 10px;
+}
+
+.update-item {
+    display: grid;
+    grid-template-columns: 18px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--bg-2);
+    border: 1px solid rgba(148, 163, 184, 0.10);
+    border-radius: 18px;
+    padding: 18px;
+    transition: var(--transition);
+}
+
+.update-item:hover {
+    border-color: var(--accent-border);
+    transform: translateX(4px);
+}
+
+.update-dot {
+    width: 12px;
+    height: 12px;
+    margin-top: 6px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 6px var(--accent-soft);
+}
+
+.update-item strong {
+    font-size: 18px;
+}
+
+.update-item p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+.update-item em {
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.support-section {
+    padding: 80px 0;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.support-card {
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.10), transparent 35%),
+        var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 24px;
+}
+
+.support-card span {
+    color: var(--accent);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.support-card h3 {
+    font-size: 23px;
+    margin: 12px 0;
+}
+
+.support-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 650;
+}
+
+.formula-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.formula-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+}
+
+.formula-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.learn-btn[data-pending-text*="urobené"] {
+    border-color: rgba(101, 212, 242, 0.40);
+}
+
+.learn-btn.done {
+    background: var(--accent);
+    color: var(--bg-2);
+    border-color: var(--accent);
+}
+
+@media (max-width: 900px) {
+    .support-grid,
+    .formula-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .update-item {
+        grid-template-columns: 18px 1fr;
+    }
+
+    .update-item em {
+        grid-column: 2;
+        width: fit-content;
+    }
+}

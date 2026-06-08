@@ -1,0 +1,31 @@
+/*
+   Study Hub – hlavný CSS súbor
+
+   Pôvodný veľký style.css bol rozdelený do menších modulov v priečinku:
+   assets/css/modules/
+
+   Poradie importov je dôležité, pretože zachováva pôvodné poradie pravidiel.
+*/
+
+@import url("./base.css?v=20260608-style-script"); /* STUDY HUB – FINÁLNY ŠTÝL */
+@import url("./variables.css?v=20260608-style-script"); /* STUDY HUB – vlastný dizajn, podpora, timeline noviniek, fyzika */
+@import url("./layout.css?v=20260608-style-script"); /* Úpravy: malé novinky, samostatná podpora, admin správy */
+@import url("./header.css?v=20260608-style-script"); /* Podpora cez Google Forms – Study Hub */
+@import url("./home.css?v=20260608-style-script"); /* Predmety presunuté na samostatnú podstránku */
+@import url("./subjects.css?v=20260608-style-script"); /* Study Hub v1.5 – checklisty, kartičky, dashboard, výsledky, roadmap */
+@import url("./subject-detail.css?v=20260608-style-script"); /* CCNA otázky na skúšku – Ethernet, LLC, IPv6 */
+@import url("./quiz.css?v=20260608-style-script"); /* Veľké obsahové rozšírenie predmetov – Study Hub */
+@import url("./flashcards.css?v=20260608-style-script"); /* Fyzika – skúškové okruhy, odvodenia a vzorová písomka */
+@import url("./results.css?v=20260608-style-script"); /* Study Hub – unikátny vzhľad predmetov */
+@import url("./roadmap.css?v=20260608-style-script"); /* Study Hub – status tagy a viac vlastný vizuál */
+@import url("./support.css?v=20260608-style-script"); /* Study Hub v3 – unikátny vzhľad všetkých stránok */
+@import url("./admin.css?v=20260608-style-script"); /* Study Hub – tagy v každom predmete */
+@import url("./footer.css?v=20260608-style-script"); /* Predmety – tagy priamo na každej karte v sekcii Predmety */
+@import url("./responsive.css?v=20260608-style-script"); /* Study Hub – vlastná farba pre každý predmet */
+@import url("./physics.css?v=20260608-style-script"); /* Predmety – funkčný vyhľadávač a filter */
+@import url("./subject-tags.css?v=20260608-style-script"); /* Study Hub v3.1 – hlavná stránka, tvary, pätička a témy */
+@import url("./subject-colors.css?v=20260608-style-script"); /* PATCH – Hlavná stránka späť na čistejšie rozloženie bez tvarov */
+@import url("./theme.css?v=20260608-style-script"); /* PATCH – Footer na podstránkach, bez veľkých nápisov a jemné tvary na hlavnej */
+@import url("./github-fix.css?v=20260608-style-script"); /* PATCH – Vyhľadávanie predmetov, kartičky, sidebar a checklist */
+@import url("./patches.css?v=20260608-style-script"); /* PATCH – Vycentrovanie panelu tagov v predmete */
+@import url("./overrides.css?v=20260608-style-script"); /* PATCH – Iba jeden stavový tag na karte a statický stav na podstránkach */

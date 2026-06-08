@@ -219,3 +219,36 @@ Pridané:
 Dôvod:
 - po nahratí na GitHub Pages sa časť štýlov a JS správania nezobrazovala správne,
 - nový fix súbor sa načíta ako posledný a opraví layout.
+
+
+## Rozdelenie style.css do CSS modulov
+
+Upravené:
+- pôvodný veľký `assets/css/style.css` bol rozdelený do priečinka `assets/css/modules/`,
+- `style.css` teraz slúži ako hlavný importný súbor,
+- pridaný `assets/css/README-CSS.md`,
+- v HTML súboroch bol pridaný cache-busting parameter `?v=20260608-split`,
+- poradie importov zachováva pôvodné poradie CSS pravidiel.
+
+
+## Priečinky style a script
+
+Upravené:
+- CSS súbory boli presunuté do priečinka `style/`,
+- hlavný CSS súbor je `style/main.css`,
+- JavaScript súbory boli presunuté do priečinka `script/`,
+- hlavný JS súbor je `script/main.js`,
+- opravný JS súbor je `script/fix.js`,
+- HTML stránky používajú nové cesty s cache-busting parametrom `?v=20260608-style-script`.
+
+
+## Predmetové pozadia, roadmapa a README.md
+
+Upravené:
+- vrátené farebné pozadia predmetových podstránok,
+- doplnené viditeľné farby stavov Hotové / Dopĺňa sa / Rozpracované,
+- vytvorený `style/subject-pages.css`, pretože HTML naň odkazovalo,
+- doplnený `style/fix.css` ako posledný opravný CSS súbor,
+- flashcards používajú farbu aktuálne zvoleného predmetu,
+- roadmapa bola prepracovaná na nové rozloženie,
+- pridaný hlavný `README.md` pre GitHub.

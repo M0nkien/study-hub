@@ -1,0 +1,174 @@
+/*
+   Study Hub CSS module 09
+   Zdrojový blok: Fyzika – skúškové okruhy, odvodenia a vzorová písomka
+*/
+
+/* =========================================================
+   Fyzika – skúškové okruhy, odvodenia a vzorová písomka
+   ========================================================= */
+
+.exam-topic-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.exam-topic-card,
+.derivation-card,
+.written-task,
+.solved-example-box,
+.points-box {
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.08), transparent 35%),
+        var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 20px;
+}
+
+.exam-topic-card > span,
+.derivation-card > span,
+.written-task > span,
+.solution-steps article > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.exam-topic-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.exam-topic-card ul,
+.points-box ul {
+    margin-left: 20px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 650;
+}
+
+.derivation-list,
+.exam-written-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.derivation-card,
+.written-task {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: start;
+}
+
+.derivation-card p,
+.written-task p {
+    color: var(--muted);
+    font-weight: 700;
+    line-height: 1.65;
+}
+
+.written-task.important {
+    border-color: rgba(248, 113, 113, 0.36);
+    background:
+        radial-gradient(circle at top right, rgba(248, 113, 113, 0.10), transparent 36%),
+        var(--surface-2);
+}
+
+.written-task.important > span {
+    background: rgba(248, 113, 113, 0.12);
+    border-color: rgba(248, 113, 113, 0.32);
+    color: #fecaca;
+}
+
+.points-box {
+    margin-top: 18px;
+}
+
+.points-box h3,
+.solved-example-box h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.solution-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.solution-steps article {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.solution-steps h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.result-box {
+    margin-top: 18px;
+    background: rgba(101, 212, 242, 0.09);
+    border: 1px solid var(--accent-border);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.result-box p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 700;
+}
+
+.physics-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.physics-image-grid figure {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 14px;
+}
+
+.physics-image-grid img {
+    width: 100%;
+    max-height: 540px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #050816;
+    border: 1px solid var(--border);
+}
+
+.physics-image-grid figcaption {
+    color: var(--muted);
+    font-weight: 800;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .exam-topic-list,
+    .solution-steps,
+    .physics-image-grid {
+        grid-template-columns: 1fr;
+    }
+}

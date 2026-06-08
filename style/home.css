@@ -1,0 +1,45 @@
+/*
+   Study Hub CSS module 05
+   Zdrojový blok: Predmety presunuté na samostatnú podstránku
+*/
+
+/* =========================================================
+   Predmety presunuté na samostatnú podstránku
+   ========================================================= */
+
+.subjects-preview-section {
+    padding: 60px 0 30px;
+}
+
+.subjects-preview-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.10), transparent 36%),
+        var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 30px;
+}
+
+.subjects-preview-box h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.subjects-preview-box p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 650;
+    max-width: 720px;
+}
+
+@media (max-width: 800px) {
+    .subjects-preview-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,129 @@
+/*
+   Study Hub CSS module 19
+   Zdrojový blok: PATCH – Footer na podstránkach, bez veľkých nápisov a jemné tvary na hlavnej
+*/
+
+/* =========================================================
+   PATCH – Footer na podstránkach, bez veľkých nápisov a jemné tvary na hlavnej
+   ========================================================= */
+
+/* Odstránenie veľkých dekoratívnych textov typu STUDY HUB / STUDY z podstránok */
+.page-subjects .subject-hero::before,
+.page-subjects .subject-hero::after,
+.page-subject-detail .subject-hero::before,
+.page-subject-detail .subject-hero::after,
+.page-flashcards .subject-hero::before,
+.page-flashcards .subject-hero::after,
+.page-results .subject-hero::before,
+.page-results .subject-hero::after,
+.page-roadmap .subject-hero::before,
+.page-roadmap .subject-hero::after,
+.page-support .subject-hero::before,
+.page-support .subject-hero::after,
+.page-admin .subject-hero::before,
+.page-admin .subject-hero::after,
+.home-clean-about-box::after,
+.about-box::after,
+.content-block::after {
+    content: none !important;
+}
+
+/* Ak niektoré stránky mali ambientné veľké texty, ostanú vypnuté */
+.page-subjects .page-ambient span,
+.page-subject-detail .page-ambient span,
+.page-flashcards .page-ambient span,
+.page-results .page-ambient span,
+.page-roadmap .page-ambient span,
+.page-support .page-ambient span,
+.page-admin .page-ambient span {
+    opacity: 0.22;
+}
+
+/* Hlavná stránka – jemné tvary ako vizuálny detail, ale bez veľkého nápisu STUDYHUB */
+.home-clean-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-clean-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-clean-shapes .home-shape {
+    position: absolute;
+    display: block;
+    border: 1px solid rgba(101, 212, 242, 0.16);
+    background: linear-gradient(135deg, rgba(101, 212, 242, 0.065), transparent);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.10);
+}
+
+.home-shape-one {
+    width: 180px;
+    height: 180px;
+    right: 11%;
+    top: 22%;
+    border-radius: 48px;
+    transform: rotate(18deg);
+    opacity: 0.62;
+}
+
+.home-shape-two {
+    width: 130px;
+    height: 130px;
+    left: 8%;
+    bottom: 17%;
+    border-radius: 999px;
+    opacity: 0.40;
+}
+
+.home-shape-three {
+    width: 260px;
+    height: 260px;
+    right: -110px;
+    bottom: -70px;
+    border-radius: 64px;
+    transform: rotate(-20deg);
+    opacity: 0.32;
+}
+
+/* Text na hlavnej stránke musí byť nad tvarmi */
+.home-clean-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Footer z hlavnej stránky použitý všade – lepšia čitateľnosť */
+.footer.home-footer-v4,
+.footer {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-v4-grid {
+    align-items: stretch;
+}
+
+.footer-warning p {
+    color: #cbd5e1 !important;
+    font-weight: 750;
+}
+
+body.theme-light .footer-warning p {
+    color: #334155 !important;
+}
+
+/* Svetlý režim – tvary na hlavnej jemnejšie */
+body.theme-light .home-clean-shapes .home-shape {
+    border-color: rgba(15, 23, 42, 0.12);
+    background: linear-gradient(135deg, rgba(101, 212, 242, 0.20), rgba(255,255,255,0.10));
+}
+
+@media (max-width: 700px) {
+    .home-clean-shapes .home-shape {
+        opacity: 0.22;
+    }
+}

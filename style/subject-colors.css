@@ -1,0 +1,165 @@
+/*
+   Study Hub CSS module 18
+   Zdrojový blok: PATCH – Hlavná stránka späť na čistejšie rozloženie bez tvarov
+*/
+
+/* =========================================================
+   PATCH – Hlavná stránka späť na čistejšie rozloženie bez tvarov
+   ========================================================= */
+
+/* Na hlavnej stránke vypnúť všetky dekoratívne tvary a ambientné prvky */
+.page-home .page-ambient,
+.page-home .home-shapes,
+.page-home .shape,
+.page-home .home-v4-panel {
+    display: none !important;
+}
+
+/* Vyčistiť staré dekoratívne nápisy/tvary na hlavnej stránke */
+.page-home .home-simple-about-box::after,
+.page-home .home-clean-about-box::after,
+.page-home .home-v4-about::after,
+.page-home .hero::after,
+.page-home .home-simple-hero::after,
+.page-home .home-v4-hero::after,
+.page-home .home-clean-hero::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Hlavná stránka – podobnejšie staršiemu rozloženiu, ktoré bolo čistejšie */
+.home-clean-main {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-clean-hero {
+    min-height: 610px;
+    display: flex;
+    align-items: center;
+    padding: 96px 0 74px;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(101, 212, 242, 0.09), transparent 34%),
+        linear-gradient(180deg, rgba(2, 6, 23, 0.02), rgba(2, 6, 23, 0.44));
+}
+
+.home-clean-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.home-clean-content .badge {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-clean-content h2 {
+    margin-top: 24px;
+    font-size: clamp(68px, 8.8vw, 124px);
+    line-height: .86;
+    letter-spacing: -6px;
+    text-align: center;
+    text-shadow: 0 22px 80px rgba(101, 212, 242, 0.08);
+}
+
+.home-clean-content h2 span {
+    color: var(--accent);
+}
+
+.home-clean-content .hero-text {
+    max-width: 680px;
+    margin: 30px auto 0;
+    color: #cbd5e1;
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 800;
+}
+
+.home-clean-content .hero-buttons {
+    justify-content: center;
+    margin-top: 32px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.home-secondary-btn {
+    background: rgba(101, 212, 242, 0.08);
+    border: 1px solid rgba(101, 212, 242, 0.25);
+    color: var(--accent);
+}
+
+/* Sekcia O projekte – späť na jednu peknú širokú kartu */
+.home-clean-about {
+    padding: 52px 0 78px;
+}
+
+.home-clean-about-box {
+    position: relative;
+    max-width: 1040px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 32px;
+    padding: 36px;
+    background:
+        radial-gradient(circle at 92% 18%, rgba(101, 212, 242, .11), transparent 32%),
+        linear-gradient(145deg, rgba(15, 23, 42, .92), rgba(2, 6, 23, .96));
+    border: 1px solid rgba(101, 212, 242, .18);
+    box-shadow: 0 24px 90px rgba(0, 0, 0, .24);
+}
+
+.home-clean-about-box h2 {
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+}
+
+.home-clean-about-box p {
+    color: #cbd5e1;
+    font-weight: 750;
+    line-height: 1.75;
+}
+
+/* Svetlý režim pre vrátené rozloženie */
+body.theme-light .home-clean-hero {
+    background:
+        radial-gradient(circle at 50% 30%, rgba(101, 212, 242, 0.24), transparent 34%),
+        linear-gradient(180deg, rgba(248, 251, 255, 0.10), rgba(224, 242, 254, 0.48));
+}
+
+body.theme-light .home-clean-content h2,
+body.theme-light .home-clean-about-box h2 {
+    color: #07111f;
+}
+
+body.theme-light .home-clean-content .hero-text,
+body.theme-light .home-clean-about-box p {
+    color: #334155;
+}
+
+body.theme-light .home-clean-about-box {
+    background:
+        radial-gradient(circle at 92% 18%, rgba(101, 212, 242, .20), transparent 32%),
+        rgba(255, 255, 255, .84);
+    border-color: rgba(15, 23, 42, .10);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, .10);
+}
+
+/* Responzívne */
+@media (max-width: 700px) {
+    .home-clean-hero {
+        min-height: 560px;
+        padding: 74px 0 54px;
+    }
+
+    .home-clean-content h2 {
+        letter-spacing: -3px;
+    }
+
+    .home-clean-about-box {
+        padding: 26px;
+        border-radius: 26px;
+    }
+}

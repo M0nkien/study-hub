@@ -1,0 +1,220 @@
+/*
+   Study Hub CSS module 03
+   Zdrojový blok: Úpravy: malé novinky, samostatná podpora, admin správy
+*/
+
+/* =========================================================
+   Úpravy: malé novinky, samostatná podpora, admin správy
+   ========================================================= */
+
+.latest-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.latest-mini-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top right, rgba(101, 212, 242, 0.09), transparent 38%),
+        var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    min-height: 150px;
+    transition: var(--transition);
+}
+
+.latest-mini-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+}
+
+.latest-mini-card span {
+    display: inline-block;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.latest-mini-card strong {
+    display: block;
+    font-size: 17px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.latest-mini-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+    font-weight: 650;
+}
+
+.support-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.support-form-card,
+.support-info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 30px;
+}
+
+.support-form-card h2,
+.support-info-card h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+}
+
+.support-tips {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.support-tips div {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.support-tips strong {
+    color: var(--accent);
+}
+
+.support-tips p {
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.6;
+}
+
+.support-status {
+    margin-top: 18px;
+    border-radius: 16px;
+    padding: 14px 16px;
+    font-weight: 800;
+}
+
+.support-status.success {
+    background: rgba(101, 212, 242, 0.10);
+    border: 1px solid var(--accent-border);
+    color: #d8f7ff;
+}
+
+.admin-card-wide {
+    grid-column: 1 / -1;
+}
+
+.admin-support-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+}
+
+.support-messages-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.support-empty {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+    color: var(--muted);
+}
+
+.support-admin-item {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+}
+
+.support-admin-item.resolved {
+    opacity: 0.66;
+}
+
+.support-admin-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.support-admin-top span,
+.support-admin-top em {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.support-admin-item h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.support-admin-item p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.support-admin-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.support-admin-meta strong {
+    color: var(--accent);
+}
+
+.support-admin-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+@media (max-width: 1100px) {
+    .latest-mini-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .support-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .latest-mini-grid {
+        grid-template-columns: 1fr;
+    }
+}
