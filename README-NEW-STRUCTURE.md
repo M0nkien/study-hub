@@ -205,3 +205,17 @@ Upravené:
 - starší JS status badge sa nepridá, ak karta už má statický status,
 - každá predmetová podstránka má stav a tagy zapísané priamo v HTML,
 - stavové tagy na podstránkach sú farebne odlíšené podľa stavu.
+
+
+## Oprava rozbitého vzhľadu po GitHub Pages
+
+Pridané:
+- `assets/css/studyhub-fix.css`,
+- `assets/js/studyhub-fix.js`,
+- odkazy na opravné súbory vo všetkých hlavných stránkach a predmetových stránkach,
+- cache-busting parameter `?v=20260608`,
+- oprava vyhľadávania predmetov aj v prípade, že starý main.js zlyhá.
+
+Dôvod:
+- po nahratí na GitHub Pages sa časť štýlov a JS správania nezobrazovala správne,
+- nový fix súbor sa načíta ako posledný a opraví layout.
