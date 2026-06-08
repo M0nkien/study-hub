@@ -3,21 +3,21 @@
         "id": "linux-final",
         "subject": "linux",
         "title": "Linux finálny kvíz",
-        "source": "assets/js/quiz-linux.js",
+        "source": "script/quiz-linux.js",
         "timeLimit": 35
     },
     {
         "id": "msd-repeat",
         "subject": "msd",
         "title": "MSD opakovací kvíz",
-        "source": "assets/js/quiz-msd.js",
+        "source": "script/quiz-msd.js",
         "timeLimit": 20
     },
     {
         "id": "ccna-ethernet-arp",
         "subject": "ccna",
         "title": "CCNA Ethernet, LLC, IPv6, ARP/ND",
-        "source": "assets/js/quiz-ccna.js",
+        "source": "script/quiz-ccna.js",
         "timeLimit": 30
     }
 ]

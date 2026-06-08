@@ -1,37 +1,67 @@
-# Study Hub
+# Study Hub v3.3
 
-**Study Hub** je neoficiálna študentská webová stránka vytvorená ako digitálna študovňa pre študentov.
+**Study Hub** je neoficiálna študentská digitálna študovňa vytvorená pre rýchle učenie, opakovanie a zdieľanie školských materiálov.
 
 Autor projektu: **MG**
 
-Stránka slúži na ukladanie a prehľadné zobrazovanie poznámok, príkladov, kvízov, kartičiek, vzorcov, školských postupov a materiálov z predmetov.
+Stránka je postavená ako statický frontend projekt pre **GitHub Pages**. Obsahuje predmety, poznámky, kvízy, flashcards, checklisty, výsledky, roadmapu, changelog, podporu a jednoduchý admin panel.
+
+---
+
+## Stav projektu
+
+```text
+Verzia: Study Hub v3.3
+Posledná aktualizácia: 06/2026
+Typ projektu: statický web
+Hosting: GitHub Pages
+Frontend: HTML, CSS, JavaScript
+Ukladanie dát používateľa: localStorage
+Dátové súbory: JSON
+Backend: zatiaľ nie je použitý
+```
 
 ---
 
 ## Čo stránka obsahuje
 
-Study Hub obsahuje:
-
 ```text
 - hlavnú stránku,
-- samostatnú stránku so všetkými predmetmi,
-- predmetové podstránky,
-- kvízy,
+- stránku všetkých predmetov,
+- samostatné predmetové podstránky,
 - flashcards kartičky,
+- kvízy,
 - výsledky kvízov,
 - roadmapu,
+- changelog,
 - podporu cez formulár,
 - admin sekciu,
-- progres učenia,
 - checklisty pred skúškou,
-- materiály a súbory k predmetom.
+- progres učenia,
+- súbory a materiály,
+- JSON dátové súbory.
+```
+
+---
+
+## Hlavné stránky
+
+```text
+index.html          hlavná stránka
+subjects.html       zoznam všetkých predmetov
+flashcards.html     kartičky na učenie
+results.html        výsledky kvízov
+roadmap.html        plán vývoja projektu
+changelog.html      história zmien
+support.html        podpora a formulár
+admin.html          admin panel
 ```
 
 ---
 
 ## Predmety
 
-Na stránke sú pripravené alebo rozpracované tieto predmety:
+Stránka aktuálne obsahuje tieto predmety:
 
 ```text
 Linux Essentials
@@ -39,7 +69,7 @@ MSD – Metódy spracovania dát
 Cisco / CCNA
 Fyzika
 Matematika
-VVS – Vývoj vstavaných systémov
+VVS / ESP32
 Java / Informatika
 3D tlač
 Algebra
@@ -47,209 +77,13 @@ Praktikum z programovania
 Úvod do štúdia
 ```
 
-Každý predmet má vlastnú podstránku.
-
----
-
-## Čo obsahuje predmetová stránka
-
-Predmetová stránka môže obsahovať:
+Každý predmet má vlastnú podstránku v priečinku:
 
 ```text
-- poznámky,
-- kompletnú teóriu,
-- štúdium,
-- checklist,
-- materiály,
-- súbory,
-- kvíz,
-- vzorce,
-- príklady,
-- zadania,
-- postupy,
-- príkazy,
-- labáky,
-- otázky na skúšku.
-```
-
-Každá predmetová stránka má:
-
-```text
-- vlastnú farbu,
-- stav predmetu,
-- tagy predmetu,
-- bočný panel s obsahom,
-- progres učenia,
-- tlačidlá na označenie častí ako naučené alebo urobené.
-```
-
----
-
-## Stavy predmetov
-
-Predmety môžu mať stav:
-
-```text
-Hotové
-Dopĺňa sa
-Rozpracované
-```
-
-Stavy sú farebne odlíšené.
-
----
-
-## Kvízy
-
-Kvízy slúžia na opakovanie pred skúškou alebo testom.
-
-Funkcie kvízov:
-
-```text
-- výber testu,
-- kontrola odpovede,
-- výsledok,
-- skóre,
-- uloženie výsledkov,
-- režim opakovania,
-- otázky podľa predmetu.
-```
-
----
-
-## Flashcards
-
-Flashcards sú kartičky na učenie pojmov.
-
-Použitie:
-
-```text
-1. Vyber predmet.
-2. Zobrazí sa otázka.
-3. Klikni na kartičku.
-4. Zobrazí sa odpoveď.
-5. Pokračuj ďalšou kartičkou.
-```
-
-Kartičky používajú farbu podľa predmetu.
-
-Príklady:
-
-```text
-Linux – modrá
-MSD – tyrkysová
-CCNA – modrá
-Fyzika – oranžová
-Matematika – fialová
-VVS – zelená
-Java – oranžová
-3D tlač – ružová
-Algebra – fialová
-Praktikum – žltá
-Úvod do štúdia – tyrkysová
-```
-
----
-
-## Roadmapa
-
-Roadmapa ukazuje plán vývoja stránky.
-
-Je rozdelená na:
-
-```text
-Hotové
-Pracuje sa
-Plánované
-Nápady
-Kontrola / nahlásené chyby
-```
-
-Roadmapa pomáha sledovať, čo je už spravené a čo sa bude ešte dopĺňať.
-
----
-
-## Podpora
-
-Stránka má samostatnú podstránku podpory.
-
-Používa sa na:
-
-```text
-- nahlásenie chyby,
-- návrh vylepšenia,
-- nahlásenie nefunkčného odkazu,
-- spätnú väzbu.
-```
-
----
-
-## Admin
-
-Admin časť slúži na správu alebo kontrolu nahlásených vecí.
-
-Admin má byť chránený heslom, aby sa zabránilo zneužitiu.
-
----
-
-## Štruktúra súborov
-
-Aktuálna štruktúra je rozdelená prehľadnejšie:
-
-```text
-style/
-script/
 subjects/
-data/
-files/
 ```
-
-### style/
-
-Obsahuje všetky CSS súbory.
-
-Hlavný CSS súbor:
-
-```text
-style/main.css
-```
-
-Ďalšie CSS súbory:
-
-```text
-style/base.css
-style/layout.css
-style/header.css
-style/home.css
-style/subjects.css
-style/subject-detail.css
-style/flashcards.css
-style/roadmap.css
-style/footer.css
-style/fix.css
-```
-
-### script/
-
-Obsahuje JavaScript súbory.
 
 Príklady:
-
-```text
-script/main.js
-script/flashcards.js
-script/fix.js
-script/progress.js
-script/checklist.js
-script/quiz-engine.js
-script/quiz-linux.js
-script/quiz-ccna.js
-script/quiz-msd.js
-```
-
-### subjects/
-
-Obsahuje predmetové podstránky:
 
 ```text
 subjects/linux.html
@@ -259,40 +93,307 @@ subjects/fyzika.html
 subjects/mat.html
 subjects/vvs.html
 subjects/java.html
-subjects/3d-tlac.html
-subjects/algebra.html
-subjects/praktikum.html
-subjects/uvod-do-studia.html
 ```
 
-### data/
+---
 
-Obsahuje dátové súbory:
+## Čo obsahuje predmetová stránka
+
+Predmetová stránka je navrhnutá ako študijný modul. Môže obsahovať:
 
 ```text
-data/subjects.json
-data/materials.json
-data/flashcards.json
-data/roadmap.json
+- úvodný nadpis,
+- stav predmetu,
+- tagy predmetu,
+- progres učenia,
+- bočný obsah predmetu,
+- poznámky,
+- kompletnú teóriu,
+- sekciu štúdium,
+- štruktúru predmetu,
+- plán doplnenia obsahu,
+- materiály,
+- kvíz,
+- súbory,
+- checklist pred skúškou.
 ```
 
-### files/
+---
 
-Obsahuje prípadné obrázky, PDF alebo súbory ku predmetom.
+## Stavy predmetov
+
+Predmety používajú stav:
+
+```text
+Hotové
+Dopĺňa sa
+Rozpracované
+```
+
+Stavy sú farebne odlíšené a zobrazujú sa pri predmetoch aj na predmetových stránkach.
+
+---
+
+## Flashcards
+
+Flashcards slúžia na rýchle opakovanie pojmov, príkazov, vzorcov a definícií.
+
+Aktuálne funkcie:
+
+```text
+- výber predmetu,
+- výber témy,
+- režim učenia,
+- režim skúšania,
+- režim iba nevedené,
+- náhodné poradie,
+- označenie Viem / Neviem,
+- história učenia,
+- export stavu kartičiek,
+- farba kartičky podľa predmetu.
+```
+
+Témy flashcards:
+
+```text
+Linux – príkazy, práva, procesy
+CCNA – subnetting, ARP, VLAN, DHCP
+Fyzika – vzorce, jednotky, odvodenia
+Matematika – DR, Laplace, rady
+Java – OOP, dedičnosť, výnimky
+MSD – Excel, Fourier, pravdepodobnosť
+VVS – ESP32, MicroPython, GPIO
+```
+
+---
+
+## Kvízy
+
+Kvízy slúžia na skúšanie pred testom alebo skúškou.
+
+Aktuálne sú pripravené hlavne pre:
+
+```text
+Linux
+MSD
+Cisco / CCNA
+```
+
+Odporúčané budúce režimy kvízu:
+
+```text
+Cvičný režim
+Skúškový režim
+Režim z nesprávnych otázok
+Rýchly test
+Test podľa témy
+Test podľa predmetu
+Test s časovačom
+Test bez okamžitej spätnej väzby
+```
+
+---
+
+## Checklisty
+
+Každý predmet môže mať vlastný checklist pred skúškou.
+
+Checklisty:
+
+```text
+- sú rozdelené podľa tém,
+- ukladajú sa do localStorage,
+- zobrazujú progres,
+- podporujú tlačidlo Označiť všetko,
+- podporujú reset.
+```
+
+Príklad pre CCNA:
+
+```text
+- subnetting,
+- VLSM,
+- VLAN,
+- trunk,
+- DHCP,
+- DNS,
+- routing,
+- SSH,
+- port-security,
+- postup keď nefunguje ping.
+```
+
+---
+
+## Roadmapa
+
+Roadmapa je spravená ako projektový plán.
+
+Sekcie:
+
+```text
+Hotové
+Pracuje sa
+Plánované
+Nápady
+Nahlásené chyby
+Odložené
+```
+
+Každá položka roadmapy má:
+
+```text
+Názov
+Popis
+Predmet
+Stav
+Priorita
+Dátum
+Typ
+```
+
+Typy položiek:
+
+```text
+obsah
+dizajn
+funkcia
+oprava
+admin
+backend
+```
+
+---
+
+## Changelog
+
+Stránka `changelog.html` slúži na prehľad histórie zmien.
+
+Obsahuje:
+
+```text
+- aktuálnu verziu,
+- dátum aktualizácie,
+- časovú os zmien,
+- čo bolo pridané,
+- čo bolo opravené,
+- čo sa plánuje.
+```
+
+---
+
+## Podpora
+
+Stránka `support.html` je určená na spätnú väzbu.
+
+Používateľ môže nahlásiť:
+
+```text
+- chybu v poznámkach,
+- nefunkčný odkaz,
+- zlú odpoveď v kvíze,
+- návrh na nový predmet,
+- návrh na vylepšenie.
+```
+
+---
+
+## Admin
+
+Admin panel je zatiaľ jednoduchý frontend admin.
+
+Dôležité upozornenie:
+
+```text
+Ak je admin heslo iba vo frontende, nie je to skutočne bezpečné riešenie.
+Na reálne zabezpečenie bude neskôr potrebný backend alebo služba ako Firebase/Supabase.
+```
+
+---
+
+## Štruktúra projektu
+
+```text
+Study Hub/
+├── index.html
+├── subjects.html
+├── flashcards.html
+├── results.html
+├── roadmap.html
+├── changelog.html
+├── support.html
+├── admin.html
+│
+├── subjects/
+│   ├── linux.html
+│   ├── msd.html
+│   ├── ccna.html
+│   ├── fyzika.html
+│   ├── mat.html
+│   ├── vvs.html
+│   ├── java.html
+│   ├── 3d-tlac.html
+│   ├── algebra.html
+│   ├── praktikum.html
+│   └── uvod-do-studia.html
+│
+├── style/
+│   ├── main.css
+│   ├── base.css
+│   ├── variables.css
+│   ├── layout.css
+│   ├── header.css
+│   ├── home.css
+│   ├── subjects.css
+│   ├── subject-detail.css
+│   ├── subject-pages.css
+│   ├── flashcards.css
+│   ├── checklist.css
+│   ├── quiz.css
+│   ├── roadmap.css
+│   ├── footer.css
+│   ├── responsive.css
+│   └── fix.css
+│
+├── script/
+│   ├── main.js
+│   ├── flashcards.js
+│   ├── checklist.js
+│   ├── progress.js
+│   ├── subject-search.js
+│   ├── filters.js
+│   ├── quiz-engine.js
+│   ├── quiz-linux.js
+│   ├── quiz-msd.js
+│   ├── quiz-ccna.js
+│   ├── results.js
+│   ├── admin.js
+│   └── ccna-tools.js
+│
+├── data/
+│   ├── subjects.json
+│   ├── materials.json
+│   ├── quizzes.json
+│   ├── flashcards.json
+│   ├── roadmap.json
+│   └── changelog.json
+│
+└── README.md
+```
 
 ---
 
 ## Lokálne spustenie
 
-Najjednoduchšie spustenie vo VS Code:
+Najjednoduchšie cez VS Code:
 
 ```text
 1. Otvor projekt vo VS Code.
-2. Použi Live Server.
+2. Spusti Live Server.
 3. Otvor index.html.
 ```
 
-Alebo cez Python server:
+Alternatíva cez Python:
 
 ```bash
 python -m http.server 5500
@@ -308,17 +409,7 @@ http://localhost:5500
 
 ## GitHub Pages
 
-Stránka je vhodná na GitHub Pages.
-
-Odporúčaný postup:
-
-```bash
-git add .
-git commit -m "Update Study Hub"
-git push
-```
-
-Na GitHub Pages skontroluj:
+Odporúčané nastavenie:
 
 ```text
 Settings
@@ -327,9 +418,124 @@ Branch: main
 Folder: /root
 ```
 
+Bežný upload:
+
+```bash
+git add .
+git commit -m "Update Study Hub"
+git push
+```
+
+Po nahratí odporúčam v prehliadači stlačiť:
+
+```text
+Ctrl + F5
+```
+
 ---
 
-## Dôležité upozornenie
+## Kontrola po nahratí
+
+Skontrolovať:
+
+```text
+1. index.html
+2. subjects.html
+3. flashcards.html
+4. roadmap.html
+5. changelog.html
+6. support.html
+7. admin.html
+8. predmetové stránky
+9. kvízy
+10. checklisty
+11. mobilné zobrazenie
+12. odkazy na PDF a súbory
+```
+
+---
+
+## Fázy ďalšieho vývoja
+
+### Fáza 1 – Stabilizácia
+
+```text
+- opraviť nefunkčné odkazy,
+- doplniť chýbajúce PDF a súbory,
+- odstrániť staré testovacie súbory,
+- zjednotiť CSS a JS verzie,
+- skontrolovať mobilné zobrazenie,
+- vyčistiť duplicitné navigačné odkazy.
+```
+
+### Fáza 2 – Obsah predmetov
+
+```text
+- doplniť Matematiku,
+- doplniť Fyziku,
+- doplniť CCNA,
+- doplniť MSD,
+- doplniť Linux,
+- doplniť VVS a Java projekty.
+```
+
+### Fáza 3 – Učenie a testovanie
+
+```text
+- vylepšiť kvízové režimy,
+- pridať skúškový režim s časovačom,
+- pridať test z nesprávnych otázok,
+- rozšíriť flashcards,
+- pridať históriu učenia,
+- pridať výsledkové grafy.
+```
+
+### Fáza 4 – Prehľad materiálov
+
+```text
+- pridať files.html,
+- pridať quizzes.html,
+- pridať search.html,
+- pridať globálne vyhľadávanie,
+- pridať filtrovanie materiálov podľa typu.
+```
+
+### Fáza 5 – Admin a backend
+
+```text
+- admin editor obsahu,
+- Firebase alebo Supabase,
+- databáza podpory,
+- prihlasovanie,
+- synchronizácia progresu medzi zariadeniami.
+```
+
+### Fáza 6 – Finálne vylepšenia
+
+```text
+- PWA offline režim,
+- print verzia poznámok,
+- SEO meta tagy,
+- lepšie ikonky predmetov,
+- analytics,
+- optimalizácia výkonu.
+```
+
+---
+
+## Známe veci na kontrolu
+
+```text
+- niektoré PDF odkazy smerujú na files/, ale súbory ešte nemusia byť nahraté,
+- admin panel je iba frontendovo chránený,
+- časť obsahu je stále rozpracovaná,
+- niektoré staršie pomocné súbory by sa mali presunúť do archive/ alebo odstrániť,
+- JSON dáta a HTML obsah ešte nie sú úplne prepojené do jedného dátového systému.
+```
+
+---
+
+## Upozornenie
 
 Táto stránka je neoficiálna študentská pomôcka.
 
@@ -338,224 +544,3 @@ Materiály slúžia iba na vzdelávacie účely.
 Autor nezodpovedá za prípadné chyby v poznámkach.
 
 Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-
----
-
-## Stav projektu
-
-Projekt sa priebežne dopĺňa.
-
-Aktuálna verzia:
-
-```text
-Study Hub v3.2
-```
-
-Posledné väčšie úpravy:
-
-```text
-- presun CSS do style/
-- presun JavaScriptu do script/
-- oprava predmetových pozadí,
-- farebné stavy predmetov,
-- prepracovaná roadmapa,
-- flashcards farbené podľa predmetu,
-- doplnený README.
-```
-
-
----
-
-## Checklisty pred skúškou
-
-Každý predmet má vlastný checklist, ktorý pomáha skontrolovať pripravenosť pred skúškou alebo testom.
-
-Checklist neslúži ako samostatná stránka na celú šírku, ale ako posledná obsahová sekcia v predmete.
-
-Príklady:
-
-```text
-Fyzika:
-- vektory,
-- kinematika,
-- Newtonove zákony,
-- práca a energia,
-- moment zotrvačnosti,
-- Steinerova veta,
-- kyvadlá,
-- laboratórne merania.
-
-CCNA:
-- subnetting,
-- VLSM,
-- VLAN,
-- trunk,
-- DHCP,
-- DNS,
-- routing,
-- SSH,
-- port-security.
-
-Matematika:
-- DR 1. rádu,
-- DR 2. rádu,
-- sústavy DR,
-- Laplaceova transformácia,
-- Fourierov rad,
-- číselné rady,
-- mocninové rady,
-- gradient.
-```
-
-
----
-
-## Odporúčané ďalšie vylepšenia
-
-### Čo uplatniť teraz
-
-```text
-1. Stabilizovať layout po presune CSS/JS do style/ a script/.
-2. Skontrolovať, že v HTML nie sú staré odkazy assets/css a assets/js.
-3. Zjednotiť checklisty vo všetkých predmetoch.
-4. Doplniť najdôležitejšie predmety: Matematika, Fyzika, CCNA, MSD, Linux.
-5. Skontrolovať kvízové odpovede.
-6. Doplniť viac kartičiek ku každému predmetu.
-7. Pridať stránku quizzes.html so všetkými kvízmi pokope.
-8. Pridať stránku files.html so všetkými materiálmi a PDF pokope.
-9. Pridať globálne vyhľadávanie cez celý web.
-10. Pridať print štýly pre poznámky.
-```
-
-### Čo nechať do budúcna
-
-```text
-1. Backend alebo databáza pre podporu a admin panel.
-2. Firebase alebo Supabase na ukladanie spätnej väzby.
-3. Prihlásenie používateľov.
-4. Zdieľané výsledky kvízov medzi zariadeniami.
-5. Analytics – sledovanie najpoužívanejších predmetov a kvízov.
-6. Automatické generovanie stránok predmetov z JSON dát.
-7. Lepší editor obsahu pre admina.
-8. Export poznámok do PDF.
-9. Print verzia každej predmetovej teórie.
-10. Offline režim ako PWA aplikácia.
-```
-
-
----
-
-## Návrhy ďalších úprav – krátky plán
-
-### Najbližšie úpravy
-
-```text
-1. Pridať stránku quizzes.html so všetkými kvízmi pokope.
-2. Pridať stránku files.html so všetkými materiálmi, PDF, ťahákmi a zadaniami.
-3. Pridať globálne vyhľadávanie cez celý web.
-4. Doplniť viac flashcards pre každý predmet.
-5. Skontrolovať správnosť kvízových odpovedí.
-6. Zjednotiť vzhľad všetkých checklistov.
-7. Doplniť print štýly pre poznámky.
-8. Pridať tlačidlo „Pokračovať tam, kde som skončil“ na viac miest.
-```
-
-### Väčšie úpravy do budúcna
-
-```text
-1. Backend pre podporu a admin panel.
-2. Databáza cez Firebase alebo Supabase.
-3. Prihlasovanie používateľov.
-4. Synchronizácia výsledkov medzi zariadeniami.
-5. Editor obsahu pre admina.
-6. Automatické generovanie predmetových stránok z JSON súborov.
-7. Export poznámok do PDF.
-8. Offline režim ako PWA aplikácia.
-9. Analytics pre sledovanie najpoužívanejších predmetov.
-10. Svetlý režim doladený pre všetky sekcie.
-```
-
----
-
-## Study Hub v3.3 – nové funkcie
-
-### Changelog
-
-Pridaná stránka:
-
-```text
-changelog.html
-```
-
-Obsahuje históriu zmien, aktuálnu verziu, poslednú aktualizáciu a plán ďalších úprav.
-
-### Hlavná stránka
-
-Hlavná stránka obsahuje:
-
-```text
-- tlačidlo Pokračovať tam, kde som skončil,
-- posledný otvorený predmet,
-- najnovšie pridané,
-- malé vysvetlenie čo je Study Hub,
-- rýchle odkazy,
-- mini dashboard,
-- verziu stránky,
-- dátum poslednej aktualizácie.
-```
-
-### Flashcards v3.3
-
-Flashcards teraz podporujú:
-
-```text
-- výber predmetu,
-- výber témy,
-- náhodné poradie,
-- režim učenia,
-- režim skúšania,
-- opakovanie iba nevedených kartičiek,
-- označenie Viem / Neviem,
-- počítadlo kartičiek,
-- históriu učenia,
-- export stavu kartičiek.
-```
-
-### Roadmapa ako projektový plán
-
-Roadmapa je rozdelená na:
-
-```text
-- Hotové,
-- Pracuje sa,
-- Plánované,
-- Nápady,
-- Nahlásené chyby,
-- Odložené.
-```
-
-Každá položka má:
-
-```text
-- názov,
-- popis,
-- predmet,
-- stav,
-- prioritu,
-- dátum,
-- typ.
-```
-
-### Predmetové stránky
-
-Do predmetových stránok bola pridaná sekcia:
-
-```text
-Štruktúra predmetu a plán doplnenia
-```
-
-Obsahuje plán, čo sa má v danom predmete doplniť.
-
-### Checklisty
-
-Checklisty sú rozdelené podľa tém a ukladajú sa do localStorage.

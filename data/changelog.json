@@ -1,5 +1,11 @@
 [
     {
+        "version": "v3.3",
+        "date": "06/2026",
+        "title": "Audit kódu, README a stabilizácia",
+        "description": "Doplnený README pre GitHub, správa z kontroly kódu, opravené duplicitné odkazy Zmeny a aktualizované cesty kvíz skriptov na priečinok script/."
+    },
+    {
         "version": "v1.6",
         "date": "06/2026",
         "title": "Uprataná štruktúra",

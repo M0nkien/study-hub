@@ -317,3 +317,33 @@ Upravené:
 - `script/main.js` nastaví odkaz podľa hodnoty `studyHubLastLocation` v localStorage,
 - ak nie je uložené posledné miesto, otvorí sa `subjects.html`,
 - rozloženie hlavnej stránky sa inak nemenilo.
+
+
+## Audit kódu a README v3.3
+
+Upravené:
+- `README.md` bol prepísaný na klasický GitHub README pre Study Hub v3.3,
+- pridaný `CODE-REVIEW-STUDYHUB.md` s auditom kódu a návrhmi ďalších úprav,
+- v `data/quizzes.json` boli opravené staré cesty `assets/js/` na `script/`,
+- v `data/changelog.json` bol pridaný záznam verzie v3.3,
+- v predmetových stránkach bol odstránený duplicitný odkaz `Zmeny`,
+- v `script/main.js` bola pridaná poistka proti duplicitným stavovým tagom na kartách predmetov.
+
+
+## Zarovnanie checklistu s predmetovým obsahom
+
+Opravené:
+- checklisty v predmetoch boli presunuté do `.subject-main`,
+- už sa nezobrazujú ako samostatná sekcia mimo predmetového layoutu,
+- šírka checklistu je rovnaká ako pri ostatných content-block sekciách,
+- CSS obsahuje poistku pre správne zarovnanie checklistu.
+
+
+## Zarovnanie horného panelu predmetu s obsahom
+
+Upravené:
+- pridaný `style/subject-alignment.css`,
+- horný panel tagov v hero časti predmetu sa zarovná s pravým hlavným obsahovým stĺpcom,
+- progress panel a ostatné sekcie ostávajú v rovnakom stĺpci,
+- layout používa CSS premenné `--subject-sidebar-width` a `--subject-layout-gap`,
+- na mobile sa layout vráti do jedného stĺpca.

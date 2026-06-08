@@ -91,3 +91,28 @@
         grid-template-columns: 1fr !important;
     }
 }
+
+
+
+/* =========================================================
+   PATCH – Checklist zarovnaný ako ostatné predmetové sekcie
+   ========================================================= */
+
+/* Checklist je vložený priamo do .subject-main.
+   Preto má mať rovnakú šírku ako ostatné content-block sekcie nad ním. */
+.page-subject-detail .subject-main > #checklist.checklist-section,
+.page-subject-detail .subject-main > section#checklist.content-block {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Poistka: ak by sa checklist v budúcnosti omylom dostal mimo .subject-main,
+   nebude sa rozťahovať cez celú obrazovku. */
+.page-subject-detail main > #checklist.checklist-section {
+    width: min(100% - 42px, 920px) !important;
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

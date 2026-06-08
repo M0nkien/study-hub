@@ -31,3 +31,5 @@
 @import url("./overrides.css?v=20260608-style-script"); /* PATCH – Iba jeden stavový tag na karte a statický stav na podstránkach */
 
 @import url("./checklist.css?v=20260608-checklist-final"); /* finálna oprava checklistu */
+
+@import url("./subject-alignment.css?v=20260608-align-panels"); /* zarovnanie predmetových panelov */

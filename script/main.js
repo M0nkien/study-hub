@@ -97,7 +97,7 @@ function addSubjectStatusBadges() {
         const subjectId = card.dataset.subjectId;
         const status = STUDY_HUB_SUBJECT_STATUS[subjectId];
 
-        if (!status || card.querySelector(".subject-status")) return;
+        if (!status || card.querySelector(".subject-status") || card.querySelector(".subject-state-ribbon") || card.classList.contains("subject-card-with-static-tags")) return;
 
         const statusEl = document.createElement("div");
         statusEl.className = "subject-status " + status.className;

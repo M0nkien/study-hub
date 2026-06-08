@@ -1153,3 +1153,119 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
+
+/* =========================================================
+   PATCH – Checklist zarovnaný ako ostatné predmetové sekcie
+   ========================================================= */
+
+/* Checklist je vložený priamo do .subject-main.
+   Preto má mať rovnakú šírku ako ostatné content-block sekcie nad ním. */
+.page-subject-detail .subject-main > #checklist.checklist-section,
+.page-subject-detail .subject-main > section#checklist.content-block {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Poistka: ak by sa checklist v budúcnosti omylom dostal mimo .subject-main,
+   nebude sa rozťahovať cez celú obrazovku. */
+.page-subject-detail main > #checklist.checklist-section {
+    width: min(100% - 42px, 920px) !important;
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+
+/* =========================================================
+   PATCH – Zarovnanie horného panelu predmetu s obsahom
+   ========================================================= */
+
+/*
+   Problém:
+   Horný panel s tagmi predmetu bol centrovaný podľa celej stránky,
+   ale progress/obsahové sekcie sú v pravom hlavnom stĺpci vedľa bočného menu.
+   Preto panel tagov začínal viac vľavo ako karta "Progres učenia predmetu".
+
+   Riešenie:
+   Na desktopovej šírke posunieme horný panel tagov do rovnakej osi ako
+   hlavný obsah predmetu. Na mobile ostáva všetko v jednom stĺpci.
+*/
+
+.page-subject-detail {
+    --subject-sidebar-width: 260px;
+    --subject-layout-gap: 28px;
+}
+
+/* Zjednotenie gridu predmetovej stránky */
+.page-subject-detail .subject-layout {
+    display: grid;
+    grid-template-columns: var(--subject-sidebar-width) minmax(0, 1fr);
+    gap: var(--subject-layout-gap);
+    align-items: start;
+}
+
+/* Hlavný obsah nech sa nerozťahuje mimo stĺpec */
+.page-subject-detail .subject-main {
+    min-width: 0;
+}
+
+.page-subject-detail .subject-main > .content-block,
+.page-subject-detail .subject-main > .progress-panel,
+.page-subject-detail .subject-main > section {
+    width: 100%;
+    max-width: 100%;
+}
+
+/*
+   Dôležitá časť:
+   horný panel tagov v hero časti má rovnakú ľavú hranu ako progress panel.
+*/
+@media (min-width: 981px) {
+    .page-subject-detail .subject-hero-content .subject-page-tags,
+    .page-subject-detail .subject-hero-content .subject-page-tags-static {
+        width: calc(100% - var(--subject-sidebar-width) - var(--subject-layout-gap)) !important;
+        max-width: calc(100% - var(--subject-sidebar-width) - var(--subject-layout-gap)) !important;
+        margin-left: calc(var(--subject-sidebar-width) + var(--subject-layout-gap)) !important;
+        margin-right: 0 !important;
+        transform: none !important;
+        left: auto !important;
+    }
+}
+
+/* Mobil a tablet: bočný panel ide nad obsah, všetko je na šírku kontajnera */
+@media (max-width: 980px) {
+    .page-subject-detail .subject-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .page-subject-detail .subject-hero-content .subject-page-tags,
+    .page-subject-detail .subject-hero-content .subject-page-tags-static {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        transform: none !important;
+        left: auto !important;
+    }
+}
+
+/* Progress panel a jeho vnútro nech ostávajú zarovno s ostatnými kartami */
+.page-subject-detail .progress-panel,
+.page-subject-detail .subject-progress,
+.page-subject-detail #progress {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.page-subject-detail .progress-panel .subject-meta-panel,
+.page-subject-detail .progress-panel .meta-grid,
+.page-subject-detail .progress-panel .progress-meta {
+    max-width: 100% !important;
+}
