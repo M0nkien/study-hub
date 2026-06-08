@@ -12,7 +12,19 @@
             "CLI",
             "príkazy",
             "skúška"
-        ]
+        ],
+        "purpose": "Príkazy, práva, procesy, shell a skúškové otázky.",
+        "statusTag": "hotové",
+        "statusDescription": "Obsah je pripravený na učenie.",
+        "detailTags": [
+            "CLI",
+            "shell",
+            "príkazy",
+            "chmod",
+            "procesy",
+            "skúška"
+        ],
+        "color": "#65d4f2"
     },
     {
         "id": "msd",
@@ -27,7 +39,19 @@
             "Excel",
             "výpočty",
             "zadania"
-        ]
+        ],
+        "purpose": "Výpočty v Exceli, grafy, zadania a pravdepodobnosť.",
+        "statusTag": "dopĺňa sa",
+        "statusDescription": "Pridávajú sa zadania a Excel postupy.",
+        "detailTags": [
+            "Excel",
+            "časové rady",
+            "Fourier",
+            "pravdepodobnosť",
+            "zadania",
+            "grafy"
+        ],
+        "color": "#22d3ee"
     },
     {
         "id": "ccna",
@@ -42,7 +66,19 @@
             "siete",
             "Packet Tracer",
             "kvíz"
-        ]
+        ],
+        "purpose": "Siete, konfigurácie, Packet Tracer, ARP, VLAN a VLSM.",
+        "statusTag": "dopĺňa sa",
+        "statusDescription": "Pribúdajú kvízy a konfigurácie.",
+        "detailTags": [
+            "Packet Tracer",
+            "ARP/ND",
+            "Ethernet",
+            "VLSM",
+            "VLAN",
+            "kvízy"
+        ],
+        "color": "#3b82f6"
     },
     {
         "id": "fyzika",
@@ -57,7 +93,19 @@
             "vzorce",
             "labáky",
             "skúška"
-        ]
+        ],
+        "purpose": "Vzorce, odvodenia, teória, labáky a vzorová písomka.",
+        "statusTag": "dopĺňa sa",
+        "statusDescription": "Pribúdajú odvodenia a príklady.",
+        "detailTags": [
+            "vzorce",
+            "odvodenia",
+            "okruhy skúška",
+            "vzorová písomka",
+            "labáky",
+            "príklady"
+        ],
+        "color": "#f59e0b"
     },
     {
         "id": "mat",
@@ -72,7 +120,19 @@
             "DR",
             "Laplace",
             "rady"
-        ]
+        ],
+        "purpose": "Diferenciálne rovnice, Laplace, rady, Fourier a gradient.",
+        "statusTag": "rozpracované",
+        "statusDescription": "Pripravujú sa skúškové príklady.",
+        "detailTags": [
+            "DR",
+            "Laplace",
+            "Fourierov rad",
+            "číselné rady",
+            "gradient",
+            "vzorce"
+        ],
+        "color": "#a78bfa"
     },
     {
         "id": "vvs",
@@ -87,7 +147,19 @@
             "ESP32",
             "MicroPython",
             "projekt"
-        ]
+        ],
+        "purpose": "ESP32, MicroPython, piny, kódy, web ovládanie a obhajoba.",
+        "statusTag": "rozpracované",
+        "statusDescription": "Pripravujú sa ESP32 materiály.",
+        "detailTags": [
+            "ESP32",
+            "MicroPython",
+            "GPIO",
+            "PWM",
+            "UART",
+            "obhajoba"
+        ],
+        "color": "#34d399"
     },
     {
         "id": "java",
@@ -102,7 +174,19 @@
             "OOP",
             "UML",
             "projekt"
-        ]
+        ],
+        "purpose": "OOP, UML, semestrálna práca a Java projekty.",
+        "statusTag": "rozpracované",
+        "statusDescription": "Pripravuje sa OOP a UML.",
+        "detailTags": [
+            "OOP",
+            "dedičnosť",
+            "polymorfizmus",
+            "UML",
+            "Javadoc",
+            "semestrálka"
+        ],
+        "color": "#fb923c"
     },
     {
         "id": "tlac3d",
@@ -117,7 +201,19 @@
             "3D tlač",
             "slicer",
             "projekt"
-        ]
+        ],
+        "purpose": "Modelovanie, slicer, technológie 3D tlače a projekt.",
+        "statusTag": "rozpracované",
+        "statusDescription": "Pripravuje sa slicer a projekt.",
+        "detailTags": [
+            "FDM/FFF",
+            "SLA",
+            "SLS",
+            "PrusaSlicer",
+            "PLA",
+            "projekt"
+        ],
+        "color": "#fb7185"
     },
     {
         "id": "algebra",
@@ -132,7 +228,19 @@
             "matice",
             "sústavy",
             "vektory"
-        ]
+        ],
+        "purpose": "Matice, determinanty, sústavy, vektory a vlastné čísla.",
+        "statusTag": "rozpracované",
+        "statusDescription": "Pripravujú sa matice a sústavy.",
+        "detailTags": [
+            "matice",
+            "determinanty",
+            "Gauss",
+            "sústavy",
+            "vlastné čísla",
+            "vektory"
+        ],
+        "color": "#c084fc"
     },
     {
         "id": "praktikum",
@@ -147,7 +255,19 @@
             "Java",
             "OOP",
             "ArrayList"
-        ]
+        ],
+        "purpose": "Java úlohy, ArrayList, triedy a testové zadania.",
+        "statusTag": "rozpracované",
+        "statusDescription": "Pripravujú sa Java úlohy.",
+        "detailTags": [
+            "Java",
+            "ArrayList",
+            "triedy",
+            "objekty",
+            "Internát",
+            "testové úlohy"
+        ],
+        "color": "#facc15"
     },
     {
         "id": "uvod",
@@ -162,6 +282,18 @@
             "projekt",
             "UML",
             "obhajoba"
-        ]
+        ],
+        "purpose": "Semestrálny projekt, UML, dokumentácia a prezentácia.",
+        "statusTag": "rozpracované",
+        "statusDescription": "Pripravuje sa projekt a UML.",
+        "detailTags": [
+            "Mazy Mouse",
+            "UML",
+            "dokumentácia",
+            "prezentácia",
+            "obhajoba",
+            "projekt"
+        ],
+        "color": "#2dd4bf"
     }
 ]

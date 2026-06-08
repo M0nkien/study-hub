@@ -94,5 +94,53 @@
         "status": "hotové",
         "priority": "vysoká",
         "updated": "06/2026"
+    },
+    {
+        "category": "nápady",
+        "title": "Predmetové SVG ikony",
+        "subject": "Dizajn",
+        "status": "nápad",
+        "priority": "stredná",
+        "updated": "06/2026"
+    },
+    {
+        "category": "nápady",
+        "title": "Print verzia poznámok",
+        "subject": "Dizajn",
+        "status": "nápad",
+        "priority": "stredná",
+        "updated": "06/2026"
+    },
+    {
+        "category": "pracuje sa",
+        "title": "Status tagy na predmetoch",
+        "subject": "Predmety",
+        "status": "pracuje sa",
+        "priority": "vysoká",
+        "updated": "06/2026"
+    },
+    {
+        "category": "nápady",
+        "title": "Unikátny vzhľad všetkých stránok",
+        "subject": "Dizajn",
+        "status": "pracuje sa",
+        "priority": "vysoká",
+        "updated": "06/2026"
+    },
+    {
+        "category": "nápady",
+        "title": "Predmetové farebné témy",
+        "subject": "Dizajn",
+        "status": "pracuje sa",
+        "priority": "stredná",
+        "updated": "06/2026"
+    },
+    {
+        "category": "nápady",
+        "title": "Ambientné pozadie stránky",
+        "subject": "Dizajn",
+        "status": "hotové",
+        "priority": "stredná",
+        "updated": "06/2026"
     }
 ]

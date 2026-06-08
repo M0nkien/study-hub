@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-subject-detail subject-theme-mat">
 
 <header class="header">
     <div class="container header-content">
@@ -39,6 +39,8 @@
     </div>
 </header>
 
+<div class="page-ambient subject-ambient ambient-mat"><span></span><span></span><span></span></div>
+
 <main>
     <section class="subject-hero">
         <div class="grid-bg"></div>
@@ -54,6 +56,21 @@
             </h2>
 
             <p>Diferenciálne rovnice, rady, Fourierov rad, funkcie dvoch premenných a vektorová analýza.</p>
+
+            <div class="subject-page-tags subject-page-tags-static subject-status-progress">
+                <div class="subject-page-tag-head">
+                    <span>Matematika</span>
+                    <strong>Rozpracované</strong>
+                </div>
+                <div class="subject-page-tag-list">
+                <span>DR</span>
+                <span>Laplace</span>
+                <span>Fourierov rad</span>
+                <span>číselné rady</span>
+                <span>gradient</span>
+                <span>vzorce</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -74,7 +91,6 @@
                 </aside>
 
                 <div class="subject-main">
-                    <div id="subjectSearchMount"></div>
                     <div class="learn-panel" data-progress-subject="mat">
     <h3>Progres učenia predmetu</h3>
     <p>Označ si časti, ktoré už máš prejdené. Progres sa uloží v prehliadači.</p>
@@ -317,60 +333,7 @@ u musí byť jednotkový vektor</code></pre>
     </div>
     <div class="learn-actions"><button class="learn-btn" data-subject="mat" data-key="study" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
-
-<section id="checklist" class="content-block checklist-section">
-    <p class="small-title">Checklist pred skúškou</p>
-    <h2>Čo by som mal vedieť</h2>
-    <p class="section-description">
-        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
-    </p>
-
-    <div class="checklist-progress">
-        <strong><span class="checklist-done" data-checklist-count="mat">0</span> / 8</strong>
-        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="mat"></div></div>
-    </div>
-
-    <div class="checklist-grid">
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="1">
-                <span>Viem rozoznať separovateľnú DR</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="2">
-                <span>Viem rozoznať lineárnu DR 1. rádu</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="3">
-                <span>Viem Bernoulliho rovnicu</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="4">
-                <span>Viem DR 2. rádu s konštantnými koeficientmi</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="5">
-                <span>Viem sústavy DR cez vlastné čísla a vektory</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="6">
-                <span>Viem Laplaceovu transformáciu</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="7">
-                <span>Viem rady a kritériá konvergencie</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="8">
-                <span>Viem mocninové rady a Fourierov rad</span>
-            </label>
-    </div>
-
-    <div class="learn-actions">
-        <button class="learn-btn" data-subject="mat" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
-    </div>
-</section>
-
-                    <section id="dr-recognizer" class="content-block">
+<section id="dr-recognizer" class="content-block">
     <p class="small-title">Rozpoznávač príkladov</p>
     <h2>Ako rozoznať typ diferenciálnej rovnice</h2>
 
@@ -453,27 +416,94 @@ y(0), y'(0)</code></pre></div>
             </div>
         </div>
     </section>
+                    <section id="checklist" class="content-block checklist-section">
+    <p class="small-title">Checklist pred skúškou</p>
+    <h2>Čo by som mal vedieť</h2>
+    <p class="section-description">
+        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
+    </p>
+
+    <div class="checklist-progress">
+        <strong><span class="checklist-done" data-checklist-count="mat">0</span> / 8</strong>
+        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="mat"></div></div>
+    </div>
+
+    <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="1">
+                <span>Viem rozoznať separovateľnú DR</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="2">
+                <span>Viem rozoznať lineárnu DR 1. rádu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="3">
+                <span>Viem Bernoulliho rovnicu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="4">
+                <span>Viem DR 2. rádu s konštantnými koeficientmi</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="5">
+                <span>Viem sústavy DR cez vlastné čísla a vektory</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="6">
+                <span>Viem Laplaceovu transformáciu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="7">
+                <span>Viem rady a kritériá konvergencie</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="mat" data-checklist-item="8">
+                <span>Viem mocninové rady a Fourierov rad</span>
+            </label>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="mat" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
 </main>
 
-<footer class="footer">
-    <div class="container footer-content">
-        <div>
-            <h3>STUDY HUB</h3>
-            <p>Digitálna študovňa pre študentov.</p>
+<footer class="footer home-footer-v4">
+    <div class="container footer-v4-grid">
+        <div class="footer-brand-block">
+            <div class="footer-logo-row">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h3>STUDY HUB</h3>
+                    <p>Digitálna študovňa pre študentov.</p>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <p>Vytvorené mnou</p>
-            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
+        <div class="footer-info-card">
+            <span>Autor projektu</span>
+            <strong>Vytvorené MG</strong>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
+        </div>
+
+        <div class="footer-links-card">
+            <span>Rýchle odkazy</span>
+            <a href="../subjects.html">Predmety</a>
+            <a href="../support.html">Podpora</a>
+            <a href="../roadmap.html">Roadmapa</a>
         </div>
     </div>
 
-    <p class="footer-note">
-        Táto stránka je neoficiálna študentská pomôcka.<br>
-        Materiály slúžia iba na vzdelávacie účely.<br>
-        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
-        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-    </p>
+    <div class="container footer-warning">
+        <p>
+            Táto stránka je neoficiálna študentská pomôcka.
+            Materiály slúžia iba na vzdelávacie účely.
+            Autor nezodpovedá za prípadné chyby v poznámkach.
+            Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+        </p>
+    </div>
 </footer>
 
 <script src="../assets/js/main.js"></script>

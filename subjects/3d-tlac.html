@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-subject-detail subject-theme-tlac3d">
 
 <header class="header">
     <div class="container header-content">
@@ -39,6 +39,8 @@
     </div>
 </header>
 
+<div class="page-ambient subject-ambient ambient-tlac3d"><span></span><span></span><span></span></div>
+
 <main>
     <section class="subject-hero">
         <div class="grid-bg"></div>
@@ -54,6 +56,21 @@
             </h2>
 
             <p>Aditívna výroba, technológie 3D tlače, slicer, PrusaSlicer, materiály a semestrálny projekt teleskopickej posuvnej tyče.</p>
+
+            <div class="subject-page-tags subject-page-tags-static subject-status-progress">
+                <div class="subject-page-tag-head">
+                    <span>3D tlač</span>
+                    <strong>Rozpracované</strong>
+                </div>
+                <div class="subject-page-tag-list">
+                <span>FDM/FFF</span>
+                <span>SLA</span>
+                <span>SLS</span>
+                <span>PrusaSlicer</span>
+                <span>PLA</span>
+                <span>projekt</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -70,7 +87,6 @@
                 </aside>
 
                 <div class="subject-main">
-                    <div id="subjectSearchMount"></div>
 
                     <div class="learn-panel" data-progress-subject="tlac3d">
                         <h3>Progres učenia predmetu</h3>
@@ -222,8 +238,10 @@ tlač: školské pracovisko / FRIDLAB / RB101</code></pre>
                             <button class="learn-btn" data-subject="tlac3d" data-key="materials" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
                         </div>
                     </section>
-
-
+</div>
+            </div>
+        </div>
+    </section>
                     <section id="checklist" class="content-block checklist-section">
                         <p class="small-title">Checklist pred skúškou</p>
                         <h2>Čo by som mal vedieť</h2>
@@ -276,31 +294,42 @@ tlač: školské pracovisko / FRIDLAB / RB101</code></pre>
                         </div>
                     </section>
 
+</main>
+
+<footer class="footer home-footer-v4">
+    <div class="container footer-v4-grid">
+        <div class="footer-brand-block">
+            <div class="footer-logo-row">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h3>STUDY HUB</h3>
+                    <p>Digitálna študovňa pre študentov.</p>
                 </div>
             </div>
         </div>
-    </section>
-</main>
 
-<footer class="footer">
-    <div class="container footer-content">
-        <div>
-            <h3>STUDY HUB</h3>
-            <p>Digitálna študovňa pre študentov.</p>
+        <div class="footer-info-card">
+            <span>Autor projektu</span>
+            <strong>Vytvorené MG</strong>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
         </div>
 
-        <div>
-            <p>Vytvorené mnou</p>
-            <p>Study Hub v3.0 • Posledná aktualizácia: 06/2026</p>
+        <div class="footer-links-card">
+            <span>Rýchle odkazy</span>
+            <a href="../subjects.html">Predmety</a>
+            <a href="../support.html">Podpora</a>
+            <a href="../roadmap.html">Roadmapa</a>
         </div>
     </div>
 
-    <p class="footer-note">
-        Táto stránka je neoficiálna študentská pomôcka.<br>
-        Materiály slúžia iba na vzdelávacie účely.<br>
-        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
-        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-    </p>
+    <div class="container footer-warning">
+        <p>
+            Táto stránka je neoficiálna študentská pomôcka.
+            Materiály slúžia iba na vzdelávacie účely.
+            Autor nezodpovedá za prípadné chyby v poznámkach.
+            Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+        </p>
+    </div>
 </footer>
 
 <script src="../assets/js/main.js"></script>

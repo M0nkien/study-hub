@@ -142,6 +142,506 @@ const FLASHCARD_DATA = {
     ]
 };
 
+const STUDY_HUB_EXTRA_FLASHCARDS = {
+    "linux": [
+        [
+            "Čo je terminál?",
+            "Program, cez ktorý zadávaš príkazy do shellu."
+        ],
+        [
+            "Čo je príkaz pwd?",
+            "Zobrazí aktuálny pracovný adresár."
+        ],
+        [
+            "Čo robí ls?",
+            "Vypíše obsah aktuálneho adresára."
+        ],
+        [
+            "Čo robí cd?",
+            "Zmení aktuálny adresár."
+        ],
+        [
+            "Čo znamená cd ..?",
+            "Presunie ťa o jeden adresár vyššie."
+        ],
+        [
+            "Čo robí mkdir?",
+            "Vytvorí nový adresár."
+        ],
+        [
+            "Čo robí touch?",
+            "Vytvorí prázdny súbor alebo aktualizuje čas zmeny."
+        ],
+        [
+            "Čo robí rm?",
+            "Vymaže súbor alebo adresár podľa použitých prepínačov."
+        ],
+        [
+            "Čo znamená > ?",
+            "Presmeruje výstup do súboru a prepíše jeho obsah."
+        ],
+        [
+            "Čo znamená >> ?",
+            "Pridá výstup na koniec súboru."
+        ]
+    ],
+    "ccna": [
+        [
+            "Čo je IP adresa?",
+            "Logická adresa zariadenia v sieti."
+        ],
+        [
+            "Čo je MAC adresa?",
+            "Fyzická adresa sieťovej karty na 2. vrstve OSI."
+        ],
+        [
+            "Čo je switch?",
+            "Zariadenie, ktoré prepája zariadenia v LAN podľa MAC adries."
+        ],
+        [
+            "Čo je router?",
+            "Zariadenie, ktoré prepája rôzne siete a smeruje pakety."
+        ],
+        [
+            "Čo je subnet mask?",
+            "Určuje, ktorá časť IP adresy je sieť a ktorá host."
+        ],
+        [
+            "Čo je default gateway?",
+            "Router, cez ktorý zariadenie komunikuje mimo svojej siete."
+        ],
+        [
+            "Čo je ping?",
+            "Príkaz na overenie dostupnosti zariadenia v sieti."
+        ],
+        [
+            "Čo je DNS?",
+            "Služba, ktorá prekladá názvy domén na IP adresy."
+        ],
+        [
+            "Čo je DHCP?",
+            "Služba, ktorá automaticky prideľuje IP adresy."
+        ],
+        [
+            "Čo je broadcast?",
+            "Správa poslaná všetkým zariadeniam v lokálnej sieti."
+        ]
+    ],
+    "fyzika": [
+        [
+            "Čo je fyzikálna veličina?",
+            "Merateľná vlastnosť telesa alebo deja, napríklad dráha, čas, sila."
+        ],
+        [
+            "Čo je jednotka?",
+            "Dohodnutá miera fyzikálnej veličiny, napríklad meter, sekunda, newton."
+        ],
+        [
+            "Čo je skalár?",
+            "Veličina, ktorá má iba veľkosť, napríklad čas alebo teplota."
+        ],
+        [
+            "Čo je vektor?",
+            "Veličina, ktorá má veľkosť aj smer, napríklad sila alebo rýchlosť."
+        ],
+        [
+            "Čo je dráha?",
+            "Dĺžka trajektórie, ktorú teleso prejde."
+        ],
+        [
+            "Čo je rýchlosť?",
+            "Zmena polohy alebo dráhy za čas."
+        ],
+        [
+            "Čo je zrýchlenie?",
+            "Zmena rýchlosti za čas."
+        ],
+        [
+            "Čo je sila?",
+            "Veličina, ktorá spôsobuje zmenu pohybu alebo deformáciu telesa."
+        ],
+        [
+            "Čo je práca?",
+            "Práca vzniká, keď sila pôsobí po dráhe."
+        ],
+        [
+            "Čo je energia?",
+            "Schopnosť telesa konať prácu."
+        ]
+    ],
+    "mat": [
+        [
+            "Čo je diferenciálna rovnica?",
+            "Rovnica, v ktorej vystupuje neznáma funkcia a jej derivácie."
+        ],
+        [
+            "Čo je všeobecné riešenie DR?",
+            "Riešenie s konštantami C1, C2 a podobne."
+        ],
+        [
+            "Čo je partikulárne riešenie?",
+            "Konkrétne riešenie po dosadení podmienok."
+        ],
+        [
+            "Čo znamená y'?",
+            "Prvá derivácia funkcie y podľa premennej x."
+        ],
+        [
+            "Čo znamená y''?",
+            "Druhá derivácia funkcie y podľa x."
+        ],
+        [
+            "Čo je homogénna DR?",
+            "Rovnica, kde je pravá strana nulová."
+        ],
+        [
+            "Čo je nehomogénna DR?",
+            "Rovnica, kde pravá strana nie je nulová."
+        ],
+        [
+            "Čo je rad?",
+            "Súčet nekonečne veľa členov postupnosti."
+        ],
+        [
+            "Čo je konvergencia radu?",
+            "Rad má konečný súčet."
+        ],
+        [
+            "Čo je divergencia radu?",
+            "Rad nemá konečný súčet."
+        ]
+    ],
+    "msd": [
+        [
+            "Čo znamená MSD?",
+            "Metódy spracovania dát."
+        ],
+        [
+            "Čo je dátová vzorka?",
+            "Súbor hodnôt, ktoré analyzujeme."
+        ],
+        [
+            "Čo je priemer?",
+            "Súčet hodnôt delený ich počtom."
+        ],
+        [
+            "Čo je medián?",
+            "Stredná hodnota zoradených dát."
+        ],
+        [
+            "Čo je modus?",
+            "Najčastejšie sa vyskytujúca hodnota."
+        ],
+        [
+            "Čo je rozptyl?",
+            "Miera rozptýlenia hodnôt okolo priemeru."
+        ],
+        [
+            "Čo je smerodajná odchýlka?",
+            "Odmocnina z rozptylu."
+        ],
+        [
+            "Čo je histogram?",
+            "Grafické zobrazenie rozdelenia početností."
+        ],
+        [
+            "Čo je regresia?",
+            "Hľadanie modelu, ktorý opisuje závislosť dát."
+        ],
+        [
+            "Čo je chyba odhadu?",
+            "Rozdiel medzi skutočnou a modelovou hodnotou."
+        ]
+    ],
+    "vvs": [
+        [
+            "Čo je mikrokontrolér?",
+            "Malý počítač na jednom čipe určený na riadenie zariadení."
+        ],
+        [
+            "Čo je pin?",
+            "Vývod mikrokontroléra, ktorý môže slúžiť ako vstup alebo výstup."
+        ],
+        [
+            "Čo je digitálny výstup?",
+            "Výstup s hodnotou 0 alebo 1."
+        ],
+        [
+            "Čo je digitálny vstup?",
+            "Vstup, ktorý číta stav 0 alebo 1."
+        ],
+        [
+            "Čo je pull-up?",
+            "Odporové pripojenie vstupu na logickú 1."
+        ],
+        [
+            "Čo je LED?",
+            "Dióda, ktorá svieti pri prechode prúdu."
+        ],
+        [
+            "Čo je buzzer?",
+            "Súčiastka, ktorá vydáva zvuk."
+        ],
+        [
+            "Čo je senzor?",
+            "Súčiastka, ktorá meria fyzikálnu veličinu."
+        ],
+        [
+            "Čo je web server na ESP32?",
+            "Program, ktorý poskytuje web stránku na ovládanie zariadenia."
+        ],
+        [
+            "Čo je obhajoba projektu?",
+            "Vysvetlenie cieľa, zapojenia, kódu a výsledku projektu."
+        ]
+    ],
+    "java": [
+        [
+            "Čo je Java?",
+            "Objektovo orientovaný programovací jazyk."
+        ],
+        [
+            "Čo je premenná?",
+            "Miesto v pamäti, kde je uložená hodnota."
+        ],
+        [
+            "Čo je dátový typ?",
+            "Určuje, aký druh hodnoty premenná obsahuje."
+        ],
+        [
+            "Čo je int?",
+            "Dátový typ pre celé čísla."
+        ],
+        [
+            "Čo je String?",
+            "Dátový typ pre text."
+        ],
+        [
+            "Čo je boolean?",
+            "Dátový typ s hodnotou true alebo false."
+        ],
+        [
+            "Čo je if?",
+            "Podmienka, ktorá rozhoduje, čo sa vykoná."
+        ],
+        [
+            "Čo je for cyklus?",
+            "Cyklus, ktorý sa opakuje podľa podmienky alebo počítadla."
+        ],
+        [
+            "Čo je metóda?",
+            "Blok kódu, ktorý vykonáva určitú úlohu."
+        ],
+        [
+            "Čo je private?",
+            "Prístupový modifikátor, ktorý skryje člen triedy pred okolím."
+        ]
+    ],
+    "tlac3d": [
+        [
+            "Čo je 3D model?",
+            "Digitálny objekt pripravený v modelovacom programe."
+        ],
+        [
+            "Čo je STL?",
+            "Bežný formát súboru pre 3D tlač."
+        ],
+        [
+            "Čo je G-code?",
+            "Súbor príkazov pre 3D tlačiareň."
+        ],
+        [
+            "Čo je filament?",
+            "Materiál vo forme struny používaný pri FDM tlači."
+        ],
+        [
+            "Čo je tryska?",
+            "Časť tlačiarne, cez ktorú vychádza roztavený materiál."
+        ],
+        [
+            "Čo je podložka tlačiarne?",
+            "Plocha, na ktorú sa tlačí model."
+        ],
+        [
+            "Čo je výplň modelu?",
+            "Vnútorná štruktúra modelu."
+        ],
+        [
+            "Čo je orientácia modelu?",
+            "Nastavenie polohy modelu na podložke."
+        ],
+        [
+            "Čo je podpora?",
+            "Dočasný materiál pod prevismi."
+        ],
+        [
+            "Čo je prototyp?",
+            "Skúšobný model výrobku."
+        ]
+    ],
+    "algebra": [
+        [
+            "Čo je algebra?",
+            "Časť matematiky pracujúca so symbolmi, rovnicami, maticami a štruktúrami."
+        ],
+        [
+            "Čo je rovnica?",
+            "Zápis rovnosti s neznámou."
+        ],
+        [
+            "Čo je neznáma?",
+            "Hodnota, ktorú treba vypočítať."
+        ],
+        [
+            "Čo je sústava rovníc?",
+            "Viac rovníc riešených naraz."
+        ],
+        [
+            "Čo je riadok matice?",
+            "Vodorovná časť matice."
+        ],
+        [
+            "Čo je stĺpec matice?",
+            "Zvislá časť matice."
+        ],
+        [
+            "Čo je nulová matica?",
+            "Matica, ktorej všetky prvky sú nuly."
+        ],
+        [
+            "Čo je jednotková matica?",
+            "Matica s jednotkami na hlavnej diagonále."
+        ],
+        [
+            "Čo je hodnosť matice?",
+            "Počet lineárne nezávislých riadkov alebo stĺpcov."
+        ],
+        [
+            "Čo je báza?",
+            "Množina lineárne nezávislých vektorov, ktorá generuje priestor."
+        ]
+    ],
+    "praktikum": [
+        [
+            "Čo je algoritmus?",
+            "Presný postup riešenia problému."
+        ],
+        [
+            "Čo je syntax?",
+            "Pravidlá zápisu programu."
+        ],
+        [
+            "Čo je chyba kompilácie?",
+            "Chyba, kvôli ktorej sa program nepreloží."
+        ],
+        [
+            "Čo je logická chyba?",
+            "Program beží, ale dáva zlý výsledok."
+        ],
+        [
+            "Čo je Main?",
+            "Trieda alebo metóda, odkiaľ sa program spúšťa."
+        ],
+        [
+            "Čo je parameter metódy?",
+            "Hodnota odovzdaná metóde pri volaní."
+        ],
+        [
+            "Čo je návratová hodnota?",
+            "Hodnota, ktorú metóda vráti."
+        ],
+        [
+            "Čo je void?",
+            "Metóda nič nevracia."
+        ],
+        [
+            "Čo je getter?",
+            "Metóda, ktorá vráti hodnotu atribútu."
+        ],
+        [
+            "Čo je setter?",
+            "Metóda, ktorá nastaví hodnotu atribútu."
+        ]
+    ],
+    "uvod": [
+        [
+            "Čo je štúdium na VŠ?",
+            "Samostatnejšie učenie, práca s materiálmi a plnenie zadaní."
+        ],
+        [
+            "Čo je Moodle?",
+            "Školský systém na materiály, zadania a testy."
+        ],
+        [
+            "Čo je AIS/e-vzdelávanie?",
+            "Systém na predmety, hodnotenia a administratívu štúdia."
+        ],
+        [
+            "Čo je semestrálna práca?",
+            "Väčšia práca alebo projekt odovzdávaný počas semestra."
+        ],
+        [
+            "Čo je zadanie projektu?",
+            "Popis toho, čo treba vytvoriť alebo spracovať."
+        ],
+        [
+            "Čo je dokumentácia?",
+            "Textový popis riešenia, návrhu a postupu."
+        ],
+        [
+            "Čo je prezentácia?",
+            "Stručné predstavenie práce pred vyučujúcim alebo skupinou."
+        ],
+        [
+            "Čo je obhajoba?",
+            "Vysvetlenie a obhájenie vlastnej práce."
+        ],
+        [
+            "Čo je časový plán?",
+            "Rozpis práce podľa termínov."
+        ],
+        [
+            "Čo je spätná väzba?",
+            "Komentár alebo odporúčanie na zlepšenie práce."
+        ]
+    ]
+};
+
+Object.keys(STUDY_HUB_EXTRA_FLASHCARDS).forEach(subject => {
+    if (!FLASHCARD_DATA[subject]) {
+        FLASHCARD_DATA[subject] = [];
+    }
+
+    STUDY_HUB_EXTRA_FLASHCARDS[subject].forEach(card => {
+        const exists = FLASHCARD_DATA[subject].some(existing => existing[0] === card[0]);
+        if (!exists) {
+            FLASHCARD_DATA[subject].push(card);
+        }
+    });
+});
+
+
+
+const FLASHCARD_SUBJECT_COLORS = {
+    linux: "#65d4f2",
+    msd: "#22d3ee",
+    ccna: "#3b82f6",
+    fyzika: "#f59e0b",
+    mat: "#a78bfa",
+    vvs: "#34d399",
+    java: "#fb923c",
+    tlac3d: "#fb7185",
+    algebra: "#c084fc",
+    praktikum: "#facc15",
+    uvod: "#2dd4bf"
+};
+
+function applyFlashcardSubjectTheme(subject) {
+    const color = FLASHCARD_SUBJECT_COLORS[subject] || "#65d4f2";
+    document.documentElement.style.setProperty("--flashcard-accent", color);
+    document.body.setAttribute("data-flashcard-subject", subject);
+}
+
 let currentSubject = "linux";
 let currentCards = [];
 let currentIndex = 0;
@@ -173,6 +673,7 @@ function renderFlashcard() {
 
 function loadSubject(subject) {
     currentSubject = subject;
+    applyFlashcardSubjectTheme(subject);
     currentCards = [...FLASHCARD_DATA[subject]];
     currentIndex = 0;
     renderFlashcard();

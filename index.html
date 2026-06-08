@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-home">
 
 <header class="header">
     <div class="container header-content">
@@ -30,18 +30,19 @@
         <nav class="nav">
             <a href="index.html">Domov</a>
             <a href="subjects.html">Predmety</a>
-            <a href="support.html">Podpora</a>
             <a href="admin.html">Admin</a>
         </nav>
     </div>
 </header>
+<main class="home-clean-main">
+    <section id="home" class="hero home-clean-hero">
+        <div class="home-clean-shapes" aria-hidden="true">
+            <span class="home-shape home-shape-one"></span>
+            <span class="home-shape home-shape-two"></span>
+            <span class="home-shape home-shape-three"></span>
+        </div>
 
-<main class="home-simple-main">
-
-    <section id="home" class="hero home-simple-hero">
-        <div class="grid-bg"></div>
-
-        <div class="container hero-content home-simple-hero-content">
+        <div class="container home-clean-content">
             <span class="badge">● Študentská platforma na učenie</span>
 
             <h2>
@@ -55,48 +56,63 @@
 
             <div class="hero-buttons">
                 <a href="subjects.html" class="btn primary">Začať študovať</a>
+                <a href="support.html" class="btn secondary home-secondary-btn">Nahlásiť chybu</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about-section home-simple-about-section">
-        <div class="container about-box home-simple-about-box">
-            <p class="small-title">O projekte</p>
-            <h2>Prečo vznikol tento web?</h2>
-
-            <p>
-                Study Hub je neoficiálna študentská stránka, kde sú uložené poznámky,
-                príklady, návody, testové otázky a školské postupy z rôznych predmetov.
-            </p>
-
-            <p>
-                Cieľom je pomôcť študentom rýchlejšie pochopiť učivo
-                a pripraviť sa na testy, skúšky a semestrálne práce.
-            </p>
+    <section id="about" class="home-clean-about">
+        <div class="container">
+            <article class="home-clean-about-box">
+                <p class="small-title">O projekte</p>
+                <h2>Prečo vznikol tento web?</h2>
+                <p>
+                    Study Hub je neoficiálna študentská stránka, kde sú uložené poznámky,
+                    príklady, návody, testové otázky a školské postupy z rôznych predmetov.
+                </p>
+                <p>
+                    Cieľom je pomôcť študentom rýchlejšie pochopiť učivo a pripraviť sa
+                    na testy, skúšky a semestrálne práce.
+                </p>
+            </article>
         </div>
     </section>
-
 </main>
 
-<footer class="footer">
-    <div class="container footer-content">
-        <div>
-            <h3>STUDY HUB</h3>
-            <p>Digitálna študovňa pre študentov.</p>
+<footer class="footer home-footer-v4">
+    <div class="container footer-v4-grid">
+        <div class="footer-brand-block">
+            <div class="footer-logo-row">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h3>STUDY HUB</h3>
+                    <p>Digitálna študovňa pre študentov.</p>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <p>Vytvorené mnou</p>
-            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
+        <div class="footer-info-card">
+            <span>Autor projektu</span>
+            <strong>Vytvorené MG</strong>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
+        </div>
+
+        <div class="footer-links-card">
+            <span>Rýchle odkazy</span>
+            <a href="subjects.html">Predmety</a>
+            <a href="support.html">Podpora</a>
+            <a href="roadmap.html">Roadmapa</a>
         </div>
     </div>
 
-    <p class="footer-note">
-        Táto stránka je neoficiálna študentská pomôcka.<br>
-        Materiály slúžia iba na vzdelávacie účely.<br>
-        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
-        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-    </p>
+    <div class="container footer-warning">
+        <p>
+            Táto stránka je neoficiálna študentská pomôcka.
+            Materiály slúžia iba na vzdelávacie účely.
+            Autor nezodpovedá za prípadné chyby v poznámkach.
+            Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+        </p>
+    </div>
 </footer>
 
 <script src="assets/js/main.js"></script>

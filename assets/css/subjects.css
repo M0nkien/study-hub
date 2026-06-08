@@ -6,3 +6,17 @@
    - checklisty
    - materiály predmetov
 */
+
+
+/* Study Hub v3 – predmetové stránky detail */
+.page-subject-detail .topic-grid,
+.page-subject-detail .deep-note-grid,
+.page-subject-detail .exam-topic-list {
+    gap: 20px;
+}
+
+.page-subject-detail .topic-card,
+.page-subject-detail .deep-note-card,
+.page-subject-detail .exam-topic-card {
+    border-radius: 24px;
+}

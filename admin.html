@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body class="admin-page">
+<body class="admin-page page-admin">
 
 <header class="header">
     <div class="container header-content">
@@ -31,7 +31,6 @@
             <a href="index.html">Domov</a>
             <a href="subjects.html">Predmety</a>
             <a href="support.html">Podpora</a>
-            <a href="admin.html">Admin</a>
         </nav>
     </div>
 </header>
@@ -51,6 +50,8 @@
         <p class="admin-login-note">Predvolené heslo zmeníš v súbore <strong>admin.js</strong>.</p>
     </div>
 </section>
+
+<div class="page-ambient admin-ambient"><span></span><span></span><span></span></div>
 
 <main id="adminContent" class="hidden">
     <section class="subject-hero">
@@ -134,25 +135,40 @@ Nesprávna odpoveď"></textarea>
     </section>
 </main>
 
-<footer class="footer">
-    <div class="container footer-content">
-        <div>
-            <h3>STUDY HUB</h3>
-            <p>Digitálna študovňa pre študentov.</p>
+<footer class="footer home-footer-v4">
+    <div class="container footer-v4-grid">
+        <div class="footer-brand-block">
+            <div class="footer-logo-row">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h3>STUDY HUB</h3>
+                    <p>Digitálna študovňa pre študentov.</p>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <p>Vytvorené mnou</p>
-            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
+        <div class="footer-info-card">
+            <span>Autor projektu</span>
+            <strong>Vytvorené MG</strong>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
+        </div>
+
+        <div class="footer-links-card">
+            <span>Rýchle odkazy</span>
+            <a href="subjects.html">Predmety</a>
+            <a href="support.html">Podpora</a>
+            <a href="roadmap.html">Roadmapa</a>
         </div>
     </div>
 
-    <p class="footer-note">
-        Táto stránka je neoficiálna študentská pomôcka.<br>
-        Materiály slúžia iba na vzdelávacie účely.<br>
-        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
-        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-    </p>
+    <div class="container footer-warning">
+        <p>
+            Táto stránka je neoficiálna študentská pomôcka.
+            Materiály slúžia iba na vzdelávacie účely.
+            Autor nezodpovedá za prípadné chyby v poznámkach.
+            Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+        </p>
+    </div>
 </footer>
 
 <script src="assets/js/main.js"></script>

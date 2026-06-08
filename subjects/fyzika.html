@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-subject-detail subject-theme-fyzika">
 
 <header class="header">
     <div class="container header-content">
@@ -39,6 +39,8 @@
     </div>
 </header>
 
+<div class="page-ambient subject-ambient ambient-fyzika"><span></span><span></span><span></span></div>
+
 <main>
     <section class="subject-hero">
         <div class="grid-bg"></div>
@@ -58,6 +60,21 @@
                 práca a energia, hybnosť, rotačný pohyb, moment zotrvačnosti,
                 Steinerova veta, matematické a fyzikálne kyvadlo a laboratórne merania.
             </p>
+
+            <div class="subject-page-tags subject-page-tags-static subject-status-updating">
+                <div class="subject-page-tag-head">
+                    <span>Fyzika</span>
+                    <strong>Dopĺňa sa</strong>
+                </div>
+                <div class="subject-page-tag-list">
+                <span>vzorce</span>
+                <span>odvodenia</span>
+                <span>okruhy skúška</span>
+                <span>vzorová písomka</span>
+                <span>labáky</span>
+                <span>príklady</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -87,7 +104,6 @@
                 </aside>
 
                 <div class="subject-main">
-                    <div id="subjectSearchMount"></div>
 
                     <div class="learn-panel" data-progress-subject="fyzika">
                         <h3>Progres učenia predmetu</h3>
@@ -934,64 +950,7 @@ V = (hodnota ± chyba) jednotka</code></pre>
                             <button class="learn-btn" data-subject="fyzika" data-key="labs" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
                         </div>
                     </section>
-
-                    <section id="checklist" class="content-block checklist-section">
-    <p class="small-title">Checklist pred skúškou</p>
-    <h2>Čo by som mal vedieť</h2>
-    <p class="section-description">
-        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
-    </p>
-
-    <div class="checklist-progress">
-        <strong><span class="checklist-done" data-checklist-count="fyzika">0</span> / 9</strong>
-        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="fyzika"></div></div>
-    </div>
-
-    <div class="checklist-grid">
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="1">
-                <span>Viem vektory a operácie s vektormi</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="2">
-                <span>Viem kinematiku hmotného bodu</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="3">
-                <span>Viem Newtonove zákony</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="4">
-                <span>Viem prácu, energiu a výkon</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="5">
-                <span>Viem hybnosť a impulz sily</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="6">
-                <span>Viem moment zotrvačnosti</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="7">
-                <span>Viem Steinerovu vetu</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="8">
-                <span>Viem matematické a fyzikálne kyvadlo</span>
-            </label>
-            <label class="checklist-item">
-                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="9">
-                <span>Viem laboratórne merania a jednotky</span>
-            </label>
-    </div>
-
-    <div class="learn-actions">
-        <button class="learn-btn" data-subject="fyzika" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
-    </div>
-</section>
-
-                    <section id="materials" class="content-block">
+<section id="materials" class="content-block">
                         <p class="small-title">Materiály</p>
                         <h2>Materiály podľa typu</h2>
 
@@ -1052,31 +1011,102 @@ V = (hodnota ± chyba) jednotka</code></pre>
                         </div>
                     </section>
 
+                    <section id="checklist" class="content-block checklist-section">
+    <p class="small-title">Checklist pred skúškou</p>
+    <h2>Čo by som mal vedieť</h2>
+    <p class="section-description">
+        Tento checklist sa ukladá v tvojom prehliadači. Použi ho ako poslednú kontrolu pred testom alebo skúškou.
+    </p>
+
+    <div class="checklist-progress">
+        <strong><span class="checklist-done" data-checklist-count="fyzika">0</span> / 9</strong>
+        <div class="progress-bar"><div class="progress-fill" data-checklist-fill="fyzika"></div></div>
+    </div>
+
+    <div class="checklist-grid">
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="1">
+                <span>Viem vektory a operácie s vektormi</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="2">
+                <span>Viem kinematiku hmotného bodu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="3">
+                <span>Viem Newtonove zákony</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="4">
+                <span>Viem prácu, energiu a výkon</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="5">
+                <span>Viem hybnosť a impulz sily</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="6">
+                <span>Viem moment zotrvačnosti</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="7">
+                <span>Viem Steinerovu vetu</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="8">
+                <span>Viem matematické a fyzikálne kyvadlo</span>
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox" data-checklist-subject="fyzika" data-checklist-item="9">
+                <span>Viem laboratórne merania a jednotky</span>
+            </label>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="checklist" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
+    </div>
+</section>
+
                 </div>
             </div>
         </div>
     </section>
 </main>
 
-<footer class="footer">
-    <div class="container footer-content">
-        <div>
-            <h3>STUDY HUB</h3>
-            <p>Digitálna študovňa pre študentov.</p>
+<footer class="footer home-footer-v4">
+    <div class="container footer-v4-grid">
+        <div class="footer-brand-block">
+            <div class="footer-logo-row">
+                <div class="logo-icon">SH</div>
+                <div>
+                    <h3>STUDY HUB</h3>
+                    <p>Digitálna študovňa pre študentov.</p>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <p>Vytvorené mnou</p>
-            <p>Study Hub v1.5 • Posledná aktualizácia: 06/2026</p>
+        <div class="footer-info-card">
+            <span>Autor projektu</span>
+            <strong>Vytvorené MG</strong>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
+        </div>
+
+        <div class="footer-links-card">
+            <span>Rýchle odkazy</span>
+            <a href="../subjects.html">Predmety</a>
+            <a href="../support.html">Podpora</a>
+            <a href="../roadmap.html">Roadmapa</a>
         </div>
     </div>
 
-    <p class="footer-note">
-        Táto stránka je neoficiálna študentská pomôcka.<br>
-        Materiály slúžia iba na vzdelávacie účely.<br>
-        Autor nezodpovedá za prípadné chyby v poznámkach.<br>
-        Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-    </p>
+    <div class="container footer-warning">
+        <p>
+            Táto stránka je neoficiálna študentská pomôcka.
+            Materiály slúžia iba na vzdelávacie účely.
+            Autor nezodpovedá za prípadné chyby v poznámkach.
+            Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+        </p>
+    </div>
 </footer>
 
 <script src="../assets/js/main.js"></script>
