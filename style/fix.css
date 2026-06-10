@@ -1595,3 +1595,46 @@
 .exam-focus-box h3 {
     margin: 0 0 14px;
 }
+
+
+
+/* Linux – rozšírená teória a cvičenie príkazov */
+.command-training-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.command-task {
+    border-radius: 16px;
+    background: rgba(2, 6, 23, 0.65);
+    border: 1px solid rgba(101, 212, 242, 0.16);
+    padding: 14px 16px;
+}
+
+.command-task summary {
+    cursor: pointer;
+    color: #65d4f2;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+.command-task summary code {
+    color: #65d4f2;
+    font-size: 15px;
+}
+
+.command-task p,
+.command-task li {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-weight: 750;
+}
+
+.command-task pre {
+    margin-top: 12px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    padding: 12px;
+    overflow-x: auto;
+}

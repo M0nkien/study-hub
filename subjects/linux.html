@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../style/quiz.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="../style/responsive.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="../style/fix.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="../style/linux-extra.css?v=20260610-linux-theory">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="page-subject-detail subject-theme-linux">
@@ -65,11 +66,10 @@
                     <strong>Hotové</strong>
                 </div>
                 <div class="subject-page-tag-list">
-                <span>CLI</span>
-                <span>shell</span>
+                <span>teória</span>
                 <span>príkazy</span>
-                <span>chmod</span>
-                <span>procesy</span>
+                <span>príkaz ?</span>
+                <span>kvíz</span>
                 <span>skúška</span>
                 </div>
             </div>
@@ -82,15 +82,13 @@
 
                 <aside class="subject-sidebar">
                     <h3>Obsah predmetu</h3>
-                    <a href="#notes">Poznámky</a>
-<a href="#linux-deep-theory">Teória</a>
-                    <a href="#study">Štúdium</a>
-                    <a href="#subject-structure">Štruktúra</a>
-<a href="#checklist">Checklist</a>
-                    <a href="#command-practice">Tréning príkazov</a>
-                    <a href="#materials">Materiály</a>
-<a href="#questions">Kvíz</a>
-<a href="#downloads">Súbory</a>
+                    <a href="#linux-deep-theory">Podrobná teória</a>
+                    <a href="#study">Príkazy</a>
+                    <a href="#linux-command-training">príkaz ?</a>
+                    <a href="#linux-command-output">Príkazy s výstupom</a>
+                    <a href="#questions">Kvíz</a>
+                    <a href="#linux-exam-summary">Skúška</a>
+                    <a href="#checklist">Checklist</a>
                 </aside>
 
                 <div class="subject-main">
@@ -113,11 +111,11 @@
     </div>
     <div>
         <span>Počet sekcií</span>
-        <strong>8</strong>
+        <strong>11</strong>
     </div>
     <div>
         <span>Materiály</span>
-        <strong>5</strong>
+        <strong>8</strong>
     </div>
 </section>
 
@@ -125,113 +123,234 @@
         <strong class="js-subject-progress-text">0%</strong>
     </div>
 </div>
-                    
-
-<section id="subject-structure" class="content-block subject-structure-section">
-    <p class="small-title">Štruktúra predmetu</p>
-    <h2>Čo bude v predmete doplnené</h2>
-    <p>Táto časť ukazuje, čo má predmet obsahovať, aby bol použiteľný na opakovanie, skúšku alebo projekt.</p>
-
-    <div class="subject-structure-grid">
-        <article><strong>Poznámky</strong><span>teória, definície a vysvetlenia</span></article>
-        <article><strong>Príklady</strong><span>typické postupy a riešenia</span></article>
-        <article><strong>Kvíz</strong><span>cvičný a skúškový režim</span></article>
-        <article><strong>Kartičky</strong><span>pojmy, vzorce a príkazy</span></article>
-        <article><strong>Checklist</strong><span>kontrola pred skúškou</span></article>
-        <article><strong>Súbory</strong><span>PDF, ťaháky a zadania</span></article>
-    </div>
-
-    <div class="planned-content-box">
-        <h3>Plán doplnenia obsahu</h3>
-        <div class="planned-content-tags">
-            <span>príkazy podľa kategórií</span>
-<span>práva chmod</span>
-<span>používatelia</span>
-<span>procesy</span>
-<span>pipes</span>
-<span>redirect</span>
-<span>grep</span>
-<span>sort</span>
-<span>uniq</span>
-<span>tar</span>
-<span>gzip</span>
-<span>ssh</span>
-<span>man stránky</span>
-<span>open-source licencie</span>
-        </div>
-    </div>
-</section>
 
 
 <section id="linux-deep-theory" class="content-block">
     <p class="small-title">Podrobná teória</p>
-    <h2>Linux Essentials – teória a skúškové poznámky</h2>
+    <h2>Podrobná teória</h2>
+
+    <p class="section-description">
+        Táto časť slúži na učenie teórie k Linux Essentials. Nie je to iba ťahák príkazov,
+        ale vysvetlenie pojmov, ktoré sa často objavujú v testoch.
+    </p>
 
     <div class="topic-grid">
+
         <article class="topic-card">
-            <span>OS</span>
-            <h3>Operačný systém</h3>
-            <p>Operačný systém sprostredkuje komunikáciu medzi hardvérom, aplikáciami a používateľom. Linux je jadro systému, distribúcia je kompletný systém okolo jadra.</p>
+            <span>Operačný systém</span>
+            <h3>Čo je operačný systém?</h3>
+            <p>
+                Operačný systém je základný softvér, ktorý sprostredkuje komunikáciu medzi používateľom,
+                aplikáciami a hardvérom počítača. Bez operačného systému by používateľ nemohol jednoducho
+                spúšťať programy, pracovať so súbormi, pamäťou, procesmi alebo zariadeniami.
+            </p>
             <ul>
-                <li>kernel = jadro</li>
-                <li>shell = rozhranie pre príkazy</li>
-                <li>distribúcia = kernel + nástroje + balíčky</li>
+                <li>spravuje procesor, pamäť, disky a zariadenia,</li>
+                <li>umožňuje spúšťanie programov,</li>
+                <li>spravuje používateľov a práva,</li>
+                <li>zabezpečuje prácu so súborovým systémom,</li>
+                <li>poskytuje používateľské rozhranie.</li>
             </ul>
         </article>
 
         <article class="topic-card">
-            <span>CLI</span>
-            <h3>Shell a terminál</h3>
-            <p>Shell prijíma príkazy a spúšťa programy. Najčastejší shell je Bash.</p>
-            <pre><code>pwd        aktuálny adresár
-ls -la     podrobný výpis
-cd ..      o adresár vyššie
-history    história príkazov</code></pre>
+            <span>Linux</span>
+            <h3>Čo je Linux?</h3>
+            <p>
+                Linux je operačný systém založený na linuxovom jadre. Presnejšie, Linux samotný je jadro
+                systému. Bežné distribúcie ako Ubuntu, Debian, Fedora alebo openSUSE obsahujú okrem jadra
+                aj množstvo ďalšieho softvéru, nástrojov, grafické prostredie a správcu balíkov.
+            </p>
+            <ul>
+                <li><strong>kernel</strong> – jadro systému, komunikuje s hardvérom,</li>
+                <li><strong>shell</strong> – príkazové rozhranie, napríklad Bash,</li>
+                <li><strong>distribúcia</strong> – kompletný Linux systém pripravený na použitie,</li>
+                <li><strong>balíky</strong> – programy a knižnice inštalované cez správcu balíkov.</li>
+            </ul>
         </article>
 
         <article class="topic-card">
-            <span>Súbory</span>
-            <h3>Súborový systém</h3>
-            <p>Linux má stromovú štruktúru od koreňa /. Dôležité adresáre majú presný účel.</p>
-            <pre><code>/home   domovské priečinky
-/etc    konfiguračné súbory
-/bin    základné programy
-/var    logy a meniace sa dáta
-/tmp    dočasné súbory</code></pre>
+            <span>Kernel</span>
+            <h3>Jadro operačného systému</h3>
+            <p>
+                Kernel je najdôležitejšia časť systému, ktorá riadi hardvér, procesy, pamäť, súborové systémy
+                a zariadenia. Používateľ s jadrom nepracuje priamo, ale cez príkazy, programy a systémové volania.
+            </p>
+            <p>
+                Keď používateľ spustí program, operačný systém cez kernel pridelí programu procesorový čas,
+                pamäť a prístup k súborom alebo zariadeniam.
+            </p>
+        </article>
+
+        <article class="topic-card">
+            <span>Shell</span>
+            <h3>Čo je shell?</h3>
+            <p>
+                Shell je prostredie, v ktorom používateľ zadáva príkazy. Najznámejší shell v Linuxe je
+                <strong>Bash</strong>. Shell prijme príkaz, spracuje ho a spustí požadovaný program.
+            </p>
+            <pre><code>pwd
+ls
+cd Dokumenty</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Súborový systém</span>
+            <h3>Linuxový strom adresárov</h3>
+            <p>
+                Linux používa stromovú štruktúru adresárov. Všetko začína koreňovým adresárom <code>/</code>.
+                Na rozdiel od Windowsu Linux nepoužíva písmená diskov ako C: alebo D:.
+            </p>
+            <ul>
+                <li><code>/</code> – koreň celého systému,</li>
+                <li><code>/home</code> – domovské adresáre používateľov,</li>
+                <li><code>/etc</code> – konfiguračné súbory,</li>
+                <li><code>/bin</code> – základné príkazy,</li>
+                <li><code>/var</code> – logy a meniace sa dáta,</li>
+                <li><code>/tmp</code> – dočasné súbory,</li>
+                <li><code>/root</code> – domovský adresár administrátora root.</li>
+            </ul>
+        </article>
+
+        <article class="topic-card">
+            <span>Cesty</span>
+            <h3>Absolútna a relatívna cesta</h3>
+            <p>
+                Absolútna cesta začína od koreňa systému <code>/</code>. Relatívna cesta začína od aktuálneho
+                adresára.
+            </p>
+            <pre><code>/home/student/Dokumenty/subor.txt
+Dokumenty/subor.txt</code></pre>
+            <p>
+                Prvá cesta je absolútna, druhá je relatívna.
+            </p>
+        </article>
+
+        <article class="topic-card">
+            <span>Používatelia</span>
+            <h3>Používatelia a skupiny</h3>
+            <p>
+                Linux je viacpoužívateľský systém. Každý používateľ má svoje meno, UID, domovský adresár
+                a skupiny, do ktorých patrí.
+            </p>
+            <ul>
+                <li><code>/etc/passwd</code> – základné informácie o používateľoch,</li>
+                <li><code>/etc/shadow</code> – šifrované heslá,</li>
+                <li><code>/etc/group</code> – skupiny používateľov,</li>
+                <li><code>whoami</code> – zobrazí aktuálneho používateľa,</li>
+                <li><code>id</code> – zobrazí UID, GID a skupiny.</li>
+            </ul>
         </article>
 
         <article class="topic-card">
             <span>Práva</span>
-            <h3>Oprávnenia rwx</h3>
-            <p>Každý súbor má vlastníka, skupinu a práva pre owner/group/others.</p>
-            <pre><code>r = 4 čítanie
-w = 2 zápis
-x = 1 spustenie
-
-chmod 755 file
-owner rwx, group r-x, others r-x</code></pre>
+            <h3>Práva súborov</h3>
+            <p>
+                Každý súbor alebo adresár má práva pre vlastníka, skupinu a ostatných používateľov.
+                Práva sa označujú písmenami:
+            </p>
+            <ul>
+                <li><strong>r</strong> – read, čítanie,</li>
+                <li><strong>w</strong> – write, zápis,</li>
+                <li><strong>x</strong> – execute, spustenie.</li>
+            </ul>
+            <pre><code>rwxr-xr--</code></pre>
+            <p>
+                Vlastník môže čítať, zapisovať a spúšťať. Skupina môže čítať a spúšťať.
+                Ostatní môžu iba čítať.
+            </p>
         </article>
 
         <article class="topic-card">
-            <span>Text</span>
-            <h3>Pipe a presmerovanie</h3>
-            <p>Pipe spája príkazy. Presmerovanie ukladá výstup do súboru alebo číta vstup zo súboru.</p>
-            <pre><code>cat file.txt | grep "test"
-sort file.txt | uniq
-echo "text" > subor.txt
-echo "dalsi text" >> subor.txt</code></pre>
+            <span>chmod</span>
+            <h3>Číselné práva</h3>
+            <p>
+                Práva sa často zapisujú číslami. Hodnoty sa sčítavajú:
+            </p>
+            <ul>
+                <li><strong>r = 4</strong></li>
+                <li><strong>w = 2</strong></li>
+                <li><strong>x = 1</strong></li>
+            </ul>
+            <pre><code>chmod 755 script.sh</code></pre>
+            <p>
+                7 znamená rwx, 5 znamená r-x, 5 znamená r-x.
+            </p>
         </article>
 
         <article class="topic-card">
             <span>Procesy</span>
-            <h3>Procesy a systém</h3>
-            <p>Proces je spustený program. V Linuxe vieš procesy sledovať, ukončovať a filtrovať.</p>
-            <pre><code>ps aux
-top
-kill PID
-whoami
-id</code></pre>
+            <h3>Procesy v Linuxe</h3>
+            <p>
+                Proces je spustený program. Každý proces má svoje PID. Linux vie naraz spravovať veľa
+                procesov, prepínať medzi nimi a ukončovať ich.
+            </p>
+            <ul>
+                <li><code>ps</code> – zobrazí procesy aktuálneho terminálu,</li>
+                <li><code>ps aux</code> – podrobný výpis procesov všetkých používateľov,</li>
+                <li><code>top</code> – živý prehľad procesov,</li>
+                <li><code>kill PID</code> – ukončí proces podľa PID.</li>
+            </ul>
         </article>
+
+        <article class="topic-card">
+            <span>Presmerovanie</span>
+            <h3>Štandardný vstup, výstup a chyba</h3>
+            <p>
+                Linux rozlišuje tri základné prúdy:
+            </p>
+            <ul>
+                <li><strong>stdin</strong> – štandardný vstup, číslo 0,</li>
+                <li><strong>stdout</strong> – štandardný výstup, číslo 1,</li>
+                <li><strong>stderr</strong> – chybový výstup, číslo 2.</li>
+            </ul>
+            <pre><code>prikaz > vystup.txt
+prikaz 2> chyby.txt
+prikaz >> vystup.txt</code></pre>
+        </article>
+
+        <article class="topic-card">
+            <span>Pipe</span>
+            <h3>Pipe – spájanie príkazov</h3>
+            <p>
+                Pipe <code>|</code> pošle výstup jedného príkazu ako vstup ďalšieho príkazu.
+                Používa sa pri filtrovaní, triedení a spracovaní textu.
+            </p>
+            <pre><code>cat subor.txt | sort | uniq</code></pre>
+            <p>
+                Tento príkaz vypíše obsah súboru, zoradí riadky a odstráni duplicitné susedné riadky.
+            </p>
+        </article>
+
+        <article class="topic-card">
+            <span>Dokumentácia</span>
+            <h3>Man stránky a pomoc</h3>
+            <p>
+                V Linuxe sa pomoc k príkazom hľadá priamo v systéme.
+            </p>
+            <ul>
+                <li><code>man ls</code> – manuál k príkazu ls,</li>
+                <li><code>man -k copy</code> – vyhľadá manuálové stránky podľa kľúčového slova,</li>
+                <li><code>whatis ls</code> – krátky popis príkazu,</li>
+                <li><code>apropos copy</code> – podobné ako man -k.</li>
+            </ul>
+        </article>
+
+        <article class="topic-card">
+            <span>Open source</span>
+            <h3>Open-source softvér</h3>
+            <p>
+                Open-source softvér má dostupný zdrojový kód. Používateľ ho môže študovať,
+                upravovať a šíriť podľa podmienok licencie.
+            </p>
+            <ul>
+                <li><strong>GPL</strong> – odvodené diela majú zostať otvorené,</li>
+                <li><strong>MIT</strong> – veľmi voľná licencia,</li>
+                <li><strong>Apache</strong> – voľná licencia s dodatočnými podmienkami,</li>
+                <li><strong>Creative Commons</strong> – často pre obsah, nie programy.</li>
+            </ul>
+        </article>
+
     </div>
 
     <div class="learn-actions">
@@ -270,55 +389,166 @@ id</code></pre>
     </article></div>
     <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="study" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button></div>
 </section>
-<section id="command-practice" class="content-block">
-    <p class="small-title">Linux tréning</p>
+<section id="linux-command-training" class="content-block">
+    <p class="small-title">Cvičenie príkazov</p>
     <h2>Čo spraví tento príkaz?</h2>
 
-    <div class="example-list">
-        <div class="example-item">
-            <h3>Príkazy podľa kategórií</h3>
-            <p>Pri učení si rozdeľ príkazy podľa účelu: navigácia, súbory, text, práva, procesy a kompresia.</p>
-            <pre><code>pwd        # kde som
-ls -la     # podrobný výpis
-cd ..      # o adresár vyššie
-mkdir test # vytvor adresár</code></pre>
-        </div>
+    <p class="section-description">
+        Otvor otázku až po tom, čo si sám povieš odpoveď. Toto je dobré na skúšku,
+        lebo sa netreba učiť iba definície, ale aj vedieť čítať príkazy.
+    </p>
 
-        <div class="example-item">
-            <h3>Príklady s výstupom</h3>
-            <p>Pri skúške sa môže objaviť otázka, čo sa stane po spustení príkazu.</p>
-            <pre><code>grep "^a" names.txt
-# vypíše riadky, ktoré začínajú písmenom a
+    <div class="command-training-list">
 
-chmod 755 script.sh
-# vlastník rwx, skupina r-x, ostatní r-x</code></pre>
-        </div>
+        <details class="command-task"><summary><code>pwd</code></summary><p>Zobrazí aktuálny pracovný adresár.</p><pre><code>/home/student</code></pre></details>
+        <details class="command-task"><summary><code>ls</code></summary><p>Vypíše obsah aktuálneho adresára bez skrytých súborov.</p></details>
+        <details class="command-task"><summary><code>ls -la</code></summary><p>Vypíše podrobný obsah adresára vrátane skrytých súborov. Uvidíš práva, vlastníka, skupinu, veľkosť, dátum a názov.</p></details>
+        <details class="command-task"><summary><code>cd ..</code></summary><p>Presunie ťa o jeden adresár vyššie.</p></details>
+        <details class="command-task"><summary><code>cd ~</code></summary><p>Presunie ťa do domovského adresára aktuálneho používateľa.</p></details>
+        <details class="command-task"><summary><code>touch subor.txt</code></summary><p>Vytvorí prázdny súbor alebo aktualizuje čas poslednej zmeny existujúceho súboru.</p></details>
+        <details class="command-task"><summary><code>mkdir projekt</code></summary><p>Vytvorí nový adresár s názvom <code>projekt</code>.</p></details>
+        <details class="command-task"><summary><code>cp subor.txt kopia.txt</code></summary><p>Skopíruje súbor <code>subor.txt</code> do nového súboru <code>kopia.txt</code>.</p></details>
+        <details class="command-task"><summary><code>mv stary.txt novy.txt</code></summary><p>Premenuje súbor. Príkaz <code>mv</code> sa používa aj na presun súborov.</p></details>
+        <details class="command-task"><summary><code>rm subor.txt</code></summary><p>Vymaže súbor. V termináli sa väčšinou nepresunie do koša, preto treba byť opatrný.</p></details>
+        <details class="command-task"><summary><code>rm -i subor.txt</code></summary><p>Vymaže súbor až po potvrdení. Prepínač <code>-i</code> znamená interactive.</p></details>
+        <details class="command-task"><summary><code>cat subor.txt</code></summary><p>Vypíše celý obsah súboru naraz do terminálu.</p></details>
+        <details class="command-task"><summary><code>less subor.txt</code></summary><p>Otvorí súbor na čítanie po stránkach. Ukončuje sa klávesom <code>q</code>.</p></details>
+        <details class="command-task"><summary><code>head subor.txt</code></summary><p>Zobrazí prvých 10 riadkov súboru.</p></details>
+        <details class="command-task"><summary><code>tail subor.txt</code></summary><p>Zobrazí posledných 10 riadkov súboru.</p></details>
+        <details class="command-task"><summary><code>grep "error" log.txt</code></summary><p>Vyhľadá v súbore <code>log.txt</code> riadky, ktoré obsahujú text <code>error</code>.</p></details>
+        <details class="command-task"><summary><code>grep "^a" mena.txt</code></summary><p>Vyhľadá riadky, ktoré začínajú písmenom <code>a</code>. Znak <code>^</code> znamená začiatok riadku.</p></details>
+        <details class="command-task"><summary><code>grep "txt$" subory.txt</code></summary><p>Vyhľadá riadky, ktoré končia textom <code>txt</code>. Znak <code>$</code> znamená koniec riadku.</p></details>
+        <details class="command-task"><summary><code>sort mena.txt</code></summary><p>Zoradí riadky súboru abecedne.</p></details>
+        <details class="command-task"><summary><code>uniq mena.txt</code></summary><p>Odstráni opakujúce sa susedné riadky. Najlepšie funguje po <code>sort</code>.</p></details>
+        <details class="command-task"><summary><code>sort mena.txt | uniq</code></summary><p>Najprv zoradí riadky a potom odstráni duplicity.</p></details>
+        <details class="command-task"><summary><code>cat mena.txt | sort | uniq</code></summary><p>Vypíše obsah súboru, zoradí ho a odstráni duplicitné riadky.</p></details>
+        <details class="command-task"><summary><code>ls > vystup.txt</code></summary><p>Presmeruje výstup príkazu <code>ls</code> do súboru. Ak súbor existuje, prepíše ho.</p></details>
+        <details class="command-task"><summary><code>ls >> vystup.txt</code></summary><p>Pridá výstup príkazu <code>ls</code> na koniec súboru. Neprepíše pôvodný obsah.</p></details>
+        <details class="command-task"><summary><code>prikaz 2> chyby.txt</code></summary><p>Presmeruje chybový výstup STDERR do súboru <code>chyby.txt</code>. Číslo <code>2</code> označuje chybový výstup.</p></details>
+        <details class="command-task"><summary><code>chmod 755 script.sh</code></summary><p>Nastaví práva: vlastník <code>rwx</code>, skupina <code>r-x</code>, ostatní <code>r-x</code>.</p></details>
+        <details class="command-task"><summary><code>chmod u+x script.sh</code></summary><p>Pridá vlastníkovi právo spustenia súboru.</p></details>
+        <details class="command-task"><summary><code>chown student subor.txt</code></summary><p>Zmení vlastníka súboru na používateľa <code>student</code>.</p></details>
+        <details class="command-task"><summary><code>whoami</code></summary><p>Zobrazí meno aktuálne prihláseného používateľa.</p></details>
+        <details class="command-task"><summary><code>id</code></summary><p>Zobrazí UID, GID a skupiny aktuálneho používateľa.</p></details>
+        <details class="command-task"><summary><code>ps aux</code></summary><p>Zobrazí podrobný zoznam procesov všetkých používateľov.</p></details>
+        <details class="command-task"><summary><code>kill 1234</code></summary><p>Pošle procesu s PID 1234 signál na ukončenie.</p></details>
+        <details class="command-task"><summary><code>tar -czf archiv.tar.gz priecinok</code></summary><p>Vytvorí komprimovaný archív <code>archiv.tar.gz</code> z adresára <code>priecinok</code>. <code>c</code> = create, <code>z</code> = gzip, <code>f</code> = súbor.</p></details>
+        <details class="command-task"><summary><code>tar -xzf archiv.tar.gz</code></summary><p>Rozbalí komprimovaný archív <code>archiv.tar.gz</code>.</p></details>
+        <details class="command-task"><summary><code>ssh user@server</code></summary><p>Prihlási sa na vzdialený server cez SSH ako používateľ <code>user</code>.</p></details>
+        <details class="command-task"><summary><code>man ls</code></summary><p>Otvorí manuálovú stránku príkazu <code>ls</code>.</p></details>
+        <details class="command-task"><summary><code>whatis chmod</code></summary><p>Zobrazí krátky popis príkazu <code>chmod</code>.</p></details>
+        <details class="command-task"><summary><code>man -k password</code></summary><p>Vyhľadá manuálové stránky súvisiace so slovom <code>password</code>.</p></details>
 
-        <div class="example-item">
-            <h3>Práva a chmod tréning</h3>
-            <p>Čísla sa skladajú z r=4, w=2, x=1.</p>
-            <pre><code>7 = 4+2+1 = rwx
-6 = 4+2   = rw-
-5 = 4+1   = r-x
-chmod 640 file.txt = rw-r-----</code></pre>
-        </div>
-
-        <div class="example-item">
-            <h3>Pipes a redirect</h3>
-            <p>Pipe posiela výstup jedného príkazu do ďalšieho. Redirect ukladá výstup do súboru.</p>
-            <pre><code>cat /etc/services | grep "^http" | sort > http-services.txt</code></pre>
-        </div>
     </div>
 
     <div class="learn-actions">
-        <button class="learn-btn" data-subject="linux" data-key="command-practice" data-pending-text="Označiť ako urobené" data-done-text="Urobené ✓" type="button">Označiť ako urobené</button>
+        <button class="learn-btn" data-subject="linux" data-key="linux-command-training" data-pending-text="Označiť ako precvičené" data-done-text="Precvičené ✓" type="button">Označiť ako precvičené</button>
+    </div>
+</section>
+
+<section id="linux-command-output" class="content-block">
+    <p class="small-title">Výstupy príkazov</p>
+    <h2>Príklady príkazov aj s očakávaným výstupom</h2>
+
+    <div class="linux-output-grid">
+        <article class="linux-output-card">
+            <h3>Príklad 1 – aktuálny adresár</h3>
+            <pre><code>$ pwd
+/home/student</code></pre>
+            <p>Príkaz <code>pwd</code> vypísal aktuálny adresár používateľa.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 2 – výpis súborov</h3>
+            <pre><code>$ ls
+dokumenty  obrazky  subor.txt</code></pre>
+            <p>Príkaz <code>ls</code> vypísal obsah aktuálneho adresára.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 3 – podrobný výpis</h3>
+            <pre><code>$ ls -l
+-rw-r--r-- 1 student student 120 Jun 10 subor.txt
+drwxr-xr-x 2 student student 4096 Jun 10 dokumenty</code></pre>
+            <p>Pomlčka znamená súbor, písmeno <code>d</code> znamená adresár. Nasledujú práva, vlastník, skupina, veľkosť, dátum a názov.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 4 – filtrovanie grep</h3>
+            <pre><code>$ cat mena.txt
+adam
+eva
+anna
+peter
+
+$ grep "^a" mena.txt
+adam
+anna</code></pre>
+            <p>Vypísali sa iba riadky, ktoré začínajú písmenom <code>a</code>.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 5 – sort a uniq</h3>
+            <pre><code>$ cat mena.txt
+peter
+adam
+peter
+eva
+adam
+
+$ sort mena.txt | uniq
+adam
+eva
+peter</code></pre>
+            <p>Najprv sa riadky zoradili a potom sa odstránili duplicity.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 6 – presmerovanie výstupu</h3>
+            <pre><code>$ ls > zoznam.txt</code></pre>
+            <p>Výstup príkazu <code>ls</code> sa nevypíše na obrazovku, ale uloží sa do súboru <code>zoznam.txt</code>.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 7 – pridanie na koniec súboru</h3>
+            <pre><code>$ date >> log.txt</code></pre>
+            <p>Aktuálny dátum sa pridá na koniec súboru <code>log.txt</code>.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 8 – práva súboru</h3>
+            <pre><code>$ chmod 755 script.sh
+$ ls -l script.sh
+-rwxr-xr-x 1 student student 55 Jun 10 script.sh</code></pre>
+            <p>Vlastník má práva <code>rwx</code>, skupina <code>r-x</code>, ostatní <code>r-x</code>.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 9 – procesy</h3>
+            <pre><code>$ ps
+PID TTY          TIME CMD
+123 pts/0    00:00:00 bash
+145 pts/0    00:00:00 ps</code></pre>
+            <p>Zobrazili sa procesy spustené v aktuálnom termináli.</p>
+        </article>
+
+        <article class="linux-output-card">
+            <h3>Príklad 10 – manuál</h3>
+            <pre><code>$ whatis ls
+ls (1) - list directory contents</code></pre>
+            <p>Príkaz <code>whatis</code> vypísal krátky popis príkazu <code>ls</code>.</p>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="linux" data-key="linux-command-output" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
     </div>
 </section>
 
 
 <section id="questions" class="content-block">
     <p class="small-title">Kvíz</p>
-    <h2>Linux Essentials kvíz na finálny test</h2>
+    <h2>Kvíz na finálny test</h2>
 
     <p class="section-description">
         Vyber si režim: cvičenie, skúška bez odpovedí alebo iba nesprávne otázky.
@@ -397,13 +627,68 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<section id="downloads" class="content-block">
-    <p class="small-title">Súbory</p>
-    <h2>Súbory na stiahnutie</h2>
-    <div class="download-list">
-        <a href="../files/linux/linux-poznamky.pdf" class="download-item"><strong>Linux Essentials poznámky PDF</strong><span>Stiahnuť →</span></a>
+
+<section id="linux-exam-summary" class="content-block">
+    <p class="small-title">Skúškové zhrnutie</p>
+    <h2>Čo vedieť na skúšku</h2>
+
+    <div class="linux-exam-summary-grid">
+        <article class="linux-exam-box">
+            <h3>Operačný systém a Linux</h3>
+            <ul>
+                <li>Viem vysvetliť, čo je operačný systém.</li>
+                <li>Viem rozdiel medzi kernelom a distribúciou.</li>
+                <li>Viem čo je shell a Bash.</li>
+                <li>Viem čo je open-source softvér.</li>
+            </ul>
+        </article>
+
+        <article class="linux-exam-box">
+            <h3>Súbory a adresáre</h3>
+            <ul>
+                <li>Viem použiť <code>pwd</code>, <code>ls</code>, <code>cd</code>.</li>
+                <li>Viem vytvoriť súbor a adresár.</li>
+                <li>Viem kopírovať, presúvať a mazať súbory.</li>
+                <li>Viem rozdiel medzi absolútnou a relatívnou cestou.</li>
+            </ul>
+        </article>
+
+        <article class="linux-exam-box">
+            <h3>Text, pipe a presmerovanie</h3>
+            <ul>
+                <li>Viem použiť <code>cat</code>, <code>less</code>, <code>head</code>, <code>tail</code>.</li>
+                <li>Viem použiť <code>grep</code>.</li>
+                <li>Viem použiť <code>sort</code> a <code>uniq</code>.</li>
+                <li>Viem čo robí pipe <code>|</code>.</li>
+                <li>Viem rozdiel medzi <code>&gt;</code> a <code>&gt;&gt;</code>.</li>
+                <li>Viem čo znamená <code>2&gt;</code>.</li>
+            </ul>
+        </article>
+
+        <article class="linux-exam-box">
+            <h3>Práva a používatelia</h3>
+            <ul>
+                <li>Viem čítať <code>rwx</code> práva.</li>
+                <li>Viem čo znamená <code>chmod 755</code>.</li>
+                <li>Viem čo robí <code>chown</code>.</li>
+                <li>Viem čo robia <code>whoami</code> a <code>id</code>.</li>
+            </ul>
+        </article>
+
+        <article class="linux-exam-box">
+            <h3>Procesy, kompresia a dokumentácia</h3>
+            <ul>
+                <li>Viem čo je proces a PID.</li>
+                <li>Viem použiť <code>ps</code>, <code>top</code>, <code>kill</code>.</li>
+                <li>Viem čo robí <code>tar</code> a <code>gzip</code>.</li>
+                <li>Viem použiť <code>man</code>, <code>whatis</code>, <code>apropos</code>.</li>
+            </ul>
+        </article>
     </div>
-    <div class="learn-actions"><button class="learn-btn" data-subject="linux" data-key="downloads" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button></div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="linux" data-key="linux-exam-summary" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
 </section>
 
 
@@ -504,7 +789,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-info-card">
             <span>Autor projektu</span>
             <strong>Vytvorené MG</strong>
-            <p>Study Hub v3.1 • Posledná aktualizácia: 06/2026</p>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
         </div>
 
         <div class="footer-links-card">
