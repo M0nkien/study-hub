@@ -38,8 +38,7 @@ Backend: zatiaľ nie je použitý
 - admin sekciu,
 - checklisty pred skúškou,
 - progres učenia,
-- súbory a materiály,
-- JSON dátové súbory.
+- súbory a materiály.
 ```
 
 ---
@@ -54,7 +53,6 @@ results.html        výsledky kvízov
 roadmap.html        plán vývoja projektu
 changelog.html      história zmien
 support.html        podpora a formulár
-admin.html          admin panel
 ```
 
 ---
@@ -65,12 +63,12 @@ Stránka aktuálne obsahuje tieto predmety:
 
 ```text
 Linux Essentials
-MSD – Metódy spracovania dát
-Cisco / CCNA
+Metódy spracovania dát
+Cisco - CCNA1
 Fyzika
 Matematika
-VVS / ESP32
-Java / Informatika
+Vývoj vstavaných systémov
+Java - Informatika
 3D tlač
 Algebra
 Praktikum z programovania
@@ -81,18 +79,6 @@ Každý predmet má vlastnú podstránku v priečinku:
 
 ```text
 subjects/
-```
-
-Príklady:
-
-```text
-subjects/linux.html
-subjects/msd.html
-subjects/ccna.html
-subjects/fyzika.html
-subjects/mat.html
-subjects/vvs.html
-subjects/java.html
 ```
 
 ---
@@ -298,91 +284,6 @@ Používateľ môže nahlásiť:
 
 ---
 
-## Admin
-
-Admin panel je zatiaľ jednoduchý frontend admin.
-
-Dôležité upozornenie:
-
-```text
-Ak je admin heslo iba vo frontende, nie je to skutočne bezpečné riešenie.
-Na reálne zabezpečenie bude neskôr potrebný backend alebo služba ako Firebase/Supabase.
-```
-
----
-
-## Štruktúra projektu
-
-```text
-Study Hub/
-├── index.html
-├── subjects.html
-├── flashcards.html
-├── results.html
-├── roadmap.html
-├── changelog.html
-├── support.html
-├── admin.html
-│
-├── subjects/
-│   ├── linux.html
-│   ├── msd.html
-│   ├── ccna.html
-│   ├── fyzika.html
-│   ├── mat.html
-│   ├── vvs.html
-│   ├── java.html
-│   ├── 3d-tlac.html
-│   ├── algebra.html
-│   ├── praktikum.html
-│   └── uvod-do-studia.html
-│
-├── style/
-│   ├── main.css
-│   ├── base.css
-│   ├── variables.css
-│   ├── layout.css
-│   ├── header.css
-│   ├── home.css
-│   ├── subjects.css
-│   ├── subject-detail.css
-│   ├── subject-pages.css
-│   ├── flashcards.css
-│   ├── checklist.css
-│   ├── quiz.css
-│   ├── roadmap.css
-│   ├── footer.css
-│   ├── responsive.css
-│   └── fix.css
-│
-├── script/
-│   ├── main.js
-│   ├── flashcards.js
-│   ├── checklist.js
-│   ├── progress.js
-│   ├── subject-search.js
-│   ├── filters.js
-│   ├── quiz-engine.js
-│   ├── quiz-linux.js
-│   ├── quiz-msd.js
-│   ├── quiz-ccna.js
-│   ├── results.js
-│   ├── admin.js
-│   └── ccna-tools.js
-│
-├── data/
-│   ├── subjects.json
-│   ├── materials.json
-│   ├── quizzes.json
-│   ├── flashcards.json
-│   ├── roadmap.json
-│   └── changelog.json
-│
-└── README.md
-```
-
----
-
 ## Lokálne spustenie
 
 Najjednoduchšie cez VS Code:
@@ -407,54 +308,6 @@ http://localhost:5500
 
 ---
 
-## GitHub Pages
-
-Odporúčané nastavenie:
-
-```text
-Settings
-Pages
-Branch: main
-Folder: /root
-```
-
-Bežný upload:
-
-```bash
-git add .
-git commit -m "Update Study Hub"
-git push
-```
-
-Po nahratí odporúčam v prehliadači stlačiť:
-
-```text
-Ctrl + F5
-```
-
----
-
-## Kontrola po nahratí
-
-Skontrolovať:
-
-```text
-1. index.html
-2. subjects.html
-3. flashcards.html
-4. roadmap.html
-5. changelog.html
-6. support.html
-7. admin.html
-8. predmetové stránky
-9. kvízy
-10. checklisty
-11. mobilné zobrazenie
-12. odkazy na PDF a súbory
-```
-
----
-
 ## Fázy ďalšieho vývoja
 
 ### Fáza 1 – Stabilizácia
@@ -464,8 +317,7 @@ Skontrolovať:
 - doplniť chýbajúce PDF a súbory,
 - odstrániť staré testovacie súbory,
 - zjednotiť CSS a JS verzie,
-- skontrolovať mobilné zobrazenie,
-- vyčistiť duplicitné navigačné odkazy.
+- skontrolovať mobilné zobrazenie.
 ```
 
 ### Fáza 2 – Obsah predmetov
@@ -483,8 +335,6 @@ Skontrolovať:
 
 ```text
 - vylepšiť kvízové režimy,
-- pridať skúškový režim s časovačom,
-- pridať test z nesprávnych otázok,
 - rozšíriť flashcards,
 - pridať históriu učenia,
 - pridať výsledkové grafy.
