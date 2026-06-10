@@ -84,3 +84,78 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+
+/* =========================================================
+   PATCH – Kvíz farby odpovedí a vysvetlenia
+   ========================================================= */
+
+/* Správna možnosť v cvičnom režime má byť zelená, nie modrá. */
+.quiz-option.correct,
+.quiz-option.correct:hover,
+.quiz-option.correct:disabled {
+    border-color: rgba(34, 197, 94, 0.92) !important;
+    background:
+        linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(22, 101, 52, 0.16)) !important;
+    color: #dcfce7 !important;
+    box-shadow:
+        0 0 0 1px rgba(34, 197, 94, 0.28),
+        0 0 26px rgba(34, 197, 94, 0.12) !important;
+}
+
+.quiz-option.correct span {
+    background: rgba(34, 197, 94, 0.22) !important;
+    color: #86efac !important;
+    border-color: rgba(34, 197, 94, 0.42) !important;
+}
+
+.quiz-option.correct p {
+    color: #dcfce7 !important;
+}
+
+/* Nesprávna zvolená možnosť ostáva červená. */
+.quiz-option.wrong,
+.quiz-option.wrong:hover,
+.quiz-option.wrong:disabled {
+    border-color: rgba(248, 113, 113, 0.88) !important;
+    background:
+        linear-gradient(135deg, rgba(248, 113, 113, 0.20), rgba(127, 29, 29, 0.14)) !important;
+    color: #fee2e2 !important;
+}
+
+.quiz-option.wrong span {
+    background: rgba(248, 113, 113, 0.18) !important;
+    color: #fecaca !important;
+    border-color: rgba(248, 113, 113, 0.42) !important;
+}
+
+.quiz-option.wrong p {
+    color: #fee2e2 !important;
+}
+
+/* Vysvetlenie nemá byť modré – dáme ho do teplej žltej/oranžovej. */
+.quiz-feedback .quiz-explanation,
+.quiz-feedback p.quiz-explanation {
+    color: #facc15 !important;
+}
+
+.quiz-feedback.success {
+    border-color: rgba(34, 197, 94, 0.55) !important;
+    background: rgba(34, 197, 94, 0.08) !important;
+}
+
+.quiz-feedback.success strong {
+    color: #86efac !important;
+}
+
+.quiz-feedback.error strong {
+    color: #fecaca !important;
+}
+
+/* Skúškový režim – predchádzajúca otázka je vizuálne zablokovaná. */
+.quiz-panel.exam-mode .quiz-btn.prev,
+.quiz-panel.exam-mode [id$="Prev"] {
+    opacity: 0.45;
+    pointer-events: none;
+}

@@ -20,6 +20,9 @@ function createQuiz(config) {
     let mode = "practice";
     let currentSetId = "all";
     let wrongRecords = [];
+    let answeredQuestions = [];
+    let userSelections = [];
+    let questionCorrectness = [];
     let examTimer = null;
     let remainingSeconds = 0;
     let startedAt = null;
@@ -273,16 +276,18 @@ function createQuiz(config) {
         const question = questions[currentIndex];
         const correctCount = getCorrectIndexes(question).length;
         const chooseCount = question.choose || correctCount;
+        const correctIndexes = getCorrectIndexes(question);
+        const isAlreadyAnswered = !!answeredQuestions[currentIndex];
 
-        answered = false;
-        selectedAnswers = [];
+        answered = isAlreadyAnswered;
+        selectedAnswers = userSelections[currentIndex] ? [...userSelections[currentIndex]] : [];
 
         feedback.classList.add("hidden");
         feedback.textContent = "";
 
-        checkBtn.disabled = false;
-        nextBtn.disabled = true;
-        prevBtn.disabled = currentIndex === 0;
+        checkBtn.disabled = isAlreadyAnswered;
+        nextBtn.disabled = !isAlreadyAnswered;
+        prevBtn.disabled = mode === "exam" || currentIndex === 0;
 
         box.innerHTML = `
             <div class="quiz-question-card">
@@ -304,6 +309,21 @@ function createQuiz(config) {
         const buttons = box.querySelectorAll(".quiz-option");
 
         buttons.forEach(button => {
+            const index = Number(button.dataset.index);
+
+            if (selectedAnswers.includes(index)) {
+                button.classList.add("selected");
+            }
+
+            if (isAlreadyAnswered) {
+                button.disabled = true;
+
+                if (mode === "practice") {
+                    if (correctIndexes.includes(index)) button.classList.add("correct");
+                    if (selectedAnswers.includes(index) && !correctIndexes.includes(index)) button.classList.add("wrong");
+                }
+            }
+
             button.addEventListener("click", function () {
                 if (answered) return;
 
@@ -331,6 +351,20 @@ function createQuiz(config) {
             });
         });
 
+        if (isAlreadyAnswered) {
+            const wasCorrect = !!questionCorrectness[currentIndex];
+
+            if (mode === "practice") {
+                feedback.className = wasCorrect ? "quiz-feedback success" : "quiz-feedback error";
+                feedback.innerHTML = `<strong>${wasCorrect ? "Správne." : "Nesprávne."}</strong><p class="quiz-explanation">${escapeHtml(buildExplanation(question))}</p>`;
+            } else {
+                feedback.className = "quiz-feedback info";
+                feedback.innerHTML = "<strong>Odpoveď je zaznamenaná.</strong><p class=\"quiz-explanation\">Vyhodnotenie uvidíš až na konci testu.</p>";
+            }
+
+            feedback.classList.remove("hidden");
+        }
+
         updateStats();
     }
 
@@ -353,11 +387,14 @@ function createQuiz(config) {
             return;
         }
 
-        if (answered) return;
+        if (answered || answeredQuestions[currentIndex]) return;
 
         answered = true;
 
         const isCorrect = sameSet(selectedAnswers, correctIndexes);
+        answeredQuestions[currentIndex] = true;
+        userSelections[currentIndex] = [...selectedAnswers];
+        questionCorrectness[currentIndex] = isCorrect;
 
         if (isCorrect) {
             score++;
@@ -384,10 +421,10 @@ function createQuiz(config) {
 
         if (mode === "practice") {
             feedback.className = isCorrect ? "quiz-feedback success" : "quiz-feedback error";
-            feedback.innerHTML = `<strong>${isCorrect ? "Správne." : "Nesprávne."}</strong><p>${escapeHtml(buildExplanation(question))}</p>`;
+            feedback.innerHTML = `<strong>${isCorrect ? "Správne." : "Nesprávne."}</strong><p class="quiz-explanation">${escapeHtml(buildExplanation(question))}</p>`;
         } else {
             feedback.className = isCorrect ? "quiz-feedback success" : "quiz-feedback error";
-            feedback.innerHTML = "<strong>Odpoveď zaznamenaná.</strong><p>Vyhodnotenie uvidíš až na konci testu.</p>";
+            feedback.innerHTML = "<strong>Odpoveď zaznamenaná.</strong><p class=\"quiz-explanation\">Vyhodnotenie uvidíš až na konci testu.</p>";
         }
 
         feedback.classList.remove("hidden");
@@ -406,6 +443,8 @@ function createQuiz(config) {
     }
 
     function previousQuestion() {
+        if (mode === "exam") return;
+
         if (currentIndex > 0) {
             currentIndex--;
             renderQuestion();
@@ -461,6 +500,7 @@ function createQuiz(config) {
     function startQuiz() {
         currentSetId = setSelect.value;
         mode = modeSelect.value;
+        quizPanel?.classList.toggle("exam-mode", mode === "exam");
         startedAt = Date.now();
 
         const shuffleMode = shuffleSelect.value;
@@ -488,6 +528,9 @@ function createQuiz(config) {
         answered = false;
         selectedAnswers = [];
         wrongRecords = [];
+        answeredQuestions = [];
+        userSelections = [];
+        questionCorrectness = [];
 
         startTimerIfNeeded();
         renderQuestion();

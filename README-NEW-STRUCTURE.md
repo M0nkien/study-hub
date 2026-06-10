@@ -297,53 +297,47 @@ Upravené:
 - tým sa znižuje riziko 404 chýb po presune štruktúry.
 
 
-## Vrátenie hlavnej stránky do jednoduchého rozloženia
+## Flashcards história iba 3 posledné položky
 
 Upravené:
-- `index.html` bol vrátený do jednoduchého layoutu,
-- odstránený bol mini dashboard z hlavnej stránky,
-- odstránený bol blok najnovšie pridané z hlavnej stránky,
-- odstránené boli rýchle odkazy z hlavnej stránky,
-- ostala hero sekcia a jeden informačný blok o projekte,
-- v navigácii bol opravený duplicitný odkaz `Zmeny`,
-- do `style/fix.css` bola pridaná poistka proti zobrazeniu starých homepage v3.3 blokov.
+- v `script/flashcards.js` sa v histórii učenia zobrazujú iba 3 posledné záznamy,
+- pôvodné zobrazenie viacerých posledných položiek bolo skrátené na 3,
+- počítadlo História zobrazuje maximálne hodnotu 3.
 
 
-## Tlačidlo Posledné miesto na hlavnej stránke
+## Kvízy – farby a navigácia podľa režimu
 
 Upravené:
-- do `index.html` bolo pridané tlačidlo `Posledné miesto`,
-- tlačidlo používa `id="continueLearningBtn"`,
-- `script/main.js` nastaví odkaz podľa hodnoty `studyHubLastLocation` v localStorage,
-- ak nie je uložené posledné miesto, otvorí sa `subjects.html`,
-- rozloženie hlavnej stránky sa inak nemenilo.
+- správna odpoveď v cvičnom režime je zelená,
+- nesprávna odpoveď ostáva červená,
+- vysvetlenie odpovede má žltú/oranžovú farbu,
+- v skúškovom režime sa nedá vracať späť k otázkam,
+- v cvičnom režime sa dá vracať späť,
+- kvíz si pamätá zodpovedané otázky, aby sa skóre nezapočítalo viackrát.
 
 
-## Audit kódu a README v3.3
-
-Upravené:
-- `README.md` bol prepísaný na klasický GitHub README pre Study Hub v3.3,
-- pridaný `CODE-REVIEW-STUDYHUB.md` s auditom kódu a návrhmi ďalších úprav,
-- v `data/quizzes.json` boli opravené staré cesty `assets/js/` na `script/`,
-- v `data/changelog.json` bol pridaný záznam verzie v3.3,
-- v predmetových stránkach bol odstránený duplicitný odkaz `Zmeny`,
-- v `script/main.js` bola pridaná poistka proti duplicitným stavovým tagom na kartách predmetov.
-
-
-## Zarovnanie checklistu s predmetovým obsahom
-
-Opravené:
-- checklisty v predmetoch boli presunuté do `.subject-main`,
-- už sa nezobrazujú ako samostatná sekcia mimo predmetového layoutu,
-- šírka checklistu je rovnaká ako pri ostatných content-block sekciách,
-- CSS obsahuje poistku pre správne zarovnanie checklistu.
-
-
-## Zarovnanie horného panelu predmetu s obsahom
+## Fyzika – teória, vzorce, jednotky a labáky
 
 Upravené:
-- pridaný `style/subject-alignment.css`,
-- horný panel tagov v hero časti predmetu sa zarovná s pravým hlavným obsahovým stĺpcom,
-- progress panel a ostatné sekcie ostávajú v rovnakom stĺpci,
-- layout používa CSS premenné `--subject-sidebar-width` a `--subject-layout-gap`,
-- na mobile sa layout vráti do jedného stĺpca.
+- vo `subjects/fyzika.html` bola doplnená farebná legenda k vzorovej písomke,
+- červená = odvodenie, žltá = príklad, modrá = teoretická otázka,
+- rozšírená bola teória ku skúške,
+- doplnené boli vzorce na výpočty,
+- doplnená bola tabuľka veličín a jednotiek,
+- doplnené boli detailné karty vzorcov s vysvetlením písmen,
+- laboratórne merania boli rozšírené na 5 vzorových labákov,
+- pridaná bola štruktúra protokolu z labáku,
+- v `style/fix.css` a `style/subject-pages.css` boli doplnené štýly pre nové fyzikálne bloky.
+
+
+## Fyzika – ďalšie skúškové písomky
+
+Upravené:
+- v `subjects/fyzika.html` bola rozšírená sekcia `Vzorová písomka`,
+- doplnené boli 4 varianty skúškových písomiek z fotiek,
+- úlohy sú farebne rozlíšené podľa typu:
+  - červená = odvodenie,
+  - žltá = výpočtový príklad,
+  - modrá = teoretická otázka,
+- pridaný bol prehľad najčastejších tém, ktoré sa v písomkách opakujú,
+- v `style/fix.css` a `style/subject-pages.css` boli pridané štýly pre bloky variantov.

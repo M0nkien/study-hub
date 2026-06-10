@@ -1189,11 +1189,16 @@
    Problém:
    Horný panel s tagmi predmetu bol centrovaný podľa celej stránky,
    ale progress/obsahové sekcie sú v pravom hlavnom stĺpci vedľa bočného menu.
-   Preto panel tagov začínal viac vľavo ako karta "Progres učenia predmetu".
+   Preto neboli opticky zarovnané.
 
    Riešenie:
-   Na desktopovej šírke posunieme horný panel tagov do rovnakej osi ako
-   hlavný obsah predmetu. Na mobile ostáva všetko v jednom stĺpci.
+   Používame rovnaké rozmery pre subject layout:
+   - sidebar: 260px
+   - medzera: 28px
+   - hlavný obsah: zvyšok kontajnera
+
+   Horný panel tagov sa na desktopovej šírke posunie do rovnakej hlavnej
+   obsahovej osi ako progress a ostatné sekcie.
 */
 
 .page-subject-detail {
@@ -1209,7 +1214,7 @@
     align-items: start;
 }
 
-/* Hlavný obsah nech sa nerozťahuje mimo stĺpec */
+/* Hlavný obsah a jeho karty nech majú jednotnú šírku */
 .page-subject-detail .subject-main {
     min-width: 0;
 }
@@ -1221,10 +1226,7 @@
     max-width: 100%;
 }
 
-/*
-   Dôležitá časť:
-   horný panel tagov v hero časti má rovnakú ľavú hranu ako progress panel.
-*/
+/* Horný tag panel v hero zarovnať s pravým obsahovým stĺpcom */
 @media (min-width: 981px) {
     .page-subject-detail .subject-hero-content .subject-page-tags,
     .page-subject-detail .subject-hero-content .subject-page-tags-static {
@@ -1237,7 +1239,7 @@
     }
 }
 
-/* Mobil a tablet: bočný panel ide nad obsah, všetko je na šírku kontajnera */
+/* Stredné a mobilné zobrazenie: sidebar ide preč, panel môže byť plná šírka kontajnera */
 @media (max-width: 980px) {
     .page-subject-detail .subject-layout {
         grid-template-columns: 1fr;
@@ -1254,7 +1256,7 @@
     }
 }
 
-/* Progress panel a jeho vnútro nech ostávajú zarovno s ostatnými kartami */
+/* Progress panel v predmete nech vizuálne sedí s ostatnými sekciami */
 .page-subject-detail .progress-panel,
 .page-subject-detail .subject-progress,
 .page-subject-detail #progress {
@@ -1264,8 +1266,332 @@
     margin-right: 0 !important;
 }
 
+/* Meta karty v progress paneli nech sa nerozťahujú mimo kartu */
 .page-subject-detail .progress-panel .subject-meta-panel,
 .page-subject-detail .progress-panel .meta-grid,
 .page-subject-detail .progress-panel .progress-meta {
     max-width: 100% !important;
+}
+
+
+
+/* =========================================================
+   PATCH – Kvíz farby odpovedí a vysvetlenia
+   ========================================================= */
+
+/* Správna možnosť v cvičnom režime má byť zelená, nie modrá. */
+.quiz-option.correct,
+.quiz-option.correct:hover,
+.quiz-option.correct:disabled {
+    border-color: rgba(34, 197, 94, 0.92) !important;
+    background:
+        linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(22, 101, 52, 0.16)) !important;
+    color: #dcfce7 !important;
+    box-shadow:
+        0 0 0 1px rgba(34, 197, 94, 0.28),
+        0 0 26px rgba(34, 197, 94, 0.12) !important;
+}
+
+.quiz-option.correct span {
+    background: rgba(34, 197, 94, 0.22) !important;
+    color: #86efac !important;
+    border-color: rgba(34, 197, 94, 0.42) !important;
+}
+
+.quiz-option.correct p {
+    color: #dcfce7 !important;
+}
+
+/* Nesprávna zvolená možnosť ostáva červená. */
+.quiz-option.wrong,
+.quiz-option.wrong:hover,
+.quiz-option.wrong:disabled {
+    border-color: rgba(248, 113, 113, 0.88) !important;
+    background:
+        linear-gradient(135deg, rgba(248, 113, 113, 0.20), rgba(127, 29, 29, 0.14)) !important;
+    color: #fee2e2 !important;
+}
+
+.quiz-option.wrong span {
+    background: rgba(248, 113, 113, 0.18) !important;
+    color: #fecaca !important;
+    border-color: rgba(248, 113, 113, 0.42) !important;
+}
+
+.quiz-option.wrong p {
+    color: #fee2e2 !important;
+}
+
+/* Vysvetlenie nemá byť modré – dáme ho do teplej žltej/oranžovej. */
+.quiz-feedback .quiz-explanation,
+.quiz-feedback p.quiz-explanation {
+    color: #facc15 !important;
+}
+
+.quiz-feedback.success {
+    border-color: rgba(34, 197, 94, 0.55) !important;
+    background: rgba(34, 197, 94, 0.08) !important;
+}
+
+.quiz-feedback.success strong {
+    color: #86efac !important;
+}
+
+.quiz-feedback.error strong {
+    color: #fecaca !important;
+}
+
+/* Skúškový režim – predchádzajúca otázka je vizuálne zablokovaná. */
+.quiz-panel.exam-mode .quiz-btn.prev,
+.quiz-panel.exam-mode [id$="Prev"] {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+
+
+/* =========================================================
+   PATCH – Fyzika v4: vzorová písomka, teória, vzorce, labáky
+   ========================================================= */
+
+.page-subject-detail .written-task.derivation {
+    border-color: rgba(248, 113, 113, 0.72) !important;
+    background: linear-gradient(135deg, rgba(248, 113, 113, 0.15), rgba(127, 29, 29, 0.10)) !important;
+}
+
+.page-subject-detail .written-task.derivation span {
+    background: rgba(248, 113, 113, 0.20) !important;
+    color: #fecaca !important;
+}
+
+.page-subject-detail .written-task.calculation-example {
+    border-color: rgba(250, 204, 21, 0.72) !important;
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.14), rgba(113, 63, 18, 0.10)) !important;
+}
+
+.page-subject-detail .written-task.calculation-example span {
+    background: rgba(250, 204, 21, 0.18) !important;
+    color: #fde68a !important;
+}
+
+.page-subject-detail .written-task.theory-question {
+    border-color: rgba(96, 165, 250, 0.72) !important;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.14), rgba(30, 64, 175, 0.10)) !important;
+}
+
+.page-subject-detail .written-task.theory-question span {
+    background: rgba(96, 165, 250, 0.18) !important;
+    color: #bfdbfe !important;
+}
+
+.exam-color-legend {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 18px 0 6px;
+}
+
+.exam-color-legend .legend-item {
+    border-radius: 18px;
+    padding: 15px;
+    background: rgba(2, 6, 23, 0.62);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.exam-color-legend strong {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.exam-color-legend span {
+    color: #cbd5e1;
+    line-height: 1.55;
+    font-weight: 750;
+}
+
+.legend-derivation strong { color: #fca5a5; }
+.legend-example strong { color: #fde68a; }
+.legend-theory strong { color: #93c5fd; }
+
+.physics-theory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.physics-theory-grid .topic-card ul,
+.lab-template-card ol,
+.lab-report-template ol {
+    margin: 12px 0 0 20px;
+    color: #cbd5e1;
+    line-height: 1.65;
+    font-weight: 750;
+}
+
+.physics-formula-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.physics-units-table {
+    margin-top: 24px;
+    border-radius: 24px;
+    padding: 22px;
+    background: rgba(2, 6, 23, 0.58);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 22%, rgba(148, 163, 184, 0.14));
+}
+
+.physics-units-table h3 {
+    margin: 0 0 16px;
+}
+
+.units-table-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.units-table-grid div {
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.74);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.units-table-grid strong {
+    display: block;
+    color: var(--subject-accent, #65d4f2);
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.units-table-grid span {
+    display: block;
+    color: #cbd5e1;
+    font-weight: 780;
+    line-height: 1.35;
+}
+
+.units-table-grid em {
+    display: inline-block;
+    margin-top: 8px;
+    color: #facc15;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.lab-template-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.lab-template-card,
+.lab-report-template {
+    border-radius: 22px;
+    padding: 22px;
+    background:
+        radial-gradient(circle at top right, color-mix(in srgb, var(--subject-accent, #65d4f2) 10%, transparent), transparent 34%),
+        rgba(2, 6, 23, 0.60);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 24%, rgba(148, 163, 184, 0.14));
+}
+
+.lab-template-card span {
+    display: inline-block;
+    color: var(--subject-accent, #65d4f2);
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 24%, transparent);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.lab-template-card h3,
+.lab-report-template h3 {
+    margin-bottom: 10px;
+}
+
+.lab-template-card p,
+.lab-report-template p {
+    color: #cbd5e1;
+    line-height: 1.65;
+    font-weight: 750;
+}
+
+.lab-report-template {
+    margin-top: 18px;
+}
+
+@media (max-width: 1000px) {
+    .exam-color-legend,
+    .physics-theory-grid,
+    .physics-formula-grid,
+    .lab-template-grid,
+    .units-table-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* =========================================================
+   PATCH – Fyzika ďalšie skúškové písomky
+   ========================================================= */
+
+.physics-exam-variants {
+    display: grid;
+    gap: 22px;
+    margin-top: 24px;
+}
+
+.physics-exam-variant {
+    border-radius: 24px;
+    padding: 20px;
+    background:
+        radial-gradient(circle at top right, color-mix(in srgb, var(--subject-accent, #65d4f2) 12%, transparent), transparent 34%),
+        rgba(2, 6, 23, 0.55);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 24%, rgba(148, 163, 184, 0.14));
+}
+
+.physics-exam-variant .variant-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.physics-exam-variant .variant-head span {
+    border-radius: 999px;
+    padding: 7px 10px;
+    color: var(--subject-accent, #65d4f2);
+    background: color-mix(in srgb, var(--subject-accent, #65d4f2) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--subject-accent, #65d4f2) 28%, transparent);
+    font-size: 12px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.physics-exam-variant .variant-head strong {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.exam-focus-box {
+    margin-top: 24px;
+    border-radius: 22px;
+    padding: 20px;
+    background: rgba(2, 6, 23, 0.62);
+    border: 1px solid rgba(250, 204, 21, 0.22);
+}
+
+.exam-focus-box h3 {
+    margin: 0 0 14px;
 }
