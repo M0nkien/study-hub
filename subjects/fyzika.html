@@ -97,7 +97,6 @@
                     <a href="#physics-units-table">Veličiny a jednotky</a>
                     <a href="#formula-detail-cards">Vzorce detailne</a>                    
                     <a href="#labs">Laboratórium</a>
-                    <a href="#downloads">Súbory</a>
                     <a href="#checklist">Checklist</a>
                 </aside>
 
@@ -313,28 +312,1085 @@ Re = ρvd/η</code></pre>
     </div>
 </section>
 
+
 <section id="derivations" class="content-block">
     <p class="small-title">Odvodenia</p>
     <h2>Odvodenia ku skúške</h2>
 
     <p class="section-description">
-        Odvodenia sa netreba učiť ako čistý text naspamäť. Dôležité je vedieť logiku,
-        fyzikálny význam a vedieť z odvodenia použiť aj časť, keď nechceš celý postup.
+        Každé odvodenie je spravené ako samostatná otváracia časť. Najprv si skús odvodenie napísať sám
+        na papier a až potom si otvor postup. Na skúške je dôležité vedieť logiku, fyzikálny význam,
+        použité vzťahy a výsledný vzorec.
     </p>
 
-    <div class="derivation-list">
-        <article class="derivation-card"><span>1</span><p>Odvoďte vzťah pre tangenciálne a normálové zrýchlenie pri pohybe po kružnici.</p></article>
-        <article class="derivation-card"><span>2</span><p>Odvoďte Newtonov gravitačný zákon z 3. Keplerovho zákona.</p></article>
-        <article class="derivation-card"><span>3</span><p>Odvoďte rovnice dráhy pohybu šikmého vrhu, výšku a dolet.</p></article>
-        <article class="derivation-card"><span>4</span><p>Odvoďte I. kozmickú rýchlosť a II. kozmickú rýchlosť.</p></article>
-        <article class="derivation-card"><span>5</span><p>Odvoďte polohový vektor ťažiska sústavy hmotných bodov a tuhého telesa.</p></article>
-        <article class="derivation-card"><span>6</span><p>Odvoďte vzťahy pre kinetickú energiu translačného a rotačného pohybu tuhého telesa.</p></article>
-        <article class="derivation-card"><span>7</span><p>Odvoďte I. vetu impulzovú pre pohyb ťažiska.</p></article>
-        <article class="derivation-card"><span>8</span><p>Odvoďte Steinerovu vetu.</p></article>
-        <article class="derivation-card"><span>9</span><p>Odvoďte pohybovú rovnicu harmonických netlmených kmitov a jej riešenie.</p></article>
-        <article class="derivation-card"><span>10</span><p>Odvoďte pohybovú rovnicu harmonických tlmených kmitov a jej riešenie.</p></article>
-        <article class="derivation-card"><span>11</span><p>Odvoďte amplitúdu vynútených kmitov a z nej podmienku rezonancie. Charakterizujte rezonanciu.</p></article>
-        <article class="derivation-card"><span>12</span><p>Odvoďte Bernoulliho rovnicu.</p></article>
+    <div class="physics-solved-list">
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O1</span>
+                <strong>Tangenciálne, normálové a celkové zrýchlenie pri pohybe po kružnici</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte vzťah pre tangenciálne a normálové zrýchlenie pri pohybe po kružnici.
+                        Definujte uhlovú rýchlosť, uhlové zrýchlenie, periódu a frekvenciu.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>pohyb po kružnici s polomerom r</li>
+                        <li>uhlová dráha φ</li>
+                        <li>vzťah medzi oblúkom a uhlom: s = rφ</li>
+                        <li>rýchlosť: v = ds/dt</li>
+                        <li>zrýchlenie: a = dv/dt</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Pri pohybe po kružnici je dĺžka oblúka:</p>
+                    <pre><code>s = rφ</code></pre>
+
+                    <p>Rýchlosť je zmena dráhy za čas:</p>
+                    <pre><code>v = ds/dt</code></pre>
+
+                    <p>Dosadíme s = rφ:</p>
+                    <pre><code>v = d(rφ)/dt</code></pre>
+
+                    <p>Polomer r je konštantný, preto ho môžeme vytknúť:</p>
+                    <pre><code>v = r · dφ/dt</code></pre>
+
+                    <p>Definícia uhlovej rýchlosti:</p>
+                    <pre><code>ω = dφ/dt</code></pre>
+
+                    <p>Preto dostaneme vzťah medzi obvodovou a uhlovou rýchlosťou:</p>
+                    <pre><code>v = rω</code></pre>
+
+                    <p>Tangenciálne zrýchlenie mení veľkosť rýchlosti:</p>
+                    <pre><code>at = dv/dt</code></pre>
+
+                    <p>Dosadíme v = rω:</p>
+                    <pre><code>at = d(rω)/dt</code></pre>
+
+                    <p>Polomer je konštantný:</p>
+                    <pre><code>at = r · dω/dt</code></pre>
+
+                    <p>Definícia uhlového zrýchlenia:</p>
+                    <pre><code>ε = dω/dt</code></pre>
+
+                    <p>Preto:</p>
+                    <pre><code>at = rε</code></pre>
+
+                    <p>Normálové zrýchlenie vzniká preto, že sa mení smer rýchlosti. Smeruje do stredu kružnice:</p>
+                    <pre><code>an = v²/r</code></pre>
+
+                    <p>Keďže v = rω:</p>
+                    <pre><code>an = (rω)² / r
+an = r²ω² / r
+an = rω²</code></pre>
+
+                    <p>Tangenciálne a normálové zrýchlenie sú na seba kolmé, preto celkové zrýchlenie je:</p>
+                    <pre><code>a = √(at² + an²)</code></pre>
+
+                    <p>Perióda T je čas jednej otáčky. Frekvencia f je počet otáčok za sekundu:</p>
+                    <pre><code>f = 1/T
+T = 1/f</code></pre>
+
+                    <p>Za jednu otáčku prejde bod uhol 2π radiánov:</p>
+                    <pre><code>ω = 2π/T
+ω = 2πf</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>v = rω
+
+at = rε
+
+an = v²/r = rω²
+
+a = √(at² + an²)
+
+f = 1/T
+
+ω = 2πf = 2π/T</code></pre>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O2</span>
+                <strong>Newtonov gravitačný zákon z 3. Keplerovho zákona</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte Newtonov gravitačný zákon z 3. Keplerovho zákona.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>planéta obieha približne po kružnici</li>
+                        <li>dostredivá sila: F = mv²/r</li>
+                        <li>obvodová rýchlosť: v = 2πr/T</li>
+                        <li>3. Keplerov zákon: T²/r³ = konšt.</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Pri pohybe planéty po kružnici musí pôsobiť dostredivá sila:</p>
+                    <pre><code>F = m v²/r</code></pre>
+
+                    <p>Obvodová rýchlosť planéty je:</p>
+                    <pre><code>v = 2πr/T</code></pre>
+
+                    <p>Dosadíme do sily:</p>
+                    <pre><code>F = m/r · (2πr/T)²</code></pre>
+
+                    <p>Umocníme zátvorku:</p>
+                    <pre><code>F = m/r · 4π²r²/T²</code></pre>
+
+                    <p>Upravíme:</p>
+                    <pre><code>F = 4π²mr/T²</code></pre>
+
+                    <p>Z 3. Keplerovho zákona platí:</p>
+                    <pre><code>T²/r³ = K</code></pre>
+
+                    <p>Z toho:</p>
+                    <pre><code>T² = Kr³</code></pre>
+
+                    <p>Prevrátime:</p>
+                    <pre><code>1/T² = 1/(Kr³)</code></pre>
+
+                    <p>Dosadíme do vzťahu pre silu:</p>
+                    <pre><code>F = 4π²mr · 1/(Kr³)</code></pre>
+
+                    <p>Upravíme:</p>
+                    <pre><code>F = (4π²/K) · m/r²</code></pre>
+
+                    <p>Z toho vidno, že sila je nepriamo úmerná druhej mocnine vzdialenosti:</p>
+                    <pre><code>F ~ 1/r²</code></pre>
+
+                    <p>Konštanta závisí od centrálneho telesa. Pre centrálne teleso hmotnosti M sa zavádza gravitačná konštanta G:</p>
+                    <pre><code>4π²/K = GM</code></pre>
+
+                    <p>Potom dostaneme Newtonov gravitačný zákon:</p>
+                    <pre><code>F = GMm/r²</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledný vzťah</strong>
+                    <pre><code>F = G · M · m / r²</code></pre>
+                    <p>
+                        Gravitačná sila je priamo úmerná súčinu hmotností telies a nepriamo úmerná druhej mocnine ich vzdialenosti.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O3</span>
+                <strong>Šikmý vrh – rovnice dráhy, maximálna výška a dolet</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte rovnice dráhy pohybu šikmého vrhu, maximálnu výšku a dolet.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>počiatočná rýchlosť v0</li>
+                        <li>uhol vrhu α</li>
+                        <li>tiažové zrýchlenie g</li>
+                        <li>odpor vzduchu zanedbáme</li>
+                        <li>pohyb rozdelíme na vodorovný a zvislý smer</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Počiatočnú rýchlosť rozložíme na zložky:</p>
+                    <pre><code>v0x = v0 cosα
+
+v0y = v0 sinα</code></pre>
+
+                    <p>Vo vodorovnom smere nepôsobí zrýchlenie, preto je pohyb rovnomerný:</p>
+                    <pre><code>x = v0x t
+
+x = v0 cosα · t</code></pre>
+
+                    <p>Vo zvislom smere pôsobí tiažové zrýchlenie smerom nadol:</p>
+                    <pre><code>y = v0y t - 1/2 gt²
+
+y = v0 sinα · t - 1/2 gt²</code></pre>
+
+                    <p>Maximálna výška nastane vtedy, keď zvislá rýchlosť bude nulová:</p>
+                    <pre><code>vy = v0 sinα - gt
+
+vy = 0
+
+0 = v0 sinα - gt
+
+tH = v0 sinα / g</code></pre>
+
+                    <p>Čas do maximálnej výšky dosadíme do rovnice pre y:</p>
+                    <pre><code>H = v0 sinα · tH - 1/2 g tH²
+
+H = v0 sinα · (v0 sinα/g) - 1/2 g · (v0² sin²α/g²)
+
+H = v0² sin²α/g - 1/2 · v0² sin²α/g
+
+H = v0² sin²α / (2g)</code></pre>
+
+                    <p>Pri dopade na rovnakú výšku ako štart platí y = 0:</p>
+                    <pre><code>0 = v0 sinα · t - 1/2 gt²</code></pre>
+
+                    <p>Vytkneme t:</p>
+                    <pre><code>t(v0 sinα - 1/2 gt) = 0</code></pre>
+
+                    <p>Riešenie t = 0 je začiatok. Druhé riešenie je čas letu:</p>
+                    <pre><code>v0 sinα - 1/2 gt = 0
+
+tD = 2v0 sinα / g</code></pre>
+
+                    <p>Dolet je vodorovná dráha za čas letu:</p>
+                    <pre><code>D = v0 cosα · tD
+
+D = v0 cosα · (2v0 sinα/g)
+
+D = 2v0² sinα cosα / g</code></pre>
+
+                    <p>Použijeme trigonometrický vzťah:</p>
+                    <pre><code>sin(2α) = 2 sinα cosα</code></pre>
+
+                    <p>Dostaneme:</p>
+                    <pre><code>D = v0² sin(2α) / g</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>x = v0 cosα · t
+
+y = v0 sinα · t - 1/2 gt²
+
+H = v0² sin²α / (2g)
+
+D = v0² sin(2α) / g</code></pre>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O4</span>
+                <strong>I. a II. kozmická rýchlosť</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte I. kozmickú rýchlosť a II. kozmickú rýchlosť.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>pri I. kozmickej rýchlosti je gravitačná sila dostredivou silou</li>
+                        <li>pri II. kozmickej rýchlosti použijeme zákon zachovania energie</li>
+                        <li>M je hmotnosť Zeme</li>
+                        <li>R je polomer Zeme</li>
+                        <li>m je hmotnosť telesa</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>I. kozmická rýchlosť</h3>
+
+                    <p>Gravitačná sila pôsobiaca na teleso pri povrchu Zeme je:</p>
+                    <pre><code>Fg = GMm/R²</code></pre>
+
+                    <p>Pri kruhovom obehu je potrebná dostredivá sila:</p>
+                    <pre><code>Fd = mv²/R</code></pre>
+
+                    <p>Gravitačná sila zabezpečuje dostredivú silu:</p>
+                    <pre><code>Fg = Fd</code></pre>
+
+                    <p>Dosadíme:</p>
+                    <pre><code>GMm/R² = mv²/R</code></pre>
+
+                    <p>Vykrátime m:</p>
+                    <pre><code>GM/R² = v²/R</code></pre>
+
+                    <p>Vynásobíme R:</p>
+                    <pre><code>GM/R = v²</code></pre>
+
+                    <p>Odmocníme:</p>
+                    <pre><code>v1 = √(GM/R)</code></pre>
+
+                    <p>Keďže g = GM/R², potom GM/R = gR:</p>
+                    <pre><code>v1 = √(gR)</code></pre>
+
+                    <h3>II. kozmická rýchlosť</h3>
+
+                    <p>Na opustenie gravitačného poľa musí byť celková mechanická energia aspoň nulová.</p>
+
+                    <p>Kinetická energia na povrchu:</p>
+                    <pre><code>Ek = 1/2 mv²</code></pre>
+
+                    <p>Gravitačná potenciálna energia:</p>
+                    <pre><code>Ep = -GMm/R</code></pre>
+
+                    <p>Hraničný únikový prípad:</p>
+                    <pre><code>Ek + Ep = 0</code></pre>
+
+                    <p>Dosadíme:</p>
+                    <pre><code>1/2 mv² - GMm/R = 0</code></pre>
+
+                    <p>Presunieme člen:</p>
+                    <pre><code>1/2 mv² = GMm/R</code></pre>
+
+                    <p>Vykrátime m:</p>
+                    <pre><code>1/2 v² = GM/R</code></pre>
+
+                    <p>Vynásobíme dvomi:</p>
+                    <pre><code>v² = 2GM/R</code></pre>
+
+                    <p>Odmocníme:</p>
+                    <pre><code>v2 = √(2GM/R)</code></pre>
+
+                    <p>Keďže v1 = √(GM/R), platí:</p>
+                    <pre><code>v2 = √2 · v1</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>I. kozmická rýchlosť:
+
+v1 = √(GM/R) = √(gR)
+
+
+II. kozmická rýchlosť:
+
+v2 = √(2GM/R) = √2 · v1</code></pre>
+                    <p>
+                        I. kozmická rýchlosť je rýchlosť pre kruhový obeh okolo Zeme.
+                        II. kozmická rýchlosť je úniková rýchlosť.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O5</span>
+                <strong>Polohový vektor ťažiska sústavy hmotných bodov a tuhého telesa</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte polohový vektor ťažiska sústavy hmotných bodov a tuhého telesa.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>ťažisko je vážený priemer polôh častí telesa</li>
+                        <li>pri hmotných bodoch používame sumu</li>
+                        <li>pri tuhom telese používame integrál</li>
+                        <li>M je celková hmotnosť</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Sústava hmotných bodov</h3>
+
+                    <p>Celková hmotnosť sústavy je:</p>
+                    <pre><code>M = m1 + m2 + ... + mn</code></pre>
+
+                    <p>Ťažisko je vážený priemer polôh:</p>
+                    <pre><code>rT = (m1r1 + m2r2 + ... + mnrn) / M</code></pre>
+
+                    <p>Pomocou sumy:</p>
+                    <pre><code>rT = (Σ mi ri) / M</code></pre>
+
+                    <p>Kde:</p>
+                    <pre><code>M = Σ mi</code></pre>
+
+                    <p>V súradniciach:</p>
+                    <pre><code>xT = (Σ mi xi) / M
+
+yT = (Σ mi yi) / M
+
+zT = (Σ mi zi) / M</code></pre>
+
+                    <h3>Tuhé teleso</h3>
+
+                    <p>Tuhé teleso si predstavíme ako zložené z nekonečne veľa malých častí hmotnosti dm.</p>
+
+                    <p>Vzťah pre hmotné body bol:</p>
+                    <pre><code>rT = (Σ mi ri) / M</code></pre>
+
+                    <p>Pri spojitom telese prejde suma na integrál:</p>
+                    <pre><code>Σ mi ri  →  ∫ r dm</code></pre>
+
+                    <p>Preto:</p>
+                    <pre><code>rT = (1/M) ∫ r dm</code></pre>
+
+                    <p>Celková hmotnosť je:</p>
+                    <pre><code>M = ∫ dm</code></pre>
+
+                    <p>Ak je hustota rovnomerná, dm = ρdV:</p>
+                    <pre><code>rT = (1/M) ∫ r ρ dV</code></pre>
+
+                    <p>Ak je ρ konštantná:</p>
+                    <pre><code>rT = (1/V) ∫ r dV</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>hmotné body:
+
+rT = (Σ mi ri) / M
+
+
+tuhé teleso:
+
+rT = (1/M) ∫ r dm
+
+
+súradnice:
+
+xT = (1/M) ∫ x dm
+yT = (1/M) ∫ y dm
+zT = (1/M) ∫ z dm</code></pre>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O6</span>
+                <strong>Kinetická energia translačného a rotačného pohybu tuhého telesa</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte vzťahy pre kinetickú energiu translačného a rotačného pohybu tuhého telesa.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>kinetická energia hmotného bodu: Ek = 1/2 mv²</li>
+                        <li>pri translácii majú všetky časti telesa rovnakú rýchlosť</li>
+                        <li>pri rotácii má každá časť rýchlosť vi = ωri</li>
+                        <li>moment zotrvačnosti: I = Σ mi ri²</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Translačný pohyb</h3>
+
+                    <p>Kinetická energia i-tej časti telesa:</p>
+                    <pre><code>Eki = 1/2 mi v²</code></pre>
+
+                    <p>Pri translácii majú všetky časti rovnakú rýchlosť v:</p>
+                    <pre><code>Ek = Σ 1/2 mi v²</code></pre>
+
+                    <p>Vytkneme 1/2 a v²:</p>
+                    <pre><code>Ek = 1/2 v² Σ mi</code></pre>
+
+                    <p>Súčet hmotností je celková hmotnosť M:</p>
+                    <pre><code>Σ mi = M</code></pre>
+
+                    <p>Preto:</p>
+                    <pre><code>Ek = 1/2 Mv²</code></pre>
+
+                    <h3>Rotačný pohyb</h3>
+
+                    <p>Pri rotácii má i-ta časť rýchlosť:</p>
+                    <pre><code>vi = ωri</code></pre>
+
+                    <p>Kinetická energia i-tej časti:</p>
+                    <pre><code>Eki = 1/2 mi vi²</code></pre>
+
+                    <p>Dosadíme vi = ωri:</p>
+                    <pre><code>Eki = 1/2 mi (ωri)²</code></pre>
+
+                    <p>Umocníme:</p>
+                    <pre><code>Eki = 1/2 mi ω² ri²</code></pre>
+
+                    <p>Sčítame cez celé teleso:</p>
+                    <pre><code>Ek = Σ 1/2 mi ω² ri²</code></pre>
+
+                    <p>Vytkneme 1/2 a ω²:</p>
+                    <pre><code>Ek = 1/2 ω² Σ mi ri²</code></pre>
+
+                    <p>Súčet je moment zotrvačnosti:</p>
+                    <pre><code>I = Σ mi ri²</code></pre>
+
+                    <p>Preto:</p>
+                    <pre><code>Ek = 1/2 Iω²</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>translačný pohyb:
+
+Ek = 1/2 Mv²
+
+
+rotačný pohyb:
+
+Ek = 1/2 Iω²
+
+
+moment zotrvačnosti:
+
+I = Σ mi ri²</code></pre>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O7</span>
+                <strong>I. impulzová veta pre pohyb ťažiska</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte I. vetu impulzovú pre pohyb ťažiska.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>2. Newtonov zákon</li>
+                        <li>hybnosť p = mv</li>
+                        <li>celková hybnosť sústavy P</li>
+                        <li>rýchlosť ťažiska vT</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Pre jeden hmotný bod platí 2. Newtonov zákon:</p>
+                    <pre><code>F = ma</code></pre>
+
+                    <p>Zrýchlenie je derivácia rýchlosti:</p>
+                    <pre><code>a = dv/dt</code></pre>
+
+                    <p>Dosadíme:</p>
+                    <pre><code>F = m dv/dt</code></pre>
+
+                    <p>Ak je hmotnosť konštantná:</p>
+                    <pre><code>F = d(mv)/dt</code></pre>
+
+                    <p>Hybnosť je:</p>
+                    <pre><code>p = mv</code></pre>
+
+                    <p>Preto:</p>
+                    <pre><code>F = dp/dt</code></pre>
+
+                    <p>Pre sústavu hmotných bodov je celková hybnosť:</p>
+                    <pre><code>P = Σ mi vi</code></pre>
+
+                    <p>Rýchlosť ťažiska je:</p>
+                    <pre><code>vT = (Σ mi vi) / M</code></pre>
+
+                    <p>Vynásobíme M:</p>
+                    <pre><code>MvT = Σ mi vi</code></pre>
+
+                    <p>Pravá strana je celková hybnosť sústavy:</p>
+                    <pre><code>P = MvT</code></pre>
+
+                    <p>Výsledná vonkajšia sila je časová zmena celkovej hybnosti:</p>
+                    <pre><code>Fvonk = dP/dt</code></pre>
+
+                    <p>Dosadíme P = MvT:</p>
+                    <pre><code>Fvonk = d(MvT)/dt</code></pre>
+
+                    <p>Pri konštantnej hmotnosti M:</p>
+                    <pre><code>Fvonk = M dvT/dt</code></pre>
+
+                    <p>Keďže:</p>
+                    <pre><code>aT = dvT/dt</code></pre>
+
+                    <p>Dostaneme:</p>
+                    <pre><code>Fvonk = MaT</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>Fvonk = dP/dt
+
+P = MvT
+
+Fvonk = MaT</code></pre>
+                    <p>
+                        Ťažisko sústavy sa pohybuje tak, ako keby v ňom bola sústredená celá hmotnosť
+                        a pôsobila naň výslednica vonkajších síl.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O8</span>
+                <strong>Steinerova veta</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte Steinerovu vetu.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>moment zotrvačnosti vzhľadom na os cez ťažisko</li>
+                        <li>posunutá rovnobežná os</li>
+                        <li>vzdialenosť osí d</li>
+                        <li>celková hmotnosť M</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Moment zotrvačnosti sústavy hmotných bodov je:</p>
+                    <pre><code>I = Σ mi ri²</code></pre>
+
+                    <p>Nech poznáme moment zotrvačnosti vzhľadom na os prechádzajúcu ťažiskom:</p>
+                    <pre><code>I0 = Σ mi ri²</code></pre>
+
+                    <p>Nová os je rovnobežná a posunutá o vzdialenosť d.</p>
+
+                    <p>Vzdialenosť i-teho bodu od novej osi môžeme zapísať:</p>
+                    <pre><code>Ri² = ri² + d² + 2d xi</code></pre>
+
+                    <p>Moment zotrvačnosti vzhľadom na novú os:</p>
+                    <pre><code>I = Σ mi Ri²</code></pre>
+
+                    <p>Dosadíme:</p>
+                    <pre><code>I = Σ mi(ri² + d² + 2d xi)</code></pre>
+
+                    <p>Rozdelíme sumy:</p>
+                    <pre><code>I = Σ mi ri² + Σ mi d² + Σ mi 2d xi</code></pre>
+
+                    <p>Konštanty vytkneme:</p>
+                    <pre><code>I = Σ mi ri² + d²Σ mi + 2dΣ mi xi</code></pre>
+
+                    <p>Prvý člen je I0:</p>
+                    <pre><code>Σ mi ri² = I0</code></pre>
+
+                    <p>Druhý člen obsahuje celkovú hmotnosť:</p>
+                    <pre><code>Σ mi = M</code></pre>
+
+                    <p>Tretí člen je nulový, pretože počiatok je v ťažisku:</p>
+                    <pre><code>Σ mi xi = 0</code></pre>
+
+                    <p>Preto ostane:</p>
+                    <pre><code>I = I0 + Md²</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledný vzťah</strong>
+                    <pre><code>I = I0 + Md²</code></pre>
+                    <p>
+                        Moment zotrvačnosti vzhľadom na posunutú rovnobežnú os je väčší o člen Md².
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O9</span>
+                <strong>Netlmené harmonické kmity</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte pohybovú rovnicu harmonických netlmených kmitov a jej riešenie.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>Hookeov zákon</li>
+                        <li>2. Newtonov zákon</li>
+                        <li>bez trenia a bez tlmenia</li>
+                        <li>pružina s tuhosťou k</li>
+                        <li>teleso s hmotnosťou m</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Pružná sila pružiny je:</p>
+                    <pre><code>F = -kx</code></pre>
+
+                    <p>Znamienko mínus znamená, že sila smeruje proti výchylke.</p>
+
+                    <p>Podľa 2. Newtonovho zákona:</p>
+                    <pre><code>F = ma</code></pre>
+
+                    <p>Zrýchlenie je druhá derivácia výchylky:</p>
+                    <pre><code>a = x''</code></pre>
+
+                    <p>Dosadíme:</p>
+                    <pre><code>mx'' = -kx</code></pre>
+
+                    <p>Presunieme všetko na jednu stranu:</p>
+                    <pre><code>mx'' + kx = 0</code></pre>
+
+                    <p>Vydelíme m:</p>
+                    <pre><code>x'' + (k/m)x = 0</code></pre>
+
+                    <p>Zavedieme vlastnú uhlovú frekvenciu:</p>
+                    <pre><code>ω0² = k/m</code></pre>
+
+                    <p>Dostaneme pohybovú rovnicu:</p>
+                    <pre><code>x'' + ω0²x = 0</code></pre>
+
+                    <p>Riešením je harmonická funkcia:</p>
+                    <pre><code>x(t) = A sin(ω0t + φ)</code></pre>
+
+                    <p>Alebo:</p>
+                    <pre><code>x(t) = C1 cos(ω0t) + C2 sin(ω0t)</code></pre>
+
+                    <p>Perióda:</p>
+                    <pre><code>T = 2π/ω0</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>x'' + ω0²x = 0
+
+ω0 = √(k/m)
+
+x(t) = A sin(ω0t + φ)
+
+T = 2π/ω0</code></pre>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O10</span>
+                <strong>Tlmené harmonické kmity</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte pohybovú rovnicu harmonických tlmených kmitov a jej riešenie.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>pružná sila: Fp = -kx</li>
+                        <li>tlmiaca sila: Ft = -bv</li>
+                        <li>v = x'</li>
+                        <li>a = x''</li>
+                        <li>2. Newtonov zákon</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Pružná sila je:</p>
+                    <pre><code>Fp = -kx</code></pre>
+
+                    <p>Tlmiaca sila je úmerná rýchlosti a pôsobí proti pohybu:</p>
+                    <pre><code>Ft = -bv</code></pre>
+
+                    <p>Keďže v = x':</p>
+                    <pre><code>Ft = -bx'</code></pre>
+
+                    <p>Výsledná sila:</p>
+                    <pre><code>F = Fp + Ft</code></pre>
+
+                    <p>Dosadíme:</p>
+                    <pre><code>F = -kx - bx'</code></pre>
+
+                    <p>Podľa 2. Newtonovho zákona:</p>
+                    <pre><code>mx'' = -kx - bx'</code></pre>
+
+                    <p>Presunieme všetko na jednu stranu:</p>
+                    <pre><code>mx'' + bx' + kx = 0</code></pre>
+
+                    <p>Vydelíme m:</p>
+                    <pre><code>x'' + (b/m)x' + (k/m)x = 0</code></pre>
+
+                    <p>Zavedieme:</p>
+                    <pre><code>2β = b/m
+
+ω0² = k/m</code></pre>
+
+                    <p>Dostaneme:</p>
+                    <pre><code>x'' + 2βx' + ω0²x = 0</code></pre>
+
+                    <p>Pre slabé tlmenie je riešenie:</p>
+                    <pre><code>x(t) = A e^(-βt) sin(ωt + φ)</code></pre>
+
+                    <p>Uhlová frekvencia tlmených kmitov:</p>
+                    <pre><code>ω = √(ω0² - β²)</code></pre>
+
+                    <p>Člen e<sup>-βt</sup> spôsobuje zmenšovanie amplitúdy.</p>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>x'' + 2βx' + ω0²x = 0
+
+2β = b/m
+
+ω0² = k/m
+
+x(t) = A e^(-βt) sin(ωt + φ)
+
+ω = √(ω0² - β²)</code></pre>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O11</span>
+                <strong>Vynútené kmity, amplitúda a rezonancia</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte amplitúdu vynútených kmitov a z nej podmienku rezonancie.
+                        Charakterizujte rezonanciu.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>pružná sila: -kx</li>
+                        <li>tlmiaca sila: -bx'</li>
+                        <li>vonkajšia periodická sila: F0 sin(Ωt)</li>
+                        <li>rovnica vynútených tlmených kmitov</li>
+                        <li>ustálené riešenie s frekvenciou vonkajšej sily</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Na teleso pôsobí pružná, tlmiaca a vonkajšia periodická sila:</p>
+                    <pre><code>F = -kx - bx' + F0 sin(Ωt)</code></pre>
+
+                    <p>Podľa 2. Newtonovho zákona:</p>
+                    <pre><code>mx'' = -kx - bx' + F0 sin(Ωt)</code></pre>
+
+                    <p>Upravíme:</p>
+                    <pre><code>mx'' + bx' + kx = F0 sin(Ωt)</code></pre>
+
+                    <p>Vydelíme m:</p>
+                    <pre><code>x'' + (b/m)x' + (k/m)x = (F0/m) sin(Ωt)</code></pre>
+
+                    <p>Zavedieme:</p>
+                    <pre><code>2β = b/m
+
+ω0² = k/m
+
+f0 = F0/m</code></pre>
+
+                    <p>Dostaneme rovnicu:</p>
+                    <pre><code>x'' + 2βx' + ω0²x = f0 sin(Ωt)</code></pre>
+
+                    <p>V ustálenom stave kmitá sústava s frekvenciou vonkajšej sily Ω. Predpokladáme riešenie:</p>
+                    <pre><code>x = A sin(Ωt - δ)</code></pre>
+
+                    <p>Po dosadení do rovnice a porovnaní sínusovej a kosínusovej zložky dostaneme:</p>
+                    <pre><code>A(ω0² - Ω²) = f0 cosδ
+
+2βΩA = f0 sinδ</code></pre>
+
+                    <p>Obe rovnice umocníme a sčítame:</p>
+                    <pre><code>A²(ω0² - Ω²)² + A²(2βΩ)² =
+f0²(cos²δ + sin²δ)</code></pre>
+
+                    <p>Keďže cos²δ + sin²δ = 1:</p>
+                    <pre><code>A²[(ω0² - Ω²)² + (2βΩ)²] = f0²</code></pre>
+
+                    <p>Pre amplitúdu:</p>
+                    <pre><code>A = f0 / √[(ω0² - Ω²)² + (2βΩ)²]</code></pre>
+
+                    <p>Keďže f0 = F0/m:</p>
+                    <pre><code>A = (F0/m) / √[(ω0² - Ω²)² + (2βΩ)²]</code></pre>
+
+                    <p>Rezonancia nastane vtedy, keď je amplitúda maximálna. To znamená, že menovateľ je minimálny.</p>
+
+                    <p>Menovateľ bez odmocniny označíme:</p>
+                    <pre><code>D = (ω0² - Ω²)² + 4β²Ω²</code></pre>
+
+                    <p>Minimum nájdeme deriváciou podľa Ω. Výsledná rezonančná frekvencia je:</p>
+                    <pre><code>Ωr = √(ω0² - 2β²)</code></pre>
+
+                    <p>Ak je tlmenie veľmi malé, β ≈ 0, potom:</p>
+                    <pre><code>Ωr ≈ ω0</code></pre>
+
+                    <p>Rezonancia je jav, keď vonkajšia sila pôsobí s frekvenciou blízkou vlastnej frekvencii sústavy a amplitúda prudko narastá.</p>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledné vzťahy</strong>
+                    <pre><code>x'' + 2βx' + ω0²x = f0 sin(Ωt)
+
+A = f0 / √[(ω0² - Ω²)² + (2βΩ)²]
+
+A = (F0/m) / √[(ω0² - Ω²)² + (2βΩ)²]
+
+Ωr = √(ω0² - 2β²)
+
+pri malom tlmení:
+Ωr ≈ ω0</code></pre>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>O12</span>
+                <strong>Bernoulliho rovnica</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Odvoďte Bernoulliho rovnicu a vysvetlite význam jej členov.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Čo použijeme</h3>
+                    <ul>
+                        <li>ideálna kvapalina</li>
+                        <li>ustálené prúdenie</li>
+                        <li>kvapalina je nestlačiteľná</li>
+                        <li>zanedbáme viskozitu</li>
+                        <li>zákon zachovania mechanickej energie</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Podrobné odvodenie</h3>
+
+                    <p>Uvažujeme objem kvapaliny V, ktorý sa presunie z miesta 1 do miesta 2.</p>
+
+                    <p>Práca tlakovej sily v mieste 1:</p>
+                    <pre><code>W1 = p1V</code></pre>
+
+                    <p>V mieste 2 kvapalina koná prácu proti tlaku:</p>
+                    <pre><code>W2 = p2V</code></pre>
+
+                    <p>Celková práca tlakových síl:</p>
+                    <pre><code>W = p1V - p2V</code></pre>
+
+                    <p>Táto práca sa rovná zmene mechanickej energie kvapaliny.</p>
+
+                    <p>Kinetická energia v mieste 1:</p>
+                    <pre><code>Ek1 = 1/2 mv1²</code></pre>
+
+                    <p>Kinetická energia v mieste 2:</p>
+                    <pre><code>Ek2 = 1/2 mv2²</code></pre>
+
+                    <p>Potenciálna energia v mieste 1:</p>
+                    <pre><code>Ep1 = mgh1</code></pre>
+
+                    <p>Potenciálna energia v mieste 2:</p>
+                    <pre><code>Ep2 = mgh2</code></pre>
+
+                    <p>Zákon zachovania energie:</p>
+                    <pre><code>p1V - p2V =
+(1/2 mv2² + mgh2) - (1/2 mv1² + mgh1)</code></pre>
+
+                    <p>Upravíme tak, aby veličiny v bode 1 boli na jednej strane a v bode 2 na druhej:</p>
+                    <pre><code>p1V + 1/2 mv1² + mgh1 =
+p2V + 1/2 mv2² + mgh2</code></pre>
+
+                    <p>Hmotnosť kvapaliny vyjadríme cez hustotu:</p>
+                    <pre><code>m = ρV</code></pre>
+
+                    <p>Dosadíme:</p>
+                    <pre><code>p1V + 1/2 ρVv1² + ρVgh1 =
+p2V + 1/2 ρVv2² + ρVgh2</code></pre>
+
+                    <p>Celú rovnicu vydelíme objemom V:</p>
+                    <pre><code>p1 + 1/2 ρv1² + ρgh1 =
+p2 + 1/2 ρv2² + ρgh2</code></pre>
+
+                    <p>Pre ľubovoľné miesto v prúdnici:</p>
+                    <pre><code>p + 1/2 ρv² + ρgh = konšt.</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledný vzťah</strong>
+                    <pre><code>p + 1/2 ρv² + ρgh = konšt.</code></pre>
+                    <p>
+                        p je tlaková energia na jednotku objemu, 1/2ρv² je kinetická energia na jednotku objemu
+                        a ρgh je potenciálna energia na jednotku objemu.
+                    </p>
+                </div>
+            </div>
+        </details>
+
     </div>
 
     <div class="learn-actions">
@@ -417,78 +1473,322 @@ Re = ρvd/η</code></pre>
 
 
 <section id="wheel-example" class="content-block">
-    <p class="small-title">Vzorový príklad</p>
-    <h2>Koleso sa zastaví – čas zastavenia a uhlové zrýchlenie</h2>
+    <p class="small-title">Vzorové príklady</p>
+    <h2>Príklady z cvičení na skúške</h2>
 
-    <div class="solved-example-box">
-        <h3>Zadanie</h3>
-        <p>
-            Koleso sa otáča frekvenciou <strong>600 otáčok za minútu</strong>.
-            Vplyvom trenia sa zastaví po <strong>500 otáčkach</strong>.
-            Nájdite čas zastavenia a uhlové zrýchlenie.
-        </p>
+    <p class="section-description">
+        Najprv si skús napísať rovnice a riešenie zakry. Potom otvor konkrétny príklad a porovnaj postup.
+        Pri každom príklade sleduj hlavne jednotky. Výpočty sú prekontrolované.
+    </p>
 
-        <div class="solution-steps">
-            <article>
-                <span>1</span>
-                <h4>Prevod frekvencie</h4>
-                <pre><code>f = 600 / 60 = 10 Hz</code></pre>
-            </article>
+    <div class="physics-solved-list">
 
-            <article>
-                <span>2</span>
-                <h4>Počiatočná uhlová rýchlosť</h4>
-                <pre><code>ω0 = 2πf
-ω0 = 2π · 10
-ω0 = 20π rad/s</code></pre>
-            </article>
+        <details class="physics-solved-example">
+            <summary>
+                <span>5.1</span>
+                <strong>Koleso sa zastaví trením</strong>
+            </summary>
 
-            <article>
-                <span>3</span>
-                <h4>Uhlová dráha</h4>
-                <pre><code>N = 500 otáčok
-φ = N · 2π
-φ = 500 · 2π = 1000π rad</code></pre>
-            </article>
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>Koleso sa otáča frekvenciou 600 otáčok za minútu. Vplyvom trenia sa zastaví, pričom vykoná ešte 500 otáčok. Za aký čas sa zastaví a aké bude uhlové zrýchlenie?</p>
+                </div>
 
-            <article>
-                <span>4</span>
-                <h4>Konečná uhlová rýchlosť</h4>
-                <pre><code>ω = 0</code></pre>
-            </article>
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>f<sub>0</sub> = 600 min<sup>-1</sup> = 10 s<sup>-1</sup></li>
+                        <li>ω<sub>0</sub> = 2πf<sub>0</sub> = 20π rad/s</li>
+                        <li>ω = 0</li>
+                        <li>φ = 500 otáčok = 1000π rad</li>
+                        <li>hľadáme t a ε</li>
+                    </ul>
+                </div>
 
-            <article>
-                <span>5</span>
-                <h4>Uhlové zrýchlenie</h4>
-                <pre><code>ω² = ω0² + 2εφ
-
-0 = (20π)² + 2ε(1000π)
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <p>Pri rovnomerne spomalenom otáčaní platí:</p>
+                    <pre><code>ω² = ω0² + 2εφ</code></pre>
+                    <p>Dosadíme konečnú uhlovú rýchlosť ω = 0:</p>
+                    <pre><code>0 = (20π)² + 2ε(1000π)
 0 = 400π² + 2000πε
-
 ε = -400π² / 2000π
-ε = -π/5
+ε = -π/5 rad/s²
 ε ≈ -0,628 rad/s²</code></pre>
-            </article>
-
-            <article>
-                <span>6</span>
-                <h4>Čas zastavenia</h4>
-                <pre><code>ω = ω0 + εt
-
+                    <p>Čas zastavenia určíme zo vzťahu:</p>
+                    <pre><code>ω = ω0 + εt
 0 = 20π - (π/5)t
 (π/5)t = 20π
 t = 100 s</code></pre>
-            </article>
-        </div>
+                    <p>Kontrola: priemerná uhlová rýchlosť je (20π + 0)/2 = 10π rad/s a za 100 s prejde uhlovú dráhu 1000π rad, teda 500 otáčok.</p>
+                </div>
 
-        <div class="result-box">
-            <h3>Výsledok</h3>
-            <p><strong>Uhlové zrýchlenie:</strong> ε = -π/5 ≈ -0,628 rad/s²</p>
-            <p><strong>Čas zastavenia:</strong> t = 100 s</p>
-            <p class="section-description">
-                Znamienko mínus znamená, že ide o spomaľovanie, teda uhlové zrýchlenie pôsobí proti smeru otáčania.
-            </p>
-        </div>
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Koleso sa zastaví za <strong>t = 100 s</strong>. Uhlové zrýchlenie je <strong>ε ≈ -0,628 rad/s²</strong>. Záporné znamienko znamená brzdenie.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>5.2</span>
+                <strong>Šikmý vrh loptičky</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>Teleso je vystrelené rýchlosťou 20 m/s pod uhlom 30°. Urč maximálnu výšku a dolet pri rovnakej počiatočnej a konečnej výške. Odpor vzduchu zanedbaj.</p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>v<sub>0</sub> = 20 m/s</li>
+                        <li>α = 30°</li>
+                        <li>g = 9,81 m/s²</li>
+                        <li>hľadáme H a D</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <p>Maximálna výška:</p>
+                    <pre><code>H = v0² sin²α / (2g)
+sin 30° = 0,5
+H = 20² · 0,5² / (2 · 9,81)
+H = 100 / 19,62
+H ≈ 5,10 m</code></pre>
+                    <p>Dolet:</p>
+                    <pre><code>D = v0² sin(2α) / g
+D = 20² · sin 60° / 9,81
+sin 60° ≈ 0,866
+D ≈ 400 · 0,866 / 9,81
+D ≈ 35,3 m</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p><strong>H ≈ 5,10 m</strong>, <strong>D ≈ 35,3 m</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>5.3</span>
+                <strong>Ťažisko troch bodov vo vektoroch</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>Tri hmotné body majú hmotnosti m<sub>1</sub> = 2 kg, m<sub>2</sub> = 3 kg, m<sub>3</sub> = 5 kg a polohy r<sub>1</sub> = (0, 0) m, r<sub>2</sub> = (4, 0) m, r<sub>3</sub> = (0, 6) m. Urč polohu ťažiska.</p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>M = m<sub>1</sub> + m<sub>2</sub> + m<sub>3</sub> = 2 + 3 + 5 = 10 kg</li>
+                        <li>r<sub>T</sub> = (Σm<sub>i</sub>r<sub>i</sub>) / M</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>xT = (2·0 + 3·4 + 5·0) / 10
+xT = 12 / 10
+xT = 1,2 m
+
+yT = (2·0 + 3·0 + 5·6) / 10
+yT = 30 / 10
+yT = 3,0 m</code></pre>
+                    <p>Ťažisko je bližšie k tretiemu bodu, lebo má najväčšiu hmotnosť.</p>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>r<sub>T</sub> = <strong>(1,2; 3,0) m</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>5.4</span>
+                <strong>Moment sily cez vektorový súčin</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>Sila F = (2, 1, 0) N pôsobí v bode B = (1, -1, -1) m. Moment sily urč vzhľadom na bod A = (-2, 1, -1) m.</p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>r = B − A = (3, -2, 0) m</li>
+                        <li>M = r × F</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <p>Použijeme vektorový súčin:</p>
+                    <pre><code>M = r × F
+
+r = (3, -2, 0)
+F = (2, 1, 0)
+
+Mx = ryFz - rzFy = (-2)·0 - 0·1 = 0
+My = rzFx - rxFz = 0·2 - 3·0 = 0
+Mz = rxFy - ryFx = 3·1 - (-2)·2 = 3 + 4 = 7</code></pre>
+                    <p>Smer momentu je v kladnom smere osi z.</p>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>M = <strong>(0, 0, 7) N·m</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>5.5</span>
+                <strong>Naklonená rovina s trením</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>Teleso hmotnosti 4 kg je na naklonenej rovine s uhlom 20°. Koeficient dynamického trenia je μ = 0,15. Urč zrýchlenie pri pohybe nadol po rovine.</p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>m = 4 kg</li>
+                        <li>α = 20°</li>
+                        <li>μ = 0,15</li>
+                        <li>g = 9,81 m/s²</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <p>Zložka tiaže po rovine:</p>
+                    <pre><code>Fg,rovina = mg sinα</code></pre>
+                    <p>Normálová sila:</p>
+                    <pre><code>N = mg cosα</code></pre>
+                    <p>Trecia sila proti pohybu:</p>
+                    <pre><code>Ft = μN = μmg cosα</code></pre>
+                    <p>Výsledná sila po rovine:</p>
+                    <pre><code>F = mg sinα - μmg cosα</code></pre>
+                    <p>Zrýchlenie:</p>
+                    <pre><code>a = F/m = g(sinα - μcosα)
+a = 9,81(sin20° - 0,15cos20°)
+a = 9,81(0,342 - 0,15·0,940)
+a = 9,81(0,342 - 0,141)
+a ≈ 1,97 m/s²</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>a ≈ <strong>1,97 m/s²</strong> smerom nadol po rovine.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>5.6</span>
+                <strong>Pružina a netlmené kmity</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>Teleso hmotnosti 0,50 kg je zavesené na pružine s tuhosťou 80 N/m. Urč uhlovú frekvenciu a periódu kmitov.</p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>m = 0,50 kg</li>
+                        <li>k = 80 N/m</li>
+                        <li>ω<sub>0</sub> = √(k/m)</li>
+                        <li>T = 2π/ω<sub>0</sub></li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>ω0 = √(k/m)
+ω0 = √(80/0,50)
+ω0 = √160
+ω0 ≈ 12,65 rad/s
+
+T = 2π/ω0
+T = 2π/12,65
+T ≈ 0,497 s</code></pre>
+                    <p>Čím väčšia tuhosť k, tým rýchlejšie kmity. Čím väčšia hmotnosť m, tým pomalšie kmity.</p>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>ω<sub>0</sub> ≈ <strong>12,65 rad/s</strong>, T ≈ <strong>0,50 s</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example">
+            <summary>
+                <span>5.7</span>
+                <strong>Bernoulli + kontinuita v potrubí</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>Voda tečie vodorovným potrubím. Prierez sa zmenší zo S<sub>1</sub> = 6 cm² na S<sub>2</sub> = 2 cm². V širšej časti je rýchlosť v<sub>1</sub> = 1 m/s a tlak p<sub>1</sub> = 150 kPa. Urč rýchlosť v<sub>2</sub> a tlak p<sub>2</sub>. Hustota vody ρ = 1000 kg/m³.</p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>S<sub>1</sub>v<sub>1</sub> = S<sub>2</sub>v<sub>2</sub></li>
+                        <li>h<sub>1</sub> = h<sub>2</sub>, teda člen ρgh sa ruší</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <p>Rovnica kontinuity:</p>
+                    <pre><code>S1v1 = S2v2
+v2 = S1v1/S2
+v2 = 6·1/2
+v2 = 3 m/s</code></pre>
+                    <p>Bernoulliho rovnica pre vodorovné potrubie:</p>
+                    <pre><code>p1 + 1/2ρv1² = p2 + 1/2ρv2²
+
+p2 = p1 + 1/2ρ(v1² - v2²)
+p2 = 150000 + 0,5·1000(1² - 3²)
+p2 = 150000 + 500(1 - 9)
+p2 = 150000 - 4000
+p2 = 146000 Pa</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>v<sub>2</sub> = <strong>3 m/s</strong>, p<sub>2</sub> = <strong>146 kPa</strong>. V zúžení je rýchlosť väčšia a tlak menší.</p>
+                </div>
+            </div>
+        </details>
+
     </div>
 
     <div class="learn-actions">
@@ -1234,27 +2534,6 @@ V = (hodnota ± chyba) jednotka</code></pre>
                     </section>
 
 
-                    <section id="downloads" class="content-block">
-                        <p class="small-title">Súbory</p>
-                        <h2>Súbory na stiahnutie</h2>
-
-                        <div class="download-list">
-                            <a href="../files/fyzika/fyzika-poznamky.pdf" class="download-item">
-                                <strong>Fyzika poznámky PDF</strong>
-                                <span>Stiahnuť →</span>
-                            </a>
-
-                            <a href="../files/fyzika/fyzika-vzorce.pdf" class="download-item">
-                                <strong>Fyzika vzorce PDF</strong>
-                                <span>Stiahnuť →</span>
-                            </a>
-                        </div>
-
-                        <div class="learn-actions">
-                            <button class="learn-btn" data-subject="fyzika" data-key="downloads" data-pending-text="Označiť ako prejdené" data-done-text="Prejdené ✓" type="button">Označiť ako prejdené</button>
-                        </div>
-                    </section>
-
 <section id="checklist" class="content-block checklist-section" data-checklist-subject="fyzika">
     <p class="small-title">Checklist pred skúškou</p>
     <h2>Čo by som mal vedieť</h2>
@@ -1353,7 +2632,7 @@ V = (hodnota ± chyba) jednotka</code></pre>
         <div class="footer-info-card">
             <span>Autor projektu</span>
             <strong>Vytvorené MG</strong>
-            <p>Study Hub v3.1 • Posledná aktualizácia: 06/2026</p>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
         </div>
 
         <div class="footer-links-card">

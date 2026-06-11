@@ -341,3 +341,15 @@ Upravené:
   - modrá = teoretická otázka,
 - pridaný bol prehľad najčastejších tém, ktoré sa v písomkách opakujú,
 - v `style/fix.css` a `style/subject-pages.css` boli pridané štýly pre bloky variantov.
+
+
+## Fyzika – riešené príklady ako otváracie časti
+
+Upravené:
+- v `subjects/fyzika.html` bola rozšírená sekcia `Vzorový príklad`,
+- doplnené boli riešené príklady 5.1 až 5.7,
+- každý príklad je samostatný `<details>` blok,
+- príklady sa dajú otvárať a zatvárať,
+- každý príklad obsahuje zadanie, známe hodnoty, riešenie a výsledok,
+- výpočty boli skontrolované,
+- v `style/fix.css` a `style/subject-pages.css` boli doplnené štýly pre otváracie príklady.
