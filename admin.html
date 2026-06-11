@@ -122,6 +122,7 @@ Nesprávna odpoveď"></textarea>
                         <button id="selectAllSubjectsBtn" class="btn secondary" type="button">Zobraziť všetky</button>
                         <button id="hideAllSubjectsBtn" class="btn secondary" type="button">Skryť všetky</button>
                         <button id="resetSubjectVisibilityBtn" class="btn secondary" type="button">Reset nastavenia</button>
+                        <a class="btn secondary admin-preview-link" href="subjects.html?adminView=1">Admin náhľad – aj skryté</a>
                     </div>
 
                     <div id="subjectVisibilityAdmin" class="admin-subject-visibility-grid" aria-label="Nastavenie viditeľnosti predmetov"></div>
@@ -131,8 +132,10 @@ Nesprávna odpoveď"></textarea>
                         <p id="subjectVisibilityStatus" class="admin-inline-status">Zmeny sa ukladajú do localStorage.</p>
                     </div>
 
+                    <div id="hiddenSubjectsPreview" class="admin-hidden-subjects-preview" aria-live="polite"></div>
+
                     <p class="admin-help-text">
-                        Poznámka: pri statickom webe sa nastavenie uloží v tomto prehliadači. Po nahratí na GitHub Pages budeš vidieť predmety podľa svojho uloženého nastavenia.
+                        Poznámka: pri statickom webe sa nastavenie uloží v tomto prehliadači. Bežná stránka Predmety skryté predmety nezobrazí, ale cez tlačidlo <strong>Admin náhľad – aj skryté</strong> si ich vieš v admin režime skontrolovať.
                     </p>
                 </div>
 
@@ -185,7 +188,7 @@ Nesprávna odpoveď"></textarea>
         <div class="footer-info-card">
             <span>Autor projektu</span>
             <strong>Vytvorené MG</strong>
-            <p>Study Hub v3.1 • Posledná aktualizácia: 06/2026</p>
+            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
         </div>
 
         <div class="footer-links-card">

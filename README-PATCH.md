@@ -2,25 +2,34 @@
 
 ## Názov patchu
 
-Admin – viditeľnosť predmetov na stránke `subjects.html`.
+Admin – zobrazenie skrytých predmetov cez admin náhľad.
 
-## Čo patch pridáva
+## Dôvod úpravy
 
-V admin paneli pribudla nová karta:
+Používateľ chcel, aby predmety, ktoré sú skryté na stránke `subjects.html`, vedel stále vidieť cez admina.
+
+Predtým:
 
 ```text
-Viditeľnosť predmetov na stránke Predmety
+- admin vedel nastaviť, ktoré predmety sa zobrazia,
+- skryté predmety sa na subjects.html úplne schovali,
+- nebol samostatný admin náhľad, kde by bolo vidieť aj skryté predmety.
 ```
 
-V nej si vieš zaškrtnúť, ktoré predmety sa majú zobrazovať na podstránke `subjects.html`.
+Teraz:
 
-Zaškrtnuté predmety sa zobrazia. Nezaškrtnuté predmety sa na stránke Predmety skryjú.
+```text
+- v admin paneli je tlačidlo „Admin náhľad – aj skryté“,
+- otvorí subjects.html?adminView=1,
+- v tomto režime sa zobrazia všetky predmety,
+- predmety skryté v bežnom zobrazení majú štítok „Skryté v admine“,
+- v admine je aj prehľad, ktoré predmety sú aktuálne skryté.
+```
 
 ## Súbory v patchi
 
 ```text
 admin.html
-subjects.html
 script/admin.js
 script/subject-visibility.js
 style/fix.css
@@ -28,101 +37,66 @@ README-PATCH.md
 README-NEW-STRUCTURE.md
 ```
 
-## Ako to funguje
-
-Nastavenie sa ukladá do `localStorage` pod kľúčom:
-
-```text
-studyHubVisibleSubjects
-```
-
-Admin panel uloží zoznam povolených predmetov, napríklad:
-
-```json
-[
-  "linux",
-  "fyzika",
-  "ccna"
-]
-```
-
-Na stránke `subjects.html` sa potom zobrazia iba predmety, ktorých karta má rovnaké `data-subject-id`.
-
-Príklad:
-
-```html
-<a class="subject-card" data-subject-id="fyzika">
-```
-
-Ak `fyzika` je uložená v zozname, karta sa zobrazí. Ak nie je, karta sa skryje.
-
-## Dôležitá poznámka
-
-Toto je statická HTML/JS stránka, preto sa nastavenie ukladá v konkrétnom prehliadači.
-
-To znamená:
-
-```text
-- keď to nastavíš u seba, uvidíš to podľa svojho nastavenia,
-- ak otvoríš stránku v inom prehliadači alebo na inom PC, bude tam predvolené nastavenie,
-- predvolené nastavenie je: zobrazujú sa všetky predmety.
-```
-
-Na spoločné online admin nastavenie pre všetkých používateľov by bolo treba Firebase, Supabase alebo server.
-
-## Čo bolo upravené
+## Čo sa zmenilo
 
 ### `admin.html`
 
-- opravený odkaz na admin CSS:
+Do sekcie viditeľnosti predmetov bolo pridané tlačidlo:
 
 ```html
-<link rel="stylesheet" href="style/admin.css?v=20260612-admin-subject-visibility">
+<a class="btn secondary admin-preview-link" href="subjects.html?adminView=1">Admin náhľad – aj skryté</a>
 ```
 
-- opravený odkaz na admin JS:
+Pridaný bol aj blok:
 
 ```html
-<script src="script/admin.js?v=20260612-admin-subject-visibility"></script>
+<div id="hiddenSubjectsPreview" class="admin-hidden-subjects-preview" aria-live="polite"></div>
 ```
 
-- pridaná nová admin karta pre výber viditeľných predmetov.
-
-### `subjects.html`
-
-- pridané načítanie skriptu:
-
-```html
-<script src="script/subject-visibility.js?v=20260612-admin-subject-visibility"></script>
-```
+Ten ukazuje, ktoré predmety sú aktuálne skryté.
 
 ### `script/admin.js`
 
-- pridaný zoznam predmetov,
-- pridané checkboxy,
-- pridané tlačidlá:
+Upravené bolo renderovanie checkboxov predmetov:
 
 ```text
-Zobraziť všetky
-Skryť všetky
-Reset nastavenia
-Uložiť viditeľnosť predmetov
+- každý predmet má stav „viditeľný“ alebo „skrytý“,
+- skryté predmety sú farebne označené,
+- zoznam skrytých predmetov sa aktualizuje pri každej zmene checkboxu.
 ```
 
 ### `script/subject-visibility.js`
 
-- číta uložené nastavenie z `localStorage`,
-- skryje nepovolené predmetové karty,
-- spolupracuje s vyhľadávaním a filtrom predmetov,
-- upraví počítadlo zobrazených predmetov.
+Pridaný bol admin náhľad:
+
+```text
+subjects.html?adminView=1
+```
+
+V tomto režime:
+
+```text
+- sa neskryjú žiadne predmety,
+- skryté predmety sa iba označia triedou subject-admin-preview-hidden,
+- do karty sa pridá štítok „Skryté v admine“,
+- hore sa zobrazí upozornenie, že ide o admin náhľad.
+```
+
+V bežnom režime `subjects.html` sa správanie nemení:
+
+```text
+- skryté predmety sa nezobrazujú.
+```
 
 ### `style/fix.css`
 
-- doplnený vzhľad pre admin nastavenie predmetov,
-- doplnená trieda:
+Pridané štýly pre:
 
-```css
-.subject-admin-hidden
+```text
+- stav viditeľný/skrytý v admine,
+- zoznam skrytých predmetov,
+- admin náhľad na stránke Predmety,
+- štítok „Skryté v admine“.
 ```
 
 ## Ako nahrať patch
@@ -132,22 +106,23 @@ Rozbaľ ZIP do koreňa projektu Study Hub a nahraď existujúce súbory.
 Potom použi:
 
 ```bash
-git add admin.html subjects.html script/admin.js script/subject-visibility.js style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
-git commit -m "Add admin subject visibility settings"
+git add admin.html script/admin.js script/subject-visibility.js style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
+git commit -m "Add admin preview for hidden subjects"
 git push
 ```
 
-## Ako to otestovať
+## Ako používať
 
 ```text
 1. Otvor admin.html.
-2. Prihlás sa heslom.
-3. Nájdi kartu Viditeľnosť predmetov na stránke Predmety.
-4. Odškrtni napríklad 3D tlač, Algebra a Praktikum.
-5. Klikni Uložiť viditeľnosť predmetov.
-6. Otvor subjects.html.
-7. Skontroluj, že odškrtnuté predmety sa nezobrazujú.
-8. Vráť sa do admina a klikni Reset nastavenia.
-9. Otvor subjects.html a skontroluj, že sa znova zobrazujú všetky predmety.
-10. Po nahratí na GitHub Pages daj Ctrl + F5.
+2. Nastav, ktoré predmety sú viditeľné.
+3. Klikni na „Uložiť viditeľnosť predmetov“.
+4. Klikni na „Admin náhľad – aj skryté“.
+5. Otvorí sa subjects.html?adminView=1.
+6. Uvidíš aj skryté predmety označené štítkom „Skryté v admine“.
+7. Bežná stránka subjects.html bude stále ukazovať iba povolené predmety.
 ```
+
+## Dôležité upozornenie
+
+Toto je statický web na GitHub Pages. Admin náhľad nie je reálne bezpečnostné skrytie pred návštevníkmi. Je to hlavne praktický náhľad pre teba, aby si vedel skontrolovať aj predmety, ktoré máš skryté vo vlastnom nastavení.

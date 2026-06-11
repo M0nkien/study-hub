@@ -195,16 +195,20 @@ function renderSubjectVisibilityAdmin() {
 
     const visibleIds = new Set(getVisibleSubjectIds());
 
-    container.innerHTML = STUDY_HUB_SUBJECTS.map(subject => `
-        <label class="admin-subject-toggle">
-            <input type="checkbox" value="${subject.id}" ${visibleIds.has(subject.id) ? "checked" : ""}>
-            <span class="admin-subject-toggle-badge">${subject.badge}</span>
-            <span class="admin-subject-toggle-text">
-                <strong>${subject.title}</strong>
-                <small>${subject.note}</small>
-            </span>
-        </label>
-    `).join("");
+    container.innerHTML = STUDY_HUB_SUBJECTS.map(subject => {
+        const isVisible = visibleIds.has(subject.id);
+        return `
+            <label class="admin-subject-toggle ${isVisible ? "" : "admin-subject-toggle-hidden"}">
+                <input type="checkbox" value="${subject.id}" ${isVisible ? "checked" : ""}>
+                <span class="admin-subject-toggle-badge">${subject.badge}</span>
+                <span class="admin-subject-toggle-text">
+                    <strong>${subject.title}</strong>
+                    <small>${subject.note}</small>
+                </span>
+                <em class="admin-subject-toggle-state">${isVisible ? "viditeľný" : "skrytý"}</em>
+            </label>
+        `;
+    }).join("");
 
     updateSubjectVisibilityStatusFromChecks();
 
@@ -220,7 +224,31 @@ function getCheckedSubjectIdsFromAdmin() {
 
 function updateSubjectVisibilityStatusFromChecks() {
     const checked = getCheckedSubjectIdsFromAdmin();
+    const checkedSet = new Set(checked);
+    const hiddenSubjects = STUDY_HUB_SUBJECTS.filter(subject => !checkedSet.has(subject.id));
+    const preview = document.getElementById("hiddenSubjectsPreview");
+
+    document.querySelectorAll("#subjectVisibilityAdmin .admin-subject-toggle").forEach(label => {
+        const input = label.querySelector("input[type='checkbox']");
+        const isVisible = Boolean(input && input.checked);
+        const state = label.querySelector(".admin-subject-toggle-state");
+
+        label.classList.toggle("admin-subject-toggle-hidden", !isVisible);
+        if (state) state.textContent = isVisible ? "viditeľný" : "skrytý";
+    });
+
     setSubjectVisibilityStatus("Vybrané predmety: " + checked.length + " / " + STUDY_HUB_SUBJECTS.length);
+
+    if (preview) {
+        if (hiddenSubjects.length === 0) {
+            preview.innerHTML = `<strong>Skryté predmety:</strong> žiadne, všetky predmety sú viditeľné.`;
+        } else {
+            preview.innerHTML = `
+                <strong>Skryté predmety:</strong>
+                <span>${hiddenSubjects.map(subject => subject.title).join("</span><span>")}</span>
+            `;
+        }
+    }
 }
 
 function initSubjectVisibilityAdmin() {

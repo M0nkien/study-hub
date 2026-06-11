@@ -1599,6 +1599,7 @@
 
 
 /* Fyzika riešené príklady ako otváracie časti */
+
 .physics-solved-list {
     display: grid;
     gap: 14px;
@@ -1849,5 +1850,134 @@
 
     .admin-subject-toggle {
         grid-template-columns: auto 48px minmax(0, 1fr);
+    }
+}
+
+
+/* PATCH – Admin náhľad skrytých predmetov */
+
+.admin-preview-link {
+    text-decoration: none;
+}
+
+.admin-subject-toggle-state {
+    justify-self: end;
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: #86efac;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.28);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+.admin-subject-toggle-hidden {
+    border-color: rgba(248, 113, 113, 0.34);
+    background: rgba(248, 113, 113, 0.07);
+}
+
+.admin-subject-toggle-hidden .admin-subject-toggle-state {
+    color: #fca5a5;
+    background: rgba(248, 113, 113, 0.12);
+    border-color: rgba(248, 113, 113, 0.34);
+}
+
+.admin-hidden-subjects-preview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.58);
+    border: 1px dashed rgba(148, 163, 184, 0.25);
+    color: #cbd5e1;
+    line-height: 1.55;
+    font-weight: 750;
+}
+
+.admin-hidden-subjects-preview strong {
+    color: #fff;
+}
+
+.admin-hidden-subjects-preview span {
+    border-radius: 999px;
+    padding: 5px 9px;
+    color: #fca5a5;
+    background: rgba(248, 113, 113, 0.10);
+    border: 1px solid rgba(248, 113, 113, 0.22);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.subjects-admin-preview-notice {
+    display: grid;
+    gap: 8px;
+    margin: 0 auto 18px;
+    max-width: 1180px;
+    border-radius: 22px;
+    padding: 18px;
+    background: rgba(248, 113, 113, 0.10);
+    border: 1px solid rgba(248, 113, 113, 0.35);
+    color: #fecaca;
+}
+
+.subjects-admin-preview-notice strong {
+    color: #fff;
+    font-size: 18px;
+}
+
+.subjects-admin-preview-notice span {
+    color: #fee2e2;
+    line-height: 1.55;
+    font-weight: 750;
+}
+
+.subjects-admin-preview-notice a {
+    width: max-content;
+    border-radius: 999px;
+    padding: 9px 12px;
+    color: #fff;
+    background: rgba(248, 113, 113, 0.16);
+    border: 1px solid rgba(248, 113, 113, 0.34);
+    text-decoration: none;
+    font-weight: 950;
+}
+
+.subject-card.subject-admin-preview-hidden {
+    opacity: 0.72;
+    filter: grayscale(0.28);
+    border-style: dashed;
+    border-color: rgba(248, 113, 113, 0.40) !important;
+    position: relative;
+}
+
+.subject-admin-preview-badge {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    border-radius: 999px;
+    padding: 5px 9px;
+    color: #fecaca;
+    background: rgba(248, 113, 113, 0.12);
+    border: 1px solid rgba(248, 113, 113, 0.32);
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+@media (max-width: 900px) {
+    .admin-subject-toggle {
+        grid-template-columns: auto 48px minmax(0, 1fr);
+    }
+
+    .admin-subject-toggle-state {
+        grid-column: 2 / -1;
+        justify-self: start;
     }
 }

@@ -376,3 +376,18 @@ Funkcia:
 - predvolene sa zobrazujú všetky predmety,
 - nastavenie je lokálne pre konkrétny prehliadač.
 ```
+
+
+## Admin – náhľad skrytých predmetov
+
+Pridané k nastaveniu viditeľnosti predmetov:
+
+```text
+- tlačidlo „Admin náhľad – aj skryté“ v admin paneli,
+- admin otvorí `subjects.html?adminView=1`,
+- v tomto režime sa zobrazia aj predmety skryté v bežnom zobrazení,
+- skryté predmety majú vizuálny štítok „Skryté v admine“,
+- v admin paneli je zoznam aktuálne skrytých predmetov.
+```
+
+Bežné zobrazenie `subjects.html` ostáva nezmenené. Skryté predmety sa tam nezobrazujú.
