@@ -7,17 +7,17 @@ const ADMIN_DATA_KEY = "mikStudyAdminData";
 const SUBJECT_VISIBILITY_KEY = "studyHubVisibleSubjects";
 
 const STUDY_HUB_SUBJECTS = [
-    { id: "vvs", badge: "VVS", title: "Vývoj vstavaných systémov", note: "ESP32, MicroPython" },
-    { id: "msd", badge: "MSD", title: "Metódy spracovania dát", note: "Excel, Fourier, zadania" },
-    { id: "mat", badge: "MAT", title: "Matematika", note: "DR, Laplace, rady" },
-    { id: "ccna", badge: "NET", title: "Cisco / CCNA", note: "VLSM, VLAN, Packet Tracer" },
-    { id: "linux", badge: "LNX", title: "Linux Essentials", note: "CLI, chmod, kvíz" },
-    { id: "java", badge: "JAVA", title: "Informatika / Java", note: "OOP, UML, semestrálka" },
-    { id: "fyzika", badge: "FYZ", title: "Fyzika", note: "vzorce, odvodenia, skúška" },
-    { id: "tlac3d", badge: "3D", title: "3D tlač", note: "FDM/FFF, slicer, projekt" },
-    { id: "algebra", badge: "ALG", title: "Algebra", note: "matice, Gauss, vektory" },
-    { id: "praktikum", badge: "PRG", title: "Praktikum z programovania", note: "Java, ArrayList, OOP" },
-    { id: "uvod", badge: "ÚDS", title: "Úvod do štúdia", note: "UML, projekt, obhajoba" }
+    { id: "vvs", badge: "VVS", title: "Vývoj vstavaných systémov", note: "ESP32, MicroPython", path: "subjects/vvs.html" },
+    { id: "msd", badge: "MSD", title: "Metódy spracovania dát", note: "Excel, Fourier, zadania", path: "subjects/msd.html" },
+    { id: "mat", badge: "MAT", title: "Matematika", note: "DR, Laplace, rady", path: "subjects/mat.html" },
+    { id: "ccna", badge: "NET", title: "Cisco / CCNA", note: "VLSM, VLAN, Packet Tracer", path: "subjects/ccna.html" },
+    { id: "linux", badge: "LNX", title: "Linux Essentials", note: "CLI, chmod, kvíz", path: "subjects/linux.html" },
+    { id: "java", badge: "JAVA", title: "Informatika / Java", note: "OOP, UML, semestrálka", path: "subjects/java.html" },
+    { id: "fyzika", badge: "FYZ", title: "Fyzika", note: "vzorce, odvodenia, skúška", path: "subjects/fyzika.html" },
+    { id: "tlac3d", badge: "3D", title: "3D tlač", note: "FDM/FFF, slicer, projekt", path: "subjects/3d-tlac.html" },
+    { id: "algebra", badge: "ALG", title: "Algebra", note: "matice, Gauss, vektory", path: "subjects/algebra.html" },
+    { id: "praktikum", badge: "PRG", title: "Praktikum z programovania", note: "Java, ArrayList, OOP", path: "subjects/praktikum.html" },
+    { id: "uvod", badge: "ÚDS", title: "Úvod do štúdia", note: "UML, projekt, obhajoba", path: "subjects/uvod-do-studia.html" }
 ];
 
 function initAdminLogin() {
@@ -198,15 +198,22 @@ function renderSubjectVisibilityAdmin() {
     container.innerHTML = STUDY_HUB_SUBJECTS.map(subject => {
         const isVisible = visibleIds.has(subject.id);
         return `
-            <label class="admin-subject-toggle ${isVisible ? "" : "admin-subject-toggle-hidden"}">
-                <input type="checkbox" value="${subject.id}" ${isVisible ? "checked" : ""}>
-                <span class="admin-subject-toggle-badge">${subject.badge}</span>
-                <span class="admin-subject-toggle-text">
-                    <strong>${subject.title}</strong>
-                    <small>${subject.note}</small>
-                </span>
-                <em class="admin-subject-toggle-state">${isVisible ? "viditeľný" : "skrytý"}</em>
-            </label>
+            <div class="admin-subject-toggle ${isVisible ? "" : "admin-subject-toggle-hidden"}">
+                <label class="admin-subject-toggle-main">
+                    <input type="checkbox" value="${subject.id}" ${isVisible ? "checked" : ""}>
+                    <span class="admin-subject-toggle-badge">${subject.badge}</span>
+                    <span class="admin-subject-toggle-text">
+                        <strong>${subject.title}</strong>
+                        <small>${subject.note}</small>
+                    </span>
+                    <em class="admin-subject-toggle-state">${isVisible ? "viditeľný" : "skrytý"}</em>
+                </label>
+
+                <div class="admin-subject-row-actions">
+                    <a class="admin-subject-open-link" href="${subject.path}">Otvoriť predmet</a>
+                    <a class="admin-subject-open-link admin-subject-open-link-secondary" href="subjects.html?adminView=1">Náhľad v zozname</a>
+                </div>
+            </div>
         `;
     }).join("");
 
@@ -245,7 +252,7 @@ function updateSubjectVisibilityStatusFromChecks() {
         } else {
             preview.innerHTML = `
                 <strong>Skryté predmety:</strong>
-                <span>${hiddenSubjects.map(subject => subject.title).join("</span><span>")}</span>
+                ${hiddenSubjects.map(subject => `<a href="${subject.path}">${subject.title}</a>`).join("")}
             `;
         }
     }

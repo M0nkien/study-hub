@@ -1598,7 +1598,9 @@
 
 
 
-/* Fyzika riešené príklady ako otváracie časti */
+/* =========================================================
+   PATCH – Fyzika riešené príklady ako otváracie časti
+   ========================================================= */
 
 .physics-solved-list {
     display: grid;
@@ -1854,7 +1856,9 @@
 }
 
 
-/* PATCH – Admin náhľad skrytých predmetov */
+/* =========================================================
+   PATCH – Admin náhľad skrytých predmetov
+   ========================================================= */
 
 .admin-preview-link {
     text-decoration: none;
@@ -1979,5 +1983,88 @@
     .admin-subject-toggle-state {
         grid-column: 2 / -1;
         justify-self: start;
+    }
+}
+
+
+/* =========================================================
+   PATCH – Admin presmerovanie priamo na podstránku predmetu
+   ========================================================= */
+
+.admin-subject-toggle {
+    grid-template-columns: 1fr;
+    cursor: default;
+}
+
+.admin-subject-toggle-main {
+    display: grid;
+    grid-template-columns: auto 54px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.admin-subject-row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-left: 84px;
+    margin-top: 10px;
+}
+
+.admin-subject-open-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 7px 11px;
+    text-decoration: none;
+    color: #07111f;
+    background: #65d4f2;
+    border: 1px solid rgba(101, 212, 242, 0.55);
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.admin-subject-open-link:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.admin-subject-open-link-secondary {
+    color: #dbeafe;
+    background: rgba(15, 23, 42, 0.66);
+    border-color: rgba(148, 163, 184, 0.25);
+}
+
+.admin-hidden-subjects-preview a {
+    border-radius: 999px;
+    padding: 5px 9px;
+    color: #fca5a5;
+    background: rgba(248, 113, 113, 0.10);
+    border: 1px solid rgba(248, 113, 113, 0.22);
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.admin-hidden-subjects-preview a:hover {
+    color: #ffffff;
+    border-color: rgba(248, 113, 113, 0.42);
+}
+
+@media (max-width: 800px) {
+    .admin-subject-toggle-main {
+        grid-template-columns: auto 48px minmax(0, 1fr);
+    }
+
+    .admin-subject-toggle-state {
+        grid-column: 2 / -1;
+        justify-self: start;
+    }
+
+    .admin-subject-row-actions {
+        margin-left: 0;
     }
 }

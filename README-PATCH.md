@@ -2,101 +2,79 @@
 
 ## Názov patchu
 
-Admin – zobrazenie skrytých predmetov cez admin náhľad.
+Admin – presmerovanie priamo na podstránku predmetu.
 
 ## Dôvod úpravy
 
-Používateľ chcel, aby predmety, ktoré sú skryté na stránke `subjects.html`, vedel stále vidieť cez admina.
+Používateľ chcel, aby sa z admin panelu vedel dostať priamo na konkrétny predmet a skontrolovať, ako sa predmet upravuje alebo zobrazuje.
 
-Predtým:
-
-```text
-- admin vedel nastaviť, ktoré predmety sa zobrazia,
-- skryté predmety sa na subjects.html úplne schovali,
-- nebol samostatný admin náhľad, kde by bolo vidieť aj skryté predmety.
-```
-
-Teraz:
-
-```text
-- v admin paneli je tlačidlo „Admin náhľad – aj skryté“,
-- otvorí subjects.html?adminView=1,
-- v tomto režime sa zobrazia všetky predmety,
-- predmety skryté v bežnom zobrazení majú štítok „Skryté v admine“,
-- v admine je aj prehľad, ktoré predmety sú aktuálne skryté.
-```
-
-## Súbory v patchi
+## Súbory v tomto patchi
 
 ```text
 admin.html
 script/admin.js
-script/subject-visibility.js
 style/fix.css
 README-PATCH.md
 README-NEW-STRUCTURE.md
 ```
 
-## Čo sa zmenilo
+## Čo bolo pridané
 
-### `admin.html`
-
-Do sekcie viditeľnosti predmetov bolo pridané tlačidlo:
-
-```html
-<a class="btn secondary admin-preview-link" href="subjects.html?adminView=1">Admin náhľad – aj skryté</a>
-```
-
-Pridaný bol aj blok:
-
-```html
-<div id="hiddenSubjectsPreview" class="admin-hidden-subjects-preview" aria-live="polite"></div>
-```
-
-Ten ukazuje, ktoré predmety sú aktuálne skryté.
-
-### `script/admin.js`
-
-Upravené bolo renderovanie checkboxov predmetov:
+V sekcii Admin → Viditeľnosť predmetov pribudli pri každom predmete dve akcie:
 
 ```text
-- každý predmet má stav „viditeľný“ alebo „skrytý“,
-- skryté predmety sú farebne označené,
-- zoznam skrytých predmetov sa aktualizuje pri každej zmene checkboxu.
+Otvoriť predmet
+Náhľad v zozname
 ```
 
-### `script/subject-visibility.js`
+### Otvoriť predmet
 
-Pridaný bol admin náhľad:
+Presmeruje priamo na podstránku daného predmetu, napríklad:
+
+```text
+subjects/fyzika.html
+subjects/linux.html
+subjects/ccna.html
+```
+
+### Náhľad v zozname
+
+Otvorí stránku predmetov v admin náhľade:
 
 ```text
 subjects.html?adminView=1
 ```
 
-V tomto režime:
+V tomto režime sú viditeľné aj predmety, ktoré sú v bežnom zobrazení skryté.
 
-```text
-- sa neskryjú žiadne predmety,
-- skryté predmety sa iba označia triedou subject-admin-preview-hidden,
-- do karty sa pridá štítok „Skryté v admine“,
-- hore sa zobrazí upozornenie, že ide o admin náhľad.
+## Zmeny v `script/admin.js`
+
+Do zoznamu predmetov bola doplnená cesta `path`, napríklad:
+
+```js
+{ id: "fyzika", title: "Fyzika", path: "subjects/fyzika.html" }
 ```
 
-V bežnom režime `subjects.html` sa správanie nemení:
+Admin renderovanie predmetov bolo upravené tak, aby pri každom predmete zobrazilo aj odkazy na otvorenie predmetu.
+
+## Zmeny v `style/fix.css`
+
+Pridané boli štýly pre:
 
 ```text
-- skryté predmety sa nezobrazujú.
+.admin-subject-toggle-main
+.admin-subject-row-actions
+.admin-subject-open-link
+.admin-hidden-subjects-preview a
 ```
 
-### `style/fix.css`
+## Zmeny v `admin.html`
 
-Pridané štýly pre:
+Boli upravené cache verzie CSS/JS, aby sa nové štýly a nové admin funkcie po nahratí lepšie načítali:
 
 ```text
-- stav viditeľný/skrytý v admine,
-- zoznam skrytých predmetov,
-- admin náhľad na stránke Predmety,
-- štítok „Skryté v admine“.
+style/fix.css?v=20260612-admin-subject-open-links
+script/admin.js?v=20260612-admin-subject-open-links
 ```
 
 ## Ako nahrať patch
@@ -106,23 +84,26 @@ Rozbaľ ZIP do koreňa projektu Study Hub a nahraď existujúce súbory.
 Potom použi:
 
 ```bash
-git add admin.html script/admin.js script/subject-visibility.js style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
-git commit -m "Add admin preview for hidden subjects"
+git add admin.html script/admin.js style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
+git commit -m "Add admin links to open subject pages"
 git push
 ```
 
-## Ako používať
+Po nahratí daj v prehliadači:
+
+```text
+Ctrl + F5
+```
+
+## Čo skontrolovať
 
 ```text
 1. Otvor admin.html.
-2. Nastav, ktoré predmety sú viditeľné.
-3. Klikni na „Uložiť viditeľnosť predmetov“.
-4. Klikni na „Admin náhľad – aj skryté“.
-5. Otvorí sa subjects.html?adminView=1.
-6. Uvidíš aj skryté predmety označené štítkom „Skryté v admine“.
-7. Bežná stránka subjects.html bude stále ukazovať iba povolené predmety.
+2. Prihlás sa do admin panelu.
+3. Prejdi do sekcie Viditeľnosť predmetov.
+4. Pri každom predmete skontroluj tlačidlo Otvoriť predmet.
+5. Klikni napríklad na Fyzika.
+6. Musí sa otvoriť subjects/fyzika.html.
+7. Klikni na Náhľad v zozname.
+8. Musí sa otvoriť subjects.html?adminView=1.
 ```
-
-## Dôležité upozornenie
-
-Toto je statický web na GitHub Pages. Admin náhľad nie je reálne bezpečnostné skrytie pred návštevníkmi. Je to hlavne praktický náhľad pre teba, aby si vedel skontrolovať aj predmety, ktoré máš skryté vo vlastnom nastavení.

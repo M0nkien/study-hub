@@ -391,3 +391,14 @@ Pridané k nastaveniu viditeľnosti predmetov:
 ```
 
 Bežné zobrazenie `subjects.html` ostáva nezmenené. Skryté predmety sa tam nezobrazujú.
+
+
+## Admin – presmerovanie na konkrétny predmet
+
+Doplnené:
+
+- v `script/admin.js` má každý predmet vlastnosť `path`,
+- v admin sekcii Viditeľnosť predmetov je pri každom predmete odkaz `Otvoriť predmet`,
+- pridaný je aj odkaz `Náhľad v zozname`, ktorý otvorí `subjects.html?adminView=1`,
+- v `style/fix.css` sú doplnené štýly pre nové admin odkazy,
+- v `admin.html` sú upravené cache verzie CSS/JS.
