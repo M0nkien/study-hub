@@ -2,152 +2,127 @@
 
 ## Názov patchu
 
-Fyzika – riešené príklady ako otváracie/zatváracie časti.
+Admin – viditeľnosť predmetov na stránke `subjects.html`.
 
-## Dôvod úpravy
+## Čo patch pridáva
 
-Používateľ poslal riešené príklady z fyziky a chcel ich doplniť do stránky do sekcie „Vzorový príklad“.
-
-Požiadavka:
+V admin paneli pribudla nová karta:
 
 ```text
-- skontrolovať výpočty,
-- doplniť príklady do stránky,
-- každý príklad má byť ako samostatná časť,
-- príklad sa má dať otvoriť a zatvoriť,
-- po otvorení sa má zobraziť celé zadanie, známe hodnoty, riešenie a výsledok.
+Viditeľnosť predmetov na stránke Predmety
 ```
 
-## Súbory v tomto patchi
+V nej si vieš zaškrtnúť, ktoré predmety sa majú zobrazovať na podstránke `subjects.html`.
+
+Zaškrtnuté predmety sa zobrazia. Nezaškrtnuté predmety sa na stránke Predmety skryjú.
+
+## Súbory v patchi
 
 ```text
-subjects/fyzika.html
+admin.html
+subjects.html
+script/admin.js
+script/subject-visibility.js
 style/fix.css
-style/subject-pages.css
 README-PATCH.md
 README-NEW-STRUCTURE.md
 ```
 
-## Skontrolované výpočty
+## Ako to funguje
 
-Všetky doplnené výpočty boli prekontrolované.
-
-### 5.1 Koleso sa zastaví trením
-
-Výsledok sedí:
+Nastavenie sa ukladá do `localStorage` pod kľúčom:
 
 ```text
-f0 = 600 ot/min = 10 Hz
-ω0 = 20π rad/s
-φ = 500 · 2π = 1000π rad
-ε = -π/5 rad/s² ≈ -0,628 rad/s²
-t = 100 s
+studyHubVisibleSubjects
 ```
 
-### 5.2 Šikmý vrh loptičky
+Admin panel uloží zoznam povolených predmetov, napríklad:
 
-Výsledok sedí:
-
-```text
-H ≈ 5,10 m
-D ≈ 35,3 m
+```json
+[
+  "linux",
+  "fyzika",
+  "ccna"
+]
 ```
 
-### 5.3 Ťažisko troch bodov
+Na stránke `subjects.html` sa potom zobrazia iba predmety, ktorých karta má rovnaké `data-subject-id`.
 
-Výsledok sedí:
+Príklad:
 
-```text
-rT = (1,2; 3,0) m
+```html
+<a class="subject-card" data-subject-id="fyzika">
 ```
 
-### 5.4 Moment sily cez vektorový súčin
+Ak `fyzika` je uložená v zozname, karta sa zobrazí. Ak nie je, karta sa skryje.
 
-Výsledok sedí:
+## Dôležitá poznámka
+
+Toto je statická HTML/JS stránka, preto sa nastavenie ukladá v konkrétnom prehliadači.
+
+To znamená:
 
 ```text
-M = (0, 0, 7) N·m
+- keď to nastavíš u seba, uvidíš to podľa svojho nastavenia,
+- ak otvoríš stránku v inom prehliadači alebo na inom PC, bude tam predvolené nastavenie,
+- predvolené nastavenie je: zobrazujú sa všetky predmety.
 ```
 
-### 5.5 Naklonená rovina s trením
+Na spoločné online admin nastavenie pre všetkých používateľov by bolo treba Firebase, Supabase alebo server.
 
-Výsledok sedí:
+## Čo bolo upravené
 
-```text
-a ≈ 1,97 m/s²
+### `admin.html`
+
+- opravený odkaz na admin CSS:
+
+```html
+<link rel="stylesheet" href="style/admin.css?v=20260612-admin-subject-visibility">
 ```
 
-### 5.6 Pružina a netlmené kmity
+- opravený odkaz na admin JS:
 
-Výsledok sedí:
-
-```text
-ω0 ≈ 12,65 rad/s
-T ≈ 0,50 s
+```html
+<script src="script/admin.js?v=20260612-admin-subject-visibility"></script>
 ```
 
-### 5.7 Bernoulli + kontinuita v potrubí
+- pridaná nová admin karta pre výber viditeľných predmetov.
 
-Výsledok sedí:
+### `subjects.html`
 
-```text
-v2 = 3 m/s
-p2 = 146 kPa
+- pridané načítanie skriptu:
+
+```html
+<script src="script/subject-visibility.js?v=20260612-admin-subject-visibility"></script>
 ```
 
-## Čo bolo upravené v `subjects/fyzika.html`
+### `script/admin.js`
 
-Sekcia:
+- pridaný zoznam predmetov,
+- pridané checkboxy,
+- pridané tlačidlá:
 
 ```text
-Vzorový príklad
+Zobraziť všetky
+Skryť všetky
+Reset nastavenia
+Uložiť viditeľnosť predmetov
 ```
 
-bola nahradená rozšírenou sekciou:
+### `script/subject-visibility.js`
 
-```text
-Riešené príklady ako z cvičení
-```
+- číta uložené nastavenie z `localStorage`,
+- skryje nepovolené predmetové karty,
+- spolupracuje s vyhľadávaním a filtrom predmetov,
+- upraví počítadlo zobrazených predmetov.
 
-Pridané boli otváracie časti `<details>` pre:
+### `style/fix.css`
 
-```text
-5.1 Koleso sa zastaví trením
-5.2 Šikmý vrh loptičky
-5.3 Ťažisko troch bodov vo vektoroch
-5.4 Moment sily cez vektorový súčin
-5.5 Naklonená rovina s trením
-5.6 Pružina a netlmené kmity
-5.7 Bernoulli + kontinuita v potrubí
-```
+- doplnený vzhľad pre admin nastavenie predmetov,
+- doplnená trieda:
 
-Každý príklad obsahuje:
-
-```text
-- zadanie,
-- známe hodnoty,
-- riešenie,
-- výsledok.
-```
-
-## Čo bolo upravené v CSS
-
-Do súborov:
-
-```text
-style/fix.css
-style/subject-pages.css
-```
-
-boli doplnené štýly pre:
-
-```text
-- otváracie príklady,
-- fialový blok zadania,
-- blok známych hodnôt,
-- blok riešenia,
-- zelený blok výsledku,
-- mobilné zobrazenie.
+```css
+.subject-admin-hidden
 ```
 
 ## Ako nahrať patch
@@ -157,20 +132,22 @@ Rozbaľ ZIP do koreňa projektu Study Hub a nahraď existujúce súbory.
 Potom použi:
 
 ```bash
-git add subjects/fyzika.html style/fix.css style/subject-pages.css README-PATCH.md README-NEW-STRUCTURE.md
-git commit -m "Add collapsible solved physics examples"
+git add admin.html subjects.html script/admin.js script/subject-visibility.js style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
+git commit -m "Add admin subject visibility settings"
 git push
 ```
 
-## Čo skontrolovať po nahratí
+## Ako to otestovať
 
 ```text
-1. Otvor subjects/fyzika.html.
-2. Prejdi do sekcie Vzorové príklady / Riešené príklady ako z cvičení.
-3. Skontroluj, že príklady 5.1 až 5.7 sú zatvorené.
-4. Klikni na príklad.
-5. Skontroluj, že sa zobrazí celé riešenie.
-6. Klikni znova a príklad sa zatvorí.
-7. Skontroluj mobilné zobrazenie.
-8. Po nahratí na GitHub Pages daj Ctrl + F5.
+1. Otvor admin.html.
+2. Prihlás sa heslom.
+3. Nájdi kartu Viditeľnosť predmetov na stránke Predmety.
+4. Odškrtni napríklad 3D tlač, Algebra a Praktikum.
+5. Klikni Uložiť viditeľnosť predmetov.
+6. Otvor subjects.html.
+7. Skontroluj, že odškrtnuté predmety sa nezobrazujú.
+8. Vráť sa do admina a klikni Reset nastavenia.
+9. Otvor subjects.html a skontroluj, že sa znova zobrazujú všetky predmety.
+10. Po nahratí na GitHub Pages daj Ctrl + F5.
 ```

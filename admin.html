@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style/quiz.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="style/responsive.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="style/fix.css?v=20260608-big-upgrade">
-    <link rel="stylesheet" href="style/admin.css?v=20260608-big-upgrade">
+    <link rel="stylesheet" href="style/admin.css?v=20260612-admin-subject-visibility">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="admin-page page-admin">
@@ -31,8 +31,13 @@
         <nav class="nav">
             <a href="index.html">Domov</a>
             <a href="subjects.html">Predmety</a>
+            <a href="flashcards.html">Kartičky</a>
+            <a href="results.html">Výsledky</a>
+            <a href="roadmap.html">Roadmapa</a>
+            <a href="changelog.html">Zmeny</a>
             <a href="changelog.html">Zmeny</a>
             <a href="support.html">Podpora</a>
+            <a href="admin.html">Admin</a>
         </nav>
     </div>
 </header>
@@ -103,6 +108,34 @@ Nesprávna odpoveď"></textarea>
                     </form>
                 </div>
 
+
+                <div class="admin-card admin-card-wide admin-subject-visibility-card">
+                    <p class="small-title">Predmety</p>
+                    <h2>Viditeľnosť predmetov na stránke Predmety</h2>
+
+                    <p class="section-description">
+                        Tu si nastavíš, ktoré predmety sa majú zobrazovať na podstránke <strong>subjects.html</strong>.
+                        Zaškrtnuté predmety budú viditeľné, nezaškrtnuté sa skryjú.
+                    </p>
+
+                    <div class="admin-subject-toolbar">
+                        <button id="selectAllSubjectsBtn" class="btn secondary" type="button">Zobraziť všetky</button>
+                        <button id="hideAllSubjectsBtn" class="btn secondary" type="button">Skryť všetky</button>
+                        <button id="resetSubjectVisibilityBtn" class="btn secondary" type="button">Reset nastavenia</button>
+                    </div>
+
+                    <div id="subjectVisibilityAdmin" class="admin-subject-visibility-grid" aria-label="Nastavenie viditeľnosti predmetov"></div>
+
+                    <div class="admin-subject-save-row">
+                        <button id="saveSubjectVisibilityBtn" class="btn primary" type="button">Uložiť viditeľnosť predmetov</button>
+                        <p id="subjectVisibilityStatus" class="admin-inline-status">Zmeny sa ukladajú do localStorage.</p>
+                    </div>
+
+                    <p class="admin-help-text">
+                        Poznámka: pri statickom webe sa nastavenie uloží v tomto prehliadači. Po nahratí na GitHub Pages budeš vidieť predmety podľa svojho uloženého nastavenia.
+                    </p>
+                </div>
+
                 <div class="admin-card">
                     <p class="small-title">Export</p>
                     <h2>Uložené dáta</h2>
@@ -152,7 +185,7 @@ Nesprávna odpoveď"></textarea>
         <div class="footer-info-card">
             <span>Autor projektu</span>
             <strong>Vytvorené MG</strong>
-            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
+            <p>Study Hub v3.1 • Posledná aktualizácia: 06/2026</p>
         </div>
 
         <div class="footer-links-card">
@@ -175,7 +208,7 @@ Nesprávna odpoveď"></textarea>
 </footer>
 
 <script src="script/main.js?v=20260608-style-script"></script>
-<script src="script/admin.js?v=20260608-big-upgrade"></script>
+<script src="script/admin.js?v=20260612-admin-subject-visibility"></script>
 <script src="script/fix.js?v=20260608-style-script"></script>
 </body>
 </html>

@@ -353,3 +353,26 @@ Upravené:
 - každý príklad obsahuje zadanie, známe hodnoty, riešenie a výsledok,
 - výpočty boli skontrolované,
 - v `style/fix.css` a `style/subject-pages.css` boli doplnené štýly pre otváracie príklady.
+
+
+## Admin – viditeľnosť predmetov
+
+Pridané súbory a zmeny:
+
+```text
+admin.html
+subjects.html
+script/admin.js
+script/subject-visibility.js
+style/fix.css
+```
+
+Funkcia:
+
+```text
+- v admin paneli sa dá nastaviť, ktoré predmety budú viditeľné na stránke subjects.html,
+- nastavenie sa ukladá do localStorage pod kľúč studyHubVisibleSubjects,
+- subjects.html cez script/subject-visibility.js skryje predmetové karty podľa data-subject-id,
+- predvolene sa zobrazujú všetky predmety,
+- nastavenie je lokálne pre konkrétny prehliadač.
+```

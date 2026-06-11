@@ -1599,7 +1599,6 @@
 
 
 /* Fyzika riešené príklady ako otváracie časti */
-
 .physics-solved-list {
     display: grid;
     gap: 14px;
@@ -1755,19 +1754,100 @@
 }
 
 
-/* Fyzika – odvodenia */
-#physics-derivations .physics-solved-example {
-    border-color: rgba(248, 113, 113, 0.35);
+/* =========================================================
+   PATCH – Admin nastavenie viditeľnosti predmetov
+   ========================================================= */
+
+.admin-subject-visibility-card {
+    grid-column: 1 / -1;
 }
 
-#physics-derivations .physics-solved-example summary span {
-    color: #fca5a5;
-    background: rgba(248, 113, 113, 0.12);
-    border-color: rgba(248, 113, 113, 0.28);
+.admin-subject-toolbar,
+.admin-subject-save-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
 }
 
-#physics-derivations .physics-solved-example summary::after {
-    color: #fca5a5;
-    border-color: rgba(248, 113, 113, 0.32);
-    background: rgba(248, 113, 113, 0.10);
+.admin-subject-visibility-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.admin-subject-toggle {
+    display: grid;
+    grid-template-columns: auto 54px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 18px;
+    background: rgba(2, 6, 23, 0.48);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    cursor: pointer;
+}
+
+.admin-subject-toggle:hover {
+    border-color: rgba(101, 212, 242, 0.34);
+    background: rgba(101, 212, 242, 0.08);
+}
+
+.admin-subject-toggle input {
+    width: 18px;
+    height: 18px;
+    accent-color: #65d4f2;
+}
+
+.admin-subject-toggle-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 36px;
+    border-radius: 999px;
+    color: #65d4f2;
+    background: rgba(101, 212, 242, 0.12);
+    border: 1px solid rgba(101, 212, 242, 0.28);
+    font-weight: 950;
+    letter-spacing: .5px;
+}
+
+.admin-subject-toggle-text {
+    display: grid;
+    gap: 4px;
+}
+
+.admin-subject-toggle-text strong {
+    color: #fff;
+    font-weight: 950;
+}
+
+.admin-subject-toggle-text small,
+.admin-help-text,
+.admin-inline-status {
+    color: #cbd5e1;
+    line-height: 1.55;
+    font-weight: 750;
+}
+
+.admin-inline-status {
+    margin: 0;
+    color: #93c5fd;
+}
+
+.subject-admin-hidden {
+    display: none !important;
+}
+
+@media (max-width: 800px) {
+    .admin-subject-visibility-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-subject-toggle {
+        grid-template-columns: auto 48px minmax(0, 1fr);
+    }
 }
