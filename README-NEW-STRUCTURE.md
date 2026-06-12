@@ -355,50 +355,25 @@ Upravené:
 - v `style/fix.css` a `style/subject-pages.css` boli doplnené štýly pre otváracie príklady.
 
 
-## Admin – viditeľnosť predmetov
+## Fyzika – príklady na precvičenie z cvík
 
-Pridané súbory a zmeny:
-
-```text
-admin.html
-subjects.html
-script/admin.js
-script/subject-visibility.js
-style/fix.css
-```
-
-Funkcia:
+Pridaná nová sekcia:
 
 ```text
-- v admin paneli sa dá nastaviť, ktoré predmety budú viditeľné na stránke subjects.html,
-- nastavenie sa ukladá do localStorage pod kľúč studyHubVisibleSubjects,
-- subjects.html cez script/subject-visibility.js skryje predmetové karty podľa data-subject-id,
-- predvolene sa zobrazujú všetky predmety,
-- nastavenie je lokálne pre konkrétny prehliadač.
+practice-exercises
 ```
 
+Umiestnenie:
+- za `wheel-example`,
+- pred `physics-images`.
 
-## Admin – náhľad skrytých predmetov
+Obsah:
+- 18 riešených príkladov z cvičení,
+- každý príklad je otvárací/zatvárací blok,
+- sekcia používa rovnaký vizuálny systém ako riešené príklady.
 
-Pridané k nastaveniu viditeľnosti predmetov:
+Bočné menu:
+- pridaný odkaz `Príklady z cvík`.
 
-```text
-- tlačidlo „Admin náhľad – aj skryté“ v admin paneli,
-- admin otvorí `subjects.html?adminView=1`,
-- v tomto režime sa zobrazia aj predmety skryté v bežnom zobrazení,
-- skryté predmety majú vizuálny štítok „Skryté v admine“,
-- v admin paneli je zoznam aktuálne skrytých predmetov.
-```
-
-Bežné zobrazenie `subjects.html` ostáva nezmenené. Skryté predmety sa tam nezobrazujú.
-
-
-## Admin – presmerovanie na konkrétny predmet
-
-Doplnené:
-
-- v `script/admin.js` má každý predmet vlastnosť `path`,
-- v admin sekcii Viditeľnosť predmetov je pri každom predmete odkaz `Otvoriť predmet`,
-- pridaný je aj odkaz `Náhľad v zozname`, ktorý otvorí `subjects.html?adminView=1`,
-- v `style/fix.css` sú doplnené štýly pre nové admin odkazy,
-- v `admin.html` sú upravené cache verzie CSS/JS.
+CSS:
+- doplnené štýly v `style/fix.css` pre odlíšenie sekcie.

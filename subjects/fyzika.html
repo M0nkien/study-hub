@@ -90,6 +90,7 @@
                     <a href="#derivations">Odvodenia</a>
                     <a href="#sample-written-exam">Vzorová písomka</a>
                     <a href="#wheel-example">Vzorový príklad</a>
+                    <a href="#practice-exercises">Príklady z cvík</a>
                     <a href="#physics-deep-theory">Teória skúška</a>
                     <a href="#physics-lab-templates">Vzorové labáky</a>
                     <a href="#theory">Teória</a>
@@ -1857,6 +1858,1283 @@ p2 = 146000 Pa</code></pre>
 
     <div class="learn-actions">
         <button class="learn-btn" data-subject="fyzika" data-key="wheel-example" data-pending-text="Označiť ako vyriešené" data-done-text="Vyriešené ✓" type="button">Označiť ako vyriešené</button>
+    </div>
+</section>
+
+
+<section id="practice-exercises" class="content-block">
+    <p class="small-title">Príklady z cvičení</p>
+    <h2>Príklady na precvičenie z cvík</h2>
+
+    <p class="section-description">
+        Toto sú príklady z cvičení. Každý príklad je v samostatnej otváracej časti.
+        Najprv si skús príklad vypočítať sám a až potom otvor riešenie.
+    </p>
+
+    <div class="physics-solved-list practice-exercises-list">
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C1</span>
+                <strong>Priemerná rýchlosť cyklistu tam a späť</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Cyklista sa pohybuje rýchlosťou 3 m·s<sup>-1</sup> z bodu A do bodu B,
+                        v bode B sa otočí a vracia sa naspäť do bodu A rýchlosťou 12 m·s<sup>-1</sup>.
+                        Vypočítajte priemernú rýchlosť cyklistu.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>v<sub>1</sub> = 3 m·s<sup>-1</sup></li>
+                        <li>v<sub>2</sub> = 12 m·s<sup>-1</sup></li>
+                        <li>dráha tam = s</li>
+                        <li>dráha späť = s</li>
+                        <li>celková dráha = 2s</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>t1 = s / v1
+t2 = s / v2
+
+t = t1 + t2
+t = s/v1 + s/v2
+
+vp = celková dráha / celkový čas
+
+vp = 2s / (s/v1 + s/v2)
+
+vp = 2s / (s/3 + s/12)
+
+s/3 + s/12 = 4s/12 + s/12 = 5s/12
+
+vp = 2s / (5s/12)
+
+vp = 2s · 12/(5s)
+
+vp = 24/5
+
+vp = 4,8 m·s⁻¹</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Priemerná rýchlosť cyklistu je <strong>v<sub>p</sub> = 4,8 m·s<sup>-1</sup></strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C2</span>
+                <strong>Auto – rozbeh, rovnomerný pohyb a brzdenie</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Auto sa rozbieha z pokoja s konštantným zrýchlením 1,5 m·s<sup>-2</sup>,
+                        kým nedosiahne rýchlosť 30 m·s<sup>-1</sup>. Touto rýchlosťou sa pohybuje 10 s
+                        a nakoniec zastavuje so zrýchlením -5 m·s<sup>-2</sup>.
+                        Akú dráhu auto prešlo a aká bola jeho priemerná rýchlosť?
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>1. fáza: v<sub>0</sub> = 0, v = 30 m·s<sup>-1</sup>, a = 1,5 m·s<sup>-2</sup></li>
+                        <li>2. fáza: v = 30 m·s<sup>-1</sup>, t = 10 s</li>
+                        <li>3. fáza: v<sub>0</sub> = 30 m·s<sup>-1</sup>, v = 0, a = -5 m·s<sup>-2</sup></li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>1. fáza – rozbeh:
+
+v = v0 + at
+30 = 0 + 1,5t1
+t1 = 30 / 1,5
+t1 = 20 s
+
+s1 = v0t + 1/2 at²
+s1 = 0·20 + 1/2 · 1,5 · 20²
+s1 = 0,75 · 400
+s1 = 300 m
+
+
+2. fáza – rovnomerný pohyb:
+
+s2 = vt
+s2 = 30 · 10
+s2 = 300 m
+
+
+3. fáza – brzdenie:
+
+v = v0 + at
+0 = 30 - 5t3
+t3 = 6 s
+
+s3 = v0t + 1/2 at²
+s3 = 30·6 + 1/2 · (-5) · 6²
+s3 = 180 - 90
+s3 = 90 m
+
+
+Celková dráha:
+
+s = s1 + s2 + s3
+s = 300 + 300 + 90
+s = 690 m
+
+
+Celkový čas:
+
+t = t1 + t2 + t3
+t = 20 + 10 + 6
+t = 36 s
+
+
+Priemerná rýchlosť:
+
+vp = s/t
+vp = 690/36
+vp ≈ 19,2 m·s⁻¹</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Auto prešlo <strong>690 m</strong> a jeho priemerná rýchlosť bola <strong>19,2 m·s<sup>-1</sup></strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C3</span>
+                <strong>Spomalenie auta z 90 km/h na 72 km/h</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Auto spomaľuje z rýchlosti 90 km·h<sup>-1</sup> na 72 km·h<sup>-1</sup>,
+                        pričom prejde dráhu 200 m. Vypočítajte zrýchlenie auta.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>v<sub>0</sub> = 90 km·h<sup>-1</sup> = 25 m·s<sup>-1</sup></li>
+                        <li>v = 72 km·h<sup>-1</sup> = 20 m·s<sup>-1</sup></li>
+                        <li>s = 200 m</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>v² = v0² + 2as
+
+a = (v² - v0²) / (2s)
+
+a = (20² - 25²) / (2 · 200)
+
+a = (400 - 625) / 400
+
+a = -225 / 400
+
+a = -0,5625 m·s⁻²</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Zrýchlenie auta je <strong>a = -0,5625 m·s<sup>-2</sup></strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C4</span>
+                <strong>Tachograf: v(t) = -t² + 2t + 10</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Rýchlosť auta sa menila podľa vzťahu v(t) = -t² + 2t + 10.
+                        Určte rýchlosť a zrýchlenie v čase t = 2 s, dráhu za prvé 4 s
+                        a dráhu medzi 2. a 4. sekundou.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>v(t) = -t² + 2t + 10</li>
+                        <li>t = 2 s</li>
+                        <li>intervaly: 0 až 4 s a 2 až 4 s</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Okamžitá rýchlosť:
+
+v(2) = -(2)² + 2·2 + 10
+v(2) = -4 + 4 + 10
+v(2) = 10 m·s⁻¹
+
+
+Zrýchlenie:
+
+a(t) = dv/dt
+a(t) = d/dt (-t² + 2t + 10)
+a(t) = -2t + 2
+
+a(2) = -2·2 + 2
+a(2) = -2 m·s⁻²
+
+
+Dráha:
+
+s(t) = ∫ v(t) dt
+s(t) = ∫(-t² + 2t + 10) dt
+s(t) = -t³/3 + t² + 10t
+
+s(4) = -4³/3 + 4² + 10·4
+s(4) = -64/3 + 16 + 40
+s(4) = -64/3 + 56
+s(4) = 104/3
+s(4) ≈ 34,67 m
+
+
+Dráha medzi 2. a 4. sekundou:
+
+s(2) = -2³/3 + 2² + 10·2
+s(2) = -8/3 + 4 + 20
+s(2) = -8/3 + 24
+s(2) = 64/3
+
+s(4) - s(2) = 104/3 - 64/3
+s(4) - s(2) = 40/3
+s(4) - s(2) ≈ 13,33 m</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        v(2) = <strong>10 m·s<sup>-1</sup></strong>,
+                        a(2) = <strong>-2 m·s<sup>-2</sup></strong>,
+                        s(0–4) ≈ <strong>34,67 m</strong>,
+                        s(2–4) ≈ <strong>13,33 m</strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C5</span>
+                <strong>Zrýchlenie rovnomerne klesá na nulu</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Vozidlo sa z pokoja rozbiehalo so zrýchlením, ktoré z počiatočnej hodnoty
+                        1,5 m·s<sup>-2</sup> rovnomerne klesalo až na nulu za 30 s.
+                        Akú dráhu prešlo a akú rýchlosť dosiahlo?
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>a(0) = 1,5 m·s<sup>-2</sup></li>
+                        <li>a(30) = 0</li>
+                        <li>v(0) = 0</li>
+                        <li>t = 30 s</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>a(t) = a0 + kt
+a(t) = 1,5 + kt
+
+0 = 1,5 + k·30
+k = -1,5/30
+k = -0,05
+
+a(t) = 1,5 - 0,05t
+
+
+Rýchlosť:
+
+v(t) = ∫ a(t) dt
+v(t) = ∫(1,5 - 0,05t) dt
+v(t) = 1,5t - 0,025t²
+
+v(30) = 1,5·30 - 0,025·30²
+v(30) = 45 - 22,5
+v(30) = 22,5 m·s⁻¹
+
+
+Dráha:
+
+s(t) = ∫ v(t) dt
+s(t) = ∫(1,5t - 0,025t²) dt
+s(t) = 0,75t² - (0,025/3)t³
+
+s(30) = 0,75·30² - (0,025/3)·30³
+s(30) = 675 - 225
+s(30) = 450 m</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Vozidlo dosiahne rýchlosť <strong>22,5 m·s<sup>-1</sup></strong> a prejde dráhu <strong>450 m</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C6</span>
+                <strong>Teplovzdušný balón a vrecko s pieskom</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Z povrchu Zeme začne stúpať teplovzdušný balón so zrýchlením 2 m·s<sup>-2</sup>.
+                        Po 10 s letu sa z koša balóna uvoľní vrecko s pieskom.
+                        Vypočítajte, do akej výšky vrecko vystúpi a za aký čas dopadne na Zem.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>a = 2 m·s<sup>-2</sup></li>
+                        <li>t<sub>1</sub> = 10 s</li>
+                        <li>g = 9,81 m·s<sup>-2</sup></li>
+                        <li>po uvoľnení má vrecko rýchlosť balóna</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Rýchlosť balóna pri uvoľnení:
+
+v1 = a t1
+v1 = 2 · 10
+v1 = 20 m·s⁻¹
+
+
+Výška balóna pri uvoľnení:
+
+h1 = 1/2 a t1²
+h1 = 1/2 · 2 · 10²
+h1 = 100 m
+
+
+Maximálna výška vrecka:
+
+v² = v1² - 2g(hmax - h1)
+
+0 = 20² - 2·9,81(hmax - 100)
+
+400 = 19,62(hmax - 100)
+
+hmax = 400/19,62 + 100
+
+hmax ≈ 120,4 m
+
+
+Čas výstupu po uvoľnení:
+
+t_výstup = v1/g
+t_výstup = 20/9,81
+t_výstup ≈ 2,04 s
+
+
+Čas pádu z maximálnej výšky:
+
+hmax = 1/2 g t_pád²
+
+t_pád = √(2hmax/g)
+
+t_pád = √(2·120,4/9,81)
+
+t_pád ≈ 4,96 s
+
+
+Čas od uvoľnenia po dopad:
+
+t = 2,04 + 4,96
+t ≈ 7,0 s</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        Vrecko vystúpi do výšky <strong>120,4 m</strong>.
+                        Na zem dopadne približne <strong>7,0 s po uvoľnení</strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C7</span>
+                <strong>Vypustenie nákladu z lietadla</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        V akej vodorovnej vzdialenosti od miesta dopadu má lietadlo vypustiť náklad,
+                        ak letí rovnobežne s povrchom Zeme rýchlosťou 540 km·h<sup>-1</sup>
+                        vo výške 1962 m?
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>v = 540 km·h<sup>-1</sup> = 150 m·s<sup>-1</sup></li>
+                        <li>h = 1962 m</li>
+                        <li>g = 9,81 m·s<sup>-2</sup></li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Čas pádu:
+
+h = 1/2 gt²
+
+t = √(2h/g)
+
+t = √(2·1962/9,81)
+
+t = √400
+
+t = 20 s
+
+
+Vodorovná vzdialenosť:
+
+d = vt
+
+d = 150 · 20
+
+d = 3000 m</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Lietadlo má vypustiť náklad približne <strong>3000 m</strong>, teda <strong>3,0 km</strong> pred miestom dopadu.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C8</span>
+                <strong>Delová guľa vystrelená pod uhlom 55°</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Delová guľa je vystrelená pod uhlom 55° rýchlosťou 1000 m·s<sup>-1</sup>.
+                        Vypočítajte maximálny dostrel bez odporu vzduchu a maximálnu výšku.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>v<sub>0</sub> = 1000 m·s<sup>-1</sup></li>
+                        <li>α = 55°</li>
+                        <li>g = 9,81 m·s<sup>-2</sup></li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Dostrel:
+
+D = v0² sin(2α) / g
+
+D = 1000² · sin(110°) / 9,81
+
+D ≈ 1 000 000 · 0,9397 / 9,81
+
+D ≈ 95 800 m
+
+D ≈ 95,8 km
+
+
+Maximálna výška:
+
+H = v0² sin²α / (2g)
+
+H = 1000² · sin²(55°) / (2·9,81)
+
+H ≈ 1 000 000 · 0,671 / 19,62
+
+H ≈ 34 200 m
+
+H ≈ 34,2 km</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Dostrel je približne <strong>95,8 km</strong> a maximálna výška približne <strong>34,2 km</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C9</span>
+                <strong>Voľný pád – rozdelenie výšky na rovnaké časové úseky</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Teleso voľne padá z výšky h = 245 m. Rozdeľte túto výšku na n = 5 úsekov tak,
+                        aby čas pádu v každom úseku bol rovnaký.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>h = 245 m</li>
+                        <li>n = 5</li>
+                        <li>g = 9,81 m·s<sup>-2</sup></li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Celkový čas pádu:
+
+h = 1/2 gT²
+
+T = √(2h/g)
+
+T = √(2·245/9,81)
+
+T ≈ √49,95
+
+T ≈ 7,07 s
+
+
+Dĺžka jedného časového intervalu:
+
+Δt = T/n
+
+Δt = 7,07/5
+
+Δt ≈ 1,414 s
+
+
+Výšky prejdené od začiatku:
+
+h1 ≈ 9,81 m
+h2 ≈ 39,24 m
+h3 ≈ 88,29 m
+h4 ≈ 157,01 m
+h5 ≈ 245,00 m
+
+
+Jednotlivé úseky:
+
+Δh1 = h1 = 9,81 m
+
+Δh2 = h2 - h1 = 39,24 - 9,81 = 29,43 m
+
+Δh3 = h3 - h2 = 88,29 - 39,24 = 49,05 m
+
+Δh4 = h4 - h3 = 157,01 - 88,29 = 68,72 m
+
+Δh5 = h5 - h4 = 245 - 157,01 = 87,99 m</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        Výšku treba rozdeliť približne na úseky:
+                        <strong>9,81 m; 29,43 m; 49,05 m; 68,72 m; 87,99 m</strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C10</span>
+                <strong>Koleso 600 ot/min sa zastaví po 500 otáčkach</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Koleso otáčajúce sa s frekvenciou 600 ot/min sa vplyvom trenia zastaví,
+                        pričom vykoná ešte 500 otáčok. Za aký čas sa koleso zastaví
+                        a aké bude jeho uhlové zrýchlenie?
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>f = 600 ot/min = 10 s<sup>-1</sup></li>
+                        <li>ω<sub>1</sub> = 2πf = 20π rad·s<sup>-1</sup></li>
+                        <li>ω<sub>2</sub> = 0</li>
+                        <li>θ = 500 otáčok = 1000π rad</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Uhlové zrýchlenie:
+
+ω2² = ω1² + 2εθ
+
+0 = (20π)² + 2ε(1000π)
+
+0 = 400π² + 2000πε
+
+ε = -400π² / 2000π
+
+ε = -π/5 rad·s⁻²
+
+ε ≈ -0,628 rad·s⁻²
+
+
+Čas zastavenia:
+
+ω2 = ω1 + εt
+
+0 = 20π - (π/5)t
+
+(π/5)t = 20π
+
+t = 100 s</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        Koleso sa zastaví za <strong>100 s</strong>.
+                        Uhlové zrýchlenie je <strong>ε = -π/5 rad·s<sup>-2</sup> ≈ -0,628 rad·s<sup>-2</sup></strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C11</span>
+                <strong>Koleso s frekvenciou 25 s⁻¹ zabrzdí za 30 s</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Koleso sa otáča s frekvenciou f = 25 s<sup>-1</sup>.
+                        Rovnomerne sa spomaľuje a zastaví sa za čas 30 s.
+                        Vypočítajte uhlové zrýchlenie a počet otáčok.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>f = 25 s<sup>-1</sup></li>
+                        <li>t = 30 s</li>
+                        <li>ω<sub>2</sub> = 0</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>ω1 = 2πf
+
+ω1 = 2π · 25
+
+ω1 = 50π rad·s⁻¹
+
+
+Uhlové zrýchlenie:
+
+ω2 = ω1 + εt
+
+0 = 50π + ε · 30
+
+ε = -50π/30
+
+ε = -5π/3 rad·s⁻²
+
+
+Počet otáčok:
+
+ω2² = ω1² + 2εθ
+
+0 = (50π)² + 2(-5π/3)θ
+
+0 = 2500π² - (10π/3)θ
+
+(10π/3)θ = 2500π²
+
+θ = 750π rad
+
+N = θ/(2π)
+
+N = 750π/(2π)
+
+N = 375 otáčok</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        Uhlové zrýchlenie je <strong>ε = -5π/3 rad·s<sup>-2</sup></strong>
+                        a koleso vykoná <strong>375 otáčok</strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C12</span>
+                <strong>Pohyb po kružnici so stálym uhlovým zrýchlením</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Hmotný bod sa pohybuje po kružnici s polomerom R = 10 cm
+                        so stálym uhlovým zrýchlením 4 s<sup>-2</sup>.
+                        Vypočítajte tangenciálne, normálové a celkové zrýchlenie na konci 5. sekundy,
+                        ak v čase t = 0 s bol v pokoji.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>R = 10 cm = 0,1 m</li>
+                        <li>ε = 4 rad·s<sup>-2</sup></li>
+                        <li>ω<sub>0</sub> = 0</li>
+                        <li>t = 5 s</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Uhlová rýchlosť po 5 sekundách:
+
+ω = ω0 + εt
+
+ω = 0 + 4·5
+
+ω = 20 rad·s⁻¹
+
+
+Tangenciálne zrýchlenie:
+
+at = rε
+
+at = 0,1 · 4
+
+at = 0,4 m·s⁻²
+
+
+Normálové zrýchlenie:
+
+an = rω²
+
+an = 0,1 · 20²
+
+an = 0,1 · 400
+
+an = 40 m·s⁻²
+
+
+Celkové zrýchlenie:
+
+a = √(at² + an²)
+
+a = √(0,4² + 40²)
+
+a = √(0,16 + 1600)
+
+a ≈ 40,00 m·s⁻²</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        a<sub>t</sub> = <strong>0,4 m·s<sup>-2</sup></strong>,
+                        a<sub>n</sub> = <strong>40 m·s<sup>-2</sup></strong>,
+                        a ≈ <strong>40,00 m·s<sup>-2</sup></strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C13</span>
+                <strong>Uhol medzi celkovým zrýchlením a rýchlosťou</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Teleso sa začína otáčať okolo pevnej osi s konštantným uhlovým zrýchlením
+                        ε = 0,04 s<sup>-2</sup>. V akom čase bude celkové zrýchlenie bodu zvierať
+                        uhol 76° s rýchlosťou toho istého bodu?
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>ε = 0,04 s<sup>-2</sup></li>
+                        <li>α = 76°</li>
+                        <li>ω<sub>0</sub> = 0</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>at = rε
+
+an = rω²
+
+ω = εt
+
+
+Uhol medzi celkovým zrýchlením a rýchlosťou:
+
+tan α = an / at
+
+tan α = rω² / (rε)
+
+tan α = ω²/ε
+
+tan α = (εt)²/ε
+
+tan α = εt²
+
+
+Vyjadríme čas:
+
+t² = tan α / ε
+
+t² = tan 76° / 0,04
+
+t² = 4,01078 / 0,04
+
+t² = 100,2695
+
+t ≈ 10,01 s</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Hľadaný čas je približne <strong>t = 10,01 s</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C14</span>
+                <strong>Výsledná sila a zrýchlenie vo vektoroch</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Na hmotný bod s hmotnosťou 2 kg pôsobia sily
+                        F<sub>1</sub> = (3, 2, -4) N,
+                        F<sub>2</sub> = (2, -6, -2) N,
+                        F<sub>3</sub> = (7, 0, 1) N.
+                        Vypočítajte jeho zrýchlenie a veľkosť zrýchlenia.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>m = 2 kg</li>
+                        <li>F<sub>1</sub> = (3, 2, -4) N</li>
+                        <li>F<sub>2</sub> = (2, -6, -2) N</li>
+                        <li>F<sub>3</sub> = (7, 0, 1) N</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Výsledná sila:
+
+Fx = 3 + 2 + 7 = 12 N
+
+Fy = 2 + (-6) + 0 = -4 N
+
+Fz = -4 + (-2) + 1 = -5 N
+
+F = (12, -4, -5) N
+
+
+Zrýchlenie:
+
+a = F/m
+
+a = (12, -4, -5)/2
+
+a = (6, -2, -2,5) m·s⁻²
+
+
+Veľkosť zrýchlenia:
+
+|a| = √(6² + (-2)² + (-2,5)²)
+
+|a| = √(36 + 4 + 6,25)
+
+|a| = √46,25
+
+|a| ≈ 6,8 m·s⁻²</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        Zrýchlenie je <strong>a = (6, -2, -2,5) m·s<sup>-2</sup></strong>
+                        a jeho veľkosť je <strong>|a| ≈ 6,8 m·s<sup>-2</sup></strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C15</span>
+                <strong>Práca sily a uhol medzi silou a posunutím</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Na teleso pôsobí sila F = 5 N. Pri posunutí d = 3 m sa vykoná práca W = 9 J.
+                        Vypočítajte uhol α medzi silou a smerom posunutia.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>F = 5 N</li>
+                        <li>d = 3 m</li>
+                        <li>W = 9 J</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>W = F d cos α
+
+9 = 5 · 3 · cos α
+
+9 = 15 cos α
+
+cos α = 9/15
+
+cos α = 0,6
+
+α = arccos(0,6)
+
+α ≈ 53,13°</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Uhol medzi silou a posunutím je <strong>α ≈ 53,13°</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C16</span>
+                <strong>Ťažisko troch hmotných bodov</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Vypočítajte polohu ťažiska sústavy hmotných bodov A[1; 1], B[2; 3], C[-3; 0].
+                        Ich hmotnosti sú m<sub>A</sub> = 2 g, m<sub>B</sub> = 4 g, m<sub>C</sub> = 1 g.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>A(1, 1), m<sub>A</sub> = 2 g</li>
+                        <li>B(2, 3), m<sub>B</sub> = 4 g</li>
+                        <li>C(-3, 0), m<sub>C</sub> = 1 g</li>
+                        <li>M = 2 + 4 + 1 = 7 g</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>xT = (mA xA + mB xB + mC xC) / M
+
+xT = (2·1 + 4·2 + 1·(-3)) / 7
+
+xT = (2 + 8 - 3) / 7
+
+xT = 7/7
+
+xT = 1
+
+
+yT = (mA yA + mB yB + mC yC) / M
+
+yT = (2·1 + 4·3 + 1·0) / 7
+
+yT = (2 + 12 + 0) / 7
+
+yT = 14/7
+
+yT = 2</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>Poloha ťažiska je <strong>T = (1; 2)</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C17</span>
+                <strong>Naklonená rovina s trením a premena energie na teplo</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Teleso o hmotnosti m leží na naklonenej rovine, ktorá zviera s vodorovnou rovinou uhol π/6.
+                        Koeficient trenia je μ = 0,2. Vypočítajte zrýchlenie telesa a koľko percent
+                        potenciálnej energie sa premení na teplo.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>α = π/6 = 30°</li>
+                        <li>μ = 0,2</li>
+                        <li>g = 9,81 m·s<sup>-2</sup></li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Sily na naklonenej rovine:
+
+Fg,po rovine = mg sin α
+
+N = mg cos α
+
+Ft = μN = μmg cos α
+
+
+Výsledná sila po rovine:
+
+F = mg sin α - μmg cos α
+
+ma = mg(sin α - μ cos α)
+
+a = g(sin α - μ cos α)
+
+
+Dosadenie:
+
+a = 9,81(sin 30° - 0,2 cos 30°)
+
+a = 9,81(0,5 - 0,2·0,866)
+
+a = 9,81(0,5 - 0,1732)
+
+a = 9,81 · 0,3268
+
+a ≈ 3,20 m·s⁻²
+
+
+Podiel energie premenený na teplo:
+
+Wt = Ft · s
+
+Wt = μmg cos α · s
+
+ΔEp = mgh = mg s sin α
+
+podiel = Wt / ΔEp
+
+podiel = (μmg cos α · s) / (mg s sin α)
+
+podiel = μ cos α / sin α
+
+
+Dosadenie:
+
+podiel = 0,2 · cos 30° / sin 30°
+
+podiel = 0,2 · 0,866 / 0,5
+
+podiel = 0,3464
+
+podiel = 34,64 %</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        Zrýchlenie je <strong>a ≈ 3,20 m·s<sup>-2</sup></strong>.
+                        Na teplo sa premení približne <strong>34,6 %</strong> potenciálnej energie.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+        <details class="physics-solved-example practice-example">
+            <summary>
+                <span>C18</span>
+                <strong>Geostacionárna družica nad rovníkom</strong>
+            </summary>
+
+            <div class="solved-example-body">
+                <div class="example-assignment">
+                    <strong>Zadanie</strong>
+                    <p>
+                        Akú vzdialenosť od Zeme musí mať umelá družica, ktorá obieha tak,
+                        že sa zdá, že stojí nad určitým bodom rovníka?
+                        Polomer Zeme je R = 6378 km.
+                    </p>
+                </div>
+
+                <div class="known-box">
+                    <h3>Známe a hľadáme</h3>
+                    <ul>
+                        <li>geostacionárna družica má periódu T = 24 h = 86400 s</li>
+                        <li>R = 6378 km</li>
+                        <li>ω = 2π/T</li>
+                        <li>gravitačná sila zabezpečuje dostredivú silu</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Riešenie</h3>
+                    <pre><code>Fg = Fd
+
+GMm/r² = mω²r
+
+
+Vykrátime hmotnosť družice:
+
+GM/r² = ω²r
+
+GM = ω²r³
+
+r³ = GM/ω²
+
+
+Uhlová rýchlosť Zeme:
+
+ω = 2π / 86400
+
+ω ≈ 7,272 · 10⁻⁵ rad·s⁻¹
+
+
+Polomer obežnej dráhy od stredu Zeme:
+
+r = ³√(GM/ω²)
+
+r ≈ 4,22 · 10⁷ m
+
+r ≈ 42 200 km
+
+
+Výška nad povrchom Zeme:
+
+h = r - R
+
+h ≈ 42 200 km - 6378 km
+
+h ≈ 35 800 km</code></pre>
+                </div>
+
+                <div class="checked-result-box">
+                    <strong>Výsledok</strong>
+                    <p>
+                        Družica musí byť vo výške približne <strong>35 800 km nad povrchom Zeme</strong>.
+                        Presnejšia známa hodnota je približne <strong>35 786 km</strong>.
+                    </p>
+                </div>
+            </div>
+        </details>
+
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="practice-exercises" data-pending-text="Označiť ako precvičené" data-done-text="Precvičené ✓" type="button">
+            Označiť ako precvičené
+        </button>
     </div>
 </section>
 

@@ -5,7 +5,6 @@
    Rieši opravy po presune CSS/JS, farebnosť stavov, pozadia predmetov,
    roadmapu a flashcards podľa farby predmetu.
 */
-
 @import url("./github-fix.css?v=20260608-style-script");
 
 /* === Predmetové podstránky – návrat farebných pozadí a viditeľné stavy === */
@@ -365,10 +364,7 @@
 
 
 
-/* =========================================================
-   PATCH – Checklist v predmete nemá byť na celú šírku
-   ========================================================= */
-
+/* Checklist v predmete nemá byť na celú šírku */
 /*
    Checklist pred skúškou / Čo by som mal vedieť bol na niektorých
    predmetových podstránkach príliš široký. Tento blok ho drží v rovnakej
@@ -424,10 +420,7 @@
 
 
 
-/* =========================================================
-   PATCH FINAL – Checklist v predmete ako normálna obsahová karta
-   ========================================================= */
-
+/* Checklist v predmete ako normálna obsahová karta */
 /*
    Finálna oprava checklistu:
    Na niektorých predmetoch sa checklist zobrazil cez celú šírku stránky.
@@ -519,9 +512,7 @@
 
 
 
-/* =========================================================
-   PATCH v3.3 – changelog, homepage, roadmap, flashcards, predmety
-   ========================================================= */
+/* Changelog, homepage, roadmap, flashcards, predmety */
 
 /* Homepage v3.3 */
 .home-overview-v33 {
@@ -1123,9 +1114,7 @@
 
 
 
-/* =========================================================
-   PATCH – Návrat hlavnej stránky do pôvodného jednoduchého rozloženia
-   ========================================================= */
+/* Návrat hlavnej stránky do pôvodného jednoduchého rozloženia */
 
 /*
    Hlavná stránka sa vracia k jednoduchému rozloženiu:
@@ -1156,10 +1145,7 @@
 
 
 
-/* =========================================================
-   PATCH – Checklist zarovnaný ako ostatné predmetové sekcie
-   ========================================================= */
-
+/* Checklist zarovnaný ako ostatné predmetové sekcie */
 /* Checklist je vložený priamo do .subject-main.
    Preto má mať rovnakú šírku ako ostatné content-block sekcie nad ním. */
 .page-subject-detail .subject-main > #checklist.checklist-section,
@@ -1181,9 +1167,7 @@
 
 
 
-/* =========================================================
-   PATCH – Zarovnanie horného panelu predmetu s obsahom
-   ========================================================= */
+/* Zarovnanie horného panelu predmetu s obsahom */
 
 /*
    Problém:
@@ -1275,10 +1259,6 @@
 
 
 
-/* =========================================================
-   PATCH – Kvíz farby odpovedí a vysvetlenia
-   ========================================================= */
-
 /* Správna možnosť v cvičnom režime má byť zelená, nie modrá. */
 .quiz-option.correct,
 .quiz-option.correct:hover,
@@ -1350,10 +1330,7 @@
 
 
 
-/* =========================================================
-   PATCH – Fyzika v4: vzorová písomka, teória, vzorce, labáky
-   ========================================================= */
-
+/* Vzorová písomka, teória, vzorce, labáky */
 .page-subject-detail .written-task.derivation {
     border-color: rgba(248, 113, 113, 0.72) !important;
     background: linear-gradient(135deg, rgba(248, 113, 113, 0.15), rgba(127, 29, 29, 0.10)) !important;
@@ -1539,10 +1516,7 @@
 
 
 
-/* =========================================================
-   PATCH – Fyzika ďalšie skúškové písomky
-   ========================================================= */
-
+/* Ďalšie skúškové písomky */
 .physics-exam-variants {
     display: grid;
     gap: 22px;
@@ -1598,10 +1572,7 @@
 
 
 
-/* =========================================================
-   PATCH – Fyzika riešené príklady ako otváracie časti
-   ========================================================= */
-
+/* Riešené príklady ako otváracie časti */
 .physics-solved-list {
     display: grid;
     gap: 14px;
@@ -1757,10 +1728,7 @@
 }
 
 
-/* =========================================================
-   PATCH – Admin nastavenie viditeľnosti predmetov
-   ========================================================= */
-
+/* Admin nastavenie viditeľnosti predmetov */
 .admin-subject-visibility-card {
     grid-column: 1 / -1;
 }
@@ -1856,10 +1824,7 @@
 }
 
 
-/* =========================================================
-   PATCH – Admin náhľad skrytých predmetov
-   ========================================================= */
-
+/* Admin náhľad skrytých predmetov */
 .admin-preview-link {
     text-decoration: none;
 }
@@ -1987,10 +1952,7 @@
 }
 
 
-/* =========================================================
-   PATCH – Admin presmerovanie priamo na podstránku predmetu
-   ========================================================= */
-
+/* Admin presmerovanie priamo na podstránku predmetu */
 .admin-subject-toggle {
     grid-template-columns: 1fr;
     cursor: default;
@@ -2066,5 +2028,37 @@
 
     .admin-subject-row-actions {
         margin-left: 0;
+    }
+}
+
+
+/* Príklady na precvičenie z cvičení */
+#practice-exercises .practice-example {
+    border-color: rgba(56, 189, 248, 0.34);
+}
+
+#practice-exercises .practice-example summary span {
+    color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.30);
+}
+
+#practice-exercises .practice-example summary::after {
+    color: #7dd3fc;
+    border-color: rgba(56, 189, 248, 0.34);
+    background: rgba(56, 189, 248, 0.10);
+}
+
+.practice-exercises-list .solution-box pre {
+    white-space: pre-wrap;
+}
+
+.practice-exercises-list .checked-result-box {
+    border-color: rgba(34, 197, 94, 0.62);
+}
+
+@media (max-width: 700px) {
+    #practice-exercises .physics-solved-example summary strong {
+        font-size: 16px;
     }
 }

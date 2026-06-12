@@ -1,18 +1,21 @@
 # README PATCH – Study Hub
 
-## Názov patchu
+## Patch
 
-Admin – presmerovanie priamo na podstránku predmetu.
+Fyzika – doplnenie sekcie **Príklady na precvičenie z cvík**.
 
-## Dôvod úpravy
+## Zdroj
 
-Používateľ chcel, aby sa z admin panelu vedel dostať priamo na konkrétny predmet a skontrolovať, ako sa predmet upravuje alebo zobrazuje.
-
-## Súbory v tomto patchi
+Príklady boli spracované z používateľom nahraného súboru:
 
 ```text
-admin.html
-script/admin.js
+FYZ_P.pdf
+```
+
+## Zmenené/pridané súbory
+
+```text
+subjects/fyzika.html
 style/fix.css
 README-PATCH.md
 README-NEW-STRUCTURE.md
@@ -20,90 +23,96 @@ README-NEW-STRUCTURE.md
 
 ## Čo bolo pridané
 
-V sekcii Admin → Viditeľnosť predmetov pribudli pri každom predmete dve akcie:
+Do `subjects/fyzika.html` bola pridaná nová sekcia:
 
 ```text
-Otvoriť predmet
-Náhľad v zozname
+<section id="practice-exercises" class="content-block">
 ```
 
-### Otvoriť predmet
+Sekcia je vložená za časť `Vzorové príklady` a pred `Obrázky z podkladov`.
 
-Presmeruje priamo na podstránku daného predmetu, napríklad:
+Do bočného menu bol pridaný odkaz:
 
 ```text
-subjects/fyzika.html
-subjects/linux.html
-subjects/ccna.html
+Príklady z cvík
 ```
 
-### Náhľad v zozname
-
-Otvorí stránku predmetov v admin náhľade:
+## Pridané príklady
 
 ```text
-subjects.html?adminView=1
+C1  Priemerná rýchlosť cyklistu tam a späť
+C2  Auto: rozbeh, rovnomerný pohyb a brzdenie
+C3  Spomalenie auta z 90 km/h na 72 km/h
+C4  Rýchlosť z tachografu v(t) = -t² + 2t + 10
+C5  Rozbeh so zrýchlením klesajúcim lineárne na nulu
+C6  Teplovzdušný balón a vrecko s pieskom
+C7  Vypustenie nákladu z lietadla
+C8  Delová guľa vystrelená pod uhlom 55°
+C9  Voľný pád – rozdelenie výšky na rovnaké časové úseky
+C10 Koleso 600 ot/min sa zastaví po 500 otáčkach
+C11 Koleso s frekvenciou 25 s⁻¹ zabrzdí za 30 s
+C12 Tangenciálne, normálové a celkové zrýchlenie po 5 s
+C13 Uhol medzi celkovým zrýchlením a rýchlosťou
+C14 Výsledná sila a zrýchlenie vo vektoroch
+C15 Práca sily a uhol medzi silou a posunutím
+C16 Ťažisko troch hmotných bodov
+C17 Naklonená rovina s trením a premena energie na teplo
+C18 Geostacionárna družica nad rovníkom
 ```
 
-V tomto režime sú viditeľné aj predmety, ktoré sú v bežnom zobrazení skryté.
+## Ako sú príklady spravené
 
-## Zmeny v `script/admin.js`
+Každý príklad je samostatný otvárací blok:
 
-Do zoznamu predmetov bola doplnená cesta `path`, napríklad:
-
-```js
-{ id: "fyzika", title: "Fyzika", path: "subjects/fyzika.html" }
+```html
+<details class="physics-solved-example practice-example">
 ```
 
-Admin renderovanie predmetov bolo upravené tak, aby pri každom predmete zobrazilo aj odkazy na otvorenie predmetu.
-
-## Zmeny v `style/fix.css`
-
-Pridané boli štýly pre:
+Každý blok obsahuje:
 
 ```text
-.admin-subject-toggle-main
-.admin-subject-row-actions
-.admin-subject-open-link
-.admin-hidden-subjects-preview a
+- zadanie,
+- známe a hľadáme,
+- riešenie,
+- výsledok.
 ```
 
-## Zmeny v `admin.html`
+## CSS
 
-Boli upravené cache verzie CSS/JS, aby sa nové štýly a nové admin funkcie po nahratí lepšie načítali:
+Do `style/fix.css` boli pridané iba malé doplnkové štýly pre sekciu:
 
 ```text
-style/fix.css?v=20260612-admin-subject-open-links
-script/admin.js?v=20260612-admin-subject-open-links
+#practice-exercises
+.practice-example
+.practice-exercises-list
 ```
 
-## Ako nahrať patch
+Základné štýly sa používajú rovnaké ako pri existujúcich riešených príkladoch.
 
-Rozbaľ ZIP do koreňa projektu Study Hub a nahraď existujúce súbory.
+## Dôležité upozornenie
 
-Potom použi:
+Ak si medzitým ručne upravoval `subjects/fyzika.html` (napríklad odvodenia alebo vzorové písomky), pred prepísaním súboru si porovnaj zmeny. Tento patch vychádza z poslednej verzie fyziky s riešenými príkladmi.
+
+Bezpečný postup:
+
+```text
+1. Otvor svoj aktuálny subjects/fyzika.html.
+2. Z tohto patchu si zober sekciu id="practice-exercises".
+3. Vlož ju za sekciu id="wheel-example".
+4. Do sidebaru pridaj odkaz href="#practice-exercises".
+5. Do style/fix.css doplň CSS z tohto patchu.
+```
+
+## Upload postup
 
 ```bash
-git add admin.html script/admin.js style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
-git commit -m "Add admin links to open subject pages"
+git add subjects/fyzika.html style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
+git commit -m "Add physics practice exercises from class"
 git push
 ```
 
-Po nahratí daj v prehliadači:
+Po nahratí daj na stránke:
 
 ```text
 Ctrl + F5
-```
-
-## Čo skontrolovať
-
-```text
-1. Otvor admin.html.
-2. Prihlás sa do admin panelu.
-3. Prejdi do sekcie Viditeľnosť predmetov.
-4. Pri každom predmete skontroluj tlačidlo Otvoriť predmet.
-5. Klikni napríklad na Fyzika.
-6. Musí sa otvoriť subjects/fyzika.html.
-7. Klikni na Náhľad v zozname.
-8. Musí sa otvoriť subjects.html?adminView=1.
 ```
