@@ -69,9 +69,10 @@
                     <strong>HOTOVÉ</strong>
                 </div>
                 <div class="subject-page-tag-list">
+                <span>mindset</span>
                 <span>vzorce</span>
                 <span>odvodenia</span>
-                <span>okruhy skúška</span>
+                <span>okruhy skúšky</span>
                 <span>vzorová písomka</span>
                 <span>labáky</span>
                 <span>príklady</span>
@@ -86,18 +87,24 @@
 
                 <aside class="subject-sidebar">
                     <h3>Obsah predmetu</h3>
+                    <a href="#exam-strategy">Mindset na skúške</a>
                     <a href="#exam-topics">Okruhy</a>
                     <a href="#derivations">Odvodenia</a>
+                    <a href="#physics-drawings">Obrázky ku skúške</a>
                     <a href="#sample-written-exam">Vzorová písomka</a>
                     <a href="#wheel-example">Vzorový príklad</a>
                     <a href="#practice-exercises">Príklady z cvík</a>
                     <a href="#physics-deep-theory">Teória skúška</a>
                     <a href="#physics-lab-templates">Vzorové labáky</a>
+                    <a href="#physics-basics">Fyzika od nuly</a>
                     <a href="#theory">Teória</a>
+                    <a href="#formula-map">Minimum vzorcov</a>
                     <a href="#formulas">Vzorce</a>
                     <a href="#physics-units-table">Veličiny a jednotky</a>
                     <a href="#formula-detail-cards">Vzorce detailne</a>                    
                     <a href="#labs">Laboratórium</a>
+                    <a href="#physics-random-exam">Náhodný test</a>
+                    <a href="#last-minute-card">LastCard</a>
                     <a href="#checklist">Checklist</a>
                 </aside>
 
@@ -134,6 +141,56 @@
                             <strong class="js-subject-progress-text">0%</strong>
                         </div>
                     </div>
+
+
+<section id="exam-strategy" class="content-block">
+    <p class="small-title">Skúšková stratégia</p>
+    <h2>Ako odpovedať na fyzike</h2>
+
+    <p class="section-description">
+        Fyzika nie je iba memorovanie vzorcov. Každá odpoveď má mať náčrt, základný zákon,
+        pomenovanie veličín, úpravu vzťahu a kontrolu jednotiek.
+    </p><br>
+
+    <div class="physics-grid">
+        <article class="physics-card">
+            <h3>1. Nakresli náčrt:</h3>
+            <p>
+                Nakresli osi, teleso, sily, rýchlosti, zrýchlenie, kružnicu, prúdnicu alebo naklonenú rovinu.
+                Náčrt často rozhoduje o bodoch.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>2. Napíš základný zákon:</h3>
+            <p>
+                Použi Newtonov zákon, zákon zachovania energie, impulzovú vetu, moment sily,
+                rovnicu kontinuity alebo Bernoulliho rovnicu.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>3. Pomenovať veličiny:</h3>
+            <p>
+                Napíš, čo znamená m, v, a, ω, ε, ρ, p, h, k, b, δ a aké majú jednotky.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>4. Skontroluj jednotky:</h3>
+            <p>
+                Otáčky/min preveď na s<sup>-1</sup>, km/h na m/s, cm² na m² a kPa na Pa.
+                Záporné zrýchlenie pri brzdení nie je chyba.
+            </p>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="exam-strategy" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">
+            Označiť ako naučené
+        </button>
+    </div>
+</section>
 
 
                     <section id="exam-topics" class="content-block">
@@ -310,6 +367,173 @@ Re = ρvd/η</code></pre>
 
     <div class="learn-actions">
         <button class="learn-btn" data-subject="fyzika" data-key="exam-topics" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
+    </div>
+</section>
+
+
+<section id="physics-drawings" class="content-block">
+    <p class="small-title">Obrázky ku skúške</p>
+    <h2>Obrázky, ktoré vedieť nakresliť k témam</h2>
+
+    <p class="section-description">
+        Pri teoretických otázkach a odvodeniach nestačí iba napísať vzorec. Veľmi často pomôže jednoduchý náčrt:
+        sily, osi, smery vektorov, trajektória alebo graf. Tieto obrázky si skús prekresliť rukou na papier.
+    </p>
+
+    <div class="physics-drawing-grid">
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/pohybPoKruz.png" alt="Pohyb po kružnici – tangenciálne a normálové zrýchlenie">
+            <div>
+                <h3>Pohyb po kružnici</h3>
+                <p><strong>Čo nakresliť:</strong> kružnicu, polomer R, rýchlosť v po dotyčnici, normálové zrýchlenie a<sub>n</sub> do stredu a tangenciálne zrýchlenie a<sub>t</sub> po dotyčnici.</p>
+                <p><strong>Vzťahy:</strong> v = ωR, a<sub>t</sub> = εR, a<sub>n</sub> = v²/R = ω²R.</p>
+            </div>
+        </article>
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/momentSilynaPake.png" alt="Moment sily na páke">
+            <div>
+                <h3>Moment sily na páke</h3>
+                <p><strong>Čo nakresliť:</strong> os otáčania, rameno r, silu F a uhol φ medzi ramenom a silou.</p>
+                <p><strong>Vzťahy:</strong> M = r × F, |M| = rF sinφ. Moment je najväčší, keď sila pôsobí kolmo na rameno.</p>
+            </div>
+        </article>
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/sikmyVrh.png" alt="Šikmý vrh pre rôzne uhly">
+            <div>
+                <h3>Šikmý vrh</h3>
+                <p><strong>Čo nakresliť:</strong> trajektóriu vrhu, počiatočnú rýchlosť v<sub>0</sub>, uhol α, vodorovný smer x a zvislý smer y.</p>
+                <p><strong>Vzťahy:</strong> x = v<sub>0</sub>cosα · t, y = v<sub>0</sub>sinα · t − 1/2gt², H = v<sub>0</sub>²sin²α/(2g), D = v<sub>0</sub>²sin2α/g.</p>
+            </div>
+        </article>
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/1.KozmRych.png" alt="Prvá kozmická rýchlosť">
+            <div>
+                <h3>I. kozmická rýchlosť</h3>
+                <p><strong>Čo nakresliť:</strong> Zem, kruhovú dráhu, družicu, rýchlosť v<sub>1</sub> po dotyčnici a gravitačnú silu smerom do stredu Zeme.</p>
+                <p><strong>Myšlienka:</strong> gravitačná sila zabezpečuje dostredivú silu.</p>
+                <p><strong>Vzťah:</strong> GMm/r² = mv²/r → v<sub>1</sub> = √(GM/r).</p>
+            </div>
+        </article>
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/Pribeh trenia.png" alt="Priebeh statického a dynamického trenia">
+            <div>
+                <h3>Statické a dynamické trenie</h3>
+                <p><strong>Čo nakresliť:</strong> graf trecej sily v závislosti od pôsobiacej sily. Statické trenie rastie až po maximum, potom nastane šmyk a pôsobí dynamické trenie.</p>
+                <p><strong>Vzťahy:</strong> F<sub>s</sub> ≤ μ<sub>s</sub>N, F<sub>s,max</sub> = μ<sub>s</sub>N, F<sub>k</sub> = μ<sub>k</sub>N.</p>
+            </div>
+        </article>
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/naklonenaRovnina.png" alt="Naklonená rovina a rozklad síl">
+            <div>
+                <h3>Naklonená rovina</h3>
+                <p><strong>Čo nakresliť:</strong> naklonenú rovinu, teleso, tiaž mg smerom nadol, normálovú silu N kolmo na rovinu a zložku mg sinα po rovine.</p>
+                <p><strong>Vzťahy:</strong> N = mg cosα, zložka po rovine = mg sinα, trenie F<sub>t</sub> = μmg cosα.</p>
+            </div>
+        </article>
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/TaziskoHmotBodov.png" alt="Ťažisko dvoch hmotných bodov">
+            <div>
+                <h3>Ťažisko hmotných bodov</h3>
+                <p><strong>Čo nakresliť:</strong> dva hmotné body m<sub>1</sub>, m<sub>2</sub>, spojnicu medzi nimi a bod ťažiska T bližšie k ťažšej hmote.</p>
+                <p><strong>Vzťah:</strong> r<sub>T</sub> = Σm<sub>i</sub>r<sub>i</sub> / M. Ťažisko je hmotnostne vážený priemer polôh.</p>
+            </div>
+        </article>
+
+        <article class="physics-drawing-card">
+            <img src="../images/fyzika/tlemeneKmity.png" alt="Tlmené harmonické kmity">
+            <div>
+                <h3>Tlmené harmonické kmity</h3>
+                <p><strong>Čo nakresliť:</strong> kmitavý priebeh x(t), ktorého amplitúda postupne klesá. K tomu obálku e<sup>-δt</sup>.</p>
+                <p><strong>Vzťahy:</strong> x'' + 2δx' + ω<sub>0</sub>²x = 0, x(t) = Ae<sup>-δt</sup>cos(ωt + φ).</p>
+            </div>
+        </article>
+
+<article class="physics-drawing-card">
+    <img src="../images/fyzika/Prudenie.png" alt="Laminárne prúdenie v potrubí">
+    <div>
+        <h3>Laminárne prúdenie v potrubí</h3>
+        <p>
+            <strong>Čo nakresliť:</strong> potrubie a parabolický profil rýchlosti.
+            Pri stenách potrubia je rýchlosť nulová, v osi potrubia je najväčšia.
+        </p>
+        <p>
+            <strong>Dôležité v obrázku:</strong> ukáž, že kvapalina netečie všade rovnako rýchlo.
+            Stredná vrstva sa pohybuje najrýchlejšie.
+        </p>
+        <p>
+            <strong>Vzťah:</strong> pri laminárnom prúdení v trubici platí Poiseuilleov vzťah
+            Q = πR⁴Δp / (8ηl).
+        </p>
+    </div>
+</article>
+
+<article class="physics-drawing-card">
+    <img src="../images/fyzika/BernouilRovn.png" alt="Bernoulliho rovnica v potrubí">
+    <div>
+        <h3>Bernoulliho rovnica v potrubí</h3>
+        <p>
+            <strong>Čo nakresliť:</strong> potrubie so zúžením, smer prúdenia a prúdnicu.
+            V užšej časti je rýchlosť väčšia a tlak menší.
+        </p>
+        <p>
+            <strong>Dôležité v obrázku:</strong> keď sa prierez zmenší, podľa kontinuity sa musí zvýšiť rýchlosť.
+            Pri väčšej rýchlosti často klesá tlak.
+        </p>
+        <p>
+            <strong>Vzťah:</strong> p + 1/2ρv² + ρgh = konšt.
+        </p>
+    </div>
+</article>
+
+<article class="physics-drawing-card">
+    <img src="../images/fyzika/KrivkaDeform.png" alt="Krivka deformácie materiálu">
+    <div>
+        <h3>Krivka deformácie</h3>
+        <p>
+            <strong>Čo nakresliť:</strong> graf napätia σ v závislosti od pomerného predĺženia ε.
+            Na začiatku je pružná oblasť, potom plastická oblasť a nakoniec porušenie materiálu.
+        </p>
+        <p>
+            <strong>Dôležité v obrázku:</strong> v pružnej oblasti platí Hookeov zákon.
+            Po prekročení medze pružnosti vzniká trvalá deformácia.
+        </p>
+        <p>
+            <strong>Vzťahy:</strong> σ = F/S, ε = Δl/l<sub>0</sub>, σ = Eε.
+        </p>
+    </div>
+</article>
+
+<article class="physics-drawing-card">
+    <img src="../images/fyzika/rezonancia.png" alt="Rezonančná krivka">
+    <div>
+        <h3>Rezonancia</h3>
+        <p>
+            <strong>Čo nakresliť:</strong> graf amplitúdy v závislosti od pomeru budiacej frekvencie Ω/ω<sub>0</sub>.
+            Pri malej hodnote tlmenia je vrchol vysoký a ostrý.
+        </p>
+        <p>
+            <strong>Dôležité v obrázku:</strong> najväčšia amplitúda vzniká pri frekvencii blízkej vlastnej frekvencii sústavy.
+            Väčšie tlmenie znižuje maximum amplitúdy.
+        </p>
+        <p>
+            <strong>Vzťah:</strong> A(Ω) = (F<sub>0</sub>/m) / √((ω<sub>0</sub>² − Ω²)² + (2δΩ)²).
+        </p>
+    </div>
+</article>
+
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="physics-drawings" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">
+            Označiť ako naučené
+        </button>
     </div>
 </section>
 
@@ -3502,6 +3726,84 @@ F = 6πηrv</code></pre>
     </div>
 </section>
 
+
+<section id="physics-basics" class="content-block">
+    <p class="small-title">Základy od nuly</p>
+    <h2>Fyzika od nuly: jazyk, vektory a jednotky</h2>
+
+    <p class="section-description">
+        Poloha hovorí, kde teleso je. Rýchlosť hovorí, ako rýchlo sa poloha mení.
+        Zrýchlenie hovorí, ako rýchlo sa mení rýchlosť. Sila je príčina zmeny pohybu.
+    </p>
+
+    <div class="physics-grid">
+        <article class="physics-card">
+            <h3>Skalár</h3>
+            <p>
+                Má iba veľkosť. Napríklad čas t, hmotnosť m, teplota, práca, energia a tlak.
+            </p>
+        </article>
+
+        <article class="physics-card">
+            <h3>Vektor</h3>
+            <p>
+                Má veľkosť aj smer. Napríklad poloha r, rýchlosť v, zrýchlenie a, sila F a hybnosť p.
+            </p>
+        </article>
+
+        <article class="physics-card">
+            <h3>Veľkosť vektora</h3>
+            <p>
+                Ak A = (A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>), potom:
+            </p>
+            <pre><code>|A| = √(Ax² + Ay² + Az²)</code></pre>
+        </article>
+
+        <article class="physics-card">
+            <h3>Skalárny súčin</h3>
+            <p>
+                Používa sa napríklad pri práci sily.
+            </p>
+            <pre><code>A · B = |A||B|cosφ
+
+W = F · s</code></pre>
+        </article>
+
+        <article class="physics-card">
+            <h3>Vektorový súčin</h3>
+            <p>
+                Výsledný vektor je kolmý na oba pôvodné vektory. Používa sa pri momente sily.
+            </p>
+            <pre><code>M = r × F</code></pre>
+        </article>
+
+        <article class="physics-card">
+            <h3>Derivácia po čase</h3>
+            <p>
+                Rýchlosť je derivácia polohy a zrýchlenie je derivácia rýchlosti.
+            </p>
+            <pre><code>v = dr/dt
+
+a = dv/dt = d²r/dt²</code></pre>
+        </article>
+    </div><br>
+
+    <div class="checked-result-box">
+        <strong>Rozmerová kontrola</strong>
+        <p>
+            Keď nevieš, či vzorec dáva zmysel, skontroluj jednotky.
+            Napríklad 1/2mv² má jednotku kg·m²/s², teda Joule.
+        </p>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="physics-basics" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">
+            Označiť ako naučené
+        </button>
+    </div>
+</section>
+
+
                     <section id="theory" class="content-block">
     <p class="small-title">Teória</p>
     <h2>Podrobné poznámky ku okruhom</h2>
@@ -3641,6 +3943,101 @@ p + 1/2ρv² + ρgh = konšt.</code></pre>
         <button class="learn-btn" data-subject="fyzika" data-key="theory" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">Označiť ako naučené</button>
     </div>
 </section>
+
+
+<section id="formula-map" class="content-block">
+    <p class="small-title">Rýchla mapa</p>
+    <h2>Minimum vzorcov, ktoré musíš mať v ruke</h2>
+
+    <p class="section-description">
+        Toto nie je ťahák, ale rýchla mapa. Pri každom vzorci si povedz:
+        čo opisuje, kedy platí a aké má jednotky.
+    </p>
+
+    <div class="formula-grid">
+        <article class="formula-card">
+            <h3>Rovnomerne zrýchlený pohyb</h3>
+            <p>v = v<sub>0</sub> + at</p>
+            <p>s = s<sub>0</sub> + v<sub>0</sub>t + 1/2 at²</p>
+            <p>v² = v<sub>0</sub>² + 2as</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Pohyb po kružnici</h3>
+            <p>v = ωr</p>
+            <p>ω = 2πf = 2π/T</p>
+            <p>a<sub>t</sub> = εr</p>
+            <p>a<sub>n</sub> = v²/r = ω²r</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Newton, hybnosť, impulz</h3>
+            <p>ΣF = ma</p>
+            <p>p = mv</p>
+            <p>J = ∫Fdt = Δp</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Moment sily</h3>
+            <p>M = r × F</p>
+            <p>|M| = rF sinφ</p>
+            <p>L = r × p</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Práca, výkon, energia</h3>
+            <p>W = F · s</p>
+            <p>P = dW/dt</p>
+            <p>E<sub>k</sub> = 1/2 mv²</p>
+            <p>E<sub>p</sub> = mgh</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Gravitácia</h3>
+            <p>F = GmM/r²</p>
+            <p>g = GM/r²</p>
+            <p>U = -GmM/r</p>
+            <p>φ = -GM/r</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Šikmý vrh</h3>
+            <p>x = v<sub>0</sub>cosα · t</p>
+            <p>y = v<sub>0</sub>sinα · t - 1/2gt²</p>
+            <p>H = v<sub>0</sub>²sin²α / 2g</p>
+            <p>D = v<sub>0</sub>²sin2α / g</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Tuhé teleso</h3>
+            <p>r<sub>T</sub> = Σm<sub>i</sub>r<sub>i</sub> / M</p>
+            <p>I = Σm<sub>i</sub>r<sub>i</sub>²</p>
+            <p>E<sub>rot</sub> = 1/2 Iω²</p>
+            <p>I = I<sub>T</sub> + Md²</p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Kmity</h3>
+            <p>x'' + ω<sub>0</sub>²x = 0</p>
+            <p>ω<sub>0</sub> = √(k/m)</p>
+            <p>T = 2π/ω<sub>0</sub></p>
+        </article>
+
+        <article class="formula-card">
+            <h3>Kvapaliny</h3>
+            <p>p = p<sub>0</sub> + ρgh</p>
+            <p>Sv = konšt.</p>
+            <p>p + 1/2ρv² + ρgh = konšt.</p>
+        </article>
+    </div>
+
+    <div class="learn-actions">
+        <button class="learn-btn" data-subject="fyzika" data-key="formula-map" data-pending-text="Označiť ako naučené" data-done-text="Naučené ✓" type="button">
+            Označiť ako naučené
+        </button>
+    </div>
+</section>
+
 
                     <section id="formulas" class="content-block">
     <p class="small-title">Vzorce</p>
@@ -3876,6 +4273,89 @@ V = (hodnota ± chyba) jednotka</code></pre>
                     </section>
 
 
+<section id="physics-random-exam" class="content-block">
+    <p class="small-title">Skúškový tréning</p>
+    <h2>Náhodný test z fyziky na 60 minút</h2>
+
+    <p class="section-description">
+        Test náhodne vyberie 5 otázok zo skúškových okruhov. Všetky otázky vidíš naraz,
+        aby si si vedel skúsiť reálnu prípravu ako na písomke. Po vyriešení si označ,
+        ako dobre si otázku vedel.
+    </p>
+
+    <div class="physics-random-exam-panel">
+        <div>
+            <span class="exam-mode-label">Čas testu</span>
+            <strong id="physicsExamTimer">60:00</strong>
+        </div>
+
+        <div class="exam-generator-actions">
+            <button id="generatePhysicsExamBtn" class="learn-btn" type="button">Vygenerovať nový test</button>
+            <button id="startPhysicsExamTimerBtn" class="learn-btn" type="button">Spustiť čas</button>
+            <button id="stopPhysicsExamTimerBtn" class="learn-btn" type="button">Pozastaviť</button>
+            <button id="resetPhysicsExamTimerBtn" class="learn-btn" type="button">Reset času</button>
+        </div>
+    </div>
+
+    <div id="physicsRandomExamList" class="exam-written-list random-exam-list"></div>
+
+    <div class="exam-finish-panel">
+        <button id="finishPhysicsExamBtn" class="learn-btn" type="button">Vyhodnotiť prípravu</button>
+        <div id="physicsExamResult" class="exam-result-box"></div>
+    </div>
+</section>
+
+
+<section id="last-minute-card" class="content-block">
+    <p class="small-title">Posledná karta</p>
+    <h2>20 minút pred skúškou</h2>
+
+    <div class="physics-grid">
+        <article class="physics-card">
+            <h3>Kresli:</h3>
+            <p>
+                Bez náčrtu sa strácajú body. Nakresli sily, osi, vektory, prúdnice, kružnicu alebo graf.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>Vzorec nestačí:</h3>
+            <p>
+                Povedz, prečo vzorec platí: energia, sila, hybnosť, moment, kontinuita alebo Bernoulli.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>Jednotky:</h3>
+            <p>
+                Otáčky/min → s<sup>-1</sup> → rad/s, cm² → m², kPa → Pa, km/h → m/s.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>Znamienka:</h3>
+            <p>
+                Brzdenie má záporné zrýchlenie, vratná sila je -kx a odpor pôsobí proti pohybu.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>Podmienky platnosti:</h3>
+            <p>
+                Bernoulli platí pre ideálnu, nestlačiteľnú kvapalinu pri ustálenom prúdení pozdĺž prúdnice.
+            </p>
+        </article><br>
+
+        <article class="physics-card">
+            <h3>Keď nevieš celé riešenie:</h3>
+            <p>
+                Napíš aspoň náčrt, základný zákon, veličiny, jednotky a výsledný vzťah.
+            </p>
+        </article>
+    </div>
+</section>
+
+
 <section id="checklist" class="content-block checklist-section" data-checklist-subject="fyzika">
     <p class="small-title">Checklist pred skúškou</p>
     <h2>Čo by som mal vedieť</h2>
@@ -4002,5 +4482,6 @@ V = (hodnota ± chyba) jednotka</code></pre>
 <script src="../script/filters.js?v=20260608-big-upgrade"></script>
 <script src="../script/checklist.js?v=20260608-big-upgrade"></script>
 <script src="../script/fix.js?v=20260608-style-script"></script>
+<script src="../script/fyzika-random-exam.js?v=20260612-random-exam"></script>
 </body>
 </html>
