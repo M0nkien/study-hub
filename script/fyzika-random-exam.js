@@ -107,6 +107,44 @@
             type: "Odvodenie",
             cssClass: "derivation",
             text: "Odvoďte amplitúdu vynútených kmitov a podmienku rezonancie. Charakterizujte rezonanciu."
+        },
+        { 
+            type: "Teória", 
+            cssClass: "theory-question", 
+            text: "Vysvetlite rozdiel medzi hydrostatikou a hydrodynamikou. Čo znamená, že ideálna kvapalina je nestlačiteľná?" },
+        { 
+            type: "Teória", 
+            cssClass: "theory-question", 
+            text: "Napíšte hydrostatický tlak a vysvetlite, prečo tlak v kvapaline rastie s hĺbkou." 
+        },
+        { 
+            type: "Odvodenie", 
+            cssClass: "derivation", 
+            text: "Odvoďte rovnicu kontinuity pre nestlačiteľnú kvapalinu." 
+        },
+        { 
+            type: "Teória", 
+            cssClass: "theory-question", 
+            text: "Vysvetlite rozdiel medzi laminárnym a turbulentným prúdením." 
+        },
+        { type: "Teória", 
+            cssClass: "theory-question", 
+            text: "Vysvetlite pojem viskozita a čo vyjadruje dynamická viskozita η." 
+        },
+        { type: "Teória", 
+            cssClass: "theory-question", 
+            text: "Vysvetlite povrchové napätie a uveďte príklady z praxe." 
+        },
+        { type: "Teória", 
+            cssClass: "theory-question", 
+            text: "Vysvetlite krivku deformácie a rozdiel medzi pružnou a plastickou oblasťou." },
+        { type: "Odvodenie", 
+            cssClass: "derivation", 
+            text: "Odvoďte pohybovú rovnicu otáčavého pohybu tuhého telesa M = Jε." 
+        },
+        { type: "Teória", 
+            cssClass: "theory-question", 
+            text: "Vysvetlite fyzikálny význam rezonancie a vplyv tlmenia na rezonančnú krivku." 
         }
     ];
 

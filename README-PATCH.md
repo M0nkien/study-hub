@@ -1,118 +1,76 @@
-# README PATCH – Study Hub
+# README PATCH – Study Hub / Fyzika
 
-## Patch
+## Čo tento ZIP robí
 
-Fyzika – doplnenie sekcie **Príklady na precvičenie z cvík**.
+Tento patch dopĺňa stránku `subjects/fyzika.html` podľa nahratých prezentácií z fyziky a predchádzajúcich požiadaviek.
 
-## Zdroj
+## Dôležité
 
-Príklady boli spracované z používateľom nahraného súboru:
+Predchádzajúca hlavička referátu na labáky sa nepridáva. Tento patch sa sústreďuje na:
 
-```text
-FYZ_P.pdf
-```
+- prezentácie,
+- doplnenie teórie,
+- vzorce navyše,
+- podrobné odvodenia,
+- príklady z cvičení,
+- obrázky, ktoré treba vedieť nakresliť,
+- náhodný test na 60 minút.
 
 ## Zmenené/pridané súbory
 
 ```text
 subjects/fyzika.html
 style/fix.css
+script/fyzika-random-exam.js
+files/fyzika/prezentacie/1_uvod.pdf
+files/fyzika/prezentacie/2_kinematika.pdf
+files/fyzika/prezentacie/3_dynamika.pdf
+files/fyzika/prezentacie/4_gravitacia.pdf
+files/fyzika/prezentacie/5_trenie.pdf
+files/fyzika/prezentacie/6_tuheteleso.pdf
+files/fyzika/prezentacie/7_kmity.pdf
+files/fyzika/prezentacie/8_deformacia.pdf
+files/fyzika/prezentacie/9_hydromechanika.pdf
+files/fyzika/prezentacie/10_realna_kvapalina.pdf
+images/fyzika/*.png
 README-PATCH.md
 README-NEW-STRUCTURE.md
 ```
 
-## Čo bolo pridané
-
-Do `subjects/fyzika.html` bola pridaná nová sekcia:
+## Nové / upravené sekcie vo Fyzike
 
 ```text
-<section id="practice-exercises" class="content-block">
+Prezentácie z fyziky
+Doplnenie z prednášok
+Vzorce navyše
+Odvodenia ku skúške – podrobne
+Odvodenia navyše
+Riešené príklady ako z cvičení
+Príklady na precvičenie z cvík
+Obrázky, ktoré vedieť nakresliť k témam
+Náhodný test z fyziky na 60 minút
+Checklist doplnený o nové body
 ```
 
-Sekcia je vložená za časť `Vzorové príklady` a pred `Obrázky z podkladov`.
+## Ako nahrať
 
-Do bočného menu bol pridaný odkaz:
+Rozbaľ ZIP do koreňa projektu Study Hub a potvrď prepísanie súborov.
 
-```text
-Príklady z cvík
-```
-
-## Pridané príklady
-
-```text
-C1  Priemerná rýchlosť cyklistu tam a späť
-C2  Auto: rozbeh, rovnomerný pohyb a brzdenie
-C3  Spomalenie auta z 90 km/h na 72 km/h
-C4  Rýchlosť z tachografu v(t) = -t² + 2t + 10
-C5  Rozbeh so zrýchlením klesajúcim lineárne na nulu
-C6  Teplovzdušný balón a vrecko s pieskom
-C7  Vypustenie nákladu z lietadla
-C8  Delová guľa vystrelená pod uhlom 55°
-C9  Voľný pád – rozdelenie výšky na rovnaké časové úseky
-C10 Koleso 600 ot/min sa zastaví po 500 otáčkach
-C11 Koleso s frekvenciou 25 s⁻¹ zabrzdí za 30 s
-C12 Tangenciálne, normálové a celkové zrýchlenie po 5 s
-C13 Uhol medzi celkovým zrýchlením a rýchlosťou
-C14 Výsledná sila a zrýchlenie vo vektoroch
-C15 Práca sily a uhol medzi silou a posunutím
-C16 Ťažisko troch hmotných bodov
-C17 Naklonená rovina s trením a premena energie na teplo
-C18 Geostacionárna družica nad rovníkom
-```
-
-## Ako sú príklady spravené
-
-Každý príklad je samostatný otvárací blok:
-
-```html
-<details class="physics-solved-example practice-example">
-```
-
-Každý blok obsahuje:
-
-```text
-- zadanie,
-- známe a hľadáme,
-- riešenie,
-- výsledok.
-```
-
-## CSS
-
-Do `style/fix.css` boli pridané iba malé doplnkové štýly pre sekciu:
-
-```text
-#practice-exercises
-.practice-example
-.practice-exercises-list
-```
-
-Základné štýly sa používajú rovnaké ako pri existujúcich riešených príkladoch.
-
-## Dôležité upozornenie
-
-Ak si medzitým ručne upravoval `subjects/fyzika.html` (napríklad odvodenia alebo vzorové písomky), pred prepísaním súboru si porovnaj zmeny. Tento patch vychádza z poslednej verzie fyziky s riešenými príkladmi.
-
-Bezpečný postup:
-
-```text
-1. Otvor svoj aktuálny subjects/fyzika.html.
-2. Z tohto patchu si zober sekciu id="practice-exercises".
-3. Vlož ju za sekciu id="wheel-example".
-4. Do sidebaru pridaj odkaz href="#practice-exercises".
-5. Do style/fix.css doplň CSS z tohto patchu.
-```
-
-## Upload postup
+Potom použi:
 
 ```bash
-git add subjects/fyzika.html style/fix.css README-PATCH.md README-NEW-STRUCTURE.md
-git commit -m "Add physics practice exercises from class"
+git add subjects/fyzika.html style/fix.css script/fyzika-random-exam.js files/fyzika/prezentacie images/fyzika README-PATCH.md README-NEW-STRUCTURE.md
+git commit -m "Add complete physics lecture materials and exam training"
 git push
 ```
 
-Po nahratí daj na stránke:
+Po nahratí na GitHub Pages daj na stránke Fyzika `Ctrl + F5`.
 
-```text
-Ctrl + F5
-```
+## Kontrola po nahratí
+
+- otvor `subjects/fyzika.html`,
+- skontroluj bočné menu,
+- otvor sekciu Prezentácie,
+- otvor Odvodenia a Príklady,
+- skontroluj Obrázky ku skúške,
+- vyskúšaj Náhodný test na 60 minút.
