@@ -1,76 +1,69 @@
-# README PATCH – Study Hub / Fyzika
+# Study Hub patch – Modern Neon Dashboard
 
-## Čo tento ZIP robí
+Tento patch mení predchádzajúci čistý neon štýl na kombináciu:
 
-Tento patch dopĺňa stránku `subjects/fyzika.html` podľa nahratých prezentácií z fyziky a predchádzajúcich požiadaviek.
+- **štýl 1 Modern Dark Dashboard** ako základ,
+- jemné prvky zo **štýlu 5 Neon Tech / Cyber** ako doplnok.
 
-## Dôležité
+Výsledok je tmavý, moderný, appkový, ale menej krikľavý než čistý neon.
 
-Predchádzajúca hlavička referátu na labáky sa nepridáva. Tento patch sa sústreďuje na:
-
-- prezentácie,
-- doplnenie teórie,
-- vzorce navyše,
-- podrobné odvodenia,
-- príklady z cvičení,
-- obrázky, ktoré treba vedieť nakresliť,
-- náhodný test na 60 minút.
-
-## Zmenené/pridané súbory
+## Súbory v patchi
 
 ```text
-subjects/fyzika.html
-style/fix.css
-script/fyzika-random-exam.js
-files/fyzika/prezentacie/1_uvod.pdf
-files/fyzika/prezentacie/2_kinematika.pdf
-files/fyzika/prezentacie/3_dynamika.pdf
-files/fyzika/prezentacie/4_gravitacia.pdf
-files/fyzika/prezentacie/5_trenie.pdf
-files/fyzika/prezentacie/6_tuheteleso.pdf
-files/fyzika/prezentacie/7_kmity.pdf
-files/fyzika/prezentacie/8_deformacia.pdf
-files/fyzika/prezentacie/9_hydromechanika.pdf
-files/fyzika/prezentacie/10_realna_kvapalina.pdf
-images/fyzika/*.png
+style/neon-dashboard.css
+tools/apply-modern-neon-design-links.js
+preview/modern-neon-preview.html
 README-PATCH.md
 README-NEW-STRUCTURE.md
 ```
 
-## Nové / upravené sekcie vo Fyzike
+## Čo sa zmení
 
-```text
-Prezentácie z fyziky
-Doplnenie z prednášok
-Vzorce navyše
-Odvodenia ku skúške – podrobne
-Odvodenia navyše
-Riešené príklady ako z cvičení
-Príklady na precvičenie z cvík
-Obrázky, ktoré vedieť nakresliť k témam
-Náhodný test z fyziky na 60 minút
-Checklist doplnený o nové body
-```
+- tmavý moderný dashboard vzhľad,
+- jemné neon cyan/fialové/ružové efekty,
+- lepšie čitateľné karty a sekcie,
+- moderný sidebar,
+- nové tlačidlá,
+- modernizované predmetové karty,
+- zachované predmetové farby,
+- menej agresívny glow efekt,
+- vhodné aj na dlhé poznámky, vzorce a odvodenia.
 
 ## Ako nahrať
 
-Rozbaľ ZIP do koreňa projektu Study Hub a potvrď prepísanie súborov.
-
-Potom použi:
+1. Rozbaľ ZIP do koreňa projektu.
+2. Ak sa opýta na prepísanie `style/neon-dashboard.css`, povoľ prepísanie.
+3. Spusti:
 
 ```bash
-git add subjects/fyzika.html style/fix.css script/fyzika-random-exam.js files/fyzika/prezentacie images/fyzika README-PATCH.md README-NEW-STRUCTURE.md
-git commit -m "Add complete physics lecture materials and exam training"
+node tools/apply-modern-neon-design-links.js
+```
+
+4. Potom:
+
+```bash
+git add style/neon-dashboard.css tools/apply-modern-neon-design-links.js preview/modern-neon-preview.html
+git add .
+git commit -m "Switch Study Hub to Modern Neon Dashboard design"
 git push
 ```
 
-Po nahratí na GitHub Pages daj na stránke Fyzika `Ctrl + F5`.
+5. Na webe daj `Ctrl + F5`.
 
-## Kontrola po nahratí
+## Ak už máš pridaný pôvodný neon-dashboard.css
 
-- otvor `subjects/fyzika.html`,
-- skontroluj bočné menu,
-- otvor sekciu Prezentácie,
-- otvor Odvodenia a Príklady,
-- skontroluj Obrázky ku skúške,
-- vyskúšaj Náhodný test na 60 minút.
+Stačí nahrať nový `style/neon-dashboard.css`. HTML link môže zostať rovnaký.
+
+## Ako sa vrátiť späť
+
+Odstráň z HTML riadok:
+
+```html
+<link rel="stylesheet" href="style/neon-dashboard.css?v=modern-neon-20260928">
+```
+
+alebo pri stránkach v podpriečinku:
+
+```html
+<link rel="stylesheet" href="../style/neon-dashboard.css?v=modern-neon-20260928">
+```

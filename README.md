@@ -1,3 +1,7 @@
+# Study Hub V2
+
+> **Aktuálna vizuálna verzia: V2 – Midnight Workspace (09/2026).** Podrobný zoznam zmien a postup nahratia je v súbore [`README-V2.md`](README-V2.md).
+
 # Study Hub v3.3
 
 **Study Hub** je neoficiálna študentská digitálna študovňa vytvorená pre rýchle učenie, opakovanie a zdieľanie školských materiálov.

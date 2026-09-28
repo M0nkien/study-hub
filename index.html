@@ -3,123 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Hub</title>
+    <meta name="description" content="StudyHub v2 – digitálna študovňa s poznámkami, príkladmi, kvízmi, kartičkami a študijným progresom.">
+    <title>StudyHub v2</title>
 
     <link rel="stylesheet" href="style/main.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="style/subject-pages.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="style/quiz.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="style/responsive.css?v=20260608-big-upgrade">
     <link rel="stylesheet" href="style/fix.css?v=20260608-big-upgrade">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/v2.css?v=studyhub-dashboard-v2-20260928">
 </head>
 <body class="page-home">
 
+<!-- Pôvodný header zostáva v DOM kvôli kompatibilite. V2 shell ho vizuálne nahrádza. -->
 <header class="header">
     <div class="container header-content">
-        <a href="index.html" class="logo-link">
+        <a href="index.html" class="logo-link" aria-label="StudyHub – domov">
             <div class="logo">
                 <div class="logo-icon">SH</div>
-                <div>
-                    <h1>STUDY HUB</h1>
-                    <p>Digitálna študovňa</p>
-                </div>
+                <div><h1>STUDY HUB</h1><p>Digitálna študovňa</p></div>
             </div>
         </a>
-
         <button class="menu-toggle" type="button">☰ Menu</button>
-
-        <nav class="nav">
+        <nav class="nav" aria-label="Hlavná navigácia">
+            <a href="index.html">Domov</a>
             <a href="subjects.html">Predmety</a>
+            <a href="flashcards.html">Kartičky</a>
+            <a href="results.html">Výsledky</a>
+            <a href="roadmap.html">Roadmapa</a>
             <a href="changelog.html">Zmeny</a>
             <a href="support.html">Podpora</a>
-            <a href="admin.html">Admin</a>
         </nav>
     </div>
 </header>
-<main class="home-clean-main">
-    <section id="home" class="hero home-clean-hero">
-        <div class="home-clean-shapes" aria-hidden="true">
-            <span class="home-shape home-shape-one"></span>
-            <span class="home-shape home-shape-two"></span>
-            <span class="home-shape home-shape-three"></span>
+
+<main class="studyhub-dashboard">
+    <section class="hub-hero" aria-labelledby="homeTitle">
+        <div class="hub-hero-copy">
+            <span class="hub-hero-kicker">VITAJ SPÄŤ <span aria-hidden="true">👋</span></span>
+            <h1 id="homeTitle">Vitaj v <span>StudyHub v2</span></h1>
+            <p class="hub-hero-lead">Všetko, čo potrebuješ pre úspešné štúdium, na jednom mieste.</p>
+            <p class="hub-hero-sub">Poznámky, príklady, kvízy, kartičky, návody a školské postupy prehľadne usporiadané podľa predmetov.</p>
         </div>
 
-        <div class="container home-clean-content">
-            <span class="badge">● Študentská platforma na učenie</span>
-
-            <h2>
-                DIGITÁLNA<br>
-                <span>ŠTUDOVŇA</span>
-            </h2>
-
-            <p class="hero-text">
-                Poznámky, príklady, testy, návody a školské postupy vytvorené študentom pre študentov.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="subjects.html" class="btn primary">Začať študovať</a>
-                <a href="subjects.html" id="continueLearningBtn" class="btn secondary home-secondary-btn">Posledné miesto</a>
-                <a href="support.html" class="btn secondary home-secondary-btn">Nahlásiť chybu</a>
+        <div class="hub-hero-art" aria-hidden="true">
+            <div class="hub-sun"></div>
+            <div class="hub-cloud hub-cloud-a"></div>
+            <div class="hub-cloud hub-cloud-b"></div>
+            <div class="hub-mountain hub-mountain-back"></div>
+            <div class="hub-mountain hub-mountain-front"></div>
+            <div class="hub-city"></div>
+            <div class="hub-student">
+                <span class="hub-head"></span>
+                <span class="hub-body"></span>
+                <span class="hub-backpack"></span>
             </div>
+            <div class="hub-hero-motto">Lepšie poznámky.<br>Lepšie výsledky.<br><strong>Spolu ďalej.</strong></div>
         </div>
     </section>
 
-    <section id="about" class="home-clean-about">
-        <div class="container">
-            <article class="home-clean-about-box">
-                <p class="small-title">O projekte</p>
-                <h2>Prečo vznikol tento web?</h2>
-                <p>
-                    Study Hub je neoficiálna študentská stránka, kde sú uložené poznámky,
-                    príklady, návody, testové otázky a školské postupy z rôznych predmetov.
-                </p>
-                <p>
-                    Cieľom je pomôcť študentom rýchlejšie pochopiť učivo a pripraviť sa
-                    na testy, skúšky a semestrálne práce.
-                </p>
-            </article>
+    <div class="hub-dashboard-grid">
+        <div class="hub-main-column">
+            <section class="hub-panel hub-continue-panel">
+                <div class="hub-panel-head">
+                    <div class="hub-panel-title">
+                        <span class="hub-title-icon">◷</span>
+                        <h2>Pokračovať tam, kde som skončil</h2>
+                    </div>
+                    <a href="subjects.html">Zobraziť všetky <span>→</span></a>
+                </div>
+
+                <div class="hub-continue-grid">
+                    <a class="hub-progress-card subject-linux" href="subjects/linux.html" data-progress-subject="linux">
+                        <div class="hub-card-topline">
+                            <span class="hub-subject-icon">⌘</span>
+                            <strong>Linux</strong>
+                            <span class="hub-status status-progress">Rozpracované</span>
+                        </div>
+                        <h3>Príkazy, práva a súbory</h3>
+                        <div class="hub-progress-row"><div class="hub-progress"><span></span></div><b class="hub-progress-value">0 %</b></div>
+                        <div class="hub-card-meta"><span>⌑ CLI a práva</span><span>›</span></div>
+                    </a>
+
+                    <a class="hub-progress-card subject-msd" href="subjects/msd.html" data-progress-subject="msd">
+                        <div class="hub-card-topline">
+                            <span class="hub-subject-icon">▦</span>
+                            <strong>MSD</strong>
+                            <span class="hub-status status-updating">Dopĺňa sa</span>
+                        </div>
+                        <h3>Časové rady a Fourier</h3>
+                        <div class="hub-progress-row"><div class="hub-progress"><span></span></div><b class="hub-progress-value">0 %</b></div>
+                        <div class="hub-card-meta"><span>⌑ Excel a zadania</span><span>›</span></div>
+                    </a>
+
+                    <a class="hub-progress-card subject-mat" href="subjects/mat.html" data-progress-subject="mat">
+                        <div class="hub-card-topline">
+                            <span class="hub-subject-icon">π</span>
+                            <strong>Matematika</strong>
+                            <span class="hub-status status-progress">Rozpracované</span>
+                        </div>
+                        <h3>DR, Laplace a rady</h3>
+                        <div class="hub-progress-row"><div class="hub-progress"><span></span></div><b class="hub-progress-value">0 %</b></div>
+                        <div class="hub-card-meta"><span>⌑ Príklady a postupy</span><span>›</span></div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="hub-panel hub-latest-panel">
+                <div class="hub-panel-head">
+                    <div class="hub-panel-title">
+                        <span class="hub-title-icon">☆</span>
+                        <h2>Najnovšie pridané</h2>
+                    </div>
+                    <a href="subjects.html">Zobraziť všetky <span>→</span></a>
+                </div>
+
+                <div class="hub-latest-grid">
+                    <a class="hub-resource-card" href="subjects/msd.html">
+                        <div class="hub-resource-thumb thumb-msd"><span>MSD</span><i>Nové</i><b>∿</b></div>
+                        <div class="hub-resource-body"><h3>Fourier + trend</h3><p>Časové rady a harmonické</p><div><span>▤ poznámky</span><span>→</span></div></div>
+                    </a>
+                    <a class="hub-resource-card" href="subjects/linux.html">
+                        <div class="hub-resource-thumb thumb-linux"><span>Linux</span><i>Hotové</i><b>&gt;_</b></div>
+                        <div class="hub-resource-body"><h3>Linux príkazy</h3><p>CLI, chmod, pipe a redirect</p><div><span>▤ štúdium</span><span>→</span></div></div>
+                    </a>
+                    <a class="hub-resource-card" href="subjects/ccna.html">
+                        <div class="hub-resource-thumb thumb-ccna"><span>Cisco</span><i>Dopĺňa sa</i><b>⌘</b></div>
+                        <div class="hub-resource-body"><h3>VLAN a VLSM</h3><p>Packet Tracer a subnetting</p><div><span>▤ príkazy</span><span>→</span></div></div>
+                    </a>
+                    <a class="hub-resource-card" href="subjects/fyzika.html">
+                        <div class="hub-resource-thumb thumb-fyzika"><span>Fyzika</span><i>Nové</i><b>Σ</b></div>
+                        <div class="hub-resource-body"><h3>Mechanika</h3><p>Vzorce, teória a príklady</p><div><span>▤ poznámky</span><span>→</span></div></div>
+                    </a>
+                </div>
+            </section>
         </div>
-    </section>
+
+        <aside class="hub-side-column">
+            <section class="hub-panel hub-last-panel" id="v2HomeSnapshot">
+                <div class="hub-panel-head compact">
+                    <div class="hub-panel-title"><span class="hub-title-icon">▣</span><h2>Posledný otvorený predmet</h2></div>
+                </div>
+                <a class="hub-last-subject" id="v2ContinueLink" href="subjects.html">
+                    <span class="hub-last-icon">↗</span>
+                    <div>
+                        <span class="hub-status status-progress">Pokračovať</span>
+                        <strong id="v2LastOpen">Zatiaľ nič otvorené</strong>
+                        <p id="v2LastMeta">Otvor predmet a StudyHub si ho zapamätá.</p>
+                        <div class="hub-progress"><span id="v2LastProgress"></span></div>
+                    </div>
+                    <span class="hub-last-arrow">›</span>
+                </a>
+            </section>
+
+            <section class="hub-panel hub-mini-dashboard">
+                <div class="hub-panel-head compact">
+                    <div class="hub-panel-title"><span class="hub-title-icon">▥</span><h2>Mini dashboard</h2></div>
+                    <a href="results.html">Štatistiky →</a>
+                </div>
+                <div class="hub-stats-grid">
+                    <a href="subjects.html" class="hub-stat stat-blue"><span class="hub-stat-icon">▤</span><div><strong id="v2DoneSections">0</strong><small>Preštudovaných tém</small></div></a>
+                    <a href="results.html" class="hub-stat stat-green"><span class="hub-stat-icon">✓</span><div><strong id="v2QuizCount">0</strong><small>Dokončených kvízov</small></div></a>
+                    <a href="results.html" class="hub-stat stat-purple"><span class="hub-stat-icon">★</span><div><strong id="v2BestQuiz">0%</strong><small>Najlepší výsledok</small></div></a>
+                    <a href="flashcards.html" class="hub-stat stat-orange"><span class="hub-stat-icon">⚡</span><div><strong id="v2StudyStreak">0 dní</strong><small>Študijná séria</small></div></a>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <div class="hub-bottom-grid">
+        <section class="hub-panel hub-about-card">
+            <div class="hub-about-icon">i</div>
+            <div>
+                <h2>Čo je StudyHub?</h2>
+                <p>Neoficiálna študentská webstránka s poznámkami, návodmi, kvízmi, príkladmi a ďalšími materiálmi pre jednoduchšie a efektívnejšie štúdium.</p>
+            </div>
+            <a href="subjects.html" class="hub-soft-button">Zistiť viac <span>→</span></a>
+        </section>
+
+        <section class="hub-panel hub-quick-links">
+            <div class="hub-panel-head compact">
+                <div class="hub-panel-title"><span class="hub-title-icon">⚡</span><h2>Rýchle odkazy</h2></div>
+            </div>
+            <div class="hub-quick-grid">
+                <a href="results.html"><span class="quick-orange">✓</span>Kvízy <b>›</b></a>
+                <a href="flashcards.html"><span class="quick-purple">▣</span>Flashcards <b>›</b></a>
+                <a href="subjects.html"><span class="quick-green">☑</span>Checklisty <b>›</b></a>
+                <a href="roadmap.html"><span class="quick-blue">◇</span>Roadmapa <b>›</b></a>
+                <a href="changelog.html"><span class="quick-red">▤</span>Changelog <b>›</b></a>
+                <a href="support.html"><span class="quick-pink">◉</span>Podpora <b>›</b></a>
+            </div>
+        </section>
+    </div>
 </main>
 
 <footer class="footer home-footer-v4">
-    <div class="container footer-v4-grid">
-        <div class="footer-brand-block">
-            <div class="footer-logo-row">
-                <div class="logo-icon">SH</div>
-                <div>
-                    <h3>STUDY HUB</h3>
-                    <p>Digitálna študovňa pre študentov.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-info-card">
-            <span>Autor projektu</span>
-            <strong>Vytvorené MG</strong>
-            <p>Study Hub v3.3 • Posledná aktualizácia: 06/2026</p>
-        </div>
-
-        <div class="footer-links-card">
-            <span>Rýchle odkazy</span>
-            <a href="subjects.html">Predmety</a>
-            <a href="support.html">Podpora</a>
-            <a href="roadmap.html">Roadmapa</a>
-            <a href="changelog.html">Zmeny</a>
-        </div>
-    </div>
-
     <div class="container footer-warning">
-        <p>
-            Táto stránka je neoficiálna študentská pomôcka.
-            Materiály slúžia iba na vzdelávacie účely.
-            Autor nezodpovedá za prípadné chyby v poznámkach.
-            Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-        </p>
+        <p>Táto stránka je neoficiálna študentská pomôcka. Materiály slúžia iba na vzdelávacie účely. Autor nezodpovedá za prípadné chyby v poznámkach. Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.</p>
     </div>
 </footer>
 
 <script src="script/main.js?v=20260608-style-script"></script>
 <script src="script/fix.js?v=20260608-style-script"></script>
+<script src="script/v2.js?v=studyhub-dashboard-v2-20260928"></script>
 </body>
 </html>
