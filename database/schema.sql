@@ -170,10 +170,10 @@ revoke all on public.profiles, public.subjects, public.materials, public.quiz_qu
   public.roadmap_items, public.changelog_entries, public.user_activity
 from anon, authenticated;
 
-grant select on public.subjects, public.materials, public.quiz_questions,
+grant select on public.subjects, public.materials,
   public.roadmap_items, public.changelog_entries to anon, authenticated;
 
-grant select on public.profiles to authenticated;
+grant select on public.profiles, public.quiz_questions to authenticated;
 grant insert, update, delete on public.subjects, public.materials, public.quiz_questions,
   public.roadmap_items, public.changelog_entries to authenticated;
 grant select, insert on public.user_activity to authenticated;
@@ -225,9 +225,10 @@ on public.materials for delete to authenticated
 using (public.is_admin());
 
 drop policy if exists "questions_public_read" on public.quiz_questions;
-create policy "questions_public_read"
-on public.quiz_questions for select to anon, authenticated
-using (visible = true or public.is_admin());
+drop policy if exists "questions_admin_read" on public.quiz_questions;
+create policy "questions_admin_read"
+on public.quiz_questions for select to authenticated
+using (public.is_admin());
 
 drop policy if exists "questions_admin_insert" on public.quiz_questions;
 create policy "questions_admin_insert"
