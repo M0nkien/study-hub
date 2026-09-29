@@ -1,400 +1,120 @@
-# Study Hub V2
-
-> **Aktuálna vizuálna verzia: V2 – Midnight Workspace (09/2026).** Podrobný zoznam zmien a postup nahratia je v súbore [`README-V2.md`](README-V2.md).
-
-# Study Hub v3.3
-
-**Study Hub** je neoficiálna študentská digitálna študovňa vytvorená pre rýchle učenie, opakovanie a zdieľanie školských materiálov.
-
-Autor projektu: **MG**
-
-Stránka je postavená ako statický frontend projekt pre **GitHub Pages**. Obsahuje predmety, poznámky, kvízy, flashcards, checklisty, výsledky, roadmapu, changelog, podporu a jednoduchý admin panel.
-
----
-
-## Stav projektu
-
-```text
-Verzia: Study Hub v3.3
-Posledná aktualizácia: 06/2026
-Typ projektu: statický web
-Hosting: GitHub Pages
-Frontend: HTML, CSS, JavaScript
-Ukladanie dát používateľa: localStorage
-Dátové súbory: JSON
-Backend: zatiaľ nie je použitý
-```
-
----
-
-## Čo stránka obsahuje
-
-```text
-- hlavnú stránku,
-- stránku všetkých predmetov,
-- samostatné predmetové podstránky,
-- flashcards kartičky,
-- kvízy,
-- výsledky kvízov,
-- roadmapu,
-- changelog,
-- podporu cez formulár,
-- admin sekciu,
-- checklisty pred skúškou,
-- progres učenia,
-- súbory a materiály.
-```
-
----
-
-## Hlavné stránky
-
-```text
-index.html          hlavná stránka
-subjects.html       zoznam všetkých predmetov
-flashcards.html     kartičky na učenie
-results.html        výsledky kvízov
-roadmap.html        plán vývoja projektu
-changelog.html      história zmien
-support.html        podpora a formulár
-```
-
----
-
-## Predmety
-
-Stránka aktuálne obsahuje tieto predmety:
-
-```text
-Linux Essentials
-Metódy spracovania dát
-Cisco - CCNA1
-Fyzika
-Matematika
-Vývoj vstavaných systémov
-Java - Informatika
-3D tlač
-Algebra
-Praktikum z programovania
-Úvod do štúdia
-```
-
-Každý predmet má vlastnú podstránku v priečinku:
-
-```text
-subjects/
-```
-
----
-
-## Čo obsahuje predmetová stránka
-
-Predmetová stránka je navrhnutá ako študijný modul. Môže obsahovať:
-
-```text
-- úvodný nadpis,
-- stav predmetu,
-- tagy predmetu,
-- progres učenia,
-- bočný obsah predmetu,
-- poznámky,
-- kompletnú teóriu,
-- sekciu štúdium,
-- štruktúru predmetu,
-- plán doplnenia obsahu,
-- materiály,
-- kvíz,
-- súbory,
-- checklist pred skúškou.
-```
-
----
-
-## Stavy predmetov
-
-Predmety používajú stav:
-
-```text
-Hotové
-Dopĺňa sa
-Rozpracované
-```
-
-Stavy sú farebne odlíšené a zobrazujú sa pri predmetoch aj na predmetových stránkach.
-
----
-
-## Flashcards
-
-Flashcards slúžia na rýchle opakovanie pojmov, príkazov, vzorcov a definícií.
-
-Aktuálne funkcie:
-
-```text
-- výber predmetu,
-- výber témy,
-- režim učenia,
-- režim skúšania,
-- režim iba nevedené,
-- náhodné poradie,
-- označenie Viem / Neviem,
-- história učenia,
-- export stavu kartičiek,
-- farba kartičky podľa predmetu.
-```
-
-Témy flashcards:
-
-```text
-Linux – príkazy, práva, procesy
-CCNA – subnetting, ARP, VLAN, DHCP
-Fyzika – vzorce, jednotky, odvodenia
-Matematika – DR, Laplace, rady
-Java – OOP, dedičnosť, výnimky
-MSD – Excel, Fourier, pravdepodobnosť
-VVS – ESP32, MicroPython, GPIO
-```
-
----
-
-## Kvízy
-
-Kvízy slúžia na skúšanie pred testom alebo skúškou.
-
-Aktuálne sú pripravené hlavne pre:
-
-```text
-Linux
-MSD
-Cisco / CCNA
-```
-
-Odporúčané budúce režimy kvízu:
-
-```text
-Cvičný režim
-Skúškový režim
-Režim z nesprávnych otázok
-Rýchly test
-Test podľa témy
-Test podľa predmetu
-Test s časovačom
-Test bez okamžitej spätnej väzby
-```
-
----
-
-## Checklisty
-
-Každý predmet môže mať vlastný checklist pred skúškou.
-
-Checklisty:
-
-```text
-- sú rozdelené podľa tém,
-- ukladajú sa do localStorage,
-- zobrazujú progres,
-- podporujú tlačidlo Označiť všetko,
-- podporujú reset.
-```
-
-Príklad pre CCNA:
-
-```text
-- subnetting,
-- VLSM,
-- VLAN,
-- trunk,
-- DHCP,
-- DNS,
-- routing,
-- SSH,
-- port-security,
-- postup keď nefunguje ping.
-```
-
----
-
-## Roadmapa
-
-Roadmapa je spravená ako projektový plán.
-
-Sekcie:
-
-```text
-Hotové
-Pracuje sa
-Plánované
-Nápady
-Nahlásené chyby
-Odložené
-```
-
-Každá položka roadmapy má:
-
-```text
-Názov
-Popis
-Predmet
-Stav
-Priorita
-Dátum
-Typ
-```
-
-Typy položiek:
-
-```text
-obsah
-dizajn
-funkcia
-oprava
-admin
-backend
-```
-
----
-
-## Changelog
-
-Stránka `changelog.html` slúži na prehľad histórie zmien.
-
-Obsahuje:
-
-```text
-- aktuálnu verziu,
-- dátum aktualizácie,
-- časovú os zmien,
-- čo bolo pridané,
-- čo bolo opravené,
-- čo sa plánuje.
-```
-
----
-
-## Podpora
-
-Stránka `support.html` je určená na spätnú väzbu.
-
-Používateľ môže nahlásiť:
-
-```text
-- chybu v poznámkach,
-- nefunkčný odkaz,
-- zlú odpoveď v kvíze,
-- návrh na nový predmet,
-- návrh na vylepšenie.
-```
-
----
-
-## Lokálne spustenie
-
-Najjednoduchšie cez VS Code:
-
-```text
-1. Otvor projekt vo VS Code.
-2. Spusti Live Server.
-3. Otvor index.html.
-```
-
-Alternatíva cez Python:
-
-```bash
-python -m http.server 5500
-```
-
-Potom otvor:
-
-```text
-http://localhost:5500
-```
-
----
-
-## Fázy ďalšieho vývoja
-
-### Fáza 1 – Stabilizácia
-
-```text
-- opraviť nefunkčné odkazy,
-- doplniť chýbajúce PDF a súbory,
-- odstrániť staré testovacie súbory,
-- zjednotiť CSS a JS verzie,
-- skontrolovať mobilné zobrazenie.
-```
-
-### Fáza 2 – Obsah predmetov
-
-```text
-- doplniť Matematiku,
-- doplniť Fyziku,
-- doplniť CCNA,
-- doplniť MSD,
-- doplniť Linux,
-- doplniť VVS a Java projekty.
-```
-
-### Fáza 3 – Učenie a testovanie
-
-```text
-- vylepšiť kvízové režimy,
-- rozšíriť flashcards,
-- pridať históriu učenia,
-- pridať výsledkové grafy.
-```
-
-### Fáza 4 – Prehľad materiálov
-
-```text
-- pridať files.html,
-- pridať quizzes.html,
-- pridať search.html,
-- pridať globálne vyhľadávanie,
-- pridať filtrovanie materiálov podľa typu.
-```
-
-### Fáza 5 – Admin a backend
-
-```text
-- admin editor obsahu,
-- Firebase alebo Supabase,
-- databáza podpory,
-- prihlasovanie,
-- synchronizácia progresu medzi zariadeniami.
-```
-
-### Fáza 6 – Finálne vylepšenia
-
-```text
-- PWA offline režim,
-- print verzia poznámok,
-- SEO meta tagy,
-- lepšie ikonky predmetov,
-- analytics,
-- optimalizácia výkonu.
-```
-
----
-
-## Známe veci na kontrolu
-
-```text
-- niektoré PDF odkazy smerujú na files/, ale súbory ešte nemusia byť nahraté,
-- admin panel je iba frontendovo chránený,
-- časť obsahu je stále rozpracovaná,
-- niektoré staršie pomocné súbory by sa mali presunúť do archive/ alebo odstrániť,
-- JSON dáta a HTML obsah ešte nie sú úplne prepojené do jedného dátového systému.
-```
-
----
-
-## Upozornenie
-
-Táto stránka je neoficiálna študentská pomôcka.
-
-Materiály slúžia iba na vzdelávacie účely.
-
-Autor nezodpovedá za prípadné chyby v poznámkach.
-
-Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
+Study Hub V2 — Midnight Workspace
+Dátum redizajnu: 28. 9. 2026
+
+Táto verzia predstavuje kompletný vizuálny redizajn pôvodného Study Hubu. Obsah predmetov, dáta, PDF súbory a existujúca študijná logika zostali zachované. Nová vrstva V2 mení vzhľad a používateľské rozhranie naprieč celým projektom bez potreby prepisovať existujúce kvízy, progres, filtre alebo checklisty.
+
+Hlavné zmeny
+nový dizajnový systém Midnight Workspace,
+hlavná farba Study Hubu zostáva #65d4f2,
+odstránený výrazný neonový vzhľad z produkčných stránok,
+nový sticky header a kompaktnejšia navigácia,
+nové označenie V2 pri logu,
+nová hlavná stránka s dashboardom,
+dynamický študijný snapshot z localStorage,
+pokračovanie na poslednom otvorenom mieste,
+nové karty rýchlych nástrojov,
+prepracované predmetové karty,
+jemné vlastné farby jednotlivých predmetov,
+prepracovaný hero blok na interných stránkach,
+nový sticky sidebar na predmetových stránkach,
+aktívna sekcia v sidebare podľa scrollovania,
+nový vzhľad obsahových blokov, materiálov, otázok a riešených príkladov,
+zjednotený vzhľad Flashcards, Results, Roadmap, Support a Admin,
+prepracovaná pätička,
+nové mobilné menu,
+nové responzívne rozloženie pre tablet a mobil,
+tlačidlo na návrat hore,
+jemné reveal animácie s podporou prefers-reduced-motion,
+changelog doplnený o verziu V2,
+roadmapa premenovaná na V2,
+pätičky aktualizované na Study Hub V2 • Aktualizácia: 09/2026.
+Nové súbory
+style/v2.css
+Hlavná vizuálna vrstva Study Hub V2. Načítava sa ako posledný CSS súbor a preberá vizuálne riadenie nad pôvodnými štýlmi.
+
+script/v2.js
+Obsahuje UI funkcie V2:
+
+aktívny odkaz v navigácii,
+aktívnu sekciu predmetového sidebaru,
+tlačidlo „späť hore“,
+animácie zobrazovania kariet,
+domáci snapshot progresu,
+vylepšenie mobilného menu,
+aktualizáciu označenia verzie v pätičke.
+Upravené súbory
+Hlavné stránky
+index.html — kompletne nová domovská stránka V2,
+subjects.html,
+flashcards.html,
+results.html,
+roadmap.html,
+changelog.html,
+support.html,
+admin.html.
+Predmetové stránky
+subjects/3d-tlac.html,
+subjects/algebra.html,
+subjects/ccna.html,
+subjects/fyzika.html,
+subjects/java.html,
+subjects/linux.html,
+subjects/mat.html,
+subjects/msd.html,
+subjects/praktikum.html,
+subjects/uvod-do-studia.html,
+subjects/vvs.html.
+Na týchto stránkach bol pridaný nový v2.css a v2.js. Obsah predmetov nebol odstránený.
+
+Čo zostalo zachované
+všetky predmetové HTML stránky,
+všetky PDF a obrázky,
+data/*.json,
+progres učenia v localStorage,
+označovanie sekcií ako naučené,
+checklisty,
+filtre materiálov,
+vyhľadávanie predmetov,
+flashcards,
+kvízové enginy,
+história výsledkov,
+predmetové farby a tematické rozlíšenie,
+admin logika,
+podpora cez Google Forms.
+Pôvodný neonový dizajn
+Súbor style/neon-dashboard.css zostal v projekte kvôli histórii a preview stránkam, ale produkčné stránky ho už nenačítavajú. Preto sa s novým V2 vzhľadom nebije.
+
+Nahratie na GitHub Pages — celý balík
+Rozbaľ studyhub-v2.zip.
+Otvor priečinok studyhub.
+Nahraď obsah svojho GitHub repozitára obsahom tohto priečinka.
+Zachovaj rovnakú adresárovú štruktúru (style, script, data, subjects, files, images).
+Commitni a pushni zmeny.
+Po nasadení sprav tvrdý refresh stránky: Ctrl + F5.
+Nahratie na GitHub Pages — patch
+Ak už máš poslednú verziu studyhub-modern-neon-applied, môžeš použiť iba patch:
+
+Rozbaľ studyhub-v2-patch.zip.
+Skopíruj obsah priečinka studyhub do koreňa existujúceho projektu.
+Pri otázke na prepísanie súborov zvoľ Replace / Prepísať.
+Nové súbory style/v2.css, script/v2.js a README-V2.md musia zostať v príslušných priečinkoch.
+Commitni a pushni zmeny.
+Na GitHub Pages sprav Ctrl + F5.
+Kontrola po nahratí
+Skontroluj najmä:
+
+index.html — nový V2 dashboard,
+subjects.html — nové predmetové karty a filter,
+subjects/fyzika.html — nový sidebar a obsahové bloky,
+flashcards.html — dizajn kartičiek,
+roadmap.html — nové V2 panely,
+mobilné menu pri úzkom okne,
+progres a tlačidlá „Označiť ako naučené“,
+vyhľadávanie predmetov,
+kvízy a výsledky.
+Cache
+V2 súbory sú pripájané s verziou:
+
+style/v2.css?v=studyhub-v2-20260928
+script/v2.js?v=studyhub-v2-20260928
+To pomáha obísť starú cache prehliadača a GitHub Pages.
