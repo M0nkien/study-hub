@@ -1,424 +1,337 @@
-// Jednoduché heslo pre statickú stránku.
-// POZOR: Pri obyčajnom HTML/JS webe to nie je skutočné serverové zabezpečenie,
-// lebo heslo je v zdrojovom kóde. Na reálne zabezpečenie treba Firebase Auth alebo server.
-const ADMIN_PASSWORD = "studyhub2026";
+/* StudyHub v2.1.1 - funkčný lokálny Admin editor */
+(function () {
+    "use strict";
 
-const ADMIN_DATA_KEY = "mikStudyAdminData";
-const SUBJECT_VISIBILITY_KEY = "studyHubVisibleSubjects";
+    const DEFAULT_PASSWORD = "studyhub";
+    const SUBJECTS = [
+        { id: "vvs", name: "VVS", href: "subjects/vvs.html", status: "Rozpracované" },
+        { id: "msd", name: "MSD", href: "subjects/msd.html", status: "Rozpracované" },
+        { id: "mat", name: "Matematika", href: "subjects/mat.html", status: "Rozpracované" },
+        { id: "ccna", name: "CCNA", href: "subjects/ccna.html", status: "Rozpracované" },
+        { id: "linux", name: "Linux", href: "subjects/linux.html", status: "Hotové" },
+        { id: "java", name: "Java", href: "subjects/java.html", status: "Rozpracované" },
+        { id: "fyzika", name: "Fyzika", href: "subjects/fyzika.html", status: "Hotové" },
+        { id: "tlac3d", name: "3D tlač", href: "subjects/3d-tlac.html", status: "Pripravované" },
+        { id: "algebra", name: "Algebra", href: "subjects/algebra.html", status: "Pripravované" },
+        { id: "praktikum", name: "Praktikum z programovania", href: "subjects/praktikum.html", status: "Pripravované" },
+        { id: "uvod", name: "Úvod do štúdia", href: "subjects/uvod-do-studia.html", status: "Pripravované" }
+    ];
 
-const STUDY_HUB_SUBJECTS = [
-    { id: "vvs", badge: "VVS", title: "Vývoj vstavaných systémov", note: "ESP32, MicroPython", path: "subjects/vvs.html" },
-    { id: "msd", badge: "MSD", title: "Metódy spracovania dát", note: "Excel, Fourier, zadania", path: "subjects/msd.html" },
-    { id: "mat", badge: "MAT", title: "Matematika", note: "DR, Laplace, rady", path: "subjects/mat.html" },
-    { id: "ccna", badge: "NET", title: "Cisco / CCNA", note: "VLSM, VLAN, Packet Tracer", path: "subjects/ccna.html" },
-    { id: "linux", badge: "LNX", title: "Linux Essentials", note: "CLI, chmod, kvíz", path: "subjects/linux.html" },
-    { id: "java", badge: "JAVA", title: "Informatika / Java", note: "OOP, UML, semestrálka", path: "subjects/java.html" },
-    { id: "fyzika", badge: "FYZ", title: "Fyzika", note: "vzorce, odvodenia, skúška", path: "subjects/fyzika.html" },
-    { id: "tlac3d", badge: "3D", title: "3D tlač", note: "FDM/FFF, slicer, projekt", path: "subjects/3d-tlac.html" },
-    { id: "algebra", badge: "ALG", title: "Algebra", note: "matice, Gauss, vektory", path: "subjects/algebra.html" },
-    { id: "praktikum", badge: "PRG", title: "Praktikum z programovania", note: "Java, ArrayList, OOP", path: "subjects/praktikum.html" },
-    { id: "uvod", badge: "ÚDS", title: "Úvod do štúdia", note: "UML, projekt, obhajoba", path: "subjects/uvod-do-studia.html" }
-];
-
-function initAdminLogin() {
-    const loginSection = document.getElementById("adminLogin");
-    const content = document.getElementById("adminContent");
-    const input = document.getElementById("adminPasswordInput");
-    const button = document.getElementById("adminLoginBtn");
-    const error = document.getElementById("adminLoginError");
-
-    if (!loginSection || !content || !input || !button) {
-        return;
+    function parseJSON(key, fallback) {
+        try {
+            const raw = localStorage.getItem(key);
+            return raw ? JSON.parse(raw) : fallback;
+        } catch (e) { return fallback; }
     }
 
-    function unlock() {
-        sessionStorage.setItem("studyHubAdminUnlocked", "true");
-        loginSection.classList.add("hidden");
-        content.classList.remove("hidden");
+    function saveJSON(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
     }
 
-    if (sessionStorage.getItem("studyHubAdminUnlocked") === "true") {
-        unlock();
-        return;
+    function uid(prefix) {
+        return prefix + "-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8);
     }
 
-    function checkPassword() {
-        if (input.value === ADMIN_PASSWORD) {
-            unlock();
-        } else {
-            if (error) error.classList.remove("hidden");
-            input.value = "";
-            input.focus();
-        }
+    function setLoginState(loggedIn) {
+        const login = document.getElementById("adminLogin");
+        const content = document.getElementById("adminContent");
+        if (login) login.classList.toggle("hidden", loggedIn);
+        if (content) content.classList.toggle("hidden", !loggedIn);
+        if (loggedIn) sessionStorage.setItem("studyHubAdminLoggedIn", "1");
     }
 
-    button.addEventListener("click", checkPassword);
-    input.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            checkPassword();
-        }
-    });
+    function initLogin() {
+        const input = document.getElementById("adminPasswordInput");
+        const btn = document.getElementById("adminLoginBtn");
+        const error = document.getElementById("adminLoginError");
+        if (!input || !btn) return;
 
-    input.focus();
-}
+        if (sessionStorage.getItem("studyHubAdminLoggedIn") === "1") setLoginState(true);
 
-function getData() {
-    const saved = localStorage.getItem(ADMIN_DATA_KEY);
-    if (!saved) return { materials: [], questions: [] };
-
-    try {
-        return JSON.parse(saved);
-    } catch (error) {
-        return { materials: [], questions: [] };
-    }
-}
-
-function saveData(data) {
-    localStorage.setItem(ADMIN_DATA_KEY, JSON.stringify(data, null, 2));
-}
-
-function showExport() {
-    const output = document.getElementById("adminOutput");
-    if (!output) return;
-    output.textContent = JSON.stringify(getData(), null, 2);
-}
-
-function initMaterialForm() {
-    const form = document.getElementById("materialForm");
-    if (!form) return;
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const data = getData();
-
-        data.materials.push({
-            subject: document.getElementById("materialSubject")?.value || "",
-            title: document.getElementById("materialTitle")?.value || "",
-            type: document.getElementById("materialType")?.value || "",
-            description: document.getElementById("materialDescription")?.value || "",
-            createdAt: new Date().toISOString()
-        });
-
-        saveData(data);
-        form.reset();
-        showExport();
-    });
-}
-
-function initQuestionForm() {
-    const form = document.getElementById("questionForm");
-    if (!form) return;
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const data = getData();
-
-        const rawAnswers = (document.getElementById("questionAnswers")?.value || "")
-            .split("\n")
-            .map(line => line.trim())
-            .filter(Boolean);
-
-        const answers = rawAnswers.map(line => {
-            const correct = line.startsWith("*");
-            return {
-                text: correct ? line.slice(1).trim() : line,
-                correct
-            };
-        });
-
-        data.questions.push({
-            subject: document.getElementById("questionSubject")?.value || "",
-            text: document.getElementById("questionText")?.value || "",
-            answers,
-            explanation: document.getElementById("questionExplanation")?.value || "",
-            createdAt: new Date().toISOString()
-        });
-
-        saveData(data);
-        form.reset();
-        showExport();
-    });
-}
-
-function initExportButtons() {
-    const exportBtn = document.getElementById("exportBtn");
-    const clearBtn = document.getElementById("clearBtn");
-
-    if (exportBtn) {
-        exportBtn.addEventListener("click", showExport);
-    }
-
-    if (clearBtn) {
-        clearBtn.addEventListener("click", function () {
-            if (confirm("Naozaj chceš vymazať lokálne admin dáta?")) {
-                localStorage.removeItem(ADMIN_DATA_KEY);
-                showExport();
+        function login() {
+            const configured = localStorage.getItem("studyHubAdminPassword") || DEFAULT_PASSWORD;
+            if (input.value === configured) {
+                if (error) error.classList.add("hidden");
+                input.value = "";
+                setLoginState(true);
+                window.setTimeout(function () { window.scrollTo({ top: 0, behavior: "smooth" }); }, 10);
+            } else {
+                if (error) error.classList.remove("hidden");
+                input.select();
             }
-        });
-    }
-}
-
-function getVisibleSubjectIds() {
-    const allIds = STUDY_HUB_SUBJECTS.map(subject => subject.id);
-    const saved = localStorage.getItem(SUBJECT_VISIBILITY_KEY);
-
-    if (!saved) {
-        return allIds;
-    }
-
-    try {
-        const parsed = JSON.parse(saved);
-        if (!Array.isArray(parsed)) return allIds;
-        return parsed.filter(id => allIds.includes(id));
-    } catch (error) {
-        return allIds;
-    }
-}
-
-function saveVisibleSubjectIds(ids) {
-    const allIds = STUDY_HUB_SUBJECTS.map(subject => subject.id);
-    const cleaned = ids.filter(id => allIds.includes(id));
-    localStorage.setItem(SUBJECT_VISIBILITY_KEY, JSON.stringify(cleaned, null, 2));
-}
-
-function setSubjectVisibilityStatus(message) {
-    const status = document.getElementById("subjectVisibilityStatus");
-    if (!status) return;
-    status.textContent = message;
-}
-
-function renderSubjectVisibilityAdmin() {
-    const container = document.getElementById("subjectVisibilityAdmin");
-    if (!container) return;
-
-    const visibleIds = new Set(getVisibleSubjectIds());
-
-    container.innerHTML = STUDY_HUB_SUBJECTS.map(subject => {
-        const isVisible = visibleIds.has(subject.id);
-        return `
-            <div class="admin-subject-toggle ${isVisible ? "" : "admin-subject-toggle-hidden"}">
-                <label class="admin-subject-toggle-main">
-                    <input type="checkbox" value="${subject.id}" ${isVisible ? "checked" : ""}>
-                    <span class="admin-subject-toggle-badge">${subject.badge}</span>
-                    <span class="admin-subject-toggle-text">
-                        <strong>${subject.title}</strong>
-                        <small>${subject.note}</small>
-                    </span>
-                    <em class="admin-subject-toggle-state">${isVisible ? "viditeľný" : "skrytý"}</em>
-                </label>
-
-                <div class="admin-subject-row-actions">
-                    <a class="admin-subject-open-link" href="${subject.path}">Otvoriť predmet</a>
-                    <a class="admin-subject-open-link admin-subject-open-link-secondary" href="subjects.html?adminView=1">Náhľad v zozname</a>
-                </div>
-            </div>
-        `;
-    }).join("");
-
-    updateSubjectVisibilityStatusFromChecks();
-
-    container.querySelectorAll("input[type='checkbox']").forEach(input => {
-        input.addEventListener("change", updateSubjectVisibilityStatusFromChecks);
-    });
-}
-
-function getCheckedSubjectIdsFromAdmin() {
-    return Array.from(document.querySelectorAll("#subjectVisibilityAdmin input[type='checkbox']:checked"))
-        .map(input => input.value);
-}
-
-function updateSubjectVisibilityStatusFromChecks() {
-    const checked = getCheckedSubjectIdsFromAdmin();
-    const checkedSet = new Set(checked);
-    const hiddenSubjects = STUDY_HUB_SUBJECTS.filter(subject => !checkedSet.has(subject.id));
-    const preview = document.getElementById("hiddenSubjectsPreview");
-
-    document.querySelectorAll("#subjectVisibilityAdmin .admin-subject-toggle").forEach(label => {
-        const input = label.querySelector("input[type='checkbox']");
-        const isVisible = Boolean(input && input.checked);
-        const state = label.querySelector(".admin-subject-toggle-state");
-
-        label.classList.toggle("admin-subject-toggle-hidden", !isVisible);
-        if (state) state.textContent = isVisible ? "viditeľný" : "skrytý";
-    });
-
-    setSubjectVisibilityStatus("Vybrané predmety: " + checked.length + " / " + STUDY_HUB_SUBJECTS.length);
-
-    if (preview) {
-        if (hiddenSubjects.length === 0) {
-            preview.innerHTML = `<strong>Skryté predmety:</strong> žiadne, všetky predmety sú viditeľné.`;
-        } else {
-            preview.innerHTML = `
-                <strong>Skryté predmety:</strong>
-                ${hiddenSubjects.map(subject => `<a href="${subject.path}">${subject.title}</a>`).join("")}
-            `;
         }
+        btn.addEventListener("click", login);
+        input.addEventListener("keydown", function (event) { if (event.key === "Enter") login(); });
     }
-}
 
-function initSubjectVisibilityAdmin() {
-    const container = document.getElementById("subjectVisibilityAdmin");
-    if (!container) return;
-
-    renderSubjectVisibilityAdmin();
-
-    const saveBtn = document.getElementById("saveSubjectVisibilityBtn");
-    const selectAllBtn = document.getElementById("selectAllSubjectsBtn");
-    const hideAllBtn = document.getElementById("hideAllSubjectsBtn");
-    const resetBtn = document.getElementById("resetSubjectVisibilityBtn");
-
-    if (saveBtn) {
-        saveBtn.addEventListener("click", function () {
-            const ids = getCheckedSubjectIdsFromAdmin();
-            saveVisibleSubjectIds(ids);
-            setSubjectVisibilityStatus("Uložené. Na stránke Predmety sa zobrazí " + ids.length + " predmetov.");
+    function fillSubjectSelects() {
+        ["materialSubject", "questionSubject"].forEach(function (id) {
+            const select = document.getElementById(id);
+            if (!select) return;
+            const current = select.value;
+            select.innerHTML = "";
+            SUBJECTS.forEach(function (subject) {
+                const option = document.createElement("option");
+                option.value = subject.name;
+                option.textContent = subject.name;
+                select.appendChild(option);
+            });
+            if (SUBJECTS.some(function (x) { return x.name === current; })) select.value = current;
         });
     }
 
-    if (selectAllBtn) {
-        selectAllBtn.addEventListener("click", function () {
-            container.querySelectorAll("input[type='checkbox']").forEach(input => input.checked = true);
-            updateSubjectVisibilityStatusFromChecks();
+    function showStatus(text, type) {
+        let toast = document.querySelector(".admin-v21-toast");
+        if (!toast) {
+            toast = document.createElement("div");
+            toast.className = "admin-v21-toast";
+            document.body.appendChild(toast);
+        }
+        toast.textContent = text;
+        toast.className = "admin-v21-toast is-visible " + (type || "success");
+        clearTimeout(showStatus.timer);
+        showStatus.timer = setTimeout(function () { toast.classList.remove("is-visible"); }, 2600);
+    }
+
+    function parseAnswers(raw) {
+        return String(raw || "").split(/\r?\n/).map(function (line) { return line.trim(); }).filter(Boolean).map(function (line) {
+            const correct = line.startsWith("*");
+            return { text: correct ? line.slice(1).trim() : line, correct: correct };
         });
     }
 
-    if (hideAllBtn) {
-        hideAllBtn.addEventListener("click", function () {
-            container.querySelectorAll("input[type='checkbox']").forEach(input => input.checked = false);
-            updateSubjectVisibilityStatusFromChecks();
+    function answersToText(answers) {
+        if (!Array.isArray(answers)) return "";
+        return answers.map(function (answer) { return (answer.correct ? "*" : "") + answer.text; }).join("\n");
+    }
+
+    function initMaterialForm() {
+        const form = document.getElementById("materialForm");
+        if (!form) return;
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const title = document.getElementById("materialTitle").value.trim();
+            const description = document.getElementById("materialDescription").value.trim();
+            if (!title) { showStatus("Zadaj názov materiálu.", "error"); return; }
+            const items = parseJSON("studyHubAdminMaterials", []);
+            const editId = form.dataset.editId;
+            const item = {
+                id: editId || uid("mat"),
+                subject: document.getElementById("materialSubject").value,
+                title: title,
+                type: document.getElementById("materialType").value,
+                description: description,
+                updatedAt: new Date().toISOString()
+            };
+            if (editId) {
+                const index = items.findIndex(function (x) { return x.id === editId; });
+                if (index >= 0) items[index] = Object.assign({}, items[index], item);
+                delete form.dataset.editId;
+                form.querySelector('button[type="submit"]').textContent = "Uložiť materiál";
+                showStatus("Materiál bol upravený.");
+            } else {
+                item.createdAt = item.updatedAt;
+                items.unshift(item);
+                showStatus("Materiál bol uložený.");
+            }
+            saveJSON("studyHubAdminMaterials", items);
+            form.reset();
+            fillSubjectSelects();
+            renderSavedContent("materials");
         });
     }
 
-    if (resetBtn) {
-        resetBtn.addEventListener("click", function () {
-            localStorage.removeItem(SUBJECT_VISIBILITY_KEY);
-            renderSubjectVisibilityAdmin();
-            setSubjectVisibilityStatus("Resetované. Predvolene sa zobrazujú všetky predmety.");
+    function initQuestionForm() {
+        const form = document.getElementById("questionForm");
+        if (!form) return;
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const question = document.getElementById("questionText").value.trim();
+            const answers = parseAnswers(document.getElementById("questionAnswers").value);
+            if (!question) { showStatus("Zadaj text otázky.", "error"); return; }
+            if (answers.length < 2 || !answers.some(function (a) { return a.correct; })) {
+                showStatus("Zadaj aspoň 2 odpovede a správnu označ hviezdičkou *.", "error"); return;
+            }
+            const items = parseJSON("studyHubAdminQuestions", []);
+            const editId = form.dataset.editId;
+            const item = {
+                id: editId || uid("q"),
+                subject: document.getElementById("questionSubject").value,
+                question: question,
+                answers: answers,
+                explanation: document.getElementById("questionExplanation").value.trim(),
+                updatedAt: new Date().toISOString()
+            };
+            if (editId) {
+                const index = items.findIndex(function (x) { return x.id === editId; });
+                if (index >= 0) items[index] = Object.assign({}, items[index], item);
+                delete form.dataset.editId;
+                form.querySelector('button[type="submit"]').textContent = "Uložiť otázku";
+                showStatus("Otázka bola upravená.");
+            } else {
+                item.createdAt = item.updatedAt;
+                items.unshift(item);
+                showStatus("Otázka bola uložená.");
+            }
+            saveJSON("studyHubAdminQuestions", items);
+            form.reset();
+            fillSubjectSelects();
+            renderSavedContent("questions");
         });
     }
-}
 
-// ===== Podpora stránky – staré lokálne správy od študentov =====
-
-const SUPPORT_KEY = "studyHubSupportMessages";
-
-function getSupportMessagesAdmin() {
-    const saved = localStorage.getItem(SUPPORT_KEY);
-    if (!saved) return [];
-
-    try {
-        return JSON.parse(saved);
-    } catch (error) {
-        return [];
+    function renderSavedContent(forcedTab) {
+        const host = document.getElementById("adminSavedContent");
+        if (!host) return;
+        const tabs = Array.from(document.querySelectorAll("[data-admin-tab]"));
+        let tab = forcedTab || (tabs.find(function (x) { return x.classList.contains("is-active"); }) || {}).dataset?.adminTab || "materials";
+        tabs.forEach(function (btn) { btn.classList.toggle("is-active", btn.dataset.adminTab === tab); });
+        const materials = parseJSON("studyHubAdminMaterials", []);
+        const questions = parseJSON("studyHubAdminQuestions", []);
+        const mc = document.getElementById("adminMaterialCount");
+        const qc = document.getElementById("adminQuestionCount");
+        if (mc) mc.textContent = materials.length;
+        if (qc) qc.textContent = questions.length;
+        const list = tab === "questions" ? questions : materials;
+        if (!list.length) {
+            host.innerHTML = '<div class="admin-empty-state"><strong>Zatiaľ tu nič nie je.</strong><p>Pridaj prvú položku cez formulár vyššie.</p></div>';
+            return;
+        }
+        host.innerHTML = "";
+        list.forEach(function (item) {
+            const row = document.createElement("article");
+            row.className = "admin-saved-item";
+            const title = tab === "questions" ? item.question : item.title;
+            const meta = [item.subject, tab === "questions" ? "kvízová otázka" : item.type].filter(Boolean).join(" · ");
+            row.innerHTML = '<div><span></span><h3></h3><p></p></div><div class="admin-saved-actions"><button class="btn secondary" type="button" data-edit>Upraviť</button><button class="btn secondary danger" type="button" data-delete>Vymazať</button></div>';
+            row.querySelector("span").textContent = meta;
+            row.querySelector("h3").textContent = title || "Bez názvu";
+            row.querySelector("p").textContent = tab === "questions" ? (item.explanation || "Bez vysvetlenia") : (item.description || "Bez popisu");
+            row.querySelector("[data-delete]").addEventListener("click", function () {
+                if (!window.confirm('Vymazať položku „' + (title || "") + '“?')) return;
+                const key = tab === "questions" ? "studyHubAdminQuestions" : "studyHubAdminMaterials";
+                const source = parseJSON(key, []).filter(function (x) { return x.id !== item.id; });
+                saveJSON(key, source);
+                renderSavedContent(tab);
+                showStatus("Položka bola vymazaná.");
+            });
+            row.querySelector("[data-edit]").addEventListener("click", function () {
+                if (tab === "questions") {
+                    const form = document.getElementById("questionForm");
+                    form.dataset.editId = item.id;
+                    document.getElementById("questionSubject").value = item.subject;
+                    document.getElementById("questionText").value = item.question || "";
+                    document.getElementById("questionAnswers").value = answersToText(item.answers);
+                    document.getElementById("questionExplanation").value = item.explanation || "";
+                    form.querySelector('button[type="submit"]').textContent = "Uložiť zmeny otázky";
+                    form.scrollIntoView({ behavior: "smooth", block: "center" });
+                } else {
+                    const form = document.getElementById("materialForm");
+                    form.dataset.editId = item.id;
+                    document.getElementById("materialSubject").value = item.subject;
+                    document.getElementById("materialTitle").value = item.title || "";
+                    document.getElementById("materialType").value = item.type || "pdf";
+                    document.getElementById("materialDescription").value = item.description || "";
+                    form.querySelector('button[type="submit"]').textContent = "Uložiť zmeny materiálu";
+                    form.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            });
+            host.appendChild(row);
+        });
     }
-}
 
-function saveSupportMessagesAdmin(messages) {
-    localStorage.setItem(SUPPORT_KEY, JSON.stringify(messages, null, 2));
-}
+    function initSavedTabs() {
+        document.querySelectorAll("[data-admin-tab]").forEach(function (button) {
+            button.addEventListener("click", function () { renderSavedContent(button.dataset.adminTab); });
+        });
+        renderSavedContent("materials");
+    }
 
-function formatSupportDate(value) {
-    try {
-        return new Date(value).toLocaleString("sk-SK");
-    } catch (error) {
+    function renderVisibilityEditor() {
+        const host = document.getElementById("subjectVisibilityAdmin");
+        if (!host) return;
+        const visibility = parseJSON("studyHubSubjectVisibility", {});
+        host.innerHTML = "";
+        SUBJECTS.forEach(function (subject) {
+            const visible = visibility[subject.id] !== false;
+            const label = document.createElement("label");
+            label.className = "admin-subject-option";
+            label.innerHTML = '<span class="admin-subject-check"><input type="checkbox" data-subject-id="' + subject.id + '" ' + (visible ? 'checked' : '') + '><i></i></span><div><strong>' + subject.name + '</strong><small>' + subject.status + '</small></div><a href="' + subject.href + '" target="_blank" rel="noopener">Otvoriť →</a>';
+            host.appendChild(label);
+        });
+        updateHiddenPreview();
+    }
+
+    function currentVisibilityFromForm() {
+        const value = {};
+        document.querySelectorAll("#subjectVisibilityAdmin input[data-subject-id]").forEach(function (input) {
+            value[input.dataset.subjectId] = input.checked;
+        });
         return value;
     }
-}
 
-function escapeSupportHtml(value) {
-    return String(value || "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-}
-
-function renderSupportMessages() {
-    const list = document.getElementById("supportMessagesList");
-    if (!list) return;
-
-    const messages = getSupportMessagesAdmin();
-
-    if (messages.length === 0) {
-        list.innerHTML = `<div class="support-empty">Zatiaľ nie sú uložené žiadne správy.</div>`;
-        return;
+    function updateHiddenPreview() {
+        const host = document.getElementById("hiddenSubjectsPreview");
+        if (!host) return;
+        const formInputs = document.querySelectorAll("#subjectVisibilityAdmin input[data-subject-id]");
+        let visibility;
+        if (formInputs.length) visibility = currentVisibilityFromForm();
+        else visibility = parseJSON("studyHubSubjectVisibility", {});
+        const hidden = SUBJECTS.filter(function (s) { return visibility[s.id] === false; });
+        host.innerHTML = hidden.length ? '<strong>Skryté predmety:</strong> ' + hidden.map(function (x) { return x.name; }).join(", ") : '<strong>Skryté predmety:</strong> žiadne';
     }
 
-    list.innerHTML = messages.map(item => `
-        <article class="support-admin-item ${item.status === "vyriešené" ? "resolved" : ""}">
-            <div class="support-admin-top">
-                <span>${escapeSupportHtml(item.subject)}</span>
-                <em>${escapeSupportHtml(item.status || "nové")}</em>
-            </div>
-
-            <h3>${escapeSupportHtml(item.title)}</h3>
-            <p>${escapeSupportHtml(item.message)}</p>
-
-            <div class="support-admin-meta">
-                <strong>Typ:</strong> ${escapeSupportHtml(item.type)}
-                ${item.contact ? `<strong>Kontakt:</strong> ${escapeSupportHtml(item.contact)}` : ""}
-                <strong>Dátum:</strong> ${formatSupportDate(item.createdAt)}
-            </div>
-
-            <div class="support-admin-actions">
-                <button type="button" class="btn secondary" onclick="markSupportResolved(${item.id})">Označiť ako vyriešené</button>
-                <button type="button" class="btn secondary" onclick="deleteSupportMessage(${item.id})">Vymazať</button>
-            </div>
-        </article>
-    `).join("");
-}
-
-function markSupportResolved(id) {
-    const messages = getSupportMessagesAdmin().map(item => {
-        if (item.id === id) {
-            return { ...item, status: "vyriešené" };
-        }
-        return item;
-    });
-
-    saveSupportMessagesAdmin(messages);
-    renderSupportMessages();
-}
-
-function deleteSupportMessage(id) {
-    const messages = getSupportMessagesAdmin().filter(item => item.id !== id);
-    saveSupportMessagesAdmin(messages);
-    renderSupportMessages();
-}
-
-function initSupportAdmin() {
-    const refreshSupportBtn = document.getElementById("refreshSupportBtn");
-    if (refreshSupportBtn) {
-        refreshSupportBtn.addEventListener("click", renderSupportMessages);
-    }
-
-    const clearResolvedSupportBtn = document.getElementById("clearResolvedSupportBtn");
-    if (clearResolvedSupportBtn) {
-        clearResolvedSupportBtn.addEventListener("click", function () {
-            const messages = getSupportMessagesAdmin().filter(item => item.status !== "vyriešené");
-            saveSupportMessagesAdmin(messages);
-            renderSupportMessages();
+    function initVisibilityEditor() {
+        renderVisibilityEditor();
+        const host = document.getElementById("subjectVisibilityAdmin");
+        if (host) host.addEventListener("change", updateHiddenPreview);
+        const all = document.getElementById("selectAllSubjectsBtn");
+        const none = document.getElementById("hideAllSubjectsBtn");
+        const reset = document.getElementById("resetSubjectVisibilityBtn");
+        const save = document.getElementById("saveSubjectVisibilityBtn");
+        if (all) all.addEventListener("click", function () { host.querySelectorAll('input[type="checkbox"]').forEach(function (x) { x.checked = true; }); updateHiddenPreview(); });
+        if (none) none.addEventListener("click", function () { host.querySelectorAll('input[type="checkbox"]').forEach(function (x) { x.checked = false; }); updateHiddenPreview(); });
+        if (reset) reset.addEventListener("click", function () { localStorage.removeItem("studyHubSubjectVisibility"); renderVisibilityEditor(); showStatus("Viditeľnosť bola resetovaná."); });
+        if (save) save.addEventListener("click", function () {
+            saveJSON("studyHubSubjectVisibility", currentVisibilityFromForm());
+            const status = document.getElementById("subjectVisibilityStatus");
+            if (status) status.textContent = "Uložené " + new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" }) + ".";
+            showStatus("Viditeľnosť predmetov bola uložená.");
         });
     }
 
-    renderSupportMessages();
-}
+    function initExport() {
+        const exportBtn = document.getElementById("exportBtn");
+        const clearBtn = document.getElementById("clearBtn");
+        const output = document.getElementById("adminOutput");
+        if (exportBtn && output) exportBtn.addEventListener("click", function () {
+            const data = {
+                version: "2.1.0",
+                exportedAt: new Date().toISOString(),
+                materials: parseJSON("studyHubAdminMaterials", []),
+                questions: parseJSON("studyHubAdminQuestions", []),
+                subjectVisibility: parseJSON("studyHubSubjectVisibility", {})
+            };
+            output.textContent = JSON.stringify(data, null, 2);
+            output.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+        if (clearBtn) clearBtn.addEventListener("click", function () {
+            if (!window.confirm("Naozaj vymazať lokálne admin materiály, otázky a nastavenie viditeľnosti predmetov?")) return;
+            ["studyHubAdminMaterials", "studyHubAdminQuestions", "studyHubSubjectVisibility"].forEach(function (key) { localStorage.removeItem(key); });
+            renderSavedContent("materials");
+            renderVisibilityEditor();
+            if (output) output.textContent = "";
+            showStatus("Lokálne admin dáta boli vymazané.");
+        });
+    }
 
-function initAdminPage() {
-    initAdminLogin();
-    initMaterialForm();
-    initQuestionForm();
-    initExportButtons();
-    initSubjectVisibilityAdmin();
-    initSupportAdmin();
-    showExport();
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initAdminPage);
-} else {
-    initAdminPage();
-}
+    document.addEventListener("DOMContentLoaded", function () {
+        initLogin();
+        fillSubjectSelects();
+        initMaterialForm();
+        initQuestionForm();
+        initSavedTabs();
+        initVisibilityEditor();
+        initExport();
+    });
+})();

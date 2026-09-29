@@ -12,7 +12,7 @@
 <link href="style/fix.css?v=20260612-admin-subject-open-links" rel="stylesheet"/>
 <link href="style/admin.css?v=20260612-admin-subject-visibility" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="style/v2.css?v=studyhub-v210-20260929" rel="stylesheet"/>
+<link href="style/v2.css?v=studyhub-v211-20260929" rel="stylesheet"/>
 </head>
 <body class="admin-page page-admin">
 <header class="header">
@@ -36,7 +36,6 @@
 <a href="changelog.html">Zmeny</a>
 
 <a href="support.html">Podpora</a>
-<a href="admin.html">Admin</a>
 </nav>
 </div>
 </header>
@@ -44,13 +43,13 @@
 <div class="admin-login-card">
 <span class="badge">● Zabezpečený vstup</span>
 <h2>Admin prístup</h2>
-<p>Zadaj heslo, aby si mohol upravovať lokálne materiály a otázky.</p>
+<p>Prihlás sa do lokálneho admin režimu. Po prihlásení sa sprístupní editor materiálov, otázok a viditeľnosti predmetov.</p>
 <div class="admin-login-form">
 <input id="adminPasswordInput" placeholder="Heslo" type="password"/>
 <button class="btn primary" id="adminLoginBtn" type="button">Prihlásiť</button>
 </div>
 <p class="admin-login-error hidden" id="adminLoginError">Nesprávne heslo.</p>
-<p class="admin-login-note">Predvolené heslo: <strong>studyhub</strong>. Zmeniť ho môžeš v script/admin.js.</p>
+<p class="admin-login-note">Predvolené heslo: <strong>studyhub</strong>. Toto je zatiaľ iba lokálne prihlasovanie; v ďalšej fáze ho nahradí Supabase Auth.</p>
 </div>
 </section>
 <div class="page-ambient admin-ambient"><span></span><span></span><span></span></div>
@@ -132,8 +131,8 @@ Nesprávna odpoveď"></textarea>
 </div>
 <div class="admin-card">
 <p class="small-title">Ďalší krok</p>
-<h2>Firebase</h2>
-<p class="section-description">Neskôr sa dá admin panel napojiť na Firebase, aby sa materiály menili online bez ručnej úpravy HTML.</p>
+<h2>Supabase</h2>
+<p class="section-description">Ďalší krok je napojiť admin panel na Supabase Auth + PostgreSQL, aby sa obsah menil online a nebol viazaný iba na localStorage.</p>
 </div>
 <div class="admin-card admin-card-wide">
 <p class="small-title">Podpora</p>
@@ -165,7 +164,7 @@ Nesprávna odpoveď"></textarea>
 <div class="footer-info-card">
 <span>Autor projektu</span>
 <strong>Vytvorené MG</strong>
-<p>StudyHub v2.1.0 • Posledná aktualizácia: 29. 9. 2026</p>
+<p>StudyHub v2.1.1 • Posledná aktualizácia: 29. 9. 2026</p>
 </div>
 <div class="footer-links-card">
 <span>Rýchle odkazy</span>
@@ -185,10 +184,10 @@ Nesprávna odpoveď"></textarea>
 </div>
 </footer>
 <script src="script/main.js?v=20260608-style-script"></script>
-<script src="script/admin.js?v=studyhub-v210-20260929"></script>
+<script src="script/admin.js?v=studyhub-v211-20260929"></script>
 <script src="script/fix.js?v=20260608-style-script"></script>
-<script src="script/search-index.js?v=studyhub-v210-20260929"></script>
-<script src="script/v2.js?v=studyhub-v210-20260929"></script>
-<script src="script/v21.js?v=studyhub-v210-20260929"></script>
+<script src="script/search-index.js?v=studyhub-v211-20260929"></script>
+<script src="script/v2.js?v=studyhub-v211-20260929"></script>
+<script src="script/v21.js?v=studyhub-v211-20260929"></script>
 </body>
 </html>

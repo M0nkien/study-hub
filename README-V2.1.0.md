@@ -1,7 +1,7 @@
-# StudyHub v2.1.0 – patch 29. 9. 2026
+# StudyHub v2.1.1 – patch 29. 9. 2026
 
 Tento patch nadväzuje na **StudyHub v2 Dark Dashboard + Simple Sidebar**.
-Obsahuje iba súbory, ktoré treba nahrať/aktualizovať pre verziu **v2.1.0**.
+Obsahuje iba súbory, ktoré treba nahrať/aktualizovať pre verziu **v2.1.1**.
 
 ## Čo je nové
 
@@ -59,7 +59,7 @@ Na mobile sa Kanban zobrazí v jednom stĺpci.
 ### 5. Changelog – timeline
 Changelog bol prerobený na modernú vertikálnu timeline.
 
-Verzia `v2.1.0` má samostatné sekcie:
+Verzia `v2.1.1` má samostatné sekcie:
 - Nové
 - Upravené
 - Opravené
@@ -75,7 +75,7 @@ Roadmapa, Podpora a ostatné položky zostávajú dostupné cez hamburger sideba
 
 ### 7. Status stránky v sidebare
 Sidebar zobrazuje:
-- **Verzia stránky: v2.1.0**
+- **Verzia stránky: v2.1.1**
 - **Posledná aktualizácia: 29. 9. 2026**
 - zelený stav **Všetko funguje správne**
 
