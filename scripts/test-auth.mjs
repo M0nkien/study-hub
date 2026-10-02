@@ -49,7 +49,8 @@ async function check(role,userPresent) {
    const query={
     select(){return query;},
     eq(){return query;},
-    order(){return Promise.resolve({data:[],error:null});},
+    order(){return query;},
+    then(resolve,reject){return Promise.resolve({data:[],error:null}).then(resolve,reject);},
     async maybeSingle(){
      return {data:table==="profiles"?{id:user.id,display_name:"Test účet",role}:null,error:null};
     }
