@@ -18,3 +18,5 @@ jobs:
           node-version: 22
       - name: Check HTML assets and JavaScript
         run: node scripts/check-studyhub.mjs
+      - name: Test Admin access and login visibility
+        run: node scripts/test-auth.mjs
