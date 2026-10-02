@@ -285,6 +285,13 @@
       '<button class="btn primary" type="button" data-v23-export>Exportovať obsah</button>'+
       '<p><small>Úplné automatické zálohovanie databázy nastav samostatne v Supabase.</small></p></section></div>';
     grid.parentNode.insertBefore(host,grid);
+    const advanced=document.createElement("details");
+    advanced.className="v23-advanced-tools";
+    const summary=document.createElement("summary");
+    summary.textContent="Ďalšie nástroje: Roadmapa, Changelog a rýchly editor";
+    advanced.appendChild(summary);
+    host.insertAdjacentElement("afterend",advanced);
+    advanced.appendChild(grid);
     const tabs=$("[data-v23-tabs]");
     tabs.innerHTML=TYPE_ORDER.map(t=>'<button class="btn secondary" data-v23-type="'+t+'">'+TYPES[t].label+"</button>").join("");
     tabs.querySelectorAll("[data-v23-type]").forEach(b=>b.onclick=()=>{
