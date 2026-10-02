@@ -15,6 +15,7 @@
 <link href="style/v2.css?v=studyhub-v220-20260929" rel="stylesheet"/>
 <link href="style/supabase.css?v=studyhub-v220-20260929" rel="stylesheet"/>
 <link rel="stylesheet" href="style/v23.css?v=studyhub-v230-20261002">
+<link rel="stylesheet" href="style/auth.css?v=studyhub-auth-v231">
 </head>
 <body class="admin-page page-admin">
 <header class="header">
@@ -25,26 +26,33 @@
 </div>
 </header>
 
-<section class="admin-login" id="adminLogin">
+<section class="admin-login" id="adminLogin" aria-labelledby="adminLoginHeading">
 <div class="admin-login-card">
-<span class="badge">● Supabase Auth</span>
-<h2>Admin prihlásenie</h2>
-<p>Prihlás sa svojím administrátorským účtom. Admin nástroje sa zobrazia až po úspešnom overení účtu a role.</p>
-
-<div class="admin-login-form">
-<input autocomplete="username" id="adminEmailInput" placeholder="E-mail" type="email"/>
-<input autocomplete="current-password" id="adminPasswordInput" placeholder="Heslo" type="password"/>
-<button class="btn primary" id="adminLoginBtn" type="button">Prihlásiť sa</button>
+<span class="badge">● Zabezpečený vstup cez Supabase</span>
+<h2 id="adminLoginHeading">Admin prístup</h2>
+<p>Prihlás sa svojím zaregistrovaným účtom s oprávnením administrátora. Po overení sa tento formulár skryje a sprístupní sa Admin panel.</p>
+<form class="admin-login-form" id="adminLoginForm" autocomplete="on">
+<label class="studyhub-admin-field" for="adminEmailInput">E-mail
+<input autocomplete="username" id="adminEmailInput" name="email" placeholder="admin@email.sk" type="email" required/>
+</label>
+<label class="studyhub-admin-field" for="adminPasswordInput">Heslo
+<input autocomplete="current-password" id="adminPasswordInput" name="password" placeholder="Tvoje heslo" type="password" required/>
+</label>
+<button class="btn primary" id="adminLoginBtn" type="submit">Prihlásiť sa do Admina</button>
+</form>
+<p class="admin-login-error" hidden id="adminLoginMessage" role="alert"></p>
+<div class="admin-db-status" id="adminDbStatus"><i></i><span>Overujem Supabase…</span></div>
+<div class="studyhub-admin-links">
+<a href="login.html">Prihlásenie do študentského účtu →</a>
+<a href="login.html?mode=register">Nemáš účet? Vytvoriť študentský účet →</a>
+<a href="subjects.html">Pokračovať bez prihlásenia →</a>
 </div>
-
-<p class="admin-login-error" hidden id="adminLoginMessage"></p>
-<div class="admin-db-status" id="adminDbStatus"><i></i><span>Kontrolujem pripojenie k databáze…</span></div>
 </div>
 </section>
 
 <div class="page-ambient admin-ambient"><span></span><span></span><span></span></div>
 
-<main class="hidden" id="adminContent">
+<main class="hidden" id="adminContent" hidden inert aria-hidden="true">
 <section class="subject-hero">
 <div class="grid-bg"></div>
 <div class="container subject-hero-content">
@@ -257,9 +265,9 @@ Nesprávna odpoveď"></textarea>
 <script src="script/search-index.js?v=studyhub-v230-20261002"></script>
 <script src="script/v2.js?v=studyhub-v230-20261002"></script>
 <script src="script/v21.js?v=studyhub-v230-20261002"></script>
-<script src="script/admin.js?v=studyhub-v220-20260929"></script>
+<script src="script/admin.js?v=studyhub-auth-v231"></script>
 <script src="script/database-search.js?v=studyhub-v230-20261002"></script>
-<script src="script/auth-ui.js?v=studyhub-v230-20261002"></script>
+<script src="script/auth-ui.js?v=studyhub-auth-v231"></script>
 <script src="script/cloud-sync.js?v=studyhub-v230-20261002"></script>
 <script src="script/database-activity.js?v=studyhub-v230-20261002"></script>
 <script src="script/system-health.js?v=studyhub-v230-20261002"></script>
