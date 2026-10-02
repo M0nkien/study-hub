@@ -4,7 +4,7 @@
 "use strict";
 const db=()=>window.studyHubSupabase;
 const EXACT=new Set(["studyHubProgress","mikStudyLearned","studyHubFlashcardsState",
- "studyHubFlashcardsHistory","studyHubStreakData","studyHubQuizResults"]);
+ "studyHubFlashcardsHistory","studyHubQuizResults"]);
 let user=null,timer=null,working=false;
 const earlyDirty=new Set();
 const allowed=k=>EXACT.has(k)||k.startsWith("studyHubChecklist:");
