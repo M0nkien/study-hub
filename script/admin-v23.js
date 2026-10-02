@@ -292,10 +292,16 @@
     user=await isAdmin();
     if(!user)return;
     mount();await refresh();
+  }
+  function start(){
+    init();
+    if(!db())return;
     db().auth.onAuthStateChange((event)=>{
       if(event==="SIGNED_OUT"&&host){host.remove();host=null;user=null;}
+      if(event==="SIGNED_IN"||event==="INITIAL_SESSION")
+        window.setTimeout(init,60);
     });
   }
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);
-  else init();
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);
+  else start();
 })();
