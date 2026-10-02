@@ -91,8 +91,8 @@
                 navLink("support.html", "Podpora", iconSvg("help"), "primary-nav") +
             '</nav>' +
             '<div class="v2-sidebar-meta">' +
-                '<div><span>Verzia stránky</span><strong>v2.1.1</strong></div>' +
-                '<div><span>Posledná aktualizácia</span><strong>29. 9. 2026</strong></div>' +
+                '<div><span>Verzia stránky</span><strong>v2.3.0</strong></div>' +
+                '<div><span>Posledná aktualizácia</span><strong>2. 10. 2026</strong></div>' +
                 '<p><i></i>Všetko funguje správne</p>' +
             '</div>';
 
@@ -153,7 +153,7 @@
             let active = target === current;
 
             // Na každej predmetovej podstránke zostáva v hlavnom sidebare aktívna položka „Predmety“.
-            if (href === "subjects.html" && (current === "subjects.html" || isSubjectDetail())) active = true;
+            if (href === "subjects.html" && (current === "subjects.html" || current === "subject.html" || isSubjectDetail())) active = true;
             link.classList.toggle("is-active", active);
             if (active) link.setAttribute("aria-current", "page");
             else link.removeAttribute("aria-current");
@@ -162,7 +162,7 @@
         document.querySelectorAll(".nav a").forEach(function (link) {
             const href = (link.getAttribute("href") || "").split("#")[0];
             const target = href.split("/").pop();
-            const active = target === current || (isSubjectDetail() && target === "subjects.html");
+            const active = target === current || ((isSubjectDetail() || current === "subject.html") && target === "subjects.html");
             link.classList.toggle("v2-active", active);
         });
     }
