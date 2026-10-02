@@ -93,7 +93,7 @@
             '<div class="v2-sidebar-meta">' +
                 '<div><span>Verzia stránky</span><strong>v2.3.0</strong></div>' +
                 '<div><span>Posledná aktualizácia</span><strong>2. 10. 2026</strong></div>' +
-                '<p><i></i>Všetko funguje správne</p>' +
+                '<p><i></i>Overovanie služieb…</p>' +
             '</div>';
 
         const topbar = document.createElement("div");
