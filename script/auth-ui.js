@@ -20,7 +20,7 @@ function guest(pop){
  sessionStorage.removeItem("studyHubAdminLoggedIn");
  if(!pop)return;
  remove(pop,"v23-signout");remove(pop,"v2-admin-logout");
- menuLink(pop,"v23-student-link","Študentské prihlásenie",prefix()+"login.html");
+ menuLink(pop,"v23-student-link","Prihlásenie / Registrácia",prefix()+"login.html");
  menuLink(pop,"v23-admin-link","Admin prihlásenie",prefix()+"admin.html");
  remove(pop,"v2-account-admin-link");
  const legacy=pop.querySelector('a[href$="admin.html"]:not(.v23-admin-link)');
