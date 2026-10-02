@@ -10,6 +10,8 @@ function saveLearnedStore(store) {
     localStorage.setItem("studyHubProgress", JSON.stringify(store));
     // spätná kompatibilita so starším názvom z predchádzajúcej verzie
     localStorage.setItem("mikStudyLearned", JSON.stringify(store));
+    document.dispatchEvent(new CustomEvent("studyhub:local-data-changed",{detail:{key:"studyHubProgress"}}));
+    document.dispatchEvent(new CustomEvent("studyhub:local-data-changed",{detail:{key:"mikStudyLearned"}}));
 }
 
 function updateSubjectPageProgress() {
