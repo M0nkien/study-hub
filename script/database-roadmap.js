@@ -44,10 +44,11 @@
 
         board.innerHTML = Object.keys(grouped).map(function (status) {
             const items = grouped[status];
+            const priorityLabel = {nizka:"nízka",stredna:"stredná",vysoka:"vysoká"};
             return '<section class="roadmap-lane ' + CLASSES[status] + '">' +
                 '<header><span>' + LABELS[status] + '</span><strong>' + items.length + '</strong></header>' +
                 items.map(function (item) {
-                    return '<article class="roadmap-ticket" data-priority="' + esc(item.priority) + '">' +
+                    return '<article class="roadmap-ticket" data-priority="' + esc(priorityLabel[item.priority]||item.priority) + '">' +
                         '<h3>' + esc(item.title) + '</h3>' +
                         '<p>' + esc(item.description) + '</p>' +
                         '<div class="roadmap-ticket-meta">' +
