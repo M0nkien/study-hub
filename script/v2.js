@@ -71,7 +71,9 @@
     function createAppShell() {
         if (document.querySelector(".v2-app-sidebar")) return;
 
-        const profileName = safeText(localStorage.getItem("studyHubProfileName"), "Študent");
+        const profileName = safeText(localStorage.getItem("studyHubProfileName"), "Študent")
+            .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
         const sidebar = document.createElement("aside");
         sidebar.className = "v2-app-sidebar";
         sidebar.setAttribute("aria-label", "StudyHub navigácia");
