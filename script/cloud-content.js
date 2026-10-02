@@ -55,6 +55,9 @@ async function run(){
        '<h3>'+esc(t.title)+'</h3>'+(t.summary?'<p>'+esc(t.summary)+'</p>':"")+
        '<p>'+esc(t.content)+'</p></article>').join("")+'</div>';
     dest.appendChild(section);
+    document.dispatchEvent(new CustomEvent("studyhub:cloud-topics-ready",{
+      detail:{topics:topics,slug:currentSlug}
+    }));
   }
   const materials=materialsResult.data||[];
   if(materialsResult.error||!materials.length||document.querySelector("#databaseMaterialsSection"))return;
