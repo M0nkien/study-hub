@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sk" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Prihlásenie a registrácia do StudyHubu. Ulož si progres, výsledky a opakovanie do svojho účtu.">
+<title>Prihlásenie a registrácia | StudyHub</title>
+<link rel="stylesheet" href="style/main.css">
+<link rel="stylesheet" href="style/responsive.css">
+<link rel="stylesheet" href="style/v2.css?v=studyhub-auth-v231">
+<link rel="stylesheet" href="style/v23.css?v=studyhub-auth-v231">
+<link rel="stylesheet" href="style/auth.css?v=studyhub-auth-v231">
+</head>
+<body class="page-login">
+<header class="header">
+<div class="container header-content">
+<a class="logo-link" href="index.html"><div class="logo"><div class="logo-icon">SH</div><div><h1>STUDY HUB</h1><p>Digitálna študovňa</p></div></div></a>
+</div>
+</header>
+<main class="studyhub-auth-main">
+<section class="studyhub-auth-card" aria-labelledby="accountHeading">
+<span class="badge">● Tvoj študijný účet</span>
+<h1 id="accountHeading">Vitaj v StudyHube</h1>
+<p class="studyhub-auth-lead">Prihlás sa alebo si vytvor bezplatný účet. Progres, výsledky, checklisty a flashcards si uložíš do databázy a nájdeš ich aj na druhom zariadení.</p>
+<div class="studyhub-auth-tabs" role="tablist" aria-label="Prihlásenie alebo registrácia">
+<button type="button" data-auth-mode="login" class="is-active" role="tab" aria-selected="true">Prihlásenie</button>
+<button type="button" data-auth-mode="register" role="tab" aria-selected="false">Registrácia</button>
+</div>
+<form id="studyhubLoginForm" class="studyhub-auth-form" novalidate>
+<label class="studyhub-auth-field" hidden>Meno alebo prezývka
+<input id="studentName" name="display_name" type="text" autocomplete="nickname" minlength="2" maxlength="60" placeholder="Ako ťa máme oslovovať?">
+</label>
+<label class="studyhub-auth-field">E-mail
+<input id="studentEmail" name="email" type="email" autocomplete="email" required placeholder="napr. student@email.sk">
+</label>
+<label class="studyhub-auth-field">Heslo
+<input id="studentPassword" name="password" type="password" minlength="8" autocomplete="current-password" required placeholder="Aspoň 8 znakov">
+</label>
+<label class="studyhub-auth-field" hidden>Potvrď heslo
+<input id="studentPasswordConfirm" name="confirm_password" type="password" minlength="8" autocomplete="new-password" placeholder="Zopakuj heslo">
+</label>
+<button class="btn primary studyhub-auth-submit" type="submit" id="studentSignIn">Prihlásiť sa</button>
+<button class="btn primary studyhub-auth-submit" type="submit" id="studentSignUp" hidden>Vytvoriť študentský účet</button>
+<button class="studyhub-auth-reset" type="button" id="studentResetPassword">Zabudol som heslo</button>
+<p id="studentAuthMessage" class="studyhub-auth-message" role="status" aria-live="polite" hidden></p>
+</form>
+<div class="studyhub-auth-bottom">
+<p id="studentCurrentAccount" hidden></p>
+<button class="btn secondary" type="button" id="studentSignOut" hidden>Odhlásiť sa</button>
+<p>Účet je dobrovoľný. <a href="subjects.html">Pokračovať bez registrácie →</a></p>
+<p>Máš oprávnenie administrátora? <a href="admin.html">Otvoriť Admin panel →</a></p>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-warning">
+Táto stránka je neoficiálna študentská pomôcka. Údaje prihláseného účtu sa spravujú cez Supabase.
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script/supabase-config.js?v=studyhub-auth-v231"></script>
+<script src="script/supabase-client.js?v=studyhub-auth-v231"></script>
+<script src="script/main.js?v=20260608-style-script"></script>
+<script src="script/v2.js?v=studyhub-auth-v231"></script>
+<script src="script/v21.js?v=studyhub-auth-v231"></script>
+<script src="script/auth-ui.js?v=studyhub-auth-v231"></script>
+<script src="script/cloud-sync.js?v=studyhub-auth-v231"></script>
+<script src="script/database-activity.js?v=studyhub-auth-v231"></script>
+<script src="script/system-health.js?v=studyhub-auth-v231"></script>
+<script src="script/auth-page.js?v=studyhub-auth-v231"></script>
+</body></html>

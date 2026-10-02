@@ -12,6 +12,7 @@
 
     function saveState(section, state) {
         localStorage.setItem(storageKey(section), JSON.stringify(state));
+        document.dispatchEvent(new CustomEvent("studyhub:local-data-changed",{detail:{key:storageKey(section)}}));
     }
 
     function update(section) {

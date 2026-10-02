@@ -256,6 +256,7 @@ function createQuiz(config) {
         });
 
         localStorage.setItem(key, JSON.stringify(results.slice(0, 50)));
+        document.dispatchEvent(new CustomEvent("studyhub:local-data-changed",{detail:{key}}));
     }
 
     function renderQuestion() {

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html data-theme="dark" lang="sk">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Admin | Study Hub</title>
+<meta content="StudyHub Admin – zabezpečená správa obsahu cez Supabase Auth a PostgreSQL." name="description"/>
+<title>Admin | StudyHub</title>
 <link href="style/main.css?v=20260608-big-upgrade" rel="stylesheet"/>
 <link href="style/subject-pages.css?v=20260608-big-upgrade" rel="stylesheet"/>
 <link href="style/quiz.css?v=20260608-big-upgrade" rel="stylesheet"/>
@@ -12,182 +12,265 @@
 <link href="style/fix.css?v=20260612-admin-subject-open-links" rel="stylesheet"/>
 <link href="style/admin.css?v=20260612-admin-subject-visibility" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="style/v2.css?v=studyhub-v211-20260929" rel="stylesheet"/>
+<link href="style/v2.css?v=studyhub-v220-20260929" rel="stylesheet"/>
+<link href="style/supabase.css?v=studyhub-v220-20260929" rel="stylesheet"/>
+<link rel="stylesheet" href="style/v23.css?v=studyhub-v230-20261002">
+<link rel="stylesheet" href="style/auth.css?v=studyhub-auth-v231">
 </head>
 <body class="admin-page page-admin">
 <header class="header">
 <div class="container header-content">
 <a class="logo-link" href="index.html">
-<div class="logo">
-<div class="logo-icon">SH</div>
-<div>
-<h1>STUDY HUB</h1>
-<p>Digitálna študovňa</p>
-</div>
-</div>
+<div class="logo"><div class="logo-icon">SH</div><div><h1>STUDY HUB</h1><p>Digitálna študovňa</p></div></div>
 </a>
-<button class="menu-toggle" type="button">☰ Menu</button>
-<nav class="nav">
-<a href="index.html">Domov</a>
-<a href="subjects.html">Predmety</a>
-<a href="flashcards.html">Kartičky</a>
-<a href="results.html">Výsledky</a>
-<a href="roadmap.html">Roadmapa</a>
-<a href="changelog.html">Zmeny</a>
-
-<a href="support.html">Podpora</a>
-</nav>
 </div>
 </header>
-<section class="admin-login" id="adminLogin">
+
+<section class="admin-login" id="adminLogin" aria-labelledby="adminLoginHeading">
 <div class="admin-login-card">
-<span class="badge">● Zabezpečený vstup</span>
-<h2>Admin prístup</h2>
-<p>Prihlás sa do lokálneho admin režimu. Po prihlásení sa sprístupní editor materiálov, otázok a viditeľnosti predmetov.</p>
-<div class="admin-login-form">
-<input id="adminPasswordInput" placeholder="Heslo" type="password"/>
-<button class="btn primary" id="adminLoginBtn" type="button">Prihlásiť</button>
+<span class="badge">● Zabezpečený vstup cez Supabase</span>
+<h2 id="adminLoginHeading">Admin prístup</h2>
+<p>Prihlás sa svojím zaregistrovaným účtom s oprávnením administrátora. Po overení sa tento formulár skryje a sprístupní sa Admin panel.</p>
+<form class="admin-login-form" id="adminLoginForm" autocomplete="on">
+<label class="studyhub-admin-field" for="adminEmailInput">E-mail
+<input autocomplete="username" id="adminEmailInput" name="email" placeholder="admin@email.sk" type="email" required/>
+</label>
+<label class="studyhub-admin-field" for="adminPasswordInput">Heslo
+<input autocomplete="current-password" id="adminPasswordInput" name="password" placeholder="Tvoje heslo" type="password" required/>
+</label>
+<button class="btn primary" id="adminLoginBtn" type="submit">Prihlásiť sa do Admina</button>
+</form>
+<p class="admin-login-error" hidden id="adminLoginMessage" role="alert"></p>
+<div class="admin-db-status" id="adminDbStatus"><i></i><span>Overujem Supabase…</span></div>
+<div class="studyhub-admin-links">
+<a href="login.html">Prihlásenie do študentského účtu →</a>
+<a href="login.html?mode=register">Nemáš účet? Vytvoriť študentský účet →</a>
+<a href="subjects.html">Pokračovať bez prihlásenia →</a>
 </div>
-<p class="admin-login-error hidden" id="adminLoginError">Nesprávne heslo.</p>
-<p class="admin-login-note">Predvolené heslo: <strong>studyhub</strong>. Toto je zatiaľ iba lokálne prihlasovanie; v ďalšej fáze ho nahradí Supabase Auth.</p>
 </div>
 </section>
+
 <div class="page-ambient admin-ambient"><span></span><span></span><span></span></div>
-<main class="hidden" id="adminContent">
+
+<main class="hidden" id="adminContent" hidden inert aria-hidden="true">
 <section class="subject-hero">
 <div class="grid-bg"></div>
 <div class="container subject-hero-content">
 <a class="back-link" href="index.html">← Späť na domov</a>
-<span class="badge">● Lokálny admin panel</span>
+<span class="badge">● Databázový Admin</span>
 <h2>ADMIN<br/><span>PANEL</span></h2>
-<p>Tu si vieš pripraviť nové materiály, otázky alebo zadania. Zatiaľ sa všetko ukladá lokálne do prehliadača cez localStorage.</p>
+<p>Správa StudyHub obsahu cez Supabase PostgreSQL. Zmeny sa ukladajú online a sú chránené cez Row Level Security.</p>
+
+<div class="admin-session-bar">
+<div>
+<strong id="adminSessionName">Administrátor</strong>
+<small id="adminSessionEmail">—</small>
+</div>
+<button class="btn secondary" id="adminLogoutBtn" type="button">Odhlásiť sa</button>
+</div>
 </div>
 </section>
+
 <section class="subject-content">
 <div class="container">
 <div class="admin-grid">
+
+<div class="admin-card admin-card-wide">
+<p class="small-title">Databáza</p>
+<h2>Prehľad obsahu</h2>
+<div class="admin-dashboard-stats">
+<div><strong id="adminCountSubjects">0</strong><span>Predmety</span></div>
+<div><strong id="adminCountMaterials">0</strong><span>Materiály</span></div>
+<div><strong id="adminCountQuestions">0</strong><span>Otázky</span></div>
+<div><strong id="adminCountRoadmap">0</strong><span>Roadmapa</span></div>
+<div><strong id="adminCountChangelog">0</strong><span>Changelog</span></div>
+</div>
+<div class="admin-db-status is-online"><i></i><span>Dáta sa ukladajú do Supabase PostgreSQL.</span></div>
+</div>
+
+<div class="admin-card admin-card-wide">
+<p class="small-title">Predmety</p>
+<h2>Stav a viditeľnosť predmetov</h2>
+<p class="section-description">Zmeň stav predmetu alebo ho skry/zobraz. Úpravy sa prejavia na stránke Predmety.</p>
+<div class="admin-subject-db-list" id="subjectDbManager"></div>
+</div>
+
 <div class="admin-card">
-<p class="small-title">Materiál</p>
-<h2>Pridať poznámku alebo materiál</h2>
+<p class="small-title">Materiály</p>
+<h2>Pridať materiál</h2>
 <form class="admin-form" id="materialForm">
-<label>Predmet</label>
-<select id="materialSubject"><option>Linux</option><option>MSD</option><option>CCNA</option><option>VVS</option><option>Matematika</option><option>Java</option></select>
-<label>Názov</label>
-<input id="materialTitle" placeholder="Napr. chmod a práva"/>
-<label>Typ</label>
-<select id="materialType"><option>pdf</option><option>kviz</option><option>zadanie</option><option>tahak</option></select>
-<label>Popis</label>
+<label for="materialSubject">Predmet</label>
+<select id="materialSubject"></select>
+
+<label for="materialTitle">Názov</label>
+<input id="materialTitle" placeholder="Napr. Fourierova transformácia"/>
+
+<label for="materialType">Typ</label>
+<select id="materialType">
+<option value="poznamka">Poznámka</option>
+<option value="pdf">PDF</option>
+<option value="zadanie">Zadanie</option>
+<option value="kviz">Kvíz</option>
+<option value="tahak">Ťahák</option>
+<option value="odkaz">Odkaz</option>
+</select>
+
+<label for="materialUrl">URL / cesta k súboru</label>
+<input id="materialUrl" placeholder="https://... alebo materials/subor.pdf"/>
+
+<label for="materialDescription">Popis</label>
 <textarea id="materialDescription" placeholder="Krátky popis materiálu..."></textarea>
+
+<label class="admin-switch"><input checked id="materialVisible" type="checkbox"/> Viditeľný pre používateľov</label>
 <button class="btn primary" type="submit">Uložiť materiál</button>
 </form>
 </div>
+
 <div class="admin-card">
-<p class="small-title">Kvíz</p>
+<p class="small-title">Kvízy</p>
 <h2>Pridať otázku</h2>
 <form class="admin-form" id="questionForm">
-<label>Predmet</label>
-<select id="questionSubject"><option>Linux</option><option>MSD</option><option>CCNA</option><option>VVS</option><option>Matematika</option><option>Java</option></select>
-<label>Otázka</label>
+<label for="questionSubject">Predmet</label>
+<select id="questionSubject"></select>
+
+<label for="questionText">Otázka</label>
 <textarea id="questionText" placeholder="Text otázky..."></textarea>
-<label>Odpovede</label>
+
+<label for="questionAnswers">Odpovede</label>
 <textarea id="questionAnswers" placeholder="Každú odpoveď daj na nový riadok. Správnu označ hviezdičkou:
 *Správna odpoveď
 Nesprávna odpoveď"></textarea>
-<label>Vysvetlenie</label>
-<textarea id="questionExplanation" placeholder="Vysvetlenie správnej odpovede..."></textarea>
+
+<label for="questionExplanation">Vysvetlenie</label>
+<textarea id="questionExplanation" placeholder="Prečo je odpoveď správna..."></textarea>
+
+<label class="admin-switch"><input checked id="questionVisible" type="checkbox"/> Aktívna otázka</label>
 <button class="btn primary" type="submit">Uložiť otázku</button>
 </form>
-</div><div class="admin-card admin-card-wide" id="adminSavedContentCard"><p class="small-title">Lokálny editor</p><h2>Uložený obsah</h2><p class="section-description">Tu vidíš materiály a otázky uložené cez admin editor. Vieš ich upraviť alebo vymazať.</p><div class="admin-saved-tabs"><button class="btn secondary is-active" data-admin-tab="materials" type="button">Materiály <span id="adminMaterialCount">0</span></button><button class="btn secondary" data-admin-tab="questions" type="button">Otázky <span id="adminQuestionCount">0</span></button></div><div class="admin-saved-content" id="adminSavedContent"></div></div>
-<div class="admin-card admin-card-wide admin-subject-visibility-card">
-<p class="small-title">Predmety</p>
-<h2>Viditeľnosť predmetov na stránke Predmety</h2>
-<p class="section-description">
-                        Tu si nastavíš, ktoré predmety sa majú zobrazovať na podstránke <strong>subjects.html</strong>.
-                        Zaškrtnuté predmety budú viditeľné, nezaškrtnuté sa skryjú.
-                    </p>
-<div class="admin-subject-toolbar">
-<button class="btn secondary" id="selectAllSubjectsBtn" type="button">Zobraziť všetky</button>
-<button class="btn secondary" id="hideAllSubjectsBtn" type="button">Skryť všetky</button>
-<button class="btn secondary" id="resetSubjectVisibilityBtn" type="button">Reset nastavenia</button>
-<a class="btn secondary admin-preview-link" href="subjects.html?adminView=1">Admin náhľad – aj skryté</a>
 </div>
-<div aria-label="Nastavenie viditeľnosti predmetov" class="admin-subject-visibility-grid" id="subjectVisibilityAdmin"></div>
-<div class="admin-subject-save-row">
-<button class="btn primary" id="saveSubjectVisibilityBtn" type="button">Uložiť viditeľnosť predmetov</button>
-<p class="admin-inline-status" id="subjectVisibilityStatus">Zmeny sa ukladajú do localStorage.</p>
+
+<div class="admin-card admin-card-wide">
+<p class="small-title">Databázový editor</p>
+<h2>Uložený obsah</h2>
+<div class="admin-saved-tabs">
+<button class="btn secondary is-active" data-admin-tab="materials" type="button">Materiály <span id="adminMaterialCount">0</span></button>
+<button class="btn secondary" data-admin-tab="questions" type="button">Otázky <span id="adminQuestionCount">0</span></button>
 </div>
-<div aria-live="polite" class="admin-hidden-subjects-preview" id="hiddenSubjectsPreview"></div>
-<p class="admin-help-text">
-                        Poznámka: pri statickom webe sa nastavenie uloží v tomto prehliadači. Bežná stránka Predmety skryté predmety nezobrazí, ale cez tlačidlo <strong>Admin náhľad – aj skryté</strong> si ich vieš v admin režime skontrolovať. Pri každom predmete máš aj tlačidlo <strong>Otvoriť predmet</strong>, aby si sa z admina vedel rovno presmerovať na jeho podstránku.
-                    </p>
+<div class="admin-saved-content" id="adminSavedContent"></div>
 </div>
+
 <div class="admin-card">
-<p class="small-title">Export</p>
-<h2>Uložené dáta</h2>
-<p class="section-description">Dáta sú uložené v localStorage. Export si vieš skopírovať do súborov.</p>
-<button class="btn primary" id="exportBtn">Zobraziť export</button>
-<button class="btn secondary" id="clearBtn" type="button">Vymazať lokálne dáta</button>
-<pre class="admin-output" id="adminOutput"></pre>
+<p class="small-title">Roadmapa</p>
+<h2>Pridať položku</h2>
+<form class="admin-form" id="roadmapForm">
+<label for="roadmapTitle">Názov</label>
+<input id="roadmapTitle" placeholder="Napr. Offline PWA režim"/>
+
+<label for="roadmapDescription">Popis</label>
+<textarea id="roadmapDescription" placeholder="Čo sa má spraviť..."></textarea>
+
+<label for="roadmapStatus">Stav</label>
+<select id="roadmapStatus">
+<option value="napady">Nápady</option>
+<option value="planovane">Plánované</option>
+<option value="pracuje_sa">Pracuje sa</option>
+<option value="hotove">Hotové</option>
+</select>
+
+<label for="roadmapPriority">Priorita</label>
+<select id="roadmapPriority">
+<option value="nizka">Nízka</option>
+<option selected value="stredna">Stredná</option>
+<option value="vysoka">Vysoká</option>
+</select>
+
+<label for="roadmapSubject">Predmet / oblasť</label>
+<input id="roadmapSubject" placeholder="Web, Fyzika, CCNA..."/>
+
+<label for="roadmapType">Typ</label>
+<input id="roadmapType" value="funkcia"/>
+
+<label for="roadmapDate">Dátum / verzia</label>
+<input id="roadmapDate" placeholder="v2.3 alebo 10/2026"/>
+
+<button class="btn primary" type="submit">Uložiť do roadmapy</button>
+</form>
 </div>
+
 <div class="admin-card">
-<p class="small-title">Ďalší krok</p>
-<h2>Supabase</h2>
-<p class="section-description">Ďalší krok je napojiť admin panel na Supabase Auth + PostgreSQL, aby sa obsah menil online a nebol viazaný iba na localStorage.</p>
+<p class="small-title">Changelog</p>
+<h2>Pridať záznam</h2>
+<form class="admin-form" id="changelogForm">
+<label for="changelogVersion">Verzia</label>
+<input id="changelogVersion" placeholder="v2.2.0"/>
+
+<label for="changelogDate">Dátum</label>
+<input id="changelogDate" type="date"/>
+
+<label for="changelogType">Typ zmeny</label>
+<select id="changelogType">
+<option value="new">Nové</option>
+<option value="changed">Upravené</option>
+<option value="fixed">Opravené</option>
+</select>
+
+<label for="changelogTitle">Názov</label>
+<input id="changelogTitle" placeholder="Supabase databáza"/>
+
+<label for="changelogDescription">Popis</label>
+<textarea id="changelogDescription" placeholder="Popis zmeny..."></textarea>
+
+<button class="btn primary" type="submit">Pridať záznam</button>
+</form>
 </div>
+
+<div class="admin-card admin-card-wide">
+<p class="small-title">Roadmap databáza</p>
+<h2>Uložené položky</h2>
+<div class="admin-saved-content" id="adminRoadmapList"></div>
+</div>
+
+<div class="admin-card admin-card-wide">
+<p class="small-title">Changelog databáza</p>
+<h2>Uložené záznamy</h2>
+<div class="admin-saved-content" id="adminChangelogList"></div>
+</div>
+
 <div class="admin-card admin-card-wide">
 <p class="small-title">Podpora</p>
-<h2>Podpora cez Google Forms</h2>
-<p class="section-description">
-                        Správy z podpory sa už neukladajú iba do localStorage, ale odosielajú sa cez Google Forms.
-                        Odpovede si otvoríš vo svojom Google Formulári alebo v prepojenej Google tabuľke.
-                    </p>
+<h2>Google Forms</h2>
+<p class="section-description">Podpora zatiaľ zostáva oddelená cez Google Forms. Databáza StudyHubu slúži pre predmety, materiály, otázky, roadmapu, changelog a používateľskú aktivitu.</p>
 <div class="admin-support-actions">
 <a class="btn primary" href="https://forms.gle/XXvit7yXqpsz2YBc9" rel="noopener" target="_blank">Otvoriť formulár</a>
-<a class="btn secondary" href="support.html">Otvoriť stránku podpory</a>
+<a class="btn secondary" href="support.html">Otvoriť podporu</a>
 </div>
 </div>
+
 </div>
 </div>
 </section>
 </main>
+
 <footer class="footer home-footer-v4">
-<div class="container footer-v4-grid">
-<div class="footer-brand-block">
-<div class="footer-logo-row">
-<div class="logo-icon">SH</div>
-<div>
-<h3>STUDY HUB</h3>
-<p>Digitálna študovňa pre študentov.</p>
-</div>
-</div>
-</div>
-<div class="footer-info-card">
-<span>Autor projektu</span>
-<strong>Vytvorené MG</strong>
-<p>StudyHub v2.1.1 • Posledná aktualizácia: 29. 9. 2026</p>
-</div>
-<div class="footer-links-card">
-<span>Rýchle odkazy</span>
-<a href="subjects.html">Predmety</a>
-<a href="support.html">Podpora</a>
-<a href="roadmap.html">Roadmapa</a>
-<a href="changelog.html">Zmeny</a>
-</div>
-</div>
 <div class="container footer-warning">
-<p>
-            Táto stránka je neoficiálna študentská pomôcka.
-            Materiály slúžia iba na vzdelávacie účely.
-            Autor nezodpovedá za prípadné chyby v poznámkach.
-            Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.
-        </p>
+<p>Táto stránka je neoficiálna študentská pomôcka. Materiály slúžia iba na vzdelávacie účely. Autor nezodpovedá za prípadné chyby v poznámkach. Oficiálne informácie si vždy overte v Moodle alebo u vyučujúceho.</p>
 </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script/supabase-config.js?v=studyhub-v220-20260929"></script>
+<script src="script/supabase-client.js?v=studyhub-v220-20260929"></script>
 <script src="script/main.js?v=20260608-style-script"></script>
-<script src="script/admin.js?v=studyhub-v211-20260929"></script>
 <script src="script/fix.js?v=20260608-style-script"></script>
-<script src="script/search-index.js?v=studyhub-v211-20260929"></script>
-<script src="script/v2.js?v=studyhub-v211-20260929"></script>
-<script src="script/v21.js?v=studyhub-v211-20260929"></script>
+<script src="script/search-index.js?v=studyhub-v230-20261002"></script>
+<script src="script/v2.js?v=studyhub-v230-20261002"></script>
+<script src="script/v21.js?v=studyhub-v230-20261002"></script>
+<script src="script/admin.js?v=studyhub-auth-v231"></script>
+<script src="script/database-search.js?v=studyhub-v230-20261002"></script>
+<script src="script/auth-ui.js?v=studyhub-auth-v231"></script>
+<script src="script/cloud-sync.js?v=studyhub-v230-20261002"></script>
+<script src="script/database-activity.js?v=studyhub-v230-20261002"></script>
+<script src="script/system-health.js?v=studyhub-v230-20261002"></script>
+<script src="script/admin-v23.js?v=studyhub-v230-20261002"></script>
 </body>
 </html>

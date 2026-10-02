@@ -71,7 +71,9 @@
     function createAppShell() {
         if (document.querySelector(".v2-app-sidebar")) return;
 
-        const profileName = safeText(localStorage.getItem("studyHubProfileName"), "Študent");
+        const profileName = safeText(localStorage.getItem("studyHubProfileName"), "Študent")
+            .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;").replaceAll("'", "&#039;");
         const sidebar = document.createElement("aside");
         sidebar.className = "v2-app-sidebar";
         sidebar.setAttribute("aria-label", "StudyHub navigácia");
@@ -91,9 +93,9 @@
                 navLink("support.html", "Podpora", iconSvg("help"), "primary-nav") +
             '</nav>' +
             '<div class="v2-sidebar-meta">' +
-                '<div><span>Verzia stránky</span><strong>v2.1.1</strong></div>' +
-                '<div><span>Posledná aktualizácia</span><strong>29. 9. 2026</strong></div>' +
-                '<p><i></i>Všetko funguje správne</p>' +
+                '<div><span>Verzia stránky</span><strong>v2.3.0</strong></div>' +
+                '<div><span>Posledná aktualizácia</span><strong>2. 10. 2026</strong></div>' +
+                '<p><i></i>Overovanie služieb…</p>' +
             '</div>';
 
         const topbar = document.createElement("div");
@@ -122,10 +124,8 @@
                     '<div class="v2-popover v2-account-popover" hidden>' +
                         '<div class="v2-account-head"><span class="v2-account-avatar large">' + iconSvg("user") + '</span><div><strong class="v2-profile-name">' + profileName + '</strong><small>Údaje sa ukladajú iba v tomto prehliadači.</small></div></div>' +
                         '<a href="' + rootHref("results.html") + '">' + iconSvg("chart") + '<span>Moje výsledky</span></a>' +
-                        (sessionStorage.getItem("studyHubAdminUnlocked") === "true"
-                            ? '<a href="' + rootHref("admin.html") + '">' + iconSvg("admin") + '<span>Admin panel</span></a>' +
-                              '<button class="v2-admin-logout" type="button">' + iconSvg("admin") + '<span>Odhlásiť admin</span></button>'
-                            : '<a href="' + rootHref("admin.html") + '">' + iconSvg("admin") + '<span>Admin prihlásenie</span></a>') +
+                        '<a class="v23-student-link" href="' + rootHref("login.html") + '">' + iconSvg("user") + '<span>Prihlásenie / Registrácia</span></a>' +
+                        '<a class="v23-admin-link" href="' + rootHref("admin.html") + '">' + iconSvg("admin") + '<span>Admin prihlásenie</span></a>' +
                         '<button class="v2-edit-profile" type="button">' + iconSvg("user") + '<span>Upraviť meno profilu</span></button>' +
                     '</div>' +
                 '</div>' +
@@ -153,7 +153,7 @@
             let active = target === current;
 
             // Na každej predmetovej podstránke zostáva v hlavnom sidebare aktívna položka „Predmety“.
-            if (href === "subjects.html" && (current === "subjects.html" || isSubjectDetail())) active = true;
+            if (href === "subjects.html" && (current === "subjects.html" || current === "subject.html" || isSubjectDetail())) active = true;
             link.classList.toggle("is-active", active);
             if (active) link.setAttribute("aria-current", "page");
             else link.removeAttribute("aria-current");
@@ -162,7 +162,7 @@
         document.querySelectorAll(".nav a").forEach(function (link) {
             const href = (link.getAttribute("href") || "").split("#")[0];
             const target = href.split("/").pop();
-            const active = target === current || (isSubjectDetail() && target === "subjects.html");
+            const active = target === current || ((isSubjectDetail() || current === "subject.html") && target === "subjects.html");
             link.classList.toggle("v2-active", active);
         });
     }
@@ -227,13 +227,38 @@
 
         const editProfile = document.querySelector(".v2-edit-profile");
         if (editProfile) {
-            editProfile.addEventListener("click", function () {
-                const current = safeText(localStorage.getItem("studyHubProfileName"), "Študent");
+            editProfile.addEventListener("click", async function () {
+                const db = window.studyHubSupabase;
+                let signedIn = null;
+                if (db) {
+                    const session = await db.auth.getSession();
+                    signedIn = session.data?.session?.user || null;
+                }
+                const current = signedIn
+                    ? safeText(document.querySelector(".v2-profile-name")?.textContent, "Študent")
+                    : safeText(localStorage.getItem("studyHubProfileName"), "Študent");
                 const next = window.prompt("Meno zobrazené v StudyHube:", current);
                 if (next === null) return;
-                const cleaned = next.trim().slice(0, 24) || "Študent";
-                localStorage.setItem("studyHubProfileName", cleaned);
-                document.querySelectorAll(".v2-profile-name").forEach(function (el) { el.textContent = cleaned; });
+                const cleaned = next.trim().slice(0, 60);
+                if (cleaned.length < 2) {
+                    window.alert("Meno musí mať aspoň dva znaky.");
+                    return;
+                }
+                if (signedIn) {
+                    editProfile.disabled = true;
+                    const result = await db.from("profiles").update({ display_name: cleaned })
+                        .eq("id", signedIn.id).select("id").single();
+                    editProfile.disabled = false;
+                    if (result.error) {
+                        window.alert("Meno sa nepodarilo uložiť do databázy. Skús to znova.");
+                        return;
+                    }
+                } else {
+                    localStorage.setItem("studyHubProfileName", cleaned);
+                }
+                document.querySelectorAll(".v2-profile-name").forEach(function (el) {
+                    el.textContent = cleaned;
+                });
                 setPopover(accountBtn, account, false);
             });
         }

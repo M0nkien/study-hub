@@ -76,6 +76,7 @@
             try {
                 localStorage.setItem("studyHubStreakData", JSON.stringify(data));
                 localStorage.setItem("studyHubStreak", String(data.current));
+
             } catch (error) { /* localStorage unavailable */ }
         }
 
@@ -231,14 +232,14 @@
         const count = document.getElementById("subjectFilterCount");
         const empty = document.getElementById("subjectFilterEmpty");
         const chips = Array.from(document.querySelectorAll("[data-status-filter]"));
-        const cards = Array.from(document.querySelectorAll(".subject-card[data-subject-id]"));
-        if (!cards.length) return;
+        const cards = function () { return Array.from(document.querySelectorAll(".subject-card[data-subject-id]")); };
+        if (!cards().length) return;
         let status = "all";
 
         function apply() {
             const q = normalize(input ? input.value : "");
             let visible = 0;
-            cards.forEach(function (card) {
+            cards().forEach(function (card) {
                 const text = normalize((card.getAttribute("data-search") || "") + " " + card.textContent);
                 const matchesText = !q || q.split(" ").filter(Boolean).every(function (w) { return text.includes(w); });
                 const matchesStatus = status === "all" || card.getAttribute("data-status") === status;
@@ -248,7 +249,7 @@
                 card.classList.toggle("is-filtered-out", !show);
                 if (show) visible += 1;
             });
-            if (count) count.textContent = "Zobrazené predmety: " + visible + " / " + cards.filter(function (c) { return c.getAttribute("data-visibility-hidden") !== "true"; }).length;
+            if (count) count.textContent = "Zobrazené predmety: " + visible + " / " + cards().filter(function (c) { return c.getAttribute("data-visibility-hidden") !== "true"; }).length;
             if (empty) empty.hidden = visible !== 0;
         }
 
@@ -295,7 +296,7 @@
             const a = document.createElement("a");
             a.href = rootUrl(item[0]);
             a.innerHTML = '<span>' + item[1] + '</span><small>' + item[2] + '</small>';
-            if (current === item[0] || (item[0] === "subjects.html" && window.location.pathname.includes("/subjects/"))) a.classList.add("is-active");
+            if (current === item[0] || (item[0] === "subjects.html" && (window.location.pathname.includes("/subjects/") || current === "subject.html"))) a.classList.add("is-active");
             nav.appendChild(a);
         });
         document.body.appendChild(nav);
@@ -312,6 +313,7 @@
     }
 
     function injectAdminContent() {
+        if (window.studyHubSupabase) return; // cloud content is authoritative after migration
         if (!window.location.pathname.includes("/subjects/")) return;
         const subject = subjectNameFromPath();
         if (!subject) return;
@@ -349,8 +351,8 @@
 
     function updateSidebarMeta() {
         const rows = document.querySelectorAll(".v2-sidebar-meta > div");
-        if (rows[0]) { const strong = rows[0].querySelector("strong"); if (strong) strong.textContent = "v2.1.1"; }
-        if (rows[1]) { const strong = rows[1].querySelector("strong"); if (strong) strong.textContent = "29. 9. 2026"; }
+        if (rows[0]) { const strong = rows[0].querySelector("strong"); if (strong) strong.textContent = "v2.3.0"; }
+        if (rows[1]) { const strong = rows[1].querySelector("strong"); if (strong) strong.textContent = "2. 10. 2026"; }
     }
 
     document.addEventListener("DOMContentLoaded", function () {

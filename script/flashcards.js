@@ -716,6 +716,7 @@ function getFlashState() {
 
 function saveFlashState(state) {
     localStorage.setItem("studyHubFlashcardsState", JSON.stringify(state));
+    document.dispatchEvent(new CustomEvent("studyhub:local-data-changed",{detail:{key:"studyHubFlashcardsState"}}));
 }
 
 function getFlashHistory() {
@@ -725,6 +726,7 @@ function getFlashHistory() {
 
 function saveFlashHistory(history) {
     localStorage.setItem("studyHubFlashcardsHistory", JSON.stringify(history.slice(-50)));
+    document.dispatchEvent(new CustomEvent("studyhub:local-data-changed",{detail:{key:"studyHubFlashcardsHistory"}}));
 }
 
 function cardId(subject, item) {
