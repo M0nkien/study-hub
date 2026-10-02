@@ -26,10 +26,12 @@
             .from("changelog_entries")
             .select("id,version,release_date,change_type,title,description,visible,sort_order")
             .eq("visible", true)
+            .eq("publication_status","published")
             .order("release_date", { ascending: false })
             .order("sort_order", { ascending: true });
 
-        if (result.error || !Array.isArray(result.data) || !result.data.length) return;
+        if (result.error || !Array.isArray(result.data)) return;
+        if (!result.data.length) { timeline.innerHTML = "<p>Zatiaľ nie sú publikované žiadne zmeny.</p>"; return; }
 
         const groups = [];
         const byKey = new Map();
@@ -64,7 +66,7 @@
                         return '<div class="changelog-change-group ' + GROUP_CLASSES[type] + '">' +
                             '<h4>' + GROUP_LABELS[type] + '</h4><ul>' +
                             perType[type].map(function (item) {
-                                return '<li><strong>' + esc(item.title) + ':</strong> ' + esc(item.description) + '</li>';
+                                return '<li>' + (item.title === group.items[0]?.title ? "" : '<strong>' + esc(item.title) + ':</strong> ') + esc(item.description) + '</li>';
                             }).join("") +
                             '</ul></div>';
                     }).join("") +
