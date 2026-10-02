@@ -60,3 +60,9 @@ html[data-theme="light"] .v23-fields input,html[data-theme="light"] .v23-fields 
 .v23-health-error i{background:#ef4444!important;box-shadow:0 0 0 3px rgba(239,68,68,.12)}
 .v21-mobile-bottom-nav a{min-height:53px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;touch-action:manipulation}
 .v21-mobile-bottom-nav a:focus-visible{outline:2px solid #65d4f2;outline-offset:2px}
+
+.v23-advanced-tools{margin:16px 0 24px;border:1px solid var(--v2-line,#28465e);border-radius:15px;background:var(--v2-surface,#132438)}
+.v23-advanced-tools>summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:700;font-size:14px;min-height:48px}
+.v23-advanced-tools>summary::after{content:"⌄";float:right;color:#65d4f2}
+.v23-advanced-tools[open]>summary::after{content:"⌃"}
+.v23-advanced-tools>.admin-grid{padding:12px}
