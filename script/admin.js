@@ -446,7 +446,7 @@
             return;
         }
 
-        if (answers.length < 2 || !answers.some(function (answer) { return answer.correct; })) {
+        if (answers.length < 2 || answers.filter(function (answer) { return answer.correct; }).length !== 1) {
             showToast("Zadaj aspoň 2 odpovede a správnu označ *.", "error");
             return;
         }
