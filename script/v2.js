@@ -227,13 +227,38 @@
 
         const editProfile = document.querySelector(".v2-edit-profile");
         if (editProfile) {
-            editProfile.addEventListener("click", function () {
-                const current = safeText(localStorage.getItem("studyHubProfileName"), "Študent");
+            editProfile.addEventListener("click", async function () {
+                const db = window.studyHubSupabase;
+                let signedIn = null;
+                if (db) {
+                    const session = await db.auth.getSession();
+                    signedIn = session.data?.session?.user || null;
+                }
+                const current = signedIn
+                    ? safeText(document.querySelector(".v2-profile-name")?.textContent, "Študent")
+                    : safeText(localStorage.getItem("studyHubProfileName"), "Študent");
                 const next = window.prompt("Meno zobrazené v StudyHube:", current);
                 if (next === null) return;
-                const cleaned = next.trim().slice(0, 24) || "Študent";
-                localStorage.setItem("studyHubProfileName", cleaned);
-                document.querySelectorAll(".v2-profile-name").forEach(function (el) { el.textContent = cleaned; });
+                const cleaned = next.trim().slice(0, 60);
+                if (cleaned.length < 2) {
+                    window.alert("Meno musí mať aspoň dva znaky.");
+                    return;
+                }
+                if (signedIn) {
+                    editProfile.disabled = true;
+                    const result = await db.from("profiles").update({ display_name: cleaned })
+                        .eq("id", signedIn.id).select("id").single();
+                    editProfile.disabled = false;
+                    if (result.error) {
+                        window.alert("Meno sa nepodarilo uložiť do databázy. Skús to znova.");
+                        return;
+                    }
+                } else {
+                    localStorage.setItem("studyHubProfileName", cleaned);
+                }
+                document.querySelectorAll(".v2-profile-name").forEach(function (el) {
+                    el.textContent = cleaned;
+                });
                 setPopover(accountBtn, account, false);
             });
         }
