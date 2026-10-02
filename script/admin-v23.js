@@ -320,7 +320,12 @@
     init();
     if(!db())return;
     db().auth.onAuthStateChange((event)=>{
-      if(event==="SIGNED_OUT"&&host){host.remove();host=null;user=null;}
+      if(event==="SIGNED_OUT"&&host){
+        host.remove();host=null;user=null;
+        const advanced=document.querySelector(".v23-advanced-tools");
+        const oldGrid=advanced?.querySelector(".admin-grid");
+        if(advanced&&oldGrid){advanced.parentNode.insertBefore(oldGrid,advanced);advanced.remove();}
+      }
       if(event==="SIGNED_IN"||event==="INITIAL_SESSION")
         window.setTimeout(init,60);
     });
