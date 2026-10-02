@@ -54,3 +54,25 @@ Backend: database/migrations/20261002_v23.sql, 20261002_v23_sync.sql, 20261002_v
 Klienti: script/supabase-config.js, supabase-client.js, auth-ui.js, cloud-sync.js, cloud-content.js, cloud-topic-progress.js, cloud-quiz.js, cloud-flashcards.js, cloud-results.js, system-health.js, database-search.js, database-subjects.js, database-activity.js, database-roadmap.js, database-changelog.js.
 Verejné stránky: index.html, subjects.html, subject.html, login.html, flashcards.html, results.html, roadmap.html, changelog.html, support.html a všetkých 11 stránok v subjects/.
 Kompatibilita: script/progress.js, checklist.js, flashcards.js, quiz-engine.js, v2.js a v21.js.
+
+
+## Prihlasovanie, registrácia a Admin prístup (v2.3.1)
+- `admin.html` má zabezpečený formulár e-mail + maskované heslo. **Žiadne predvolené heslo sa v HTML, CSS ani JavaScripte nezobrazuje.**
+- `#adminContent` je v HTML od začiatku `hidden inert`. Prístup sa povolí až po `Supabase Auth getUser()` a kontrole `public.profiles.role = 'admin'`. Po prihlásení sa formulár úplne skryje; po odhlásení sa skryje celý editor.
+- Bežný študent, ktorý otvorí `admin.html`, zostáva prihlásený do svojho účtu, ale na Admin panel nemá prístup.
+- `login.html` má oddelené karty **Prihlásenie** a **Registrácia**, meno/prezývku, e-mail, heslo a potvrdenie hesla. Registrácia prebehne cez `Supabase Auth signUp`; podľa nastavení Auth príde potvrdzovací e-mail.
+- `auth.users` + databázový trigger `handle_new_user` vytvoria každému registrovanému používateľovi záznam v `public.profiles` s predvolenou rolou `student` a menom z registračného formulára.
+- Admin je tiež registrovaný používateľ Supabase Auth, ale oprávnenie získa **výhradne dôveryhodnou zmenou `profiles.role` v Supabase**, nie formulárom.
+- Prihlásený študent aj admin môžu zmeniť iba svoje `display_name`. SQL migrácia `database/migrations/20261003_accounts.sql` povoľuje aktualizovať jediný stĺpec; rolu v browseri nie je možné meniť.
+- `reset-password.html` + `script/auth-reset.js` dokončujú obnovenie hesla cez Supabase Auth.
+- `script/cloud-sync.js` ukladá pôvodné študijné údaje do `user_learning_state`, v2.3 moduly ukladajú progres tém, opakovanie kartičiek a nové výsledky do samostatných tabuliek. Neprihlásený používateľ pracuje naďalej iba lokálne.
+
+### Konfigurácia Supabase
+1. **Authentication → Providers → Email:** povoľ e-mailové registrácie a nastav potvrdenie e-mailu podľa požiadaviek projektu.
+2. **Authentication → URL Configuration:** `Site URL` nastav na produkčnú Netlify doménu a `Redirect URLs` povoľ produkčné a testovacie URL vrátane `login.html` a `reset-password.html`. Pri Deploy Preview pridaj jeho adresu.
+3. V existujúcom StudyHub Supabase projekte bola migrácia `20261003_accounts.sql` už aplikovaná; znova ju nespúšťaj.
+4. Účet s rolou `admin` už v databáze existuje. Ak budeš vytvárať ďalšieho administrátora, najprv ho zaregistruj cez Supabase Auth a rolu nastav iba dôveryhodným SQL príkazom v Dashboarde.
+5. Pred zlúčením PR skontroluj prihlásenie, odhlásenie, registráciu, potvrdenie e-mailu, obnovenie hesla, zamietnutie Admin prístupu študentovi a cloudovú synchronizáciu progresu.
+
+### Poznámka k publikovaniu
+Lokálna produkčná prihlasovacia obrazovka na pôvodnej vetve `main` obsahuje starú lokálnu prihlasovaciu logiku. Je nahradená iba v `feature/studyhub-v2-3-admin-cloud`, a preto sa na produkčnej stránke zmení až po overení a zlúčení PR.
