@@ -73,6 +73,13 @@ async function init(){
 document.addEventListener("studyhub:local-data-changed",e=>changed(e.detail?.key||""));
 window.addEventListener("storage",e=>{if(e.key&&allowed(e.key))changed(e.key);});
 window.addEventListener("online",schedule);
-if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);
-else init();
+function start(){
+ init();
+ if(db())db().auth.onAuthStateChange(event=>{
+  if(event==="SIGNED_OUT")user=null;
+  if(event==="SIGNED_IN")window.setTimeout(init,60);
+ });
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);
+else start();
 })();
