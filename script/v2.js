@@ -124,10 +124,8 @@
                     '<div class="v2-popover v2-account-popover" hidden>' +
                         '<div class="v2-account-head"><span class="v2-account-avatar large">' + iconSvg("user") + '</span><div><strong class="v2-profile-name">' + profileName + '</strong><small>Údaje sa ukladajú iba v tomto prehliadači.</small></div></div>' +
                         '<a href="' + rootHref("results.html") + '">' + iconSvg("chart") + '<span>Moje výsledky</span></a>' +
-                        (sessionStorage.getItem("studyHubAdminUnlocked") === "true"
-                            ? '<a href="' + rootHref("admin.html") + '">' + iconSvg("admin") + '<span>Admin panel</span></a>' +
-                              '<button class="v2-admin-logout" type="button">' + iconSvg("admin") + '<span>Odhlásiť admin</span></button>'
-                            : '<a href="' + rootHref("admin.html") + '">' + iconSvg("admin") + '<span>Admin prihlásenie</span></a>') +
+                        '<a class="v23-student-link" href="' + rootHref("login.html") + '">' + iconSvg("user") + '<span>Prihlásenie / Registrácia</span></a>' +
+                        '<a class="v23-admin-link" href="' + rootHref("admin.html") + '">' + iconSvg("admin") + '<span>Admin prihlásenie</span></a>' +
                         '<button class="v2-edit-profile" type="button">' + iconSvg("user") + '<span>Upraviť meno profilu</span></button>' +
                     '</div>' +
                 '</div>' +
