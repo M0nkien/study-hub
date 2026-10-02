@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sk" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Študentské prihlásenie | StudyHub</title>
+<link rel="stylesheet" href="style/main.css">
+<link rel="stylesheet" href="style/responsive.css">
+<link rel="stylesheet" href="style/v2.css?v=studyhub-v23">
+<link rel="stylesheet" href="style/v23.css?v=studyhub-v23">
+</head>
+<body class="page-login">
+<header class="header"><div class="container"><a href="index.html" class="logo-link">StudyHub</a></div></header>
+<main class="subject-content">
+<div class="container" style="max-width:600px;margin:40px auto 90px">
+<div class="v23-panel">
+<p class="small-title">Študentský účet</p>
+<h1 style="font-size:28px;margin:0 0 12px">Prihlásenie do StudyHubu</h1>
+<p>Prihlás sa a synchronizuj svoj progres, výsledky, checklisty a opakovanie kartičiek medzi zariadeniami. Materiály môžeš čítať aj bez účtu.</p>
+<form class="admin-form" id="studyhubLoginForm">
+<label for="studentEmail">E-mail</label>
+<input id="studentEmail" type="email" autocomplete="email" required placeholder="tvoj@email.sk">
+<label for="studentPassword">Heslo (aspoň 8 znakov)</label>
+<input id="studentPassword" type="password" minlength="8" autocomplete="current-password" required>
+<div class="v23-review-controls">
+<button class="btn primary" type="submit" id="studentSignIn">Prihlásiť sa</button>
+<button class="btn secondary" type="button" id="studentSignUp">Vytvoriť účet</button>
+<button class="btn secondary" type="button" id="studentSignOut" hidden>Odhlásiť sa</button>
+</div>
+<p role="status" id="studentAuthMessage" aria-live="polite"></p>
+</form>
+<p><small>Admin má samostatný prístup cez <a href="admin.html">Admin prihlásenie</a>.</small></p>
+</div></div></main>
+<footer class="footer"><div class="container footer-warning">StudyHub je neoficiálna študentská pomôcka.</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script/supabase-config.js?v=studyhub-v23"></script>
+<script src="script/supabase-client.js?v=studyhub-v23"></script>
+<script src="script/main.js?v=20260608-style-script"></script>
+<script src="script/v2.js?v=studyhub-v23"></script>
+<script src="script/v21.js?v=studyhub-v23"></script>
+<script src="script/auth-ui.js?v=studyhub-v23"></script>
+<script>
+(function(){
+"use strict";
+const db=window.studyHubSupabase;
+const msg=document.getElementById("studentAuthMessage");
+const email=document.getElementById("studentEmail");
+const password=document.getElementById("studentPassword");
+const signIn=document.getElementById("studentSignIn");
+const signUp=document.getElementById("studentSignUp");
+const signOut=document.getElementById("studentSignOut");
+function destination(){
+ const raw=new URLSearchParams(location.search).get("redirect")||"index.html";
+ const target=new URL(raw,location.origin);
+ return target.origin===location.origin?target.pathname+target.search:"index.html";
+}
+function show(s,error){msg.textContent=s;msg.style.color=error?"#fca5a5":"#86efac";}
+async function refresh(){
+ if(!db){show("Databáza nie je nakonfigurovaná.",true);signIn.disabled=true;signUp.disabled=true;return;}
+ const session=await db.auth.getSession();
+ const logged=Boolean(session.data?.session?.user);
+ signOut.hidden=!logged;
+ if(logged)show("Prihlásený účet: "+session.data.session.user.email);
+}
+function values(){
+ const e=email.value.trim(),p=password.value;
+ if(!e||p.length<8){show("Zadaj platný e-mail a heslo s aspoň 8 znakmi.",true);return null;}
+ return {email:e,password:p};
+}
+document.getElementById("studyhubLoginForm").onsubmit=async e=>{
+ e.preventDefault();const v=values();if(!v||!db)return;
+ signIn.disabled=true;const r=await db.auth.signInWithPassword(v);signIn.disabled=false;
+ if(r.error){show("Prihlásenie zlyhalo: "+r.error.message,true);return;}
+ location.assign(destination());
+};
+signUp.onclick=async()=>{
+ const v=values();if(!v||!db)return;
+ signUp.disabled=true;const r=await db.auth.signUp(v);signUp.disabled=false;
+ if(r.error){show("Registrácia zlyhala: "+r.error.message,true);return;}
+ if(r.data?.session){location.assign(destination());return;}
+ show("Účet bol vytvorený. Skontroluj e-mail a potvrď registráciu.");
+};
+signOut.onclick=async()=>{if(!db)return;await db.auth.signOut();show("Odhlásené.");refresh();};
+refresh();
+})();
+</script>
+</body></html>
