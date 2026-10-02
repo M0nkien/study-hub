@@ -1,5 +1,8 @@
 -- StudyHub v2.3 additive schema: editor, history, storage, student progress, safe quizzes.
 -- Existing data is preserved.
+-- Secure the initial schema when installing into a fresh Supabase project.
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
+alter function public.set_updated_at() set search_path=public;
 alter table public.subjects add column if not exists publication_status text not null default 'published'
   check (publication_status in ('draft','published'));
 alter table public.materials add column if not exists publication_status text not null default 'published'
