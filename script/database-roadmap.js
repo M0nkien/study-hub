@@ -31,10 +31,11 @@
             .from("roadmap_items")
             .select("id,title,description,status,priority,subject,item_type,target_date,visible,sort_order")
             .eq("visible", true)
+            .eq("publication_status","published")
             .order("sort_order", { ascending: true })
             .order("created_at", { ascending: false });
 
-        if (result.error || !Array.isArray(result.data) || !result.data.length) return;
+        if (result.error || !Array.isArray(result.data)) return;
 
         const grouped = { napady: [], planovane: [], pracuje_sa: [], hotove: [] };
         result.data.forEach(function (item) {
