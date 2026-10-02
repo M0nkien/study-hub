@@ -76,6 +76,7 @@
             try {
                 localStorage.setItem("studyHubStreakData", JSON.stringify(data));
                 localStorage.setItem("studyHubStreak", String(data.current));
+                document.dispatchEvent(new CustomEvent("studyhub:local-data-changed",{detail:{key:"studyHubStreakData"}}));
             } catch (error) { /* localStorage unavailable */ }
         }
 
