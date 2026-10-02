@@ -80,15 +80,33 @@
     function showLogin() {
         const login = el("adminLogin");
         const content = el("adminContent");
-        if (login) login.classList.remove("hidden");
-        if (content) content.classList.add("hidden");
+        if (login) {
+            login.hidden = false;
+            login.classList.remove("hidden");
+            login.removeAttribute("aria-hidden");
+        }
+        if (content) {
+            content.hidden = true;
+            content.inert = true;
+            content.classList.add("hidden");
+            content.setAttribute("aria-hidden", "true");
+        }
     }
 
     function showAdmin() {
         const login = el("adminLogin");
         const content = el("adminContent");
-        if (login) login.classList.add("hidden");
-        if (content) content.classList.remove("hidden");
+        if (login) {
+            login.hidden = true;
+            login.classList.add("hidden");
+            login.setAttribute("aria-hidden", "true");
+        }
+        if (content) {
+            content.hidden = false;
+            content.inert = false;
+            content.classList.remove("hidden");
+            content.removeAttribute("aria-hidden");
+        }
 
         const email = el("adminSessionEmail");
         const name = el("adminSessionName");
@@ -138,18 +156,29 @@
             return;
         }
 
-        currentUser = session.user;
+        // getUser() validates the signed-in identity with Supabase Auth;
+        // sessionStorage/localStorage alone must never grant Admin access.
+        const verified = await db().auth.getUser();
+        if (verified.error || !verified.data?.user || verified.data.user.id !== session.user.id) {
+            currentUser = null;
+            currentProfile = null;
+            sessionStorage.removeItem("studyHubAdminUnlocked");
+            sessionStorage.removeItem("studyHubAdminLoggedIn");
+            setDbStatus("Prihlásenie sa nepodarilo overiť.", "error");
+            setLoginMessage("Obnov stránku a prihlás sa znova.", true);
+            showLogin();
+            return;
+        }
+        currentUser = verified.data.user;
 
         try {
             const profile = await getAdminProfile(currentUser.id);
             if (!profile || profile.role !== "admin") {
-                await db().auth.signOut();
-                currentUser = null;
                 currentProfile = null;
                 sessionStorage.removeItem("studyHubAdminUnlocked");
                 sessionStorage.removeItem("studyHubAdminLoggedIn");
-                setLoginMessage("Tento účet nemá administrátorské oprávnenie.", true);
-                setDbStatus("Účet nemá rolu admin.", "error");
+                setLoginMessage("Tento účet je prihlásený, ale nemá oprávnenie admin. Použi svoj administrátorský účet alebo pokračuj v študentskej časti.", true);
+                setDbStatus("Prihlásený účet nemá rolu admin.", "error");
                 showLogin();
                 return;
             }
@@ -157,6 +186,7 @@
             currentProfile = profile;
             sessionStorage.setItem("studyHubAdminUnlocked", "true");
             sessionStorage.setItem("studyHubAdminLoggedIn", "1");
+            setLoginMessage("");
             setDbStatus("Supabase pripojený · Admin overený", "online");
             showAdmin();
             await loadAllAdminData();
@@ -759,17 +789,17 @@
     }
 
     function bindEvents() {
+        const loginForm = el("adminLoginForm");
         const loginBtn = el("adminLoginBtn");
-        const password = el("adminPasswordInput");
         const logoutBtn = el("adminLogoutBtn");
         const materialForm = el("materialForm");
         const questionForm = el("questionForm");
         const roadmapForm = el("roadmapForm");
         const changelogForm = el("changelogForm");
 
-        if (loginBtn) loginBtn.addEventListener("click", login);
-        if (password) password.addEventListener("keydown", function (event) {
-            if (event.key === "Enter") login();
+        if (loginForm) loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (!loginBtn?.disabled) login();
         });
         if (logoutBtn) logoutBtn.addEventListener("click", logout);
         if (materialForm) materialForm.addEventListener("submit", saveMaterial);
@@ -787,8 +817,12 @@
         if (db()) {
             db().auth.onAuthStateChange(function (event) {
                 if (event === "SIGNED_OUT") {
+                    currentUser = null;
+                    currentProfile = null;
                     sessionStorage.removeItem("studyHubAdminUnlocked");
                     sessionStorage.removeItem("studyHubAdminLoggedIn");
+                    const password = el("adminPasswordInput");
+                    if (password) password.value = "";
                     showLogin();
                 }
             });
