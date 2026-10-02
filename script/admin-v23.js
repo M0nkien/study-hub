@@ -20,7 +20,7 @@
   const LONG=new Set(["description","summary","content","question","answers","explanation","front","back"]);
   const FILE_TYPES=new Set(["application/pdf","image/png","image/jpeg","image/webp","text/plain"]);
   const TABLES=["subjects","topics","materials","quiz_questions","flashcards","roadmap_items","changelog_entries"];
-  let data={}, user=null, active="subjects", editing=null, host=null, previousVersions=[];
+  let data={}, user=null, active="subjects", editing=null, host=null, previousVersions=[], materialVersions=[];
 
   const db=()=>window.studyHubSupabase;
   const h=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -49,6 +49,9 @@
     TABLES.forEach((t,i)=>data[t]=results[i].data||[]);
     const audit=await db().from("content_versions").select("id,entity_type,entity_id,action,snapshot,changed_at,changed_by").order("id",{ascending:false}).limit(40);
     previousVersions=audit.data||[];
+    const history=await db().from("content_versions").select("id,entity_type,entity_id,action,snapshot,changed_at,changed_by")
+      .eq("entity_type","materials").order("id",{ascending:false}).limit(500);
+    materialVersions=history.data||[];
   }
   function setStats(){
     const stats=[
@@ -181,7 +184,7 @@
         if(!payload.url)payload.url=null;
       }
       if(!editing&&active!=="subjects")payload.created_by=user.id;
-      if(active==="subjects"&&!payload.href)payload.href="subjects/"+payload.slug+".html";
+      if(active==="subjects"&&!payload.href)payload.href="subject.html?slug="+payload.slug;
       const op=editing?db().from(active).update(payload).eq("id",editing):db().from(active).insert(payload);
       const result=await op.select("id").single();
       if(result.error)throw result.error;
@@ -217,9 +220,13 @@
   function renderHistory(){
     const selector=$("[data-v23-restore-select]");
     const chosen=selector?.value||"";
+    const sources=new Map((data.materials||[]).map(m=>[m.id,m.title]));
+    materialVersions.forEach(v=>{
+      if(!sources.has(v.entity_id))sources.set(v.entity_id,v.snapshot?.title||"Vymazaný materiál");
+    });
     selector.innerHTML=option("","Vyber materiál...",chosen)+
-      (data.materials||[]).map(m=>option(m.id,m.title,chosen)).join("");
-    const versions=previousVersions.filter(v=>v.entity_type==="materials"&&v.entity_id===selector.value);
+      [...sources.entries()].map(([id,title])=>option(id,title,chosen)).join("");
+    const versions=materialVersions.filter(v=>v.entity_id===selector.value);
     const node=$("[data-v23-history]");
     node.innerHTML=versions.length?versions.map(v=>'<article class="v23-version"><div><strong>'+
       h(v.action)+'</strong><small>'+h(new Date(v.changed_at).toLocaleString("sk-SK"))+
@@ -233,7 +240,16 @@
     });
   }
   async function exportJson(){
-    const dump={format:"studyhub-export-v2.3",exported_at:new Date().toISOString(),tables:{},history:previousVersions};
+    const dump={format:"studyhub-export-v2.3",exported_at:new Date().toISOString(),tables:{},history:[]};
+    let offset=0;
+    for(;;){
+      const page=await db().from("content_versions").select("*").order("id",{ascending:true})
+        .range(offset,offset+999);
+      if(page.error){notify(page.error.message,true);return;}
+      dump.history.push(...(page.data||[]));
+      if((page.data||[]).length<1000)break;
+      offset+=1000;
+    }
     TABLES.forEach(t=>dump.tables[t]=data[t]||[]);
     const payload=JSON.stringify(dump,null,2);
     const url=URL.createObjectURL(new Blob([payload],{type:"application/json"}));
